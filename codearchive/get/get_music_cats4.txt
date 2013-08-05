@@ -1,0 +1,112 @@
+<?
+set_time_limit (600000);
+$fp = fopen("allmusic.txt", "wt");
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mSkipit=0;
+
+$Query2 = "SELECT * FROM `freetown_mine2` WHERE b='';";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+print "<font face=arial size=1>";
+$mFlag1=0;
+$mFlag2=0;
+$mFlag3=0;
+$mFlag4=0;
+while ($Row2 = mysql_fetch_array ($Result2))
+	{
+    $mSearch2 = $Row2[0];
+	$mSearch = $Row2[0];
+	$Query24 = "UPDATE `freetown_mine2` SET `b` = '1' WHERE `a` = '$mSearch2';";
+	$Result24= mysql_db_query($DBName, $Query24, $Link);
+	
+	$mCache = $Row2[2];
+	
+	$Array = explode(">", $mCache);
+		for ($m = 0; $m < count($Array); $m++) {
+		$m1 = strstr($Array[$m], "javascript:z(C");
+		$m3 = $Array[$m];
+		
+		if ($mFlag1==1) {
+			$mSubGenre=str_replace("</font", "", $m3);
+			$mFlag1=0;
+			}
+		if ($m3=="<font size=+2") {
+			$mFlag1=1;
+			}
+			
+		if ($mFlag2==1) {
+			$mGenre=str_replace("</a", "", $m3);
+			$mFlag2=0;
+			}
+		if (strstr($m3, "nbsp;genre:")) {
+			$mFlag2=1;
+			}
+			
+		if ($mFlag3==1) {
+			if (strstr($m3, "<table")) {$mFlag3=0;}
+			if (strstr($m3, "</a")) {
+					
+					$mAlbum = str_replace("</a", "", $m3);
+					}
+			if (strstr($m3, "</td")) {
+				
+				if (strstr($m3, "</td")) {
+					$mArtist = str_replace("</td", "", $m3);
+					print "<b>$mGenre|$mSubGenre|Albums|$mAlbum|$mArtist</b><br>";
+					fwrite($fp, "$mGenre|$mSubGenre|Albums|$mAlbum|$mArtist\r");
+					}
+				
+				}
+			}
+		if (strstr($m3, "Some Important Albums")) {
+			$mFlag3=1;
+			}
+			
+			
+			if ($mFlag4==1) {
+			if (strstr($m3, "<table")) {$mFlag4=0;}
+			if (strstr($m3, "</a")) {
+					$mSong = str_replace("</a", "", $m3);
+					}
+			if (strstr($m3, "by ")) {
+					$mArtist = str_replace("</td", "", $m3);
+					$mArtist = str_replace(" by ", "", $mArtist);
+					print "\r<b>$mGenre|$mSubGenre|Songs|$mSong|$mArtist</b>\r<br>";
+					fwrite($fp, "$mGenre|$mSubGenre|Songs|$mSong|$mArtist\r");
+				}
+			}
+		if (strstr($m3, "Important Songs")) {
+			$mFlag4=1;
+			}
+			
+		if ($mFlag5==1) {
+			if (strstr($m3, "</table")) {$mFlag5=0;}
+			if (strstr($m3, "</a")) {
+				$mArtist = str_replace("</a", "", $m3);
+				print "\r<b>$mGenre|$mSubGenre|Artists||$mArtist</b>\r<br>";
+				fwrite($fp, "$mGenre|$mSubGenre|Artists||$mArtist\r");
+				}
+			}
+		if (strstr($m3, "Important Artists")) {
+			$mFlag5=1;
+			}
+		}
+		
+}
+
+print "<p>\r\r";
+print "SubGenre=$mSubGenre";
+print "|";
+print "Genre=$mGenre";
+mysql_close ($Link);
+?>
+
+
+
+

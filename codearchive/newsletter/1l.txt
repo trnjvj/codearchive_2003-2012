@@ -1,0 +1,42 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="11111115, URL=get_5a.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$TheFile = "newsletters_herbage_new5.csv";
+
+$Open = fopen($TheFile, "r");
+
+if ($Open) {
+$Data = file($TheFile);
+
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+$String = str_replace('"', '', $String);
+
+$S1 = strpos ($String, ";");
+$S2 = substr ($String, 0, $S1);
+$S3 = strlen($String);
+$S4 = substr($String, $S1+1, $S3-$S1-1);
+
+$Query111 = "INSERT INTO `emails_herbagecdrom` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$S2', '$S4', '', '', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+print ".";
+
+}
+}
+
+fclose($Open);
+
+
+mysql_close ($Link);
+?>

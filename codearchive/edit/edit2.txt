@@ -1,0 +1,2881 @@
+<?
+
+error_reporting(E_USER_ERROR);
+
+$thisform = $_GET['thisform'];
+
+
+
+if (!$thisform) {$thisform=5;}
+
+
+
+include ('db_connect.php');
+
+include ('state.php');
+
+include ('header.php');
+
+  $ppp = $p;
+$mFlagz=0;
+
+$Query13 = "SELECT * FROM `$wholestr_settings` LIMIT 1;";
+
+$Result12 = mysql_db_query($DBName, $Query13, $Link);
+
+while ($Row12 = mysql_fetch_array ($Result12))
+
+	{
+
+	$mFlagz=1;
+
+	$za = $Row12[1];
+
+	$zb = $Row12[2];
+
+	$zc = $Row12[3];
+
+	$zd = $Row12[4];
+
+	$ze = $Row12[5];
+
+	$zf = $Row12[6];
+
+	$zg = $Row12[7];
+
+	$zh = $Row12[8];
+
+	$zi = $Row12[9];
+
+	$zj = $Row12[10];
+
+	$zk = $Row12[11];
+
+	$zl = $Row12[12];
+
+	$zm = $Row12[13];
+
+	$zn = $Row12[14];
+
+	$zo = $Row12[15];
+
+	$zp = $Row12[16];
+
+	$zq = $Row12[17];
+
+	$zr = $Row12[18];
+
+	$zs = $Row12[19];
+
+	$zt = $Row12[20];
+
+	$zu = $Row12[21];
+
+	$zv = $Row12[22];
+
+	$zw = $Row12[23];
+
+	$zx = $Row12[24];
+
+	$zy = $Row12[25];
+
+	$zz = $Row12[26];
+
+	$za2 = $Row12[27];
+
+	$zb2 = $Row12[28];
+
+	$zc2 = $Row12[29];
+
+	$zd2 = $Row12[30];
+
+	$ze2 = $Row12[31];
+
+	$zf2 = $Row12[32];
+
+	$zg2 = $Row12[33];
+
+	$zh2 = $Row12[34];
+
+	}
+
+
+
+if ($mFlagz==1) {
+
+if (!$a) {$a=$za;}
+
+if (!$b) {$b=$zb;}
+
+if (!$c) {$c=$zc;}
+
+if (!$d) {$d=$zd;}
+
+if (!$e) {$e=$ze;}
+
+if (!$f) {$f=$zf;}
+
+if (!$g) {$g=$zg;}
+
+if (!$h) {$h=$zh;}
+
+if (!$i) {$i=$zi;}
+
+if (!$j) {$j=$zj;}
+
+if (!$k) {$k=$zk;}
+
+if (!$l) {$l=$zl;}
+
+if (!$m) {$m=$zm;}
+
+if (!$n) {$n=$zn;}
+
+if (!$o) {$o=$zo;}
+
+if (!$p) {$p=$zp;}
+
+if (!$q) {$q=$zq;}
+
+if (!$r) {$r=$zr;}
+
+if (!$s) {$s=$zs;}
+
+if (!$t) {$t=$zt;}
+
+if (!$u) {$u=$zu;}
+
+if (!$v) {$v=$zv;}
+
+if (!$w) {$w=$zw;}
+
+if (!$x) {$x=$zx;}
+
+if (!$y) {$y=$zy;}
+
+if (!$z) {$z=$zz;}
+
+if (!$a2) {$a2=$za2;}
+
+if (!$b2) {$b2=$zb2;}
+
+if (!$c2) {$b2=$zc2;}
+
+if (!$d2) {$b2=$zd2;}
+
+if (!$e2) {$b2=$ze2;}
+
+if (!$f2) {$b2=$zf2;}
+
+if (!$g2) {$b2=$zg2;}
+
+if (!$h2) {$b2=$zh2;}
+
+} else {
+
+if (!$c) {$c=-12;}
+
+if (!$g) {$g=1;}
+
+if (!$m) {$m=6;}
+
+if (!$n) {$n=40;}
+
+if (!$o) {$o=216;}
+
+if (!$p) {$p="black";}
+
+if (!$q) {$q="black";}
+
+if (!$r) {$r="black";}
+
+if (!$s) {$s="white";}
+
+if (!$t) {$t="black";}
+
+if (!$u) {$u="verdana";}
+
+if (!$v) {$v="10";}
+
+if (!$w) {$w="skyblue";}
+
+if (!$a2) {$a2="1";}
+
+if (!$b2) {$b2="yes";}
+
+}
+
+              /*
+
+print "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>";
+
+print "<html>";
+
+print "<head>";
+
+print "<title>$mPageTitle</title>";
+
+print "<style type='text/css'>";
+
+print '
+
+div.a {font-family: ';
+
+print "$u,Arial";
+
+print '; font-size: ';
+
+print "$v";
+
+print 'px; color: ';
+
+print "$s";
+
+print '; border: 0;}
+
+.a a {color: ';
+
+print "$s";
+
+print ';}
+
+.a a:hover {color: ';
+
+print "$t";
+
+print '; background-color: ';
+
+print "$w";
+
+print ';}
+
+.a a:hover.current {background-color: transparent;}
+
+
+
+submit {font-family:  Arial, Verdana, sans-serif;}
+
+select {font-family: Arial, Verdana, sans-serif; font-size: 10px;}
+
+input,select,textarea {';
+
+print "	background-color: $p;";
+
+print '
+
+	color: white;
+
+	font-family: Arial, Verdana, sans-serif;
+
+	font-size: 12px;
+
+	border-top-color: white;
+
+	border-right-color: white;
+
+	border-bottom-color: white;
+
+	border-left-color: white;
+
+	border-top-width: 1px;
+
+	border-right-width: 1px;
+
+	border-bottom-width: 1px;
+
+	border-left-width: 1px;
+
+	padding-top: 3px;
+
+	padding-bottom: 3px;
+
+	border-top-style: solid;
+
+	border-right-style: solid;
+
+	border-bottom-style: solid;
+
+	border-left-style: solid;
+
+	}
+
+
+
+input[type=image] {border: 0px;}
+
+
+
+';
+
+print "</style>";
+
+print '
+
+<script language="Javascript" type="text/javascript">
+
+	function jumpPage(newLoc) {
+
+		newPage = newLoc.options[newLoc.selectedIndex].value
+
+		if (newPage != "") {
+
+			window.location = newPage
+
+		}
+
+	}
+
+</script>	
+
+';
+
+print "</head>";
+
+
+
+include ('body.php');
+
+*/
+
+print "<body ";
+
+if ($p) {
+
+print "bgcolor=$p ";
+
+}
+
+if ($x) {
+
+print 'background="';
+
+print "$mGraphicPath";
+
+print "$x";
+
+print '" ';
+
+}
+
+print 'onload="document.FilenameForm.newLocation.selectedIndex=0" ';
+
+print 'onload="document.Category1Form.newLocation.selectedIndex=0" ';
+
+print 'onload="document.CountryForm.newLocation.selectedIndex=0" ';
+
+print 'onload="document.CityForm.newLocation.selectedIndex=0" ';
+
+print 'onload="document.UrlForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.PageBackgroundColorForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.TableBackground1ColorForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.TableBackground2ColorForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.RowsPerPageForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.TextColorForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.HoverTextColorForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.HoverBackgroundColorForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.FontForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.FontSize.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.PictureWidth.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.PictureHeight.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.LayoutForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.ThumbnailForm.newLocation.selectedIndex=0"  ';
+
+print 'onload="document.PageForm.newLocation.selectedIndex=0">';
+
+print "<div align='center'><div class='a'>";
+/*
+print "<p><a href='admin.php'>Home</a></p>";
+   */
+
+ print "<p></p>";
+/*
+
+include ('body.php');
+
+*/
+
+
+
+
+
+
+
+if ($thisform==5) {
+
+error_reporting(E_USER_ERROR);
+
+
+
+$category1 = $_GET['category1'];
+
+$category2 = $_GET['category2'];
+
+$category3 = $_GET['category3'];
+
+$image = $_GET['image'];
+
+$a = $_GET['a'];
+
+$b = $_GET['b'];
+
+$c = $_GET['c'];
+
+$d = $_GET['d'];
+
+$e = $_GET['e'];
+
+$f = $_GET['f'];
+
+$g = $_GET['g'];
+
+$h = $_GET['h'];
+
+$i = $_GET['i'];
+
+$j = $_GET['j'];
+
+$k = $_GET['k'];
+
+$l = $_GET['l'];
+
+$m = $_GET['m'];
+
+$n = $_GET['n'];
+
+$o = $_GET['o'];
+
+$p = $_GET['p'];
+
+$q = $_GET['q'];
+
+$r = $_GET['r'];
+
+$s = $_GET['s'];
+
+$t = $_GET['t'];
+
+$u = $_GET['u'];
+
+$v = $_GET['v'];
+
+$w = $_GET['w'];
+
+$x = $_GET['x'];
+
+$y = $_GET['y'];
+
+$z = $_GET['z'];
+
+
+
+$b = $image;
+
+
+
+$a=str_replace("'", "&#146;", $a);
+
+$b=str_replace("'", "&#146;", $b);
+
+$c=str_replace("'", "&#146;", $c);
+
+$d=str_replace("'", "&#146;", $d);
+
+$e=str_replace("'", "&#146;", $e);
+
+$f=str_replace("'", "&#146;", $f);
+
+$g=str_replace("'", "&#146;", $g);
+
+$h=str_replace("'", "&#146;", $h);
+
+$i=str_replace("'", "&#146;", $i);
+
+$j=str_replace("'", "&#146;", $j);
+
+$k=str_replace("'", "&#146;", $k);
+
+$l=str_replace("'", "&#146;", $l);
+
+$m=str_replace("'", "&#146;", $m);
+
+$n=str_replace("'", "&#146;", $n);
+
+$o=str_replace("'", "&#146;", $o);
+
+$p=str_replace("'", "&#146;", $p);
+
+$q=str_replace("'", "&#146;", $q);
+
+$r=str_replace("'", "&#146;", $r);
+
+$s=str_replace("'", "&#146;", $s);
+
+$t=str_replace("'", "&#146;", $t);
+
+$u=str_replace("'", "&#146;", $u);
+
+$v=str_replace("'", "&#146;", $v);
+
+$w=str_replace("'", "&#146;", $w);
+
+$x=str_replace("'", "&#146;", $x);
+
+$y=str_replace("'", "&#146;", $y);
+
+$z=str_replace("'", "&#146;", $z);
+
+
+
+$today = getdate();
+
+$month = $today['month'];
+
+$mday = $today['mday'];
+
+$year = $today['year'];
+
+$seconds = $today['seconds'];
+
+$minutes = $today['minutes'];
+
+$hours = $today['hours'];
+
+$weekday = $today['weekday'];
+
+$mDate = "$year-$month-$mday";
+
+$mTime = "$hours:$minutes:$seconds";
+
+
+
+
+
+print "<table width=750 bgcolor=$ppp cellpadding=5 border=0><tr><td valign=top><div class='a'>";
+
+print "<div align='center'>";
+
+$this1=$b;
+
+$mFilePath ="files/";
+
+$aflag=0;
+
+$bflag=strpos($this1, ".jpg"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".JPG"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".gif"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".GIF"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".png"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".PNG"); if ($bflag) {$aflag=1;}
+
+print "<div align='center'>";
+
+if ($aflag==1) {
+
+$asize = getimagesize("$mFilePath$this1"); 
+
+$awidth = $asize[0];
+
+$aheight = $asize[1];
+
+if ($awidth>700) {
+
+if ($aheight>550) {
+
+	print "\n<img alt='$this1' height='550' src='$mFilePath$this1'>.";
+
+	} else {
+
+		print "\n<img alt='$this1' width='700' src='$mFilePath$this1'></img>";
+
+		}
+
+	} else {
+
+		if ($aheight>550) {
+
+			print "\n<img alt='$this1' height='550' src='$mFilePath$this1'></img>";
+
+			}
+
+			else {
+
+				print "\n<img alt='$this1' src='$mFilePath$this1'></img>";
+
+				}
+
+			}
+
+		}
+
+
+
+
+
+$aflag=0;
+
+$bflag=strpos($this1, ".mp3"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".MP3"); if ($bflag) {$aflag=1;}
+
+if ($aflag==1) {
+
+$objnum++;
+
+print "<object classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0' width='220' height='100' id='play_mp3$objnum++;' align='middle'>";
+print "<param name='allowScriptAccess' value='sameDomain' />";
+print "<param name='movie' value='play_mp3.swf' />";
+print "<param name='quality' value='high' />";
+print "<param name='bgcolor' value='#000000' />";
+print "<param name='FlashVars' value='sSoundFile=$mFilePath$this1&sSoundVolume=50&sPlay=yes' />";
+print "<embed src='play_mp3.swf' quality='high' bgcolor='#000000' width='220' height='100' name='play_mp3$objnum' align='middle' allowScriptAccess='sameDomain' type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/go/getflashplayer' FlashVars='sSoundFile=$mFilePath$this1&sSoundVolume=50&sPlay=yes' />";
+print "</object>";
+
+}
+
+
+
+$aflag=0;
+
+$bflag=strpos($this1, ".flv"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".FLV"); if ($bflag) {$aflag=1;}
+
+if ($aflag==1) {
+
+$objnum++;
+
+print "<object classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0' width='780' height='600' id='play_flv$objnum' align='middle'>";
+
+print "<param name='allowScriptAccess' value='sameDomain' />";
+
+print "<param name='movie' value='play_flv.swf' />";
+
+print "<param name='quality' value='high' />";
+
+print "<param name='bgcolor' value='#000000' />";
+
+print "<param name='FlashVars' value='sMovieFile=$mFilePath$this1&sSoundVolume=50&sPlay=yes' />";
+
+print "<embed src='play_flv.swf' quality='high' bgcolor='#000000' width='780' height='600' name='play_flv$objnum' align='middle' allowScriptAccess='sameDomain' type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/go/getflashplayer' FlashVars='sMovieFile=$mFilePath$this1&sSoundVolume=1&sPlay=yes' />";
+
+print "</object>";
+
+}
+
+
+
+
+
+print "<div class='a'><p>$image </p>";
+
+print "<p>";
+
+print "</div>";
+
+
+
+print "<form method=get action='edit.php'>";
+
+print "<input type='hidden' name='thisform' value='6'>";
+
+
+
+/*
+
+print "<div class='a'>$category1 &gt; $category2 &gt; $category3</div><p>";
+
+*/
+
+
+
+$Query111 = "SELECT * FROM `$wholestr` WHERE filename='$image';";
+
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+while ($Row111 = mysql_fetch_array ($Result111))
+
+	{
+
+    $category1 = $Row111[1];
+
+	$category2 = $Row111[2];
+
+	$category3 = $Row111[3];
+
+	}
+
+
+
+
+
+
+
+print "<table cellpadding=0 border=0>";
+
+print "<input type='hidden' name='f' value='$d'>";
+
+$mabcde = $d+1;
+
+for ($ddd=1; $ddd<$mabcde; $ddd++) {
+
+
+
+
+
+
+
+print "<tr>";
+
+
+
+$Query111 = "SELECT item FROM `$wholestr_detail` WHERE filename='$b' and item_num='$ddd';";
+
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+while ($Row111 = mysql_fetch_array ($Result111))
+
+	{
+
+    $m1c = $Row111[0];
+
+	}
+
+
+
+
+
+print "<td align=center valign=top><div class='a'><input type='text' name='d$ddd' size='91' maxlength='255' value='$m1c'></div></td>";
+
+print "</tr>";
+
+
+
+
+
+}
+
+
+
+print "<tr><td align=center valign=top>";
+
+
+
+print "<input type='text' name='category1' value='$category1'> ";
+
+print "<input type='text' name='category2' value='$category2'> ";
+
+print "<input type='text' name='category3' value='$category3'>";
+
+
+
+print "</td></tr><tr>";
+
+print "<td valign=top valign=top align=right><div class='a'>";
+
+print "";
+
+$Query111 = "SELECT comments,notes FROM `$wholestr` WHERE filename='$b';";
+
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+while ($Row111 = mysql_fetch_array ($Result111))
+
+	{
+
+    $m1d = $Row111[0];
+
+	$m1e = $Row111[1];
+
+	}
+
+print "<textarea name='d' rows=23 cols=120 wrap>$m1d</textarea></div></td>";
+
+print "<td valign=top valign=top align=right><div class='a'>";
+
+print "</div></td></tr><tr>";
+
+print "<td valign=top><div class='a'><textarea name='e' rows=2 cols=120 wrap>$m1e</textarea>";
+
+print "<input type='hidden' name='c' value='$c'>";
+
+print "<input type='hidden' name='b' value='$b'>";
+
+print "</div></td></tr><tr>";
+
+print "<td valign=top>";
+
+print "<div align='center'><p><input type='submit' name='Submit' value='Preview'><p></div>";
+
+print "</td>";
+
+print "</tr>";
+
+print "</table>";
+
+
+
+/*
+
+print "<tr>";
+
+print "<td valign=top align=right><div class='a'></div></td>";
+
+print "<td valign=top><table border=3><tr><td valign=top>";
+
+*/
+
+print "</form>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+$aflag=0;
+
+$bflag=strpos($this1, ".jpg"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".JPG"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".gif"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".GIF"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".png"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".PNG"); if ($bflag) {$aflag=1;}
+
+if ($aflag==1) {
+
+	print "<img src='$mFilePath$this1'></a>";
+
+}
+
+*/
+
+
+
+
+
+
+
+$aflag=0;
+
+$bflag=strpos($this1, ".mov"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".MOV"); if ($bflag) {$aflag=1;}
+
+if ($aflag==1) {
+
+$objnum++;
+
+print "<embed src='$mFilePath$this1' width='320' height='250'></embed>";
+
+}
+
+
+
+/*
+
+print "</td>";
+
+print "</tr>";
+
+print "</table>";
+
+*/
+
+print "</div><div align=center>";
+
+print "</div>";
+
+print "</td>";
+
+print "</tr>";
+
+print "</table></div>";
+
+print "<font size='2' face='verdana'><br>";
+
+print "</font></div></td>";
+
+print "</tr>";
+
+print "</table>";
+
+print "</td></tr></table>";
+
+print "</p>";
+
+print "<p>&nbsp;</p></td>";
+
+print "</tr>";
+
+print "</table>";
+
+print "</div></td>";
+
+print "</tr>";
+
+print "</table>";
+
+print "</td></tr></table>  ";
+
+
+
+print "</td>";
+
+print "</tr>";
+
+print "</table>";
+
+
+
+print "</div>";
+
+print "</div>";
+
+print "</div>";
+
+print "</p>";
+
+mysql_close ($Link);
+
+print "</body></html>";
+
+}
+
+
+
+if ($thisform==6) {
+
+error_reporting(E_USER_ERROR);
+
+$category1 = $_GET['category1'];
+
+$category2 = $_GET['category2'];
+
+$category3 = $_GET['category3'];
+
+/*
+
+$a = $_GET['a'];
+
+$b = $_GET['b'];
+
+$c = $_GET['c'];
+
+$d = $_GET['d'];
+
+$e = $_GET['e'];
+
+$f = $_GET['f'];
+
+$g = $_GET['g'];
+
+$h = $_GET['h'];
+
+$i = $_GET['i'];
+
+$j = $_GET['j'];
+
+$k = $_GET['k'];
+
+$l = $_GET['l'];
+
+$m = $_GET['m'];
+
+$n = $_GET['n'];
+
+$o = $_GET['o'];
+
+$p = $_GET['p'];
+
+$q = $_GET['q'];
+
+$r = $_GET['r'];
+
+$s = $_GET['s'];
+
+$t = $_GET['t'];
+
+$u = $_GET['u'];
+
+$v = $_GET['v'];
+
+$w = $_GET['w'];
+
+$x = $_GET['x'];
+
+$y = $_GET['y'];
+
+$z = $_GET['z'];
+
+$d1 = $_GET['d1'];
+
+$d2 = $_GET['d2'];
+
+$d3 = $_GET['d3'];
+
+$d4 = $_GET['d4'];
+
+$d5 = $_GET['d5'];
+
+$d6 = $_GET['d6'];
+
+$d7 = $_GET['d7'];
+
+$d8 = $_GET['d8'];
+
+$d9 = $_GET['d9'];
+
+$d10 = $_GET['d10'];
+
+$d11 = $_GET['d11'];
+
+$d12 = $_GET['d12'];
+
+$d13 = $_GET['d13'];
+
+$d14 = $_GET['d14'];
+
+$d15 = $_GET['d15'];
+
+$d16 = $_GET['d16'];
+
+$d17 = $_GET['d17'];
+
+$d18 = $_GET['d18'];
+
+$d19 = $_GET['d19'];
+
+$d20 = $_GET['d20'];
+
+$d21 = $_GET['d21'];
+
+$d22 = $_GET['d22'];
+
+$d23 = $_GET['d23'];
+
+$d24 = $_GET['d24'];
+
+$d25 = $_GET['d25'];
+
+$d26 = $_GET['d26'];
+
+$d27 = $_GET['d27'];
+
+$d28 = $_GET['d28'];
+
+$d29 = $_GET['d29'];
+
+$d30 = $_GET['d30'];
+
+$d31 = $_GET['d31'];
+
+$d32 = $_GET['d32'];
+
+$d33 = $_GET['d33'];
+
+$d34 = $_GET['d34'];
+
+$d35 = $_GET['d35'];
+
+$d36 = $_GET['d36'];
+
+$d37 = $_GET['d37'];
+
+$d38 = $_GET['d38'];
+
+$d39 = $_GET['d39'];
+
+$d40 = $_GET['d40'];
+
+$d41 = $_GET['d41'];
+
+$d42 = $_GET['d42'];
+
+$d43 = $_GET['d43'];
+
+$d44 = $_GET['d44'];
+
+$d45 = $_GET['d45'];
+
+$d46 = $_GET['d46'];
+
+$d47 = $_GET['d47'];
+
+$d48 = $_GET['d48'];
+
+$d49 = $_GET['d49'];
+
+$d50 = $_GET['d50'];
+
+$aa = $_GET['aa'];
+
+$bb = $_GET['bb'];
+
+$cc = $_GET['cc'];
+
+$dd = $_GET['dd'];
+
+$ee = $_GET['ee'];
+
+$ff = $_GET['ff'];
+
+$gg = $_GET['gg'];
+
+$hh = $_GET['hh'];
+
+$ii = $_GET['ii'];
+
+$jj = $_GET['jj'];
+
+$kk = $_GET['kk'];
+
+$ll = $_GET['ll'];
+
+$mm = $_GET['mm'];
+
+$nn = $_GET['nn'];
+
+$oo = $_GET['oo'];
+
+$pp = $_GET['pp'];
+
+$qq = $_GET['qq'];
+
+$rr = $_GET['rr'];
+
+$ss = $_GET['ss'];
+
+$tt = $_GET['tt'];
+
+$uu = $_GET['uu'];
+
+$vv = $_GET['vv'];
+
+$ww = $_GET['ww'];
+
+$xx = $_GET['xx'];
+
+$yy = $_GET['yy'];
+
+$zz = $_GET['zz'];
+
+$a=str_replace("'", "&#146;", $a);
+
+$b=str_replace("'", "&#146;", $b);
+
+$c=str_replace("'", "&#146;", $c);
+
+$d=str_replace("'", "&#146;", $d);
+
+$e=str_replace("'", "&#146;", $e);
+
+$f=str_replace("'", "&#146;", $f);
+
+$g=str_replace("'", "&#146;", $g);
+
+$h=str_replace("'", "&#146;", $h);
+
+$i=str_replace("'", "&#146;", $i);
+
+$j=str_replace("'", "&#146;", $j);
+
+$k=str_replace("'", "&#146;", $k);
+
+$l=str_replace("'", "&#146;", $l);
+
+$m=str_replace("'", "&#146;", $m);
+
+$n=str_replace("'", "&#146;", $n);
+
+$o=str_replace("'", "&#146;", $o);
+
+$p=str_replace("'", "&#146;", $p);
+
+$q=str_replace("'", "&#146;", $q);
+
+$r=str_replace("'", "&#146;", $r);
+
+$s=str_replace("'", "&#146;", $s);
+
+$t=str_replace("'", "&#146;", $t);
+
+$u=str_replace("'", "&#146;", $u);
+
+$v=str_replace("'", "&#146;", $v);
+
+$w=str_replace("'", "&#146;", $w);
+
+$x=str_replace("'", "&#146;", $x);
+
+$y=str_replace("'", "&#146;", $y);
+
+$z=str_replace("'", "&#146;", $z);
+
+$aa=str_replace("'", "&#146;", $aa);
+
+$bb=str_replace("'", "&#146;", $bb);
+
+$cc=str_replace("'", "&#146;", $cc);
+
+$dd=str_replace("'", "&#146;", $dd);
+
+$ee=str_replace("'", "&#146;", $ee);
+
+$ff=str_replace("'", "&#146;", $ff);
+
+$gg=str_replace("'", "&#146;", $gg);
+
+$hh=str_replace("'", "&#146;", $hh);
+
+$ii=str_replace("'", "&#146;", $ii);
+
+$jj=str_replace("'", "&#146;", $jj);
+
+$kk=str_replace("'", "&#146;", $kk);
+
+$ll=str_replace("'", "&#146;", $ll);
+
+$mm=str_replace("'", "&#146;", $mm);
+
+$nn=str_replace("'", "&#146;", $nn);
+
+$oo=str_replace("'", "&#146;", $oo);
+
+$pp=str_replace("'", "&#146;", $pp);
+
+$qq=str_replace("'", "&#146;", $qq);
+
+$rr=str_replace("'", "&#146;", $rr);
+
+$ss=str_replace("'", "&#146;", $ss);
+
+$tt=str_replace("'", "&#146;", $tt);
+
+$uu=str_replace("'", "&#146;", $uu);
+
+$vv=str_replace("'", "&#146;", $vv);
+
+$ww=str_replace("'", "&#146;", $ww);
+
+$xx=str_replace("'", "&#146;", $xx);
+
+$yy=str_replace("'", "&#146;", $yy);
+
+$zz=str_replace("'", "&#146;", $zz);
+
+$d1=str_replace("'", "&#146;", $d1);
+
+$d2=str_replace("'", "&#146;", $d2);
+
+$d3=str_replace("'", "&#146;", $d3);
+
+$d4=str_replace("'", "&#146;", $d4);
+
+$d5=str_replace("'", "&#146;", $d5);
+
+$d6=str_replace("'", "&#146;", $d6);
+
+$d7=str_replace("'", "&#146;", $d7);
+
+$d8=str_replace("'", "&#146;", $d8);
+
+$d9=str_replace("'", "&#146;", $d9);
+
+$d10=str_replace("'", "&#146;", $d10);
+
+$d11=str_replace("'", "&#146;", $d11);
+
+$d12=str_replace("'", "&#146;", $d12);
+
+$d13=str_replace("'", "&#146;", $d13);
+
+$d14=str_replace("'", "&#146;", $d14);
+
+$d15=str_replace("'", "&#146;", $d15);
+
+$d16=str_replace("'", "&#146;", $d16);
+
+$d17=str_replace("'", "&#146;", $d17);
+
+$d18=str_replace("'", "&#146;", $d18);
+
+$d19=str_replace("'", "&#146;", $d19);
+
+$d20=str_replace("'", "&#146;", $d20);
+
+$d21=str_replace("'", "&#146;", $d21);
+
+$d22=str_replace("'", "&#146;", $d22);
+
+$d23=str_replace("'", "&#146;", $d23);
+
+$d24=str_replace("'", "&#146;", $d24);
+
+$d25=str_replace("'", "&#146;", $d25);
+
+$d26=str_replace("'", "&#146;", $d26);
+
+$d27=str_replace("'", "&#146;", $d27);
+
+$d28=str_replace("'", "&#146;", $d28);
+
+$d29=str_replace("'", "&#146;", $d29);
+
+$d30=str_replace("'", "&#146;", $d30);
+
+$d31=str_replace("'", "&#146;", $d31);
+
+$d32=str_replace("'", "&#146;", $d32);
+
+$d33=str_replace("'", "&#146;", $d33);
+
+$d34=str_replace("'", "&#146;", $d34);
+
+$d35=str_replace("'", "&#146;", $d35);
+
+$d36=str_replace("'", "&#146;", $d36);
+
+$d37=str_replace("'", "&#146;", $d37);
+
+$d38=str_replace("'", "&#146;", $d38);
+
+$d39=str_replace("'", "&#146;", $d39);
+
+$d40=str_replace("'", "&#146;", $d40);
+
+$d41=str_replace("'", "&#146;", $d41);
+
+$d42=str_replace("'", "&#146;", $d42);
+
+$d43=str_replace("'", "&#146;", $d43);
+
+$d44=str_replace("'", "&#146;", $d44);
+
+$d45=str_replace("'", "&#146;", $d45);
+
+$d46=str_replace("'", "&#146;", $d46);
+
+$d47=str_replace("'", "&#146;", $d47);
+
+$d48=str_replace("'", "&#146;", $d48);
+
+$d49=str_replace("'", "&#146;", $d49);
+
+$d50=str_replace("'", "&#146;", $d50);
+
+*/
+
+
+
+$today = getdate();
+
+$month = $today['month'];
+
+$mday = $today['mday'];
+
+$year = $today['year'];
+
+$seconds = $today['seconds'];
+
+$minutes = $today['minutes'];
+
+$hours = $today['hours'];
+
+$weekday = $today['weekday'];
+
+$mDate = "$year-$month-$mday";
+
+$mTime = "$hours:$minutes:$seconds";
+
+
+
+print "<table width=750 bgcolor=$p cellpadding=5 border=0><tr><td align=center valign=top><div class='a'>";
+
+
+
+
+
+$this1=$b;
+
+$mFilePath ="files/";
+
+$aflag=0;
+
+$bflag=strpos($this1, ".jpg"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".JPG"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".gif"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".GIF"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".png"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".PNG"); if ($bflag) {$aflag=1;}
+
+print "<div align='center'>";
+
+if ($aflag==1) {
+
+$asize = getimagesize("$mFilePath$this1"); 
+
+$awidth = $asize[0];
+
+$aheight = $asize[1];
+
+if ($awidth>700) {
+
+if ($aheight>550) {
+
+	print "\n<img alt='$this1' height='550' src='$mFilePath$this1'>.";
+
+	} else {
+
+		print "\n<img alt='$this1' width='700' src='$mFilePath$this1'></img>";
+
+		}
+
+	} else {
+
+		if ($aheight>550) {
+
+			print "\n<img alt='$this1' height='550' src='$mFilePath$this1'></img>";
+
+			}
+
+			else {
+
+				print "\n<img alt='$this1' src='$mFilePath$this1'></img>";
+
+				}
+
+			}
+
+		}
+
+
+
+
+
+$aflag=0;
+
+$bflag=strpos($this1, ".mp3"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".MP3"); if ($bflag) {$aflag=1;}
+
+if ($aflag==1) {
+
+$objnum++;
+
+print "<object classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0' width='220' height='80' id='play_mp3$objnum++;' align='middle'>";
+
+print "<param name='allowScriptAccess' value='sameDomain' />";
+
+print "<param name='movie' value='play_mp3.swf' />";
+
+print "<param name='quality' value='high' />";
+
+print "<param name='bgcolor' value='#000000' />";
+
+print "<param name='FlashVars' value='sSoundFile=$mFilePath$this1&sSoundVolume=50&sPlay=yes' />";
+
+print "<embed src='play_mp3.swf' quality='high' bgcolor='#000000' width='220' height='100' name='play_mp3$objnum' align='middle' allowScriptAccess='sameDomain' type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/go/getflashplayer' FlashVars='sSoundFile=$mFilePath$this1&sSoundVolume=50&sPlay=yes' />";
+
+print "</object>";
+
+}
+
+$aflag=0;
+
+$bflag=strpos($this1, ".flv"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".FLV"); if ($bflag) {$aflag=1;}
+
+if ($aflag==1) {
+
+$objnum++;
+
+print "<object classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0' width='220' height='220' id='play_flv$objnum' align='middle'>";
+
+print "<param name='allowScriptAccess' value='sameDomain' />";
+
+print "<param name='movie' value='play_flv.swf' />";
+
+print "<param name='quality' value='high' />";
+
+print "<param name='bgcolor' value='#000000' />";
+
+print "<param name='FlashVars' value='sMovieFile=$mFilePath$this1&sSoundVolume=50&sPlay=yes' />";
+
+print "<embed src='play_flv.swf' quality='high' bgcolor='#000000' width='460' height='500' name='play_flv$objnum' align='middle' allowScriptAccess='sameDomain' type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/go/getflashplayer' FlashVars='sMovieFile=$mFilePath$this1&sSoundVolume=1&sPlay=yes' />";
+
+print "</object>";
+
+}
+
+/*
+
+print "<div align='left'><div class='a'><a href='admin.php'>Home</a> &gt; Edit ";
+
+print "<p>";
+
+print "</div>";
+
+*/
+
+
+
+print "</div>";
+
+
+
+print "<table cellpadding=5 border=0><tr><td valign=top valign=top>";
+
+print "<table cellpadding=0 border=0>";
+
+print "<tr>";
+
+print "<td valign=top><form method=get action='edit.php'>";
+
+print "<input type='hidden' name='thisform' value='7'>";
+
+print "<table><tr><td valign=top align='left' valign='top'><div class='a'>";
+
+
+
+if ($a or $b or $c or $d or $e or $f or $g or $h or $i or $j or $k or $l) {
+
+/*print "<div class='a'><b>updated</b></div>";*/
+
+}
+
+
+
+print "</div></td></tr></table>";
+
+print "<table border=0 cellpadding=3>";
+
+print "<input type='hidden' name='a' value='$session'>";
+
+print "<input type='hidden' name='f' value='$f'>";
+
+print "<input type='hidden' name='b' value='$b'>";
+
+print "<input type='hidden' name='image' value='$image'>";
+
+print "<input type='hidden' name='category1' value='$category1'>";
+
+print "<input type='hidden' name='category2' value='$category2'>";
+
+print "<input type='hidden' name='category3' value='$category3'>";
+
+print "<table border=0 cellpadding=3>";
+
+print "<tr>";
+
+print "<td valign=top align=left><div class='a'>$category1 $category2 $category3</div>";
+
+print "</td>";
+
+print "</tr>";
+
+
+
+
+
+if ($d1) {$ddd=1; print "<tr><td valign=top valign=top align=right><div class='a'>1:</div></td>"; print "<td valign=top><div class='a'>$d1<input type='hidden' name='d1' value='$d1'></div></td>"; print "</tr>";}
+
+if ($d2) {$ddd=2; print "<tr><td valign=top valign=top align=right><div class='a'>2:</div></td>"; print "<td valign=top><div class='a'>$d2<input type='hidden' name='d2' value='$d2'></div></td>"; print "</tr>";}
+
+if ($d3) {$ddd=3; print "<tr><td valign=top valign=top align=right><div class='a'>3:</div></td>"; print "<td valign=top><div class='a'>$d3<input type='hidden' name='d3' value='$d3'></div></td>"; print "</tr>";}
+
+if ($d4) {$ddd=4; print "<tr><td valign=top valign=top align=right><div class='a'>4:</div></td>"; print "<td valign=top><div class='a'>$d4<input type='hidden' name='d4' value='$d4'></div></td>"; print "</tr>";}
+
+if ($d5) {$ddd=5; print "<tr><td valign=top valign=top align=right><div class='a'>5:</div></td>"; print "<td valign=top><div class='a'>$d5<input type='hidden' name='d5' value='$d5'></div></td>"; print "</tr>";}
+
+if ($d6) {$ddd=6; print "<tr><td valign=top valign=top align=right><div class='a'>6:</div></td>"; print "<td valign=top><div class='a'>$d6<input type='hidden' name='d6' value='$d6'></div></td>"; print "</tr>";}
+
+if ($d7) {$ddd=7; print "<tr><td valign=top valign=top align=right><div class='a'>7:</div></td>"; print "<td valign=top><div class='a'>$d7<input type='hidden' name='d7' value='$d7'></div></td>"; print "</tr>";}
+
+if ($d8) {$ddd=8; print "<tr><td valign=top valign=top align=right><div class='a'>8:</div></td>"; print "<td valign=top><div class='a'>$d8<input type='hidden' name='d8' value='$d8'></div></td>"; print "</tr>";}
+
+if ($d9) {$ddd=9; print "<tr><td valign=top valign=top align=right><div class='a'>9:</div></td>"; print "<td valign=top><div class='a'>$d9<input type='hidden' name='d9' value='$d9'></div></td>"; print "</tr>";}
+
+if ($d10) {$ddd=10; print "<tr><td valign=top valign=top align=right><div class='a'>10:</div></td>"; print "<td valign=top><div class='a'>$d10<input type='hidden' name='d10' value='$d10'></div></td>"; print "</tr>";}
+
+if ($d11) {$ddd=11; print "<tr><td valign=top valign=top align=right><div class='a'>11:</div></td>"; print "<td valign=top><div class='a'>$d11<input type='hidden' name='d11' value='$d11'></div></td>"; print "</tr>";}
+
+if ($d12) {$ddd=12; print "<tr><td valign=top valign=top align=right><div class='a'>12:</div></td>"; print "<td valign=top><div class='a'>$d12<input type='hidden' name='d12' value='$d12'></div></td>"; print "</tr>";}
+
+if ($d13) {$ddd=13; print "<tr><td valign=top valign=top align=right><div class='a'>13:</div></td>"; print "<td valign=top><div class='a'>$d13<input type='hidden' name='d13' value='$d13'></div></td>"; print "</tr>";}
+
+if ($d14) {$ddd=14; print "<tr><td valign=top valign=top align=right><div class='a'>14:</div></td>"; print "<td valign=top><div class='a'>$d14<input type='hidden' name='d14' value='$d14'></div></td>"; print "</tr>";}
+
+if ($d15) {$ddd=15; print "<tr><td valign=top valign=top align=right><div class='a'>15:</div></td>"; print "<td valign=top><div class='a'>$d15<input type='hidden' name='d15' value='$d15'></div></td>"; print "</tr>";}
+
+if ($d16) {$ddd=16; print "<tr><td valign=top valign=top align=right><div class='a'>16:</div></td>"; print "<td valign=top><div class='a'>$d16<input type='hidden' name='d16' value='$d16'></div></td>"; print "</tr>";}
+
+if ($d17) {$ddd=17; print "<tr><td valign=top valign=top align=right><div class='a'>17:</div></td>"; print "<td valign=top><div class='a'>$d17<input type='hidden' name='d17' value='$d17'></div></td>"; print "</tr>";}
+
+if ($d18) {$ddd=18; print "<tr><td valign=top valign=top align=right><div class='a'>18:</div></td>"; print "<td valign=top><div class='a'>$d18<input type='hidden' name='d18' value='$d18'></div></td>"; print "</tr>";}
+
+if ($d19) {$ddd=19; print "<tr><td valign=top valign=top align=right><div class='a'>19:</div></td>"; print "<td valign=top><div class='a'>$d19<input type='hidden' name='d19' value='$d19'></div></td>"; print "</tr>";}
+
+if ($d20) {$ddd=20; print "<tr><td valign=top valign=top align=right><div class='a'>20:</div></td>"; print "<td valign=top><div class='a'>$d20<input type='hidden' name='d20' value='$d20'></div></td>"; print "</tr>";}
+
+if ($d21) {$ddd=21; print "<tr><td valign=top valign=top align=right><div class='a'>21:</div></td>"; print "<td valign=top><div class='a'>$d21<input type='hidden' name='d21' value='$d21'></div></td>"; print "</tr>";}
+
+if ($d22) {$ddd=22; print "<tr><td valign=top valign=top align=right><div class='a'>22:</div></td>"; print "<td valign=top><div class='a'>$d22<input type='hidden' name='d22' value='$d22'></div></td>"; print "</tr>";}
+
+if ($d23) {$ddd=23; print "<tr><td valign=top valign=top align=right><div class='a'>23:</div></td>"; print "<td valign=top><div class='a'>$d23<input type='hidden' name='d23' value='$d23'></div></td>"; print "</tr>";}
+
+if ($d24) {$ddd=24; print "<tr><td valign=top valign=top align=right><div class='a'>24:</div></td>"; print "<td valign=top><div class='a'>$d24<input type='hidden' name='d24' value='$d24'></div></td>"; print "</tr>";}
+
+if ($d25) {$ddd=25; print "<tr><td valign=top valign=top align=right><div class='a'>25:</div></td>"; print "<td valign=top><div class='a'>$d25<input type='hidden' name='d25' value='$d25'></div></td>"; print "</tr>";}
+
+if ($d26) {$ddd=26; print "<tr><td valign=top valign=top align=right><div class='a'>26:</div></td>"; print "<td valign=top><div class='a'>$d26<input type='hidden' name='d26' value='$d26'></div></td>"; print "</tr>";}
+
+if ($d27) {$ddd=27; print "<tr><td valign=top valign=top align=right><div class='a'>27:</div></td>"; print "<td valign=top><div class='a'>$d27<input type='hidden' name='d27' value='$d27'></div></td>"; print "</tr>";}
+
+if ($d28) {$ddd=28; print "<tr><td valign=top valign=top align=right><div class='a'>28:</div></td>"; print "<td valign=top><div class='a'>$d28<input type='hidden' name='d28' value='$d28'></div></td>"; print "</tr>";}
+
+if ($d29) {$ddd=29; print "<tr><td valign=top valign=top align=right><div class='a'>29:</div></td>"; print "<td valign=top><div class='a'>$d29<input type='hidden' name='d29' value='$d29'></div></td>"; print "</tr>";}
+
+if ($d30) {$ddd=30; print "<tr><td valign=top valign=top align=right><div class='a'>30:</div></td>"; print "<td valign=top><div class='a'>$d30<input type='hidden' name='d30' value='$d30'></div></td>"; print "</tr>";}
+
+if ($d31) {$ddd=31; print "<tr><td valign=top valign=top align=right><div class='a'>31:</div></td>"; print "<td valign=top><div class='a'>$d31<input type='hidden' name='d31' value='$d31'></div></td>"; print "</tr>";}
+
+if ($d32) {$ddd=32; print "<tr><td valign=top valign=top align=right><div class='a'>32:</div></td>"; print "<td valign=top><div class='a'>$d32<input type='hidden' name='d32' value='$d32'></div></td>"; print "</tr>";}
+
+if ($d33) {$ddd=33; print "<tr><td valign=top valign=top align=right><div class='a'>33:</div></td>"; print "<td valign=top><div class='a'>$d33<input type='hidden' name='d33' value='$d33'></div></td>"; print "</tr>";}
+
+if ($d34) {$ddd=34; print "<tr><td valign=top valign=top align=right><div class='a'>34:</div></td>"; print "<td valign=top><div class='a'>$d34<input type='hidden' name='d34' value='$d34'></div></td>"; print "</tr>";}
+
+if ($d35) {$ddd=35; print "<tr><td valign=top valign=top align=right><div class='a'>35:</div></td>"; print "<td valign=top><div class='a'>$d35<input type='hidden' name='d35' value='$d35'></div></td>"; print "</tr>";}
+
+if ($d36) {$ddd=36; print "<tr><td valign=top valign=top align=right><div class='a'>36:</div></td>"; print "<td valign=top><div class='a'>$d36<input type='hidden' name='d36' value='$d36'></div></td>"; print "</tr>";}
+
+if ($d37) {$ddd=37; print "<tr><td valign=top valign=top align=right><div class='a'>37:</div></td>"; print "<td valign=top><div class='a'>$d37<input type='hidden' name='d37' value='$d37'></div></td>"; print "</tr>";}
+
+if ($d38) {$ddd=38; print "<tr><td valign=top valign=top align=right><div class='a'>38:</div></td>"; print "<td valign=top><div class='a'>$d38<input type='hidden' name='d38' value='$d38'></div></td>"; print "</tr>";}
+
+if ($d39) {$ddd=39; print "<tr><td valign=top valign=top align=right><div class='a'>39:</div></td>"; print "<td valign=top><div class='a'>$d39<input type='hidden' name='d39' value='$d39'></div></td>"; print "</tr>";}
+
+if ($d40) {$ddd=40; print "<tr><td valign=top valign=top align=right><div class='a'>40:</div></td>"; print "<td valign=top><div class='a'>$d40<input type='hidden' name='d40' value='$d40'></div></td>"; print "</tr>";}
+
+if ($d41) {$ddd=41; print "<tr><td valign=top valign=top align=right><div class='a'>41:</div></td>"; print "<td valign=top><div class='a'>$d41<input type='hidden' name='d41' value='$d41'></div></td>"; print "</tr>";}
+
+if ($d42) {$ddd=42; print "<tr><td valign=top valign=top align=right><div class='a'>42:</div></td>"; print "<td valign=top><div class='a'>$d42<input type='hidden' name='d42' value='$d42'></div></td>"; print "</tr>";}
+
+if ($d43) {$ddd=43; print "<tr><td valign=top valign=top align=right><div class='a'>43:</div></td>"; print "<td valign=top><div class='a'>$d43<input type='hidden' name='d43' value='$d43'></div></td>"; print "</tr>";}
+
+if ($d44) {$ddd=44; print "<tr><td valign=top valign=top align=right><div class='a'>44:</div></td>"; print "<td valign=top><div class='a'>$d44<input type='hidden' name='d44' value='$d44'></div></td>"; print "</tr>";}
+
+if ($d45) {$ddd=45; print "<tr><td valign=top valign=top align=right><div class='a'>45:</div></td>"; print "<td valign=top><div class='a'>$d45<input type='hidden' name='d45' value='$d45'></div></td>"; print "</tr>";}
+
+if ($d46) {$ddd=46; print "<tr><td valign=top valign=top align=right><div class='a'>46:</div></td>"; print "<td valign=top><div class='a'>$d46<input type='hidden' name='d46' value='$d46'></div></td>"; print "</tr>";}
+
+if ($d47) {$ddd=47; print "<tr><td valign=top valign=top align=right><div class='a'>47:</div></td>"; print "<td valign=top><div class='a'>$d47<input type='hidden' name='d47' value='$d47'></div></td>"; print "</tr>";}
+
+if ($d48) {$ddd=48; print "<tr><td valign=top valign=top align=right><div class='a'>48:</div></td>"; print "<td valign=top><div class='a'>$d48<input type='hidden' name='d48' value='$d48'></div></td>"; print "</tr>";}
+
+if ($d49) {$ddd=49; print "<tr><td valign=top valign=top align=right><div class='a'>49:</div></td>"; print "<td valign=top><div class='a'>$d49<input type='hidden' name='d49' value='$d49'></div></td>"; print "</tr>";}
+
+if ($d50) {$ddd=50; print "<tr><td valign=top valign=top align=right><div class='a'>50:</div></td>"; print "<td valign=top><div class='a'>$d50<input type='hidden' name='d50' value='$d50'></div></td>"; print "</tr>";}
+
+
+
+print "<tr>";
+
+
+
+$dddd = str_replace(chr(10), "<br>", $d);
+print "<td valign=top><div class='a'></div></td>";
+
+print "<td valign=top><div class='a'>$b $dddd<input type='hidden' name='d' value='$d'></div></td>";
+
+print "</tr>";
+
+print "<tr>";
+
+
+
+$eeee = str_replace(chr(10), "<br>", $e);
+
+print "<td valign=top><div class='a'>$eeee<input type='hidden' name='e' value='$e'></div></td>";
+
+print "</tr>";
+
+
+
+print "</table>";
+
+print "</div><p><div align=center>";
+
+print "<input type='submit' name='Submit' value='update'>";
+
+print "</div>";
+
+print "</form>";
+
+print "<p>";
+
+$this1=$b;
+
+/*
+
+$aflag=0;
+
+$bflag=strpos($this1, ".jpg"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".JPG"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".gif"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".GIF"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".png"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".PNG"); if ($bflag) {$aflag=1;}
+
+if ($aflag==1) {
+
+	print "<img src='$mFilePath$this1'></a>";
+
+}
+
+*/
+
+
+
+$aflag=0;
+
+$bflag=strpos($this1, ".mov"); if ($bflag) {$aflag=1;}
+
+$bflag=strpos($this1, ".MOV"); if ($bflag) {$aflag=1;}
+
+if ($aflag==1) {
+
+$objnum++;
+
+print "<embed src='$mFilePath$this1' width='320' height='250'></embed>";
+
+}
+
+print "</td>";
+
+print "</tr>";
+
+print "</table></div>";
+
+print "<font size='2' face='verdana'><br>";
+
+print "</font></div></td>";
+
+print "</tr>";
+
+print "</table>";
+
+print "</td></tr></table>";
+
+print "</p>";
+
+print "<p>&nbsp;</p></td>";
+
+print "</tr>";
+
+print "</table>";
+
+print "</div></td>";
+
+print "</tr>";
+
+print "</table>";
+
+print "</td></tr></table>  ";
+
+print "</td></tr></table>  ";
+
+print "</div>";
+
+print "</div>";
+
+print "</div>";
+
+print "</p>";
+
+mysql_close ($Link);
+
+print "</body></html>";
+
+}
+
+
+
+if ($thisform==7) {
+
+/*
+
+error_reporting(E_USER_ERROR);
+
+*/
+
+$category1 = $_GET['category1'];
+
+$category2 = $_GET['category2'];
+
+$category3 = $_GET['category3'];
+
+$image = $_GET['image'];
+
+$a = $_GET['a'];
+
+$b = $_GET['b'];
+
+$c = $_GET['c'];
+
+$d = $_GET['d'];
+
+$e = $_GET['e'];
+
+$f = $_GET['f'];
+
+$g = $_GET['g'];
+
+$h = $_GET['h'];
+
+$i = $_GET['i'];
+
+
+
+$j = $_GET['j'];
+
+
+
+$k = $_GET['k'];
+
+
+
+$l = $_GET['l'];
+
+
+
+$m = $_GET['m'];
+
+
+
+$n = $_GET['n'];
+
+
+
+$o = $_GET['o'];
+
+
+
+$p = $_GET['p'];
+
+
+
+$q = $_GET['q'];
+
+
+
+$r = $_GET['r'];
+
+
+
+$s = $_GET['s'];
+
+
+
+$t = $_GET['t'];
+
+
+
+$u = $_GET['u'];
+
+
+
+$v = $_GET['v'];
+
+
+
+$w = $_GET['w'];
+
+
+
+$x = $_GET['x'];
+
+
+
+$y = $_GET['y'];
+
+
+
+$z = $_GET['z'];
+
+
+
+
+
+
+
+$d1 = $_GET['d1'];
+
+
+
+$d2 = $_GET['d2'];
+
+
+
+$d3 = $_GET['d3'];
+
+
+
+$d4 = $_GET['d4'];
+
+
+
+$d5 = $_GET['d5'];
+
+
+
+$d6 = $_GET['d6'];
+
+
+
+$d7 = $_GET['d7'];
+
+
+
+$d8 = $_GET['d8'];
+
+
+
+$d9 = $_GET['d9'];
+
+
+
+$d10 = $_GET['d10'];
+
+
+
+$d11 = $_GET['d11'];
+
+
+
+$d12 = $_GET['d12'];
+
+
+
+$d13 = $_GET['d13'];
+
+
+
+$d14 = $_GET['d14'];
+
+
+
+$d15 = $_GET['d15'];
+
+
+
+$d16 = $_GET['d16'];
+
+
+
+$d17 = $_GET['d17'];
+
+
+
+$d18 = $_GET['d18'];
+
+
+
+$d19 = $_GET['d19'];
+
+
+
+$d20 = $_GET['d20'];
+
+
+
+$d21 = $_GET['d21'];
+
+
+
+$d22 = $_GET['d22'];
+
+
+
+$d23 = $_GET['d23'];
+
+
+
+$d24 = $_GET['d24'];
+
+
+
+$d25 = $_GET['d25'];
+
+
+
+$d26 = $_GET['d26'];
+
+
+
+$d27 = $_GET['d27'];
+
+
+
+$d28 = $_GET['d28'];
+
+
+
+$d29 = $_GET['d29'];
+
+
+
+$d30 = $_GET['d30'];
+
+
+
+$d31 = $_GET['d31'];
+
+
+
+$d32 = $_GET['d32'];
+
+
+
+$d33 = $_GET['d33'];
+
+
+
+$d34 = $_GET['d34'];
+
+
+
+$d35 = $_GET['d35'];
+
+
+
+$d36 = $_GET['d36'];
+
+
+
+$d37 = $_GET['d37'];
+
+
+
+$d38 = $_GET['d38'];
+
+
+
+$d39 = $_GET['d39'];
+
+
+
+$d40 = $_GET['d40'];
+
+
+
+$d41 = $_GET['d41'];
+
+
+
+$d42 = $_GET['d42'];
+
+
+
+$d43 = $_GET['d43'];
+
+
+
+$d44 = $_GET['d44'];
+
+
+
+$d45 = $_GET['d45'];
+
+
+
+$d46 = $_GET['d46'];
+
+
+
+$d47 = $_GET['d47'];
+
+
+
+$d48 = $_GET['d48'];
+
+
+
+$d49 = $_GET['d49'];
+
+
+
+$d50 = $_GET['d50'];
+
+
+
+
+
+
+
+$a=str_replace("'", "&#146;", $a);
+
+
+
+$b=str_replace("'", "&#146;", $b);
+
+
+
+$c=str_replace("'", "&#146;", $c);
+
+
+
+$d=str_replace("'", "&#146;", $d);
+
+
+
+$e=str_replace("'", "&#146;", $e);
+
+
+
+$f=str_replace("'", "&#146;", $f);
+
+
+
+$g=str_replace("'", "&#146;", $g);
+
+
+
+$h=str_replace("'", "&#146;", $h);
+
+
+
+$i=str_replace("'", "&#146;", $i);
+
+
+
+$j=str_replace("'", "&#146;", $j);
+
+
+
+$k=str_replace("'", "&#146;", $k);
+
+
+
+$l=str_replace("'", "&#146;", $l);
+
+
+
+$m=str_replace("'", "&#146;", $m);
+
+
+
+$n=str_replace("'", "&#146;", $n);
+
+
+
+$o=str_replace("'", "&#146;", $o);
+
+
+
+$p=str_replace("'", "&#146;", $p);
+
+
+
+$q=str_replace("'", "&#146;", $q);
+
+
+
+$r=str_replace("'", "&#146;", $r);
+
+
+
+$s=str_replace("'", "&#146;", $s);
+
+
+
+$t=str_replace("'", "&#146;", $t);
+
+
+
+$u=str_replace("'", "&#146;", $u);
+
+
+
+$v=str_replace("'", "&#146;", $v);
+
+
+
+$w=str_replace("'", "&#146;", $w);
+
+
+
+$x=str_replace("'", "&#146;", $x);
+
+
+
+$y=str_replace("'", "&#146;", $y);
+
+
+
+$z=str_replace("'", "&#146;", $z);
+
+
+
+$aa=str_replace("'", "&#146;", $aa);
+
+
+
+$bb=str_replace("'", "&#146;", $bb);
+
+
+
+$cc=str_replace("'", "&#146;", $cc);
+
+
+
+$dd=str_replace("'", "&#146;", $dd);
+
+
+
+$ee=str_replace("'", "&#146;", $ee);
+
+
+
+$ff=str_replace("'", "&#146;", $ff);
+
+
+
+$gg=str_replace("'", "&#146;", $gg);
+
+
+
+$hh=str_replace("'", "&#146;", $hh);
+
+
+
+$ii=str_replace("'", "&#146;", $ii);
+
+
+
+$jj=str_replace("'", "&#146;", $jj);
+
+
+
+$kk=str_replace("'", "&#146;", $kk);
+
+
+
+$ll=str_replace("'", "&#146;", $ll);
+
+
+
+$mm=str_replace("'", "&#146;", $mm);
+
+
+
+$nn=str_replace("'", "&#146;", $nn);
+
+
+
+$oo=str_replace("'", "&#146;", $oo);
+
+
+
+$pp=str_replace("'", "&#146;", $pp);
+
+
+
+$qq=str_replace("'", "&#146;", $qq);
+
+
+
+$rr=str_replace("'", "&#146;", $rr);
+
+
+
+$ss=str_replace("'", "&#146;", $ss);
+
+
+
+$tt=str_replace("'", "&#146;", $tt);
+
+
+
+$uu=str_replace("'", "&#146;", $uu);
+
+
+
+$vv=str_replace("'", "&#146;", $vv);
+
+
+
+$ww=str_replace("'", "&#146;", $ww);
+
+
+
+$xx=str_replace("'", "&#146;", $xx);
+
+
+
+$yy=str_replace("'", "&#146;", $yy);
+
+
+
+$zz=str_replace("'", "&#146;", $zz);
+
+
+
+$d1=str_replace("'", "&#146;", $d1);
+
+
+
+$d2=str_replace("'", "&#146;", $d2);
+
+
+
+$d3=str_replace("'", "&#146;", $d3);
+
+
+
+$d4=str_replace("'", "&#146;", $d4);
+
+
+
+$d5=str_replace("'", "&#146;", $d5);
+
+
+
+$d6=str_replace("'", "&#146;", $d6);
+
+
+
+$d7=str_replace("'", "&#146;", $d7);
+
+
+
+$d8=str_replace("'", "&#146;", $d8);
+
+
+
+$d9=str_replace("'", "&#146;", $d9);
+
+
+
+$d10=str_replace("'", "&#146;", $d10);
+
+
+
+$d11=str_replace("'", "&#146;", $d11);
+
+
+
+$d12=str_replace("'", "&#146;", $d12);
+
+
+
+$d13=str_replace("'", "&#146;", $d13);
+
+
+
+$d14=str_replace("'", "&#146;", $d14);
+
+
+
+$d15=str_replace("'", "&#146;", $d15);
+
+
+
+$d16=str_replace("'", "&#146;", $d16);
+
+
+
+$d17=str_replace("'", "&#146;", $d17);
+
+
+
+$d18=str_replace("'", "&#146;", $d18);
+
+
+
+$d19=str_replace("'", "&#146;", $d19);
+
+
+
+$d20=str_replace("'", "&#146;", $d20);
+
+
+
+$d21=str_replace("'", "&#146;", $d21);
+
+
+
+$d22=str_replace("'", "&#146;", $d22);
+
+
+
+$d23=str_replace("'", "&#146;", $d23);
+
+
+
+$d24=str_replace("'", "&#146;", $d24);
+
+
+
+$d25=str_replace("'", "&#146;", $d25);
+
+
+
+$d26=str_replace("'", "&#146;", $d26);
+
+
+
+$d27=str_replace("'", "&#146;", $d27);
+
+
+
+$d28=str_replace("'", "&#146;", $d28);
+
+
+
+$d29=str_replace("'", "&#146;", $d29);
+
+
+
+$d30=str_replace("'", "&#146;", $d30);
+
+
+
+$d31=str_replace("'", "&#146;", $d31);
+
+
+
+$d32=str_replace("'", "&#146;", $d32);
+
+
+
+$d33=str_replace("'", "&#146;", $d33);
+
+
+
+$d34=str_replace("'", "&#146;", $d34);
+
+
+
+$d35=str_replace("'", "&#146;", $d35);
+
+
+
+$d36=str_replace("'", "&#146;", $d36);
+
+
+
+$d37=str_replace("'", "&#146;", $d37);
+
+
+
+$d38=str_replace("'", "&#146;", $d38);
+
+
+
+$d39=str_replace("'", "&#146;", $d39);
+
+
+
+$d40=str_replace("'", "&#146;", $d40);
+
+
+
+$d41=str_replace("'", "&#146;", $d41);
+
+
+
+$d42=str_replace("'", "&#146;", $d42);
+
+
+
+$d43=str_replace("'", "&#146;", $d43);
+
+
+
+$d44=str_replace("'", "&#146;", $d44);
+
+
+
+$d45=str_replace("'", "&#146;", $d45);
+
+$d46=str_replace("'", "&#146;", $d46);
+
+$d47=str_replace("'", "&#146;", $d47);
+
+$d48=str_replace("'", "&#146;", $d48);
+
+$d49=str_replace("'", "&#146;", $d49);
+
+$d50=str_replace("'", "&#146;", $d50);
+
+
+
+$today = getdate();
+
+$month = $today['month'];
+
+$mday = $today['mday'];
+
+$year = $today['year'];
+
+$seconds = $today['seconds'];
+
+$minutes = $today['minutes'];
+
+$hours = $today['hours'];
+
+$weekday = $today['weekday'];
+
+$mDate = "$year-$month-$mday";
+
+$mTime = "$hours:$minutes:$seconds";
+
+
+
+include ('db_connect.php');
+
+
+
+include ('state.php');
+
+
+
+$image=$b;
+
+
+
+if ($a or $b or $c or $d or $e or $f or $g or $h or $i or $j or $k or $l or $m or $n or $o or $p or $q) {
+
+
+
+$Query110 = "DELETE FROM `$wholestr` WHERE filename = '$image';";
+
+
+
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+
+
+
+$Query110 = "DELETE FROM `$wholestr_detail` WHERE filename = '$image';";
+
+
+
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+
+
+
+/*
+
+print "<font color=FFFFFF size=7>hello $image</font>";
+
+*/
+
+
+
+$today = getdate();
+
+
+
+$month = $today['mon'];
+
+
+
+$mday = $today['mday'];
+
+
+
+$year = $today['year'];
+
+
+
+$seconds = $today['seconds'];
+
+
+
+$minutes = $today['minutes'];
+
+
+
+$hours = $today['hours'];
+
+
+
+$weekday = $today['weekday'];
+
+
+
+$mDate = "$year-$month-$mday";
+
+
+
+$mTime = "$hours:$minutes:$seconds";
+
+
+
+
+
+
+
+
+
+/*
+
+$Query110 = "INSERT INTO `memorabilia2` ( `id` , `category1` , `category2` , `filename` , `comments` , `notes` , `num_items` , `a` ) VALUES ('', '$category1', '$category2', '$image', '$d', '$e', '$f', '');";
+
+
+
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+
+*/
+
+$Query110 = "INSERT INTO `$wholestr` ( `id` , `category1` , `category2` , `category3` , `filename` , `name` , `comments` , `notes` , `media_type` , `num_items` , `created_by` , `created_by_IP` , `date_created_year` , `date_created_month` , `date_created_date` , `time_created_hour` , `time_created_minute` , `time_created_second` , `modified_by` , `modified_by_IP` , `date_modified_year` , `date_modified_month` , `date_modified_date` , `time_modified_hour` , `time_modified_minute` , `time_modified_second` , `active` ) VALUES ('', '$category1', '$category2', '$category3', '$image', '', '$d', '$e', '', '$f', '', '', '$year', '$month', '$mday', '$hours', '$minutes', '$seconds', '', '', '$year', '$month', '$mday', '$hours', '$minutes', '$seconds', 'yes');";
+
+
+
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+
+
+
+
+
+
+
+if ($d1) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '1', '$d1');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d2) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '2', '$d2');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d3) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '3', '$d3');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d4) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '4', '$d4');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d5) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '5', '$d5');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d6) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '6', '$d6');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d7) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '7', '$d7');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d8) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '8', '$d8');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d9) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '9', '$d9');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d10) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '10', '$d10');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d11) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '11', '$d11');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d12) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '12', '$d12');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d13) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '13', '$d13');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d14) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '14', '$d14');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d15) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '15', '$d15');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d16) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '16', '$d16');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d17) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '17', '$d17');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d18) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '18', '$d18');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d19) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '19', '$d19');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d20) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '20', '$d20');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d21) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '21', '$d21');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d22) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '22', '$d22');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d23) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '23', '$d23');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d24) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '24', '$d24');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d25) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '25', '$d25');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d26) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '26', '$d26');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d27) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '27', '$d27');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d28) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '28', '$d28');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d29) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '29', '$d29');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d30) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '30', '$d30');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d31) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '31', '$d31');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d32) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '32', '$d32');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d33) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '33', '$d33');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d34) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '34', '$d34');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d35) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '35', '$d35');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d36) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '36', '$d36');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d37) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '37', '$d37');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d38) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '38', '$d38');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+
+
+if ($d39) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '39', '$d39');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d40) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '40', '$d40');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d41) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '41', '$d41');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d42) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '42', '$d42');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d43) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '43', '$d43');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d44) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '44', '$d44');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d45) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '45', '$d45');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d46) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '46', '$d46');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d47) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '47', '$d47');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d48) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '48', '$d48');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d49) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '49', '$d49');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+if ($d50) {$Query110 = "INSERT INTO `$wholestr_detail` ( `id` , `filename` , `item_num` , `item` ) VALUES ('', '$image', '50', '$d50');"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+}
+
+print "<div class='a'><a href='admin.php'>Home</a><p>updated";
+
+
+
+}
+
+
+
+print "</div></body></html>";
+
+?>
+

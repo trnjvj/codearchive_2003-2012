@@ -1,0 +1,327 @@
+<?php
+$mCache="";
+$mStatee=str_replace(" ", "+", $land);
+$Name="land.php?land=$mStatee";
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_holisti";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "world";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mFound=2;
+$Query24 = "SELECT page FROM cache where name='$Name' LIMIT 1";
+$Result = mysql_db_query($DBName, $Query24, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+	print "$Row[0]";
+	$mFound=1;
+	}
+
+if ($mFound==2) {
+print "<html><title>Holisticopia: System Busy</title>";
+print "<body bgcolor=#006633 text=#CCFF66 link=#CCCC66 vlink=#CCCC66 alink=#CCCC66>";
+print "<div align=center><img border=0 src=images/logo.jpg>";
+print "<table width=579 border=0><tr><td valign=top align=left><font face=verdana size=2><b><a href=index.html>Home</a> &gt; System Busy</b></font></td>";
+print "</tr></table><br>";
+print "<table width=579 border=0><tr><td valign=top align=left><font face=verdana size=2>Holisticopia is currently experiencing heavy traffic. Please check back in a few minutes.</font>";
+print "</div>";
+print "<p><font face=Verdana size=2>To subscribe from our mailing list, please enter your name and email address:</font></p></td></tr></table>";
+print "  <form method=post action='add.php'>";
+print "    <div align=center>";
+print "      <table width=580 border=0 cellpadding=0>";
+print "        <tr> ";
+print "          <td> ";
+print "            <table width=100% border=0 cellpadding=3>";
+print "              <tr> ";
+print "                <td width=201> ";
+print "                  <div align=right><font face=Verdana size=2><b>Name:</b></font></div>";
+print "                </td>";
+print "                <td valign=top align=left width=477> ";
+print "                  <input type=text name='Name' size=50>";
+print "                </td>";
+print "              </tr>              ";
+print "<tr> ";
+print "                <td width=201> ";
+print "                  <div align=right><font face=Verdana size=2><b>Email:</b></font></div>";
+print "                </td>";
+print "                <td valign=top align=left width=477> ";
+print "                  <input type=text name='Email' size=50>";
+print "                </td>";
+print "              </tr>";
+print "            </table>";
+print "          </td>";
+print "        </tr>";
+print "      </table>";
+print "      <input type=submit name='Submit' value='Subscribe'>";
+print "    </div>";
+print "  </form>";
+}
+
+if ($mFound==0) {
+
+print "<html><title>Holisticopia: $land</title>";
+$mCache=$mCache."<html><title>Holisticopia: $land</title>";
+print "<body bgcolor=#006633 text=#CCFF66 link=#CCCC66 vlink=#CCCC66 alink=#CCCC66>";
+$mCache=$mCache."<body bgcolor=#006633 text=#CCFF66 link=#CCCC66 vlink=#CCCC66 alink=#CCCC66>";
+print "<div align=center><img border=0 src=images/logo.jpg>";
+$mCache=$mCache."<div align=center><img border=0 src=images/logo.jpg>";
+print "<table width=579 border=0><tr><td valign=top align=left><font face=verdana size=2><b><a href=index.html>Home</a> &gt; $land</b></font>";
+$mCache=$mCache."<table width=579 border=0><tr><td valign=top align=left><font face=verdana size=2><b><a href=index.html>Home</a> &gt; $land</b></font>";
+print "</td>";
+$mCache=$mCache."</td>";
+print "</td></tr></table>";
+$mCache=$mCache."</td></tr></table>";
+print "</div>";
+$mCache=$mCache."</div>";
+print "<p>";
+$mCache=$mCache."<p>";
+
+
+print "<div align=center><table cellpadding=3 width=579 border=0>";
+$Query26="SELECT DISTINCT * FROM `ad2` WHERE e='$land' ORDER BY b;";
+$Result26 = mysql_db_query($DBName, $Query26, $Link);
+while ($Row26 = mysql_fetch_array ($Result26))
+	{
+
+$checkbox2=$Row26[7];
+$Name2=$Row26[1];
+$Description=$Row26[8];
+$Street=$Row26[2];
+$City=$Row26[3];
+$State=$Row26[4];
+$URL=$Row26[5];
+$Phone=$Row26[9];
+$Email=$Row26[10];
+
+if ($URL) {
+$URL3=str_replace("http://", "", $URL);
+$URL3=str_replace("http:/", "", $URL3);
+$URL3=str_replace("http:", "", $URL3);
+$URL2="http://$URL3";
+}
+
+$mAddresss = str_replace(" ", "+", $Street);
+$mAddresss = str_replace("#", "%23", $mAddresss);
+$mAddresss = str_replace("&", "%26", $mAddresss);
+$mCityy = str_replace(" ", "+", $City);
+$mStatee = str_replace(" ", "+", $State);
+$mSSSearch="$Name2 $City $State";
+$mSSearch=str_replace(" ", "+", $mSSSearch);
+$mSSSearch = str_replace("&", "%26", $mSSSearch);
+$mSSSearch = str_replace("#", "%23", $mSSSearch);
+
+
+
+if ($checkbox2=="yes") {
+print "<div align=center><table bgcolor=#003300 border=0 cellspacing=4 width=579>";
+$mCache=$mCache."<div align=center><table bgcolor=#003300 border=0 cellspacing=4 width=579>";
+print "  <tr>";
+$mCache=$mCache."  <tr>";
+print "    <td>";
+$mCache=$mCache."    <td>";
+print "      <table border=0 cellpadding=3 cellspacing=0 width=100%>";
+$mCache=$mCache."      <table border=0 cellpadding=3 cellspacing=0 width=100%>";
+print "        <tr>";
+$mCache=$mCache."        <tr>";
+print "          <td><font face=Verdana size=1><b>";
+$mCache=$mCache."          <td><font face=Verdana size=1><b>";
+if ($URL) {
+print "<a href=$URL2 target=_blank>$Name2</font></b></a>";
+$mCache=$mCache."<a href=$URL2 target=_blank>$Name2</font></b></a>";
+}
+else
+{
+print "$Name2</font></b>";
+$mCache=$mCache."$Name2</font></b>";
+}
+print "<font face=Verdana, Arial, Helvetica, sans-serif><br>";
+$mCache=$mCache."<font face=Verdana, Arial, Helvetica, sans-serif><br>";
+print "            <font face=verdana size=1>$Description<br>";
+$mCache=$mCache."            <font face=verdana size=1>$Description<br>";
+print "<a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$Street</a> - $City, $State<br>";
+$mCache=$mCache."<a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$Street</a> - $City, $State<br>";
+print "$Phone<br>";
+$mCache=$mCache."$Phone<br>";
+print "<a href=$URL2 target=_blank>$URL</a> <a href=mailto:$Email>$Email</a></font></font></font></td>";
+$mCache=$mCache."<a href=$URL2 target=_blank>$URL</a> <a href=mailto:$Email>$Email</a></font></font></font></td>";
+print "        </tr>";
+$mCache=$mCache."        </tr>";
+print "      </table>";
+$mCache=$mCache."      </table>";
+print "    </td>";
+$mCache=$mCache."    </td>";
+print "  </tr>";
+$mCache=$mCache."  </tr>";
+print "</table></div><p>";
+$mCache=$mCache."</table></div><p>";
+}
+
+}
+
+print "<div align=center><table width=579 border=0><tr>";
+$mCache=$mCache."<div align=center><table width=579 border=0><tr>";
+
+$mColumn=1;
+
+$Query23="SELECT DISTINCT f,i,m,k,b FROM `listings` WHERE b='$land' AND e='Holistic' AND m!='' ORDER BY i;";
+$Result23 = mysql_db_query($DBName, $Query23, $Link);
+while ($Row23 = mysql_fetch_array ($Result23))
+	{
+	$mZA3 = strstr($Row23[2], "ttp");
+      if ($mZA3) {$mLinkk="$Row23[2]";} else {$mLinkk="http://$Row23[2]";}
+
+	print "<td width=33%><font face=verdana size=1><li><a target=_blank href=$mLinkk><b>$Row23[1]</b></a> $Row23[3], $Row23[4]</td>";
+	$mCache=$mCache."<td width=33%><font face=verdana size=1><li><a target=_blank href=$mLinkk><b>$Row23[1]</b></a> $Row23[3], $Row23[4]</td>";
+	
+	$mColumn=$mColumn+1;
+	if ($mColumn > 3) {
+		$mColumn=1;
+		print "</tr><tr>";
+		$mCache=$mCache."</tr><tr>";
+		}
+	}
+print "</tr></table></div><p>";
+$mCache=$mCache."</tr></table></div><p>";
+
+
+
+
+
+$mNum=1;
+print "<div align=center><table border=0 cellpadding=0 width=579><tr><td width=25%>";
+$mCache=$mCache."<div align=center><table border=0 cellpadding=0 width=579><tr><td width=25%>";
+$Query24 = "SELECT DISTINCT f from listings where b='$land' and e='Holistic' order by f";
+$Result = mysql_db_query($DBName, $Query24, $Link);
+print "<font face=verdana size=2>";
+$mCache=$mCache."<font face=verdana size=2>";
+while ($Row = mysql_fetch_array ($Result))
+	{
+	$Cityee=str_replace(" ", "+", $Row[0]);
+	$Statee=str_replace(" ", "+", $land);
+	if ($Row[0]=='') {} else {
+	print "<font face=verdana size=1><a href=geo.php?State=$mStatee&M2=$Cityee>$Row[0]</a></font>";
+	$mCache=$mCache."<font face=verdana size=1><a href=geo.php?State=$mStatee&M2=$Cityee>$Row[0]</a></font>";
+
+		$mNum=$mNum+1;
+		if ($mNum==5) {
+			print "</td></tr><tr><td width=25%>";
+			$mCache=$mCache."</td></tr><tr><td width=25%>";
+			$mNum=1;
+			}
+			else
+			{
+			print "</td><td width=25%>";
+			$mCache=$mCache."</td><td width=25%>";
+			}
+		}
+
+	}
+
+print "</td></tr></table><p>";
+$mCache=$mCache."</td></tr></table><p>";
+
+$mNum=1;
+print "<div align=center><table border=0 cellpadding=0 width=579><tr><td width=25%>";
+$mCache=$mCache."<div align=center><table border=0 cellpadding=0 width=579><tr><td width=25%>";
+$Query24 = "SELECT DISTINCT k from listings where b='$land' and e='Holistic' order by k";
+$Result = mysql_db_query($DBName, $Query24, $Link);
+print "<font face=verdana size=2>";
+$mCache=$mCache."<font face=verdana size=2>";
+
+while ($Row = mysql_fetch_array ($Result))
+	{
+	$Cityee=str_replace(" ", "+", $Row[0]);
+	$Statee=str_replace(" ", "+", $land);
+	if ($Row[0]=='') {} else {
+	print "<font face=verdana size=1><a href=city.php?State=$Statee&City=$Cityee>$Row[0]</a></font>";
+	$mCache=$mCache."<font face=verdana size=1><a href=city.php?State=$Statee&City=$Cityee>$Row[0]</a></font>";
+
+		$mNum=$mNum+1;
+		if ($mNum==5) {
+			print "</td></tr><tr><td width=25%>";
+			$mCache=$mCache."</td></tr><tr><td width=25%>";
+			$mNum=1;
+			}
+			else
+			{
+			print "</td><td width=25%>";
+			$mCache=$mCache."</td><td width=25%>";
+			}
+		}
+
+	}
+
+print "</td></tr></table><p>";
+$mCache=$mCache."</td></tr></table><p>";
+print "<font face=verdana size=1>© 2003 by Holisticopia (<a href=mailto:webmaster@holisticopia.com>webmaster@holisticopia.com</a>)";
+$mCache=$mCache."<font face=verdana size=1>© 2003 by Holisticopia (<a href=mailto:webmaster@holisticopia.com>webmaster@holisticopia.com</a>)";
+print "<br>Web Design by: <a href=http://www.bluepacificmarketing.com/ target=_blank>Blue Pacific Marketing</a>";
+$mCache=$mCache."<br>Web Design by: <a href=http://www.bluepacificmarketing.com/ target=_blank>Blue Pacific Marketing</a>";
+print "<p><a href=http://www.thedailynewsgrabber.com/land.php?land=$mStatee>The Daily Newsgrabber</a>";
+$mCache=$mCache."<p><a href=http://www.thedailynewsgrabber.com/land.php?land=$mStatee>The Daily Newsgrabber</a>";
+print "<br><a href=http://www.freetownrecords.com/land.php?land=$mStatee>Freetown Records</a>";
+$mCache=$mCache."<br><a href=http://www.freetownrecords.com/land.php?land=$mStatee>Freetown Records</a>";
+print "<br><a href=http://www.holisticopia.com/land.php?land=$mStatee>Holisticopia</a>";
+$mCache=$mCache."<br><a href=http://www.holisticopia.com/land.php?land=$mStatee>Holisticopia</a>";
+print "<br><a href=http://www.terracopia.net/land.php?land=$mStatee>Terracopia</a>";
+$mCache=$mCache."<br><a href=http://www.terracopia.net/land.php?land=$mStatee>Terracopia</a>";
+print "<br><a href=http://www.ecocopia.com/land.php?land=$mStatee>Ecocopia</a>";
+$mCache=$mCache."<br><a href=http://www.ecocopia.com/land.php?land=$mStatee>Ecocopia</a>";
+
+$mCache=str_replace("'", "&#146;", $mCache);
+
+$Query23="INSERT INTO `cache` ( `name` , `page` ) VALUES ('$Name', '$mCache');";
+$Result23 = mysql_db_query($DBName, $Query23, $Link);
+
+}
+
+mysql_close ($Link);
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

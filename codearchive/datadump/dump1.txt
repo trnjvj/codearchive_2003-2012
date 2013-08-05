@@ -1,0 +1,48 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=4l.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+$Query120 = "SELECT b FROM `xml_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];
+	}
+print "$mbb!<br>";
+
+$Query110 = "SELECT * FROM `emails_new_processed` ORDER BY a LIMIT $mbb,10000;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<font face=verdana,arial size=1>";
+$m0=0;
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$ma = strtolower($Row110[0]);
+	if ($moa==$ma) 
+		{$m0++;} 
+		else 
+		{
+		$Query130 = "INSERT INTO `emails_new_processed3` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$ma', '', '', '', '');";
+		$Result130 = mysql_db_query($DBName, $Query130, $Link);
+		}
+	print "$ma | ";
+	
+	$moa = $ma;
+	}
+
+$mbb=$mbb+10000;
+$Query112 = "UPDATE `xml_state` SET b='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+mysql_close ($Link);
+?>

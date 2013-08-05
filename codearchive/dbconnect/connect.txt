@@ -1,0 +1,19 @@
+<?php
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query = "SELECT * from NEWS2";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    print "$Row[0]|$Row[1]|$Row[2]|$Row[3]|$Row[4]|$Row[5]|$Row[6]|$Row[7]|$Row[8]|$Row[9]***<br>\n\r";
+	}
+mysql_close ($Link);
+
+
+?>

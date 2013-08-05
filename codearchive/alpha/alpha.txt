@@ -1,0 +1,98 @@
+<?
+set_time_limit (6000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query = "SELECT * from freetown_categories";
+$Result = mysql_db_query($DBName, $Query, $Link);
+$mo2 = "";
+$fp = fopen("../freetown/pages/0.htm", "wt");
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $m1 = $Row[1];
+	$m2 = substr($m1, 0, 1);
+	$mm2 = $m2.".htm";
+	print "$m2 $m1<p>";
+	if ($m2==$mo2) {} else {
+	fwrite($fp, "</tr></table><p><div align=center><font face=verdana size=2><b>&copy; 2003 by <a target=_blank href=../bpm/>Blue Pacific Marketing</a></b></font><p></div>");
+
+	fclose($fp);
+	$fp = fopen("../freetown/$mm2", "wt");
+	
+	print "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>";
+fwrite($fp, "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>");
+print "<html>";
+fwrite($fp, "<html>");
+print "<head>";
+fwrite($fp, "<head>");
+print "<title>Untitled Document</title>";
+fwrite($fp, "<title>Untitled Document</title>");
+print "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>";
+fwrite($fp, "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>");
+print "<link rel='stylesheet' type='text/css' href='css/freetown.css'>";
+print "</head>";
+fwrite($fp, "</head>");
+print "<body>";
+fwrite($fp, "<body bgcolor=#606060 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF alink=#FFFFFF>");
+print "<a href=index.php><img border=0 src=../images/logo.jpg></a>";
+fwrite($fp, "<div align=center><a href=index.html><img border=0 src=images/logo.jpg></a>");
+print "<h2><a href=../index.html>$Search</a></h2>";
+
+
+
+fwrite($fp, "<table width=700 border=0 cellpadding=0>");
+fwrite($fp, "<tr>");
+fwrite($fp, "<td width=335><a href=aboutus.htm><font face='Verdana, Arial, Helvetica, sans-serif' size=2><b>What is Freetown Records?</b></font></a></td>");
+fwrite($fp, "<td width=33%><div align=center><font face='Verdana, Arial, Helvetica, sans-serif' size=2><a href='subscribe.htm'><b>Subscribe</b></a></font></div></td>");
+fwrite($fp, "<td width=33%><div align=right><a href=advertising.php><font face='Verdana, Arial, Helvetica, sans-serif' size=2><b>Advertising</b></font></a></div></td>");
+fwrite($fp, "</tr>");
+fwrite($fp, "</table><p>");
+fwrite($fp, "<div align=center><table width=700 border=0 cellpadding=0>");
+fwrite($fp, "<tr><td><div align=center><font face=verdana size=2><b>");
+fwrite($fp, "<a href=2.htm>2</a> ");
+fwrite($fp, "<a href=A.htm>A</a> ");
+fwrite($fp, "<a href=B.htm>B</a> ");
+fwrite($fp, "<a href=C.htm>C</a> ");
+fwrite($fp, "<a href=D.htm>D</a> ");
+fwrite($fp, "<a href=E.htm>E</a> ");
+fwrite($fp, "<a href=F.htm>F</a> ");
+fwrite($fp, "<a href=G.htm>G</a> ");
+fwrite($fp, "<a href=H.htm>H</a> ");
+fwrite($fp, "<a href=I.htm>I</a> ");
+fwrite($fp, "<a href=J.htm>J</a> ");
+fwrite($fp, "<a href=K.htm>K</a> ");
+fwrite($fp, "<a href=L.htm>L</a> ");
+fwrite($fp, "<a href=M.htm>M</a> ");
+fwrite($fp, "<a href=N.htm>N</a> ");
+fwrite($fp, "<a href=O.htm>O</a> ");
+fwrite($fp, "<a href=P.htm>P</a> ");
+fwrite($fp, "<a href=R.htm>R</a> ");
+fwrite($fp, "<a href=S.htm>S</a> ");
+fwrite($fp, "<a href=T.htm>T</a> ");
+fwrite($fp, "<a href=V.htm>V</a> ");
+fwrite($fp, "<a href=W.htm>W</a> ");
+fwrite($fp, "<a href=Y.htm>Y</a> ");
+fwrite($fp, "<a href=Z.htm>Z</a> ");
+fwrite($fp, "</b></font></td></tr></table></div><p><table width=700><tr>");
+$mCount1=0;
+	}
+	$Search2 = str_replace(" ", "_", $m1);
+	$Search2 = strtolower($Search2);
+	$mURL = "pages/".$Search2."_links.htm";
+	fwrite($fp, "<td width=33%><font face=verdana size=2><b><a href=$mURL>$m1</a></b></font></td>");
+	$mCount1=$mCount1+1;
+	if ($mCount1>2) {
+		fwrite($fp, "</tr><tr>");
+		$mCount1=0;
+		}
+	$mo2 = $m2;		
+	} 
+mysql_close ($Link);
+fwrite($fp, "</tr></table><p><div align=center><font face=verdana size=2><b>&copy; 2003 by Tim Johnson</b></font><p></div>");
+
+fclose($fp);
+?>

@@ -1,0 +1,110 @@
+<html><title>ecocopia</title>
+<div align="center">
+
+  <table cellpadding="15" bgcolor=#336666>
+    <tr>
+      <td align=center> <a href=http://www.ecocopia.com/index.html><img src=http://www.ecocopia.com/images/logo.jpg border=0></a> 
+        <table width=529 border=0 cellpadding=10>
+          <tr><td width=33%><a href=http://www.ecocopia.com/aboutus.htm><font color=FFFFFF face='Verdana, Arial, Helvetica, sans-serif' size=1><b>What is Ecocopia?</b></font></a></td><td width=33%><div align=center><font color=FFFFFF face='Verdana, Arial, Helvetica, sans-serif' size=1><a href='http://www.bluepacificmarketing.com/ecocopia/subscribe.htm'><font color=FFFFFF face=verdana size=1><b></b></font></a></font></div></td><td width=33%><div align=right><a href=http://www.bluepacificmarketing.com/ecocopia/advertising.htm><font color=FFFFFF face='Verdana, Arial, Helvetica, sans-serif' size=1><b>Advertising</b></font></a></div></td></tr></table>
+       
+      <br>
+<table border=0 cellpadding=5>
+          <tr> 
+            <td align=center bgcolor="#336666"> 
+<p><font color="#0066CC" size="1" face="Verdana, Arial, Helvetica, sans-serif"><br><b>
+                <font color="#FFFFFF">Advertising<br>
+                Deadline:</font></font></p>
+              <p><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">April 
+                23rd</font></p>
+              <p><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">For 
+                the <br>
+                ecocopia<br>
+                CD-ROM</font><font color="#0066CC" size="1" face="Verdana, Arial, Helvetica, sans-serif"><br>
+                <br>
+                </font></p>
+              </td>
+            <td align=center> 
+
+<a href=http://www.ecocopia.com/cat/Air+Purification.htm><font color=FFFFFF face=verdana size=1>Air Purification</font></a>	
+<a href=http://www.ecocopia.com/cat/Animal+Ecology.htm><font color=FFFFFF face=verdana size=1>Animal Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Aquatic+Ecology.htm><font color=FFFFFF face=verdana size=1>Aquatic Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Arts+and+Crafts.htm><font color=FFFFFF face=verdana size=1>Arts and Crafts</font></a>	
+<a href=http://www.ecocopia.com/cat/Behavioral+Ecology.htm><font color=FFFFFF face=verdana size=1>Behavioral Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Biodiesel.htm><font color=FFFFFF face=verdana size=1>Biodiesel</font></a>	
+<a href=http://www.ecocopia.com/cat/Biodiversity.htm><font color=FFFFFF face=verdana size=1>Biodiversity</font></a>	
+<a href=http://www.ecocopia.com/cat/Biomass.htm><font color=FFFFFF face=verdana size=1>Biomass</font></a>	
+<a href=http://www.ecocopia.com/cat/Candles.htm><font color=FFFFFF face=verdana size=1>Candles</font></a>	
+<a href=http://www.ecocopia.com/cat/Chemical+Ecology.htm><font color=FFFFFF face=verdana size=1>Chemical Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Cohousing.htm><font color=FFFFFF face=verdana size=1>Cohousing</font></a>	
+<a href=http://www.ecocopia.com/cat/Composting.htm><font color=FFFFFF face=verdana size=1>Composting</font></a>	
+<a href=http://www.ecocopia.com/cat/Conservation.htm><font color=FFFFFF face=verdana size=1>Conservation</font></a>	
+<a href=http://www.ecocopia.com/cat/Cooperatives.htm><font color=FFFFFF face=verdana size=1>Cooperatives</font></a>	
+<a href=http://www.ecocopia.com/cat/Credit+Unions.htm><font color=FFFFFF face=verdana size=1>Credit Unions</font></a>	
+<a href=http://www.ecocopia.com/cat/Cycling.htm><font color=FFFFFF face=verdana size=1>Cycling</font></a>	
+<a href=http://www.ecocopia.com/cat/Ecology+Organizations.htm><font color=FFFFFF face=verdana size=1>Ecology Organizations</font></a>	
+<a href=http://www.ecocopia.com/cat/Ecotourism.htm><font color=FFFFFF face=verdana size=1>Ecotourism</font></a>	
+<a href=http://www.ecocopia.com/cat/Electric+Vehicles.htm><font color=FFFFFF face=verdana size=1>Electric Vehicles</font></a>	
+<a href=http://www.ecocopia.com/cat/Environmental+Consulting.htm><font color=FFFFFF face=verdana size=1>Environmental Consulting</font></a>	
+<a href=http://www.ecocopia.com/cat/Environmental+Diagnostics.htm><font color=FFFFFF face=verdana size=1>Environmental Diagnostics</font></a>	
+<a href=http://www.ecocopia.com/cat/Essential+Oils.htm><font color=FFFFFF face=verdana size=1>Essential Oils</font></a>	
+<a href=http://www.ecocopia.com/cat/Fire+Ecology.htm><font color=FFFFFF face=verdana size=1>Fire Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Geothermal.htm><font color=FFFFFF face=verdana size=1>Geothermal</font></a>	
+<a href=http://www.ecocopia.com/cat/Global+Change.htm><font color=FFFFFF face=verdana size=1>Global Change</font></a>	
+<a href=http://www.ecocopia.com/cat/Hemp.htm><font color=FFFFFF face=verdana size=1>Hemp</font></a>	
+<a href=http://www.ecocopia.com/cat/Hydropower.htm><font color=FFFFFF face=verdana size=1>Hydropower</font></a>	
+<a href=http://www.ecocopia.com/cat/Landscape+Ecology.htm><font color=FFFFFF face=verdana size=1>Landscape Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Mass+Transit.htm><font color=FFFFFF face=verdana size=1>Mass Transit</font></a>	
+<a href=http://www.ecocopia.com/cat/Organic+Clothing.htm><font color=FFFFFF face=verdana size=1>Organic Clothing</font></a>	
+<a href=http://www.ecocopia.com/cat/Organic+Farms.htm><font color=FFFFFF face=verdana size=1>Organic Farms</font></a>	
+<a href=http://www.ecocopia.com/cat/Organic+Markets.htm><font color=FFFFFF face=verdana size=1>Organic Markets</font></a>	
+<a href=http://www.ecocopia.com/cat/Peace+Organizations.htm><font color=FFFFFF face=verdana size=1>Peace Organizations</font></a>	
+<a href=http://www.ecocopia.com/cat/Photovoltaic.htm><font color=FFFFFF face=verdana size=1>Photovoltaic</font></a>	
+<a href=http://www.ecocopia.com/cat/Plant+Ecology.htm><font color=FFFFFF face=verdana size=1>Plant Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Pollution.htm><font color=FFFFFF face=verdana size=1>Pollution</font></a>	
+<a href=http://www.ecocopia.com/cat/Recycling.htm><font color=FFFFFF face=verdana size=1>Recycling</font></a>	
+<a href=http://www.ecocopia.com/cat/Renewal+Energy.htm><font color=FFFFFF face=verdana size=1>Renewal Energy</font></a>	
+<a href=http://www.ecocopia.com/cat/Restoration+Ecology.htm><font color=FFFFFF face=verdana size=1>Restoration Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Solar+Power.htm><font color=FFFFFF face=verdana size=1>Solar Power</font></a>	
+<a href=http://www.ecocopia.com/cat/Spirituality.htm><font color=FFFFFF face=verdana size=1>Spirituality</font></a>	
+<a href=http://www.ecocopia.com/cat/Sustainable+Development.htm><font color=FFFFFF face=verdana size=1>Sustainable Development</font></a>	
+<a href=http://www.ecocopia.com/cat/Tropical+Ecology.htm><font color=FFFFFF face=verdana size=1>Tropical Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Urban+Ecology.htm><font color=FFFFFF face=verdana size=1>Urban Ecology</font></a>	
+<a href=http://www.ecocopia.com/cat/Vegan.htm><font color=FFFFFF face=verdana size=1>Vegan</font></a>	
+<a href=http://www.ecocopia.com/cat/Vegetarian.htm><font color=FFFFFF face=verdana size=1>Vegetarian</font></a>	
+<a href=http://www.ecocopia.com/cat/Water+Conservation.htm><font color=FFFFFF face=verdana size=1>Water Conservation</font></a>	
+<a href=http://www.ecocopia.com/cat/Water+Purification.htm><font color=FFFFFF face=verdana size=1>Water Purification</font></a>	
+<a href=http://www.ecocopia.com/cat/Wildlife+Management.htm><font color=FFFFFF face=verdana size=1>Wildlife Management</font></a>	
+<a href=http://www.ecocopia.com/cat/Wind+Power.htm><font color=FFFFFF face=verdana size=1>Wind Power</font></a>	
+
+</td>
+            <td align=center> 
+              <p><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"><b>Over 
+                <br>
+                <br>
+                60,000<br>
+                <br>
+                Listings <br>
+                <br>
+                Worldwide</font></p>
+            </td>
+          </tr>
+        </table>
+      <br>
+      <img usemap="#worl_mapMapMap" border="0" height="276" src="http://www.ecocopia.com/maps/geo-worl.gif" width="529">
+      <MAP NAME="worl_mapMapMap">
+        <AREA SHAPE=POLY COORDS="37,49,87,108,105,117,128,95,177,64,211,28,226,26,239,3,111,2,67,22,37,49" HREF=http://www.ecocopia.com/maps/geo-noam.html onMouseOver="window.status=this.href+' [North America]';return true" onMouseOut="window.status='';return true">
+        <AREA SHAPE=POLY COORDS="239,3,225,26,209,28,228,78,255,73,258,79,279,80,277,71,282,63,309,69,301,53,311,54,310,2,239,3,239,3" HREF=http://www.ecocopia.com/maps/geo-euro.html onMouseOver="window.status=this.href+' [Europe]';return true" onMouseOut="window.status='';return true">
+        <AREA SHAPE=POLY COORDS="5,97,30,97,67,157,65,206,23,214,0,169,0,112,5,97,5,97" HREF=http://www.ecocopia.com/maps/geo_ocea.html onMouseOver="window.status=this.href+' [Oceania]';return true" onMouseOut="window.status='';return true">
+        <AREA SHAPE=POLY COORDS="105,117,121,97,133,93,199,96,198,120,133,119,124,131,105,117,105,117" HREF=http://www.ecocopia.com/maps/geo-ceam.html onMouseOver="window.status=this.href+' [Central America / Carribean]';return true" onMouseOut="window.status='';return true">
+        <AREA SHAPE=POLY COORDS="109,139,110,153,150,242,176,235,201,143,161,118,132,119,109,139,109,139" HREF=http://www.ecocopia.com/maps/geo-soam.html onMouseOver="window.status=this.href+' [South America]';return true" onMouseOut="window.status='';return true">
+        <AREA SHAPE=POLY COORDS="81,261,177,236,404,237,441,259,398,274,108,274,81,261,81,261" HREF=http://www.ecocopia.com/land/Antarctica.htm onMouseOver="window.status=this.href+' [Antarctica]';return true" onMouseOut="window.status='';return true">
+        <AREA SHAPE=POLY COORDS="228,79,203,99,203,120,266,201,280,201,320,183,320,114,304,115,288,83,257,79,254,73,228,79,228,79" HREF=http://www.ecocopia.com/maps/geo-afri.html onMouseOver="window.status=this.href+' [Africa]';return true" onMouseOut="window.status='';return true">
+        <AREA SHAPE=POLY COORDS="282,64,275,72,279,81,288,84,306,118,332,112,330,89,324,76,311,72,309,69,282,64,282,64" HREF=http://www.ecocopia.com/maps/geo-mide.html onMouseOver="window.status=this.href+' [Middle East]';return true" onMouseOut="window.status='';return true">
+        <AREA SHAPE=POLY COORDS="310,4,310,52,300,53,312,73,320,74,326,78,331,112,411,159,448,154,449,142,423,102,445,77,458,28,426,12,394,2,310,4,310,4" HREF=http://www.ecocopia.com/maps/geo-asia.html onMouseOver="window.status=this.href+' [Asia]';return true" onMouseOut="window.status='';return true">
+        <AREA SHAPE=POLY COORDS="518,87,435,87,422,103,448,142,450,155,409,159,397,176,397,199,482,229,510,202,527,162,527,115,518,87,518,87" HREF=http://www.ecocopia.com/maps/geo-ocea.html onMouseOver="window.status=this.href+' [Oceania]';return true" onMouseOut="window.status='';return true">
+      </MAP> <br>
+
+
+</table>
+  <p>To Unsubscribe from this List, Click <a href="http://www.ecocopia.com/unsubscribe.htm">Here</a></p>
+</div>

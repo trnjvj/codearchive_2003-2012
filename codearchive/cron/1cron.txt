@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</HEAD>
+<?
+/* World News Widget v1.0 - copyright 2004 by Tim Johnson (trnjvj@yahoo.com) - all rights reserved */
+
+$Host = "localhost";
+$User = "thedail_world";
+$Password = "turnip";
+$DBName = "thedail_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query123 = "SELECT a FROM `newsgrabber_preferred2` WHERE b='' LIMIT 1;";
+$Result123 = mysql_db_query($DBName, $Query123, $Link);
+while ($Row123 = mysql_fetch_array ($Result123))
+	{
+    $m123 = $Row123[0];	
+	
+	$Query1123 = "UPDATE `newsgrabber_preferred2` SET b='1' WHERE a='$m123' LIMIT 1;";
+	$Result1123 = mysql_db_query($DBName, $Query1123, $Link);
+	
+	$TheFile = $m123;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+print "$String";
+}}
+	}
+
+
+	
+mysql_close ($Link);
+?>

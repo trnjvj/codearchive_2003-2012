@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>Search Terms</TITLE>
+</HEAD>
+<?
+set_time_limit(0);
+print "<div align=center>";
+print "<img src=logo.jpg><p>";
+print "<div class='div1'>Search Terms</div><p>";
+print "<p>";
+
+include('db_connect.php');
+
+$Query111 = "SELECT * FROM `archipelago_searchterms`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+print "<table width=600 border=1>";
+print "<tr><td><div class='div1'></div></td><td><div class='div1'>Websites</div></td><td><div class='div1'>#</div1></td><td><div class='div1'>Books</div></td><td><div class='div1'>#</div></td><td><div class='div1'>DVDs</div></td></tr>";
+
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat  = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];
+	$Cat5 = $Row110[5];
+	
+	$myFlag=0;
+	$Query1 = "SELECT a FROM `archipelago_websites` where a='$Cat';";
+	$Result1 = mysql_db_query($DBName, $Query1, $Link);
+	while ($Row1 = mysql_fetch_array ($Result1))
+	{	
+	$myFlag=1;
+	}
+	if ($myFlag==0) {print "<tr><td><div class='div1'>$Cat</div></td><td><div class='div1'>$Cat1</div></td><td><div class='div1'>$Cat2</div1></td><td><div class='div1'>$Cat3</div></td><td><div class='div1'>$Cat4</div></td><td><div class='div1'>$Cat5</div></td></tr>";}
+	if ($myFlag==1) {
+		print "<tr><td><div class='div1'>* $Cat</div></td><td><div class='div1'>$Cat1</div></td><td><div class='div1'>$Cat2</div1></td><td><div class='div1'>$Cat3</div></td><td><div class='div1'>$Cat4</div></td><td><div class='div1'>$Cat5</div></td></tr>";
+		$Query2 = "DELETE FROM `archipelago_searchterms` where a='$Cat' LIMIT 1;";
+		$Result2 = mysql_db_query($DBName, $Query2, $Link);
+	}	
+	
+	
+	
+	}
+print "</table>";
+
+mysql_close ($Link);
+?>

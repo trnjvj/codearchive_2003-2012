@@ -1,0 +1,90 @@
+<?
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "websites";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$TheFile2 = "$T2";
+$Start2=0;
+$Query2 = "Select * from websites where h=''";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+for ($mNum=1; $mNum=$mNum+1; $mNum<1000)
+	{
+    $mAB = strpos("M1", $Row2[5]);
+    if (mAB) {
+    $T2="http://www.spafinder.com/Spas/stay_overview.jsp?fsaType=overview&spaType=2020&spaID=$mNum";
+    $mLa1 = strpos($T2, ".gif");
+    $mLa2 = strpos($T2, ".jpg");
+	$Open2 = fopen($T2, "r");
+    $Found2002=0;
+	if ($Open2) {
+		$First=1;
+		$TFound=-1;
+		$Data2 = file($T2);
+		for ($n2 = 0; $n2 < count($Data2); $n2++)
+	    	{
+
+
+
+			$String2 = trim($Data2[$n2]);
+	        $UU1 = strpos($String2, "@");
+	        if ($UU1) {
+
+	        	$UU2 = substr($String2, $UU1-20, 140);
+	            $String2=$UU2;
+	            }
+	        $U1 = strpos($String2, "mailto:");
+	        if ($U1) {
+
+		        $U2 = strlen($String2);
+		        $X1 = substr($String2, $U1, $U2-$U1);
+		        $U3 = strpos($X1, '>');
+		        $X2="none";
+		        if ($U3) {
+		        	$X2 = substr($X1, 0, $U3);
+		            $X2=str_replace('"','',$X2);
+		            $X2=str_replace('mailto:','',$X2);
+		            }
+				$X5 = strlen($X2);
+				$X6 = substr($X2, $X4+1, $X5-1);
+				$X7 = strpos($T2,$X6);
+				$UU3 = strpos($X2, '?');
+				if ($UU3) {$X2 = substr($X2, 0, $UU3);}
+	            $X4=strpos($X2, "%");
+	            if ($X4) {
+	                $X5= substr($X2,$X4-1);
+	                $X2 = $X5;
+	            	}
+	            $X4=strpos($X2, "'");
+	            if ($X4) {
+	                $X5= substr($X2,$X4-1);
+	                $X2 = $X5;
+	            	}
+	            $X4=strpos($X2, '"');
+	            if ($X4) {
+	                $X5= substr($X2,$X4-1);
+	                $X2 = $X5;
+	            	}
+
+				$XXX = strpos($X2, "@")+1;
+                $XXY = strlen($X2);
+                $XXZ = substr($X2, $XXX, $XXY-$XXX);
+
+                $XYX = strpos($Row2[3], $XXZ);
+                $mFoundX=0;
+                
+				if ($XYX and $Found2002==0 and $mFoundX==0) {
+					print "$X2 - $T2<br>";
+					$mFound51=1;
+}
+}
+}
+}
+}
+}
+
+?>
+

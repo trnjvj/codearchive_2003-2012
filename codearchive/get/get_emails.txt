@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=get_emails.php">
+</HEAD>
+<?
+/*
+
+*/
+include('db_connect.php');
+set_time_limit(0);
+
+$Query111 = "SELECT * FROM `craigslist2_new` WHERE d='' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$Cat = $Row110[0];
+		$Cat1 = $Row110[1];
+		}
+$Query112 = "UPDATE `craigslist2_new` SET d='1' WHERE a='$Cat';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+
+
+$Cat4 = str_replace("//", "/", $Cat);
+$Cat4 = str_replace("http:/", "http://", $Cat4);
+$Cat4 = str_replace("crg/crg/", "crg/", $Cat4);
+
+$wank=$Cat;
+$wank4=$Cat4;
+print "$Cat4<hr> $Cat1 $Query112";
+
+$ThisString="";
+$Open = fopen($wank4, "r");
+if ($Open) {
+	$Data = file($wank4);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		print "$String";
+		$ThisString="$ThisString$String";
+		}
+	}
+$ThisString=str_replace("'", "", $ThisString);
+
+$Query111 = "UPDATE `craigslist2_new` SET d='1', g='$ThisString' WHERE a='$Cat' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+$Query111 = "SELECT * FROM `craigslist2_new` WHERE g='$ThisString' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$Cat = $Row110[6];
+		print "<hr>$Cat";
+		}
+			
+		/*
+		$mFlag1 = strstr($String, 'p><a href="');
+		if ($mFlag1) {
+			$mCount=1;
+			$mFlag2 = strstr($String, 'Flash'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Actionscript'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'AS3'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'PHP'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Guru'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Flex'); if ($mFlag2) {$mCount++;}
+			if ($mCount>1) {print "<b>";
+			$wank2 = str_replace("cpg/", "", $wank);
+			$String = str_replace("href=\"", "href=\"$wank2", $String); 
+			print "$String";
+			$Array = explode(">", $String);
+			$Array[1] = str_replace('<a href="', '', $Array[1]);
+			$Array[1] = str_replace('"', '', $Array[1]);
+			$Array[2] = str_replace(' -</a', '', $Array[2]);
+			$Array[4] = str_replace('</font', '', $Array[4]);
+			
+			$Query111 = "INSERT INTO `craigslist_get` (`a` ,`b` ,`c` ,`d` ,`e` ,`f` ,`g`) VALUES ('$Array[1]', '$Array[2]', '$Array[4]', '', '', '', '');";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+			print "</b>";}
+			}
+		}
+	}
+}*/
+
+mysql_close ($Link);
+?>

@@ -1,0 +1,30 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=flag_bad_ones.php">
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+print "<font face=verdana size=1>";
+$Query110 = "SELECT * FROM `newsletters_herbage1205` WHERE b='' LIMIT 20";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$Cat = $Row110[0];
+	$mFlag=2;
+	$Query112 = "SELECT * FROM `newsletters` WHERE b='$Cat' AND c='herbage';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	while ($Row112 = mysql_fetch_array ($Result112))
+		{
+		$mFlag=1;
+		}
+	$Query111 = "UPDATE `newsletters_herbage1205` SET b='$mFlag' WHERE a='$Cat';";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	print "$Cat ";
+	}
+mysql_close ($Link);
+?>

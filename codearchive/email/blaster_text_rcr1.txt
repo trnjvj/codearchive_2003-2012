@@ -1,0 +1,10 @@
+<?
+$Body='abc
+';
+$headers .= "From: Freetown Records <solstice@freetownrecords.com>";
+$Subject = "Subject";
+
+$m1 = "trnjvj@yahoo.com";
+$Subject = "blaster1 sent";
+if (mail($m1, $Subject, $Body, $headers)) {print "<li>$m1";}
+?>

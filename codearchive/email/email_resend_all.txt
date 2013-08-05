@@ -1,0 +1,30 @@
+
+<?
+/*
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=separate.php">
+</HEAD>
+*/
+include('db_connect.php');
+set_time_limit(0);
+
+$mCount=0;
+print "<font face=arial size=2>";
+
+
+$Query111 = "SELECT * FROM `craigslist2_sent_mail`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$myA = $Row110[0];
+		$myB = $Row110[1];
+		$myC = $Row110[2];
+		$myD = $Row110[3];
+$TheFile = "http://www.bestcybersolutions.com/sendmail.php?a=$a&b=$b&c=$c&d=$d";
+print "<a target='_blank' href='http://www.bestcybersolutions.com/sendmail.php?a=$myA&b=$myB&c=$myC&d=$myD'>$myA&b=$myB&c=$myC&d=$myD</a><br />";
+		}
+	
+		print "</font>";
+mysql_close ($Link);
+?>

@@ -1,0 +1,318 @@
+<?
+$city = $_GET['city'];
+$category = $_GET['category'];
+$city2=str_replace(" ", "+", $city);
+$category2=str_replace(" ", "+", $category);
+
+//$myPlace="Fremont,+CA";
+//$myCategory="Laundromat";
+include('db_connect.php');
+
+$Query111 = "SELECT * FROM `social_network_places2` WHERE e='$city' and p='$category2';";
+if ($category="") {$Query111 = "SELECT * FROM `social_network_places2` WHERE e='$city';";}
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$rest_name = $Row110[2];
+	$rest_street = $Row110[3];
+	$rest_city = $Row110[4];
+	$rest_state = $Row110[5];
+	$rest_phno = $Row110[6];
+	
+print '<location index="';
+print "x";
+print '" loc="';
+print "$rest_street, $rest_city, $rest_state";
+print '" info="';
+print "$rest_name";
+print '" description="';
+print "$rest_street, $rest_city, $rest_state $rest_phno";
+print '" />';
+}
+
+$TheFile = "http://www.citysearch.com/api/search?where=$city2&query=$category2";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode(">", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+		
+		/*
+		$thisSearch="description";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$mDescription = str_replace("</$thisSearch", "", $Array[$m+1]);
+				print "!Description=$mDescription?\n\n";
+				}
+		*/
+
+		$thisSearch="name";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$mName = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "<hr>$thisSearch=$mName<br>\n\n";
+				$myColumn=0;
+				$myCell[$myRow][$myColumn] = $mName;
+				$myRow++;
+				}
+		
+		$thisSearch="street";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$mStreet = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mStreet<br>\n\n";
+				$myColumn++;
+				$myCell[$myRow][$myColumn] = $mStreet;
+				
+				//print "<br />";
+				//print $myRow;
+				//print "!";
+				//print $myColumn;
+				//print "!!";
+				//print $myCell[$myRow][$myColumn];
+				//print "<hr>";
+				
+				}
+		
+			$thisSearch="city";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		$mFlag3 = strpos($Array[$m], "citysearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2 && !$mFlag3) {
+				$myColumn++;
+				$mCity = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mCity<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mCity;
+				
+				}
+		
+		$thisSearch="state";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mState = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mState<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mState;
+				
+				}
+		
+		$thisSearch="postalcode";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mPostalCode = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mPostalCode<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mPostalCode;
+				
+				}
+		
+		$thisSearch="phonenumber";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mPhoneNumber = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mPhoneNumber<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mPhoneNumber;
+				
+				}
+
+		$thisSearch="rating";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mRating = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mRating<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mRating;
+				
+				}
+
+		$thisSearch="profile";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mProfile = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mProfile<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mProfile;
+				
+				}
+
+	
+		$thisSearch="latitude";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mLatitude = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mLatitude<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mLatitude;
+				
+				}
+
+		$thisSearch="longitude";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mLongitude = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mLongitude<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mLongitude;
+				
+				}
+
+		$thisSearch="distance";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mDistance = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mDistance<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mDistance;
+				
+				}
+
+		$thisSearch="hasvideo";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mHasvideo = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mHasvideo<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mHasvideo;
+				
+				}
+
+		$thisSearch="hasoffers";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mHasoffers = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mHasoffers<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mHasoffers;
+				
+				}
+
+		$thisSearch="iscustomer";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mIscustomer = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mIscustomer<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mIscustomer;
+				
+				}
+
+		$thisSearch="userreviewcount";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mUserreviewcount = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mUserreviewcount<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mUserreviewcount;
+				
+				}
+
+		$thisSearch="samplecategories";	
+		$mFlag1 = strpos($Array[$m], "$thisSearch");
+		$mFlag2 = strpos($Array[$m], "/$thisSearch");
+		//print "$mFlag1-";
+		if ($mFlag1 && !$mFlag2) {
+				$myColumn++;
+				$mSamplecategories = str_replace("</$thisSearch", "", $Array[$m+1]);
+				//print "$thisSearch=$mSamplecategories<br>\n\n";
+				$myCell[$myRow][$myColumn] = $mSamplecategories;
+				
+				}
+
+		
+	}
+	}
+}
+
+
+//print "<table border=1>";
+print '<?xml version="1.0" ?>
+<locations>
+';
+for ($i=1; $i<$myRow+1; $i++) {
+//print "<tr>";
+$mFlag1 = strpos($myCell[$i][0], "ttp:/");
+$mFlag2 = strlen($myCell[$i][0]);
+if (!$mFlag1 && $mFlag2) {
+//print "<td>$i</td>";
+
+$thisRow=$thisRow+1;
+
+$rest_id = $myCell[$i][10];
+$rest_name = $myCell[$i][0];
+$rest_street = $myCell[$i][1];
+$rest_city = $myCell[$i][2];
+$rest_state = $myCell[$i][3];
+$rest_zipcode = $myCell[$i][4];
+$rest_phno = $myCell[$i][8];
+
+$rest_latit = $myCell[$i][5];
+$rest_longi = $myCell[$i][6];
+$rest_website = $myCell[$i][10];
+$rest_reviewcnt = $myCell[$i][14];
+$rest_tagline = $myCell[$i][15];
+$rest_image = $myCell[$i][10];
+
+print '<location index="';
+print "x";
+print '" loc="';
+print "$rest_street, $rest_city, $rest_state";
+print '" info="';
+print "$rest_name";
+print '" description="';
+print "$rest_street, $rest_city, $rest_state $rest_phno";
+print '" />';
+
+//$Query1 = "INSERT INTO `social_network_places2` (`a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n`  , `o` , `p` , `q` ) VALUES ( '$thisRow', '$rest_id', '$rest_name', '$rest_street', '$rest_city', '$rest_state', '$rest_zipcode', '$rest_phno', '$rest_latit', '$rest_longi', '$rest_website', '$rest_reviewcnt', '$rest_tagline', '$rest_image', '$myPlace', '$myCategory', '' );";
+//$Result1 = mysql_db_query($DBName, $Query1, $Link);
+
+for ($j=0; $j<25; $j++) {
+	//print "<td><font face=arial size=1>";
+	//print $myCell[$i][$j];
+	//print "</font></td>";
+}
+}
+//print "</tr>";
+}
+//print "</table>";
+
+
+print '</locations>
+';
+//mysql_close ($Link);
+?>

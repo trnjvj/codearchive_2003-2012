@@ -1,0 +1,277 @@
+<html><title>ProLamp</title><body bgcolor="#000000" text="#999999" link="#CCCCCC" vlink="#AAAAAA">
+<style type="text/css" media="screen">
+BODY {  background: black url("goldroom.png");
+  background-repeat: no-repeat;
+  background-position: center;
+ }
+
+	select {
+ background-color: #666699;
+ color: #ffffff;
+}
+</style>
+
+<?PHP
+$a = $_GET['a'];
+$b = $_GET['b'];
+$c = $_GET['c'];
+$d = $_GET['d'];
+$e = $_GET['e'];
+$f = $_GET['f'];
+$g = $_POST['g'];
+$h = $_POST['h'];
+$i = $_POST['i'];
+if ($d) {} else {
+	$d = $_POST['d'];
+	$e = $_POST['e'];
+}
+
+include('db_connect.php');
+$ip=$_SERVER['REMOTE_ADDR'];
+$thisDay  = date("d");
+$thisMonth = date("m");
+$thisYear  = date("y");
+$thisHour  = date("H");
+$thisMinute = date("i");
+$thisSecond  = date("s");
+$Query1 = "INSERT INTO `log` (`a`, `b`, `d`, `e`, `f`, `g`, `h`, `i`, `j`, `k`) VALUES ('$a', '$b', '$c', '$ip', '$thisYear', '$thisMonth', '$thisDay', '$thisHour', '$thisMinute', '$thisSecond');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+
+$a="Technology";
+if ($b) {} else {$b='Codeigniter';}
+//print "$c";
+$mVideo = "3CE66E9AE25C2754";
+
+
+
+if ($g) {
+	$Query14 = "INSERT INTO `videolibrary` (`a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`, `i`, `j`) VALUES ('$g', '$h', '$i', '', '', '', '', '', '', '');";
+	$Result14 = mysql_db_query($DBName, $Query14, $Link);
+	}	
+$Query7 = "SELECT * FROM `users`;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$m0 = $Row7[0];
+	$m1 = $Row7[1];
+	$m2 = $Row7[2];
+	$m3 = $Row7[3];
+	}
+/*if ($d==$m0 && $e==$m1 && $f==$m2 && $ip=="66.215.97.167") {*/
+/*if ($d==$m0 && $e==$m1 && $f==$m2 && ($ip=="66.215.97.167" || $ip=="76.79.74.163" || $ip=="76.79.74.162")) {*/
+
+
+
+print "<div align='center'><font face='verdana' size='3'>";
+print "<br /><a href='http://www.exquisitewebcreations.com/'><font color=navyblue>Exquisite Web Creations by Tim Johnson</font></a><br />&nbsp;<br />&nbsp;<br />";
+print "<table background='background.jpg' border='0'><tr><td valign='absmiddle'><a href='index.php'></a></td><td align='center' valign='absmiddle'>";
+
+//print "p&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;i&nbsp;&nbsp;&nbsp;n&nbsp;&nbsp;&nbsp;f&nbsp;&nbsp;&nbsp;o";
+//print "<br />&nbsp;<br />";
+/*
+print '<select height="20" onchange="window.location=';
+print "'";
+print "index.php?a=' + this.value;";
+print '">';	
+print "<option value=''> - select - </option>";
+* */
+$Query7 = "SELECT DISTINCT b FROM `videolibrary` ORDER BY b;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$m0 = $Row7[0];
+	$m0b = str_replace(" ", "+", $m0);
+	//print "<a href='index.php?a=$mab&b=$m0b&d=$d&e=$e&f=$f'>$m0</a> ";
+	/*if ($m0==$a) {print "<option selected value=";} else {print "<option value=";}
+	print '"';
+	print "$m0";
+	print '"';
+	print ">$m0</option>";
+	*/
+	}	
+//print "</select>&nbsp;";
+
+if ($a) {
+	
+
+$mab = str_replace(" ", "+", $a);
+/*
+print '<select size="5" onchange="window.location=';
+print "'";
+print "index.php?a=$mab&b=' + this.value;";
+print '">';	
+print "<option value=''> - select - </option>";
+*/
+
+	print "</td></tr>";
+
+//print "</select>&nbsp;";
+/*
+$Query7 = "SELECT DISTINCT c FROM `videolibrary` WHERE b='$a' ORDER BY c;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$m0 = $Row7[0];
+	$m0b = str_replace(" ", "+", $m0);
+	$mab = str_replace(" ", "+", $a);
+	print "<a href='index.php?a=$mab&b=$m0b&d=$d&e=$e&f=$f'>$m0</a><br />";
+	}
+	
+*/
+}
+
+if ($b) {
+print "<tr><td valign='top' align='right'>";	
+$mab = str_replace(" ", "+", $a);
+$mbb = str_replace(" ", "+", $b);
+print '<select style="width:200px;margin:5px 0 5px 0;" size="28" onchange="window.location=';
+print "'";
+print "index.php?a=$mab&b=$mbb&c=' + this.value;";
+print '">';	
+//print "<option value=''> - select - </option>";
+$Query7 = "SELECT DISTINCT d FROM `videolibrary` WHERE b='$a' ORDER BY d;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$m0 = $Row7[0];
+	$m0 = trim($m0);
+	$m0b = str_replace(" ", "+", $m0);
+	$mab = str_replace(" ", "+", $a);
+	//print "<a href='index.php?a=$mab&b=$m0b&d=$d&e=$e&f=$f'>$m0</a><br />";
+	if ($m0==$c) {print "<option selected value=";} else {print "<option value=";}
+	print '"';
+	print "$m0";
+	print '"';
+	print ">$m0</option>";
+	}	
+print "</select>";
+//print "</td><td valign='top' align='left'>";
+/*
+$Query7 = "SELECT DISTINCT d FROM `videolibrary` WHERE b='$a' AND c='$b' ORDER BY d;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$m0 = $Row7[0];
+	$m0b = str_replace(" ", "+", $m0);
+	$mab = str_replace(" ", "+", $a);
+	$mbb = str_replace(" ", "+", $b);
+	print "<a href='index.php?a=$mab&b=$mbb&c=$m0b&d=$d&e=$e&f=$f'>$m0</a><br />";
+	}
+	* */
+}
+
+
+
+/*
+print "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face='verdana' size='3'>";
+$Query7 = "SELECT DISTINCT b FROM `videolibrary` ORDER BY b;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$m0 = $Row7[0];
+	$m0b = str_replace(" ", "+", $m0);
+	print "<a href='index.php?a=$m0b&d=$d&e=$e&f=$f'>$m0</a> ";
+	}
+print "</font>";
+* 
+print "</font><br />&nbsp;<br /><table cellpadding='10' border='0'><tr><td width='250' align='right' valign='top'><br />";
+
+
+
+
+
+
+print "</td>";*/
+if ($b) {
+$Query7 = "SELECT a FROM `videolibrary` WHERE c='$b' LIMIT 1;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{
+	$mVideo = $Row7[0];
+	}
+}
+
+if ($c) {
+$Query7 = "SELECT a FROM `videolibrary` WHERE d='$c';";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{
+	$mVideo = $Row7[0];
+	}
+}
+print "</td><td width='700' align='left' valign='top'>";
+if ($mVideo) {
+print '
+<div align="center">
+<object data="http://www.youtube.com/p/';
+print "$mVideo";
+print '&amp;color1=d6d6d6&amp;color2=f0f0f0&amp;border=0&amp;fs=1&amp;hl=en&amp;autoplay=0&amp;showinfo=0&amp;iv_load_policy=3&amp;showsearch=0?rel=1" height="400" type="application/x-shockwave-flash" width="700"> <param name="movie" value="http://www.youtube.com/p/';
+print "$mVideo";
+print '&amp;color1=d6d6d6&amp;color2=f0f0f0&amp;border=0&amp;fs=1&amp;hl=en&amp;autoplay=0&amp;showinfo=0&amp;iv_load_policy=3&amp;showsearch=0?rel=1" /> <param name="allowFullScreen" value="true" /> <param name="allowscriptaccess" value="always" /> </object>
+';
+//print "<font face='verdana' size='3'>$c</font>";
+print '
+</div>
+';
+
+
+} else {
+print '<br /><div align="center"><form method="post" action="index.php" name="logform">
+<table border="0"><tr><td align="right"><font face="verdana" size="3">
+playlist:</font></td><td><input name="g" size="25" maxlength="125" value="';
+print "$g";
+print '" type="text"> </td></tr>
+<tr><td align="right"><font face="verdana" size="3">category:</font></td><td><input name="h" size="25" maxlength="125" value="';
+print "$h";
+print '" type="text"> </td></tr>
+<tr><td align="right"><font face="verdana" size="3">subcategory:</font></td><td><input name="i" size="25" maxlength="125" value="';
+print "$i";
+print '" type="text"> </td></tr></table>
+<input name="d" size="25" maxlength="125" value="';
+print "$d";
+print '" type="hidden">
+<input name="e" size="25" maxlength="125" value="';
+print "$e";
+print '" type="hidden"><br />
+<input name="send" value="send" type="submit">
+</form></div>';	
+}
+
+//print "<td width='250' align='left' valign='top'><br /><font face='verdana' size='3'>";
+
+
+
+
+print "</font></td></tr></table>";
+print "</div>";
+
+/*
+} else {
+$mF = rand(1000000000000, 9999999999999999);
+$ip=$_SERVER['REMOTE_ADDR'];
+$Query7 = "UPDATE `users` SET `c` = '$mF', d='$ip'  WHERE `users`.`a` = 'admin' AND `users`.`b` = 'secretcombo' LIMIT 1 ;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+
+print '
+<div align="center">
+<p>&nbsp;</p>
+p&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;i&nbsp;&nbsp;&nbsp;n&nbsp;&nbsp;&nbsp;f&nbsp;&nbsp;&nbsp;o
+
+<p>&nbsp;</p><p>&nbsp;</p>
+<form method="get" action="index.php" name="logform">
+username: <input name="d" size="25" maxlength="125" value="" type="text"><br />
+password: <input name="e" size="25" maxlength="125" value="" type="password"><br />
+<input name="f" size="25" maxlength="125" value="';
+print "$mF";
+print '" type="hidden">
+&nbsp;<br />
+<input name="Submit" value="log in" type="submit">
+</form></div>';
+}
+* */
+mysql_close ($Link);
+/*
+phpinfo();
+*/
+?>
+</body></html>

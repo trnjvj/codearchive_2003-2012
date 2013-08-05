@@ -1,0 +1,40 @@
+<?
+
+fwrite($fp, "<div class='content' align='center'><table cellpadding=5 border=0><tr>");
+$mRow1111=0;
+$Query1111 = "SELECT * FROM `holisticopia_books3` WHERE a='$m1Search' order by c;";
+$Result1111 = mysql_db_query($DBName, $Query1111, $Link);
+while ($Row1111 = mysql_fetch_array ($Result1111))
+	{
+    $ma1 = $Row1111[0];
+	$mb1 = $Row1111[1];
+	$mc1 = $Row1111[2];
+	$md1 = $Row1111[3];
+	$me1 = $Row1111[4];
+	$mf1 = $Row1111[5];
+	$md2 = str_replace("(Author)", "", $md1);
+	$md2 = str_replace("(Editor)", "", $md2);
+	if ($mb1) {
+	if ($mc1=="TR") {
+	$String1234="<td align=center valign=top><font face=arial size=1><a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$mb1/ref=ase_holisticopia-20><img height=300 width=200 border=0 src=$me1><br>$md2</a></font></td>";
+	
+	} else {
+	$String1234="<td align=center valign=top><font face=arial size=1><a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$mb1/ref=ase_holisticopia-20><img height=300 width=200 border=0 src=$me1><br>$mc1 by $md2</a></font></td>";
+	}
+	if ($String1234==$oString1234) {} else {
+	fwrite($fp, "$String1234");
+		$mRow1111++;
+		if ($mRow1111>1) {
+		fwrite($fp, "</tr><tr>");
+		$mRow1111=0;}
+		}
+	$oString1234 = $String1234;
+	}
+	$String1234="<td align=center valign=top><a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$mb1/ref=ase_holisticopia-20><img height=300 width=200 border=0 src=$me1><br>$mc1 by $md2</a></td>";
+	
+	}
+	
+	fwrite($fp, "</tr></table><p>");
+	fwrite($fp, "<a target=_blank href=http://www.holisticopia.com/herbage/><img height=150 width=150 border=0 src=http://storetn.cafepress.com/8/7654818_F_store.jpg><br?<font face=arial size=1>Hebrage CD-ROM, Third Edition</font></a>");
+
+?>

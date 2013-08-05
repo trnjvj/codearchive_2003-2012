@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>Websites</TITLE>
+</HEAD>
+<?
+
+print "<div align=center>";
+print "<img src=logo.jpg><p>";
+print "<div class='div1'>Websites</div><p>";
+print "<p></div>";
+include('db_connect.php');
+$Query111 = "SELECT * FROM `archipelago_websites` order by a,b;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$oCat="";
+print "<div class='div1'>";
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	
+	if ($Cat==$oCat) {} else {
+	print "<p><b>$Cat</b></p>";
+	}
+	if ($Cat1==$oCat1) {} else {
+	print "<br><a href=$Cat2><b>$Cat1</b></a> $Cat3";
+	}
+	$oCat=$Cat;
+	$oCat1=$Cat1;
+	$oCat2=$Cat2;
+	
+	}
+
+mysql_close ($Link);
+?>

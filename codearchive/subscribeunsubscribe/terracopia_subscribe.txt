@@ -1,0 +1,25 @@
+
+<?
+$mCache="$Name|$Email";
+$Host = "localhost";
+$User = "jbluepac_world";
+$Password = "turnip";
+$DBName = "jbluepac_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query110 = "SELECT * FROM `terracopia_subscribe`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<terracopia_subscribe>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1a</m1b>\n";
+	print "</line>\n";
+	}
+mysql_close ($Link);
+print "</terracopia_subscribe>\n";
+?>

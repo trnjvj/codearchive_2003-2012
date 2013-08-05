@@ -1,0 +1,26 @@
+<?
+set_time_limit (600000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query11 = "SELECT DISTINCT a,b,c FROM `freetown_artists23` ORDER by c";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$m1 = $Row11[0];
+	$m2 = $Row11[1];
+	$m3 = $Row11[2];
+	$m4 = substr($m3, 0, 1);
+	$m4 = strtolower($m4);
+	$Query12 = "INSERT INTO `freetown_alpha23` ( `a` , `b` , `c` , `d` ) VALUES ('$m4', '$m3', '$m2', '');";
+	$Result12 = mysql_db_query($DBName, $Query12, $Link);
+	print "$m3  ";
+	}	
+mysql_close ($Link);
+?>

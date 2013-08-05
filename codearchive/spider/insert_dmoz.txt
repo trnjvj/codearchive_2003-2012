@@ -1,0 +1,30 @@
+<?
+
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$c=1;
+$TheFile = "dmoz.txt";
+$Start=0;
+$Open = @fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++)
+    	{		
+		$String = trim($Data[$n]);
+		print "<li>$String";
+		$c++;
+		if ($c>10) {
+			print "<li>$String";
+			$c=1;
+			}
+    	$Query12 = "INSERT INTO `bloggle_categories1` ( `a` , `b` ) VALUES ('$String', '');";
+		$Result12 = mysql_db_query($DBName, $Query12, $Link);
+		}
+	}
+mysql_close ($Link);
+?>

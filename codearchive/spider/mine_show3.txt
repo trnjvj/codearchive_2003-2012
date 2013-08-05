@@ -1,0 +1,259 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="2, URL=mine_show3.php">
+<?
+set_time_limit (0);
+
+$mArt = 0;
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mDirFlag=1;
+
+$fp2 = fopen("pages/contents.htm", "wt");
+fwrite($fp2, "<HTML>");
+fwrite($fp2, '<body bgcolor="0065AB" text="000000" link="#000000" vlink="#000000" alink="#000000">');
+fwrite($fp2, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+fwrite($fp2, '<link rel="stylesheet" type="text/css" href="index.css">');
+fwrite($fp2, "<div align=center>");
+fwrite($fp2, "<table width=95% cellpadding=5 valign=top bgcolor=#FFFFFF background=bgtan.jpg><tr><td valign=top width=50%>");
+
+$fp3 = fopen("pages/pages.htm", "wt");
+fwrite($fp3, "<HTML>");
+fwrite($fp3, '<body bgcolor="0065AB" text="000000" link="#000000" vlink="#000000" alink="#000000">');
+fwrite($fp3, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+fwrite($fp3, '<link rel="stylesheet" type="text/css" href="index.css">');
+fwrite($fp3, "<div align=center>");
+fwrite($fp3, "<table width=95% cellpadding=5 valign=top bgcolor=#FFFFFF background=bgtan.jpg><tr><td valign=top width=50%>");
+
+$Query12 = "SELECT * FROM `mine_state`;";
+$Result12 = mysql_db_query($DBName, $Query12, $Link);
+while ($Row12 = mysql_fetch_array ($Result12))
+	{
+	$mNum = $Row12[0];
+	}
+print "$mNum<p>";
+$mFile =  "pages/$mNum.htm";
+$fp = fopen("$mFile", "wt");
+
+
+fwrite($fp, "<HTML>");
+print '<body bgcolor="0065AB" text="000000" link="#000000" vlink="#000000" alink="#000000">';
+fwrite($fp, '<body bgcolor="0065AB" text="000000" link="#000000" vlink="#000000" alink="#000000">');
+print '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">';
+fwrite($fp, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+print '<link rel="stylesheet" type="text/css" href="index.css">';
+fwrite($fp, '<link rel="stylesheet" type="text/css" href="index.css">');
+print "<div align=center>";
+fwrite($fp, "<div align=center>");
+print "<table width=95% cellpadding=5 valign=top bgcolor=#FFFFFF background=images/bgtan.jpg><tr><td valign=top width=50%>";
+$mPrev = $mNum-1;
+$mNext = $mNum+1;
+fwrite($fp, "<table width=95% cellpadding=5 valign=top bgcolor=#FFFFFF background=bgtan.jpg><tr><td valign=top width=15%>");
+fwrite($fp, "<div align='left' class='div3'><a href=$mPrev.htm><b>Prev</b></a></div></td><td width=70%><div align='center' class='div3'><b>$om1</b></div></td><td align='right' width=15%><div class='div3'><a href=$mNext.htm><b>Next</b></a></div></td></tr></table>");
+fwrite($fp, "<table width=95% cellpadding=5 valign=top bgcolor=#FFFFFF background=bgtan.jpg><tr><td valign=top width=50%>");
+
+
+$m8=1;
+$Query2 = "SELECT * FROM `mine_links` WHERE t='' order by a,f,j,i,b LIMIT 100;";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+while ($Row2 = mysql_fetch_array ($Result2))
+	{
+	if ($mArt==0) {
+	$m1 = $Row2[0];
+	$m2 = $Row2[1];
+	$m3 = $Row2[2];
+	$m4 = $Row2[3];
+	$n5 = $Row2[4];
+	$n6 = $Row2[5];
+	$n7 = $Row2[6];
+	$n8 = $Row2[7];
+	$n9 = $Row2[8];
+	$n10 = $Row2[9];
+	
+	$Query22 = "UPDATE `mine_links` SET `t` = '1' WHERE `a` = '$m1' AND `b` = '$m2' AND `c` = '$m3' AND `d` = '$m4' AND `e` = '$n5' AND `f` = '$n6' AND `g` = '$n7' AND `h` = '$n8' AND `i` = '$n9' AND `j` = '$n10';";
+	$Result22 = mysql_db_query($DBName, $Query22, $Link);
+	
+	
+	if ($m1==$om1) {} else {
+		print "<div class='div2'><p>$m1</p></div>\n";
+		fwrite($fp, "<div class='div2'><p>$m1</p></div>\n");
+		fwrite($fp2, "<div class='div3'><a href=$mNum.htm>$m1</a></div>\n");
+		$m5=$m5+4;
+		}
+		
+	if ($m2 and $m2!=$om2) {
+	
+	
+	if ($n6!=$on6) {
+		print "<font face=verdana size=4><p><b>$n6</b><p></font>";
+		fwrite($fp, "<font face=verdana size=4><p><b>$n6</b><p></font>");
+		fwrite($fp2, "<div class='div3'>&nbsp;&nbsp;&nbsp;<a href=$mNum.htm>$n6</a></div>\n");
+	}
+	
+	if ($n6=="CDs") {
+	print "<table width=100%><tr><td width=20% valign=top align=left><div class='div3'><a target=_blank href=$m3><img border=0 src=http://images.amazon.com/images/P/$n5.01.THUMBZZZ.jpg></a></div><td align=left><div class='div3'><a target=_blank href=$m3><b>$m2</b></a> $m4</div></td></tr></table>\n";
+	fwrite($fp, "<table width=100%><tr><td width=20% valign=top align=left><div class='div3'><a target=_blank href=$m3><img border=0 src=http://images.amazon.com/images/P/$n5.01.THUMBZZZ.jpg></a></div><td align=left><div class='div3'><a target=_blank href=$m3><b>$m2</b></a> $m4</div></td></tr></table>\n");
+	$m5=$m5+5;
+	} 
+	
+	if ($n6=="Books") {
+	print "<table width=100%><tr><td valign=top align=left><div class='div3'><a target=_blank href=$m3><img border=0 src=http://images.amazon.com/images/P/$n5.01.THUMBZZZ.jpg></a></div><td><div class='div3'><a target=_blank href=$m3><b>$m2</b></a> $m4</div></td></tr></table>\n";
+	fwrite($fp, "<table width=100%><tr><td valign=top align=left><div class='div3'><a target=_blank href=$m3><img border=0 src=http://images.amazon.com/images/P/$n5.01.THUMBZZZ.jpg></a></div><td><div class='div3'><a target=_blank href=$m3><b>$m2</b></a> $m4</div></td></tr></table>\n");
+	$m5=$m5+5;
+	}
+	
+	if ($n6=="Directory")
+	{
+	
+	if ($mDirFlag==0) {
+			
+		$mDirFlag=1;
+	}
+	
+	if ($on10==$n10) {} else {
+	print "<p><div class='div3'><b>$n10</b><p></div>\n";
+	fwrite($fp, "<p><div class='div3'><b>$n10</b></div>\n");
+		$m5++;
+			$m5++;
+				$m5++;
+					
+	}
+
+	if ($on9==$n9) {} else {
+	print "<div class='div3'>&nbsp;&nbsp;&nbsp;<b>$n9</b></div>\n";
+	fwrite($fp, "<div class='div3'>&nbsp;&nbsp;&nbsp;<b>$n9</b></div>\n");
+	$m5++;
+	$m5++;
+	}
+	
+	$SString=str_replace(" ", "+", "$m2 $n9 $n10");
+		
+	$m3="http://www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=$SString&btnG=Google+Search";
+	
+if ($n10=="Alabama") {$nn10 = "al";}
+if ($n10=="Alaska") {$nn10 = "ak";}
+if ($n10=="American Samoa") {$nn10 = "as";}
+if ($n10=="Arizona") {$nn10 = "az";}
+if ($n10=="Arkansas") {$nn10 = "ar";}
+if ($n10=="California") {$nn10 = "ca";}
+if ($n10=="Colorado") {$nn10 = "co";}
+if ($n10=="Connecticut") {$nn10 = "ct";}
+if ($n10=="Delaware") {$nn10 = "de";}
+if ($n10=="District Of Columbia") {$nn10 = "dc";}
+if ($n10=="Federated States Of Micronesia") {$nn10 = "fm";}
+if ($n10=="Florida") {$nn10 = "fl";}
+if ($n10=="Georgia") {$nn10 = "ga";}
+if ($n10=="Guam") {$nn10 = "gu";}
+if ($n10=="Hawaii") {$nn10 = "hi";}
+if ($n10=="Idaho") {$nn10 = "id";}
+if ($n10=="Illinois") {$nn10 = "il";}
+if ($n10=="Indiana") {$nn10 = "in";}
+if ($n10=="Iowa") {$nn10 = "ia";}
+if ($n10=="Kansas") {$nn10 = "ks";}
+if ($n10=="Kentucky") {$nn10 = "ky";}
+if ($n10=="Louisiana") {$nn10 = "la";}
+if ($n10=="Maine") {$nn10 = "me";}
+if ($n10=="Marshall Islands") {$nn10 = "mh";}
+if ($n10=="Maryland") {$nn10 = "md";}
+if ($n10=="Massachusetts") {$nn10 = "ma";}
+if ($n10=="Michigan") {$nn10 = "mi";}
+if ($n10=="Minnesota") {$nn10 = "mn";}
+if ($n10=="Mississippi") {$nn10 = "ms";}
+if ($n10=="Missouri") {$nn10 = "mo";}
+if ($n10=="Montana") {$nn10 = "mt";}
+if ($n10=="Nebraska") {$nn10 = "ne";}
+if ($n10=="Nevada") {$nn10 = "nv";}
+if ($n10=="New Hampshire") {$nn10 = "nh";}
+if ($n10=="New Jersey") {$nn10 = "nj";}
+if ($n10=="New Mexico") {$nn10 = "nm";}
+if ($n10=="New York") {$nn10 = "ny";}
+if ($n10=="North Carolina") {$nn10 = "nc";}
+if ($n10=="North Dakota") {$nn10 = "nd";}
+if ($n10=="Northern Mariana Islands") {$nn10 = "mp";}
+if ($n10=="Ohio") {$nn10 = "oh";}
+if ($n10=="Oklahoma") {$nn10 = "ok";}
+if ($n10=="Oregon") {$nn10 = "or";}
+if ($n10=="Palau") {$nn10 = "pw";}
+if ($n10=="Pennsylvania") {$nn10 = "pa";}
+if ($n10=="Puerto Rico") {$nn10 = "pr";}
+if ($n10=="Rhode Island") {$nn10 = "ri";}
+if ($n10=="South Carolina") {$nn10 = "sc";}
+if ($n10=="South Dakota") {$nn10 = "sd";}
+if ($n10=="Tennessee") {$nn10 = "tn";}
+if ($n10=="Texas") {$nn10 = "tx";}
+if ($n10=="Utah") {$nn10 = "ut";}
+if ($n10=="Vermont") {$nn10 = "vt";}
+if ($n10=="Virgin Islands") {$nn10 = "vi";}
+if ($n10=="Virginia") {$nn10 = "va";}
+if ($n10=="Washington") {$nn10 = "wa";}
+if ($n10=="West Virginia") {$nn10 = "wv";}
+if ($n10=="Wisconsin") {$nn10 = "wi";}
+if ($n10=="Wyoming") {$nn10 = "wy";}
+	$nn8=str_replace(" ", "+", "$n8");
+	$nn9=str_replace(" ", "+", "$n9");
+	
+	$SSS1 = "http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$nn8&csz=$nn9%2C+$nn10&Country=us&Get%A0Map=Get+Map";
+	
+	print "<div class='div3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target=_blank href=$m3><b>$m2</b></a>";
+	print "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target=_blank href=$SSS1>$n8</a></div>\n";
+	fwrite($fp, "<div class='div3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target=_blank href=$m3><b>$m2</b></a>");
+	fwrite($fp, "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target=_blank href=$SSS1>$n8</a></div>\n");
+	$m6=strlen("$m2 $m4");
+	$m7 = ($m6/35);
+	for ($o = 0; $o < $m7; $o++) {$m5++;}
+	}
+	
+	if ($n6=="Websites")
+	{
+	print "<br><div class='div3'><a target=_blank href=$m3><b>$m2</b></a> $m4</div>\n";
+	fwrite($fp, "<br><div class='div3'><a target=_blank href=$m3><b>$m2</b></a> $m4</div>\n");
+	$m6=strlen("$m2 $m4");
+	$m7 = ($m6/35);
+	for ($o = 0; $o < $m7; $o++) {$m5++;}
+	}
+	
+	if ($m5>45) {
+		$m8++;
+		if ($m8==2) {
+		print "</td><td valign=top width=50%>";
+		fwrite($fp, "</td><td valign=top width=50%>");
+		}
+
+		}
+	
+	if ($m5>90) {
+		$m5=1;
+		print "</td></tr></table><p><table cellpadding=5 width=95% bgcolor=#FFFFFF background=images/bgtan.jpg><tr><td valign=top width=50%>";
+		fwrite($fp, "</td></tr></table></div></html>");
+		fclose($fp);
+		
+		$mArt=1;
+		
+		$mNum++;
+		$Query12 = "DELETE FROM `mine_state`;";
+		$Result12 = mysql_db_query($DBName, $Query12, $Link);
+		$Query12 = "INSERT INTO `mine_state` ( `a` ) VALUES ('$mNum');";
+		$Result12 = mysql_db_query($DBName, $Query12, $Link);
+	}
+	}
+	$om1 = $m1;
+	$om2 = $m2;
+	$on6 = $n6;
+	$on9 = $n9;
+	$on10 = $n10;
+	
+
+	}
+	}
+print "</td></tr></table></div>";
+fwrite($fp, "</td></tr></table></div>");
+fclose($fp);
+fclose($fp2);
+mysql_close ($Link);
+?>

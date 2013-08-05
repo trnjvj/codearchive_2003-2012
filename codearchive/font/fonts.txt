@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="GENERATOR" CONTENT="Mozilla/4.04 [en] (Win95; I) [Netscape]">
+<LINK REL=FONTDEF SRC="http://www.truedoc.com/pfrs/Amelia.pfr">
+<FONT FACE="Amelia BT" SIZE="7" COLOR="#339933">Drink Dr. Pepper</FONT><BR>
+<FONT FACE="Amelia BT" SIZE="7"> Tim Johnson</font>
+<LINK REL=FONTDEF SRC="http://www.truedoc.com/pfrs/AmeriGarmnd.pfr">
+<BR>
+<FONT FACE="AmeriGarmnd BT" SIZE="7">Tim J</font>
+<LINK REL=FONTDEF SRC="http://www.truedoc.com/pfrs/BakerSignet.pfr">
+<FONT FACE="BakerSignet BT" size="7">Timbo!</font> 
+
+
+
+
+
+</BODY>
+</HTML>

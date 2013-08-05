@@ -1,0 +1,59 @@
+<?PHP
+$z1 = $_GET['z1'];
+$z2 = $_GET['z2'];
+$z3 = $_GET['z3'];
+if ($z1) {} else {$z1 = $_POST['z1'];}
+if ($z2) {} else {$z2 = $_POST['z2'];}
+if ($z3) {} else {$z3 = $_POST['z3'];}
+$mysubject = $_POST['mysubject'];
+$mymessage = $_POST['mymessage'];
+
+$ip=$_SERVER['REMOTE_ADDR'];
+include('db_connect.php');
+$myemail="";
+$Query7 = "SELECT a FROM `sessions2` WHERE b='$z1' AND c='$z2' AND d='$ip';";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$myemail = $Row7[0];
+	}
+if ($myemail) {
+
+if ($mysubject) {
+print "message sent<br />";
+$timesent=time();
+$Query7 = "INSERT INTO `messages2` (`sender`, `sendee`, `title`, `message`, `timesent`, `status`, `a`, `b`, `c`) VALUES ('$myemail', '$z3', '$mysubject', '$mymessage', '$timesent', 'unread', '', '', '');";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+
+} else {
+//print "from: $myemail<br />";
+
+print '
+<form method="post" action="sendmessage.php" name="logform">
+<table border="0"><tr><td align="right">';
+print "to:</td><td>$z3</td></tr>";
+
+print '<tr><td>
+<input name="z3" size="50" maxlength="125" value="search" type="hidden">
+Subject:</td><td><input name="mysubject" size="50" maxlength="125" value="" type="text"></td></tr>
+<tr><td align="right">Message:</td><td><textarea name="mymessage" rows="10" cols="55"></textarea></td></tr>
+</table>
+<input name="z1" size="25" maxlength="125" value="';
+print "$z1";
+print '" type="hidden">
+<input name="z2" size="25" maxlength="125" value="';
+print "$z2";
+print '" type="hidden">
+<input name="z3" size="25" maxlength="125" value="';
+print "$z3";
+print '" type="hidden">
+<input type="submit" name="mysubmit" value="send" />
+</form>
+';
+}
+
+
+	
+}
+mysql_close ($Link);
+?>

@@ -1,0 +1,31 @@
+<?PHP
+include('db_connect.php');
+
+$Query1 = "TRUNCATE TABLE `tim_authnet`;";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+
+$mCount=0;
+$TheFile = "authnet_nov16/Download20111116-164739.txt";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode(",", $String);
+		
+		$Query1 = "INSERT INTO `tim_authnet` (`id`, `a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`, `i`, `j`, `k`, `l`, `m`, `n`, `o`, `p`, `q`, `r`, `s`, `t`, `u`, `v`, `w`, `x`, `y`, `z`, `a1`, `b1`, `c1`, `d1`, `e1`, `f1`, `g1`, `h1`, `i1`, `j1`, `k1`, `l1`, `m1`, `n1`, `o1`, `p1`, `q1`, `r1`, `s1`, `t1`, `u1`, `v1`, `w1`, `x1`, `y1`, `z1`, `a2`, `b2`, `c2`, `d2`, `e2`, `f2`, `g2`, `h2`, `i2`, `j2`, `k2`, `l2`, `m2`, `n2`, `o2`, `p2`, `q2`, `r2`, `s2`, `t2`, `u2`, `v2`) VALUES (NULL, '$Array[0]', '$Array[1]', '$Array[2]', '$Array[3]', '$Array[4]', '$Array[5]', '$Array[6]', '$Array[7]', '$Array[8]', '$Array[9]', '$Array[10]', '$Array[11]', '$Array[12]', '$Array[13]', '$Array[14]', '$Array[15]', '$Array[16]', '$Array[17]', '$Array[18]', '$Array[19]', '$Array[20]', '$Array[21]', '$Array[22]', '$Array[23]', '$Array[24]', '$Array[25]', '$Array[26]', '$Array[27]', '$Array[28]', '$Array[29]', '$Array[30]', '$Array[31]', '$Array[32]', '$Array[33]', '$Array[34]', '$Array[35]', '$Array[36]', '$Array[37]', '$Array[38]', '$Array[39]', '$Array[40]', '$Array[41]', '$Array[42]', '$Array[43]', '$Array[44]', '$Array[45]', '$Array[46]', '$Array[47]', '$Array[48]', '$Array[49]', '$Array[50]', '$Array[51]', '$Array[52]', '$Array[53]', '$Array[54]', '$Array[55]', '$Array[56]', '$Array[57]', '$Array[58]', '$Array[59]', '$Array[60]', '$Array[61]', '$Array[62]', '$Array[63]', '$Array[64]', '$Array[65]', '$Array[66]', '$Array[67]', '$Array[68]', '$Array[69]', '$Array[70]', '$Array[71]', '$Array[72]', '');";
+		$Result1 = mysql_db_query($DBName, $Query1, $Link);
+		
+		$thisNum = count($Array);
+		//print "$thisNum | ";
+		$mCount++;
+		for ($m = 0; $m < count($Array); $m++) {
+			$mFlag1 = strstr($Array[$m], 'v=glance&s=books');
+		}
+	}
+}
+print "| $mCount";
+mysql_close ($Link);
+?>

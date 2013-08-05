@@ -1,0 +1,46 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="11111115, URL=get_5a.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+
+$TheFile = "searchterms.txt";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+$mm = strpos($String, "|");
+
+
+$S1 = substr($String, 0, $mm);
+$mn = strlen($String);
+$S2 = substr($String, $mm+1, $mn-$mm-1);
+
+if ($S2=="common name") {} else {
+
+print "$mm ? $S1 ! $S2 *** ";
+
+$Query111 = "INSERT INTO `ore2` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$S1', '', '', '', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+}
+}
+}
+
+
+fclose($Open);
+
+
+mysql_close ($Link);
+?>

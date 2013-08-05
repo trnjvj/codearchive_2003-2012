@@ -1,0 +1,91 @@
+<?
+$mSearch321=str_replace("+", " ", $mSearch);
+$mSearch321=trim($mSearch321);
+$mCount2002 = 0;
+$mFirst321=1;
+$mLevel = $Level;
+$Host = "localhost";
+$User = "grabber_world";
+$Password = "turnip";
+$DBName = "grabber_world";
+$Tablename = "world";
+$Tablename = "websites";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query4 = "Select DISTINCT * from e_searches where page='' LIMIT 1";
+$Result4 = mysql_db_query($DBName, $Query4, $Link);
+while ($Row4 = mysql_fetch_array ($Result4))
+	{
+	$mSearch=$Row4[1];
+	$Query17 = "UPDATE `e_searches` SET `page` = '1' WHERE `search` = '$mSearch';";
+	$Result17 = mysql_db_query($DBName, $Query17, $Link);
+	}
+
+
+$mCached=0;
+if ($mCached==0) {
+$Cache="";
+$mSearch2003=str_replace(" ", "+", $mSearch);
+$mSkipit=0;
+for ($o = 2; $o < 1200; $o = $o + 20) {
+if ($mSkipit==0) {
+$TheFile = "http://search.dmoz.org/cgi-bin/search?search=$mSearch2003&utf8=1&locale=en&start=$o";
+$Start=0;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=-1;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++)
+    	{
+		$String = trim($Data[$n]);
+
+        $VVV = strpos($String,"he Open Directory search is currently under a heavy load. Please try back later.");
+        if ($VVV) {
+			$mSkipit=0;
+			}
+
+		$V1 = strpos($String, "li>");
+		if ($V1) {
+                $V3 = strpos($String, '"');
+                $V4 = strlen($mString);
+				if ($V3) {
+                	$T1 = substr($String, $V3+1, $V4-$V3-1);
+                    $V5 = strpos($T1, '"');
+                	if ($V5) {
+                		$T2 = substr($T1, 0, $V5);
+                        $V6 = strlen($T1);
+                        $T3 = substr($T1, $V5+2, $V6-$V5-2);
+                        $V7 = strpos($T3, "</a>");
+                        $T4 = substr($T3, 0, $V7);
+                        $T4 = str_replace("<b>", "", $T4);
+                        $T4 = str_replace("</b>", "", $T4);
+                        $T4 = str_replace(";", "", $T4);
+                        $V8 = strlen($T3);
+                        $T5 = substr($T3, $V7+4, $V8-$V7-4);
+                        $T5 = str_replace("<b>", "", $T5);
+                        $T5 = str_replace("</b>", "", $T5);
+                        $T5 = str_replace(" - ", "", $T5);
+                        $V9 = strpos($T5, "<");
+                        $T6 = substr($T5, 0, $V9);
+                        $mCount2002 = $mCount2002+1;
+                    $mFound=1;
+					$mNot=0;
+					$VV1 = strpos($T2, ".jpg");
+					if ($VV1) {$mNot=1;}
+$VV1 = strpos($T2, ".gif");
+					if ($VV1) {$mNot=1;}
+if ($mNot==0) {
+                    $Query14="INSERT INTO `e_http` (`search`, `url`) VALUES ('$mSearch', '$T2');";
+					$Result14 = mysql_db_query($DBName, $Query14, $Link);
+}
+     }
+}
+}
+}
+}
+}
+}
+}
+mysql_close ($Link);
+?>

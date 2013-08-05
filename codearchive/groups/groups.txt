@@ -1,0 +1,171 @@
+<html>
+<?
+$mSearch = trim($Search);
+$mSearch = str_replace(" ", "+", $mSearch);
+$mReturn = str_replace(" ", "+", $Return);
+$mCountry = str_replace("_", " ", $Return);
+$mCountry = str_replace(".php", "", $mCountry);
+
+$Host = "localhost";
+$User = "pacific_world";
+$Password = "turnip";
+$DBName = "pacific_world";
+$Tablename = "email";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+
+mysql_select_db ("$Tablename");
+
+
+print "<html>";
+print "<title>Blue Pacific Marketing: $Search</title>";
+print "<body background='images/bottom_second.jpg' bgcolor=#CCCC99 text=#663333 link=#663333 vlink=#663333 alink=#663333>";
+print "<div align=center>";
+print "<table border=0 width=100% cellpadding=0><tr>";
+print "<td width=33% align=right valign=middle><form action='email.php' method=post><input type='text' name='Search' size=15 maxlength=100>&nbsp;<input type=submit value='Search'></form></td></tr></table>";
+$Found2=1;
+$T8 = "groups_data.txt";
+
+$TheFile = $T8;
+$Found = 0;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+		$T2 = $Array[$m];
+	print "<p><font face=arial size=1><a target=_blank href=$T2>$T2</a></font><p>";
+$Found10=1;
+for ($n10=0; $n10<2; $n10) {
+	if ($Found10==1) {
+		$Open2 = fopen($T2, "r");
+if ($Open2) {
+
+
+	$Found10=0;
+	$Data2 = file($T2);
+	for ($n2 = 0; $n2 < count($Data2); $n2++) {
+		$String2 = trim($Data2[$n2]);
+		$Array2 = explode("<p>", $String2);
+		for ($m2 = 0; $m2 < count($Array2); $m2++) {
+			$T3 = $Array2[$m2];
+			$T4 = strpos($T3, "ublic</a>");
+			$V1 = strpos($T3, "Next");
+			if ($V1) {
+				$V2 = strlen($T3);
+				$V3 = substr($T3, 9, $V2-10);
+				$V4 = strpos($V3, '"');
+				$V5 = substr($V3, 0, $V4);
+				$T2 = "http://dir.groups.yahoo.com$V5";
+				$Found10=1;
+				
+				}
+	
+				
+				if ($T4) {
+					$T5 = strpos($OT3, '"');
+					$T6 = strlen($OT3);
+					$T7 = substr($OT3, $T5, $T6-$T5);
+					$T8 = strlen($T7);
+					$T9 = substr($T7, 8, $T8-8);
+					$T10 = strpos($T9, "/");
+					$T11 = substr($T9, 0, $T10);
+					print "<p><font face=arial size=2><a target=_blank href=email.php?Search=$T11>$T11</a></font><p>";
+					$Search5=$T11;
+
+
+
+
+
+$Found25=1;
+$T85 = "http://groups.yahoo.com/group/$Search5/messages/?expand=1";
+for ($o5=1; $o5<2; $o5++) {
+$TheFile5 = $T85;
+$Found5 = 0;
+$Open5 = fopen($TheFile5, "r");
+if ($Open5) {
+	$Data5 = file($TheFile5);
+	for ($n5 = 0; $n5 < count($Data5); $n5++) {
+		$String5 = trim($Data5[$n5]);
+		$Array5 = explode("<p>", $String5);
+		for ($m5 = 0; $m5 < count($Array5); $m5++) {
+		$T25 = strstr($Array5[$m5], 'Prev');
+				if ($T25) {
+					$T35 = strpos($Array5[$m5], '"');
+					$T45 = strlen($Array5[$m5]);
+					$T55 = substr($Array5[$m5], $T35+1, $T45-$T35-1);
+					$T65 = strpos($T55, '"');
+					$T75 = substr($T55, 1, $T65-1);
+					$T85 = "http://groups.yahoo.com/$T75";
+					$Found25 = 1;
+				}
+			$S15 = strstr($Array5[$m5], 'From:');
+			$S25 = strpos($Array5[$m5], '&lt;');
+			if ($S15) {
+				if ($S25) {
+					$Found5=1;
+					$S35 = strlen($Array5[$m5]);
+					$mStory5 = substr($Array5[$m5], $S25+4, $S35-$S25-4);
+					$mStory5= str_replace("&gt;", "", $mStory5);
+					$mStory5 = str_replace("@y...", "@yahoo.com", $mStory5);
+					$S45 = strpos($mStory5, "yahoo.com");
+					if ($S45) {
+						Print "$mStory5, \n";
+
+						$Host = "localhost";
+$User = "pacific_world";
+$Password = "turnip";
+$DBName = "pacific_world";
+$Tablename = "email";
+if ($mStory5==$OldStory) {} else {
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+						mysql_select_db ("$Tablename");
+						$Query = "INSERT INTO `email` (`source`, `group`, `email`) VALUES ('$T2', '$T11', '$mStory5');";
+						mysql_db_query($DBName, $Query, $Link);
+}
+
+$OldStory=$mStory5;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+if ($Found5== 0) {
+print "No News Found.";
+}
+else
+{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					}
+				$OT3 = $T3;
+			}}}
+			}
+		}
+	}
+}}
+if ($Found == 0) {
+print "No News Found.";
+}
+else
+{
+}
+?>
+<hr><div align=center><font face=arial size=1>&copy; 2002 by <a href="http://www.bluepacificmarketing.com/">Blue Pacific Marketing</a></font></div></html>

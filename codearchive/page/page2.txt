@@ -1,0 +1,366 @@
+<?
+
+
+set_time_limit (600000);
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query11 = "SELECT b from freetown_categories where d=''";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+    $Search = $Row11[0];
+	$Query12 = "UPDATE freetown_categories SET d='1' WHERE b='$Search';";
+	$Result12 = mysql_db_query($DBName, $Query12, $Link);
+	
+$Letter = substr($Search, 0,1);
+$LetterFile = $Letter.".htm";
+print "!$Letter!<p>";
+$Search2 = str_replace(" ", "_", $Search);
+$Lower = strtolower($Search2);
+$Links2 = $Lower."_links.htm";
+$CDs = $Lower."_cds.htm";
+$Dir = $Lower."_directory.htm";
+$News = $Lower."_news.htm";
+
+print "$Links2";
+
+
+$fp = fopen("../freetown/pages/$Links2", "wt");
+
+print "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>";
+fwrite($fp, "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>");
+print "<html>";
+fwrite($fp, "<html>");
+print "<head>";
+fwrite($fp, "<head>");
+print "<title>Freetown Records: $Search</title>";
+fwrite($fp, "<title>Freetown Records: $Search</title>");
+print "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>";
+fwrite($fp, "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>");
+print "<link rel='stylesheet' type='text/css' href='css/freetown.css'>";
+print "</head>";
+fwrite($fp, "</head>");
+print "<body>";
+fwrite($fp, "<body bgcolor=#606060 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF alink=#FFFFFF>");
+print "<a href=index.php><img border=0 src=../images/logo.jpg></a>";
+fwrite($fp, "<div align=center><a href=../index.html><img border=0 src=../images/logo.jpg></a>");
+print "<h2><a href=../index.html>$Search</a></h2>";
+fwrite($fp, "<table width=700 border=0><tr><td><font face=verdana size=2><b><a href=../index.html>Freetown</a> &gt; $Search</td>");
+fwrite($fp, "<td align=right><font face=verdana size=2><b><a target=_blank href=../advertising.php>advertising</a> | <a target=_blank href=../revise.php>revisions</a></b></font></td></tr></table>");
+fwrite($fp, "</tr></table><p>");
+print "<h3><a href=$mRoot_links.htm>Links</a> <a href=$mRoot_cds.htm>CDs</a> <a href=$mRoot_news.htm>News</a></h3>";
+fwrite($fp, "<font face=verdana size=2><b><a href=$Links2>Links</a> <a href=$CDs>CDs</a> <a href=$Dir>Directory</a> <a href=$News>News</a></b></font>");
+
+print "<table><tr><td></td><td>";
+fwrite($fp, "</div><p><font face=verdana size=2>");
+$Query = "SELECT * from freetown_links where a='$Search' order by b";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $m1 = $Row[0];
+	$m2 = $Row[1];
+	$m3 = $Row[2];
+	$m4 = $Row[3];
+	
+	$m0 = "$m2";
+	if ($m0!=$mo0) {	
+	print "<li><a target=_blank href=$m3>$m2</a>&nbsp;&nbsp;&nbsp;$m4";
+	fwrite($fp, "<li><a target=_blank href=$m3><b>$m2</b></a>&nbsp;&nbsp;&nbsp;$m4");	
+	} 
+	$mo1 = $m1;
+	$mo2 = $m2;
+	$mo3 = $m3;
+	$mo4 = $m4;	
+	$mo0 = "$m2";
+	}
+print "</table>";
+fwrite($fp, "</table>");
+fwrite($fp, "<br>&nbsp;<p><div align=center><b>&copy; 2003 by <a target=_blank href=../bpm/>Blue Pacific Marketing</a></b></font><p></div>");
+fclose($fp);
+
+$fp = fopen("../freetown/pages/$CDs", "wt");
+
+print "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>";
+fwrite($fp, "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>");
+print "<html>";
+fwrite($fp, "<html>");
+print "<head>";
+fwrite($fp, "<head>");
+print "<title>Freetown Records: $Search</title>";
+fwrite($fp, "<title>Freetown Records: $Search</title>");
+print "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>";
+fwrite($fp, "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>");
+print "<link rel='stylesheet' type='text/css' href='css/freetown.css'>";
+print "</head>";
+fwrite($fp, "</head>");
+print "<body>";
+fwrite($fp, "<body bgcolor=#606060 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF alink=#FFFFFF>");
+print "<a href=index.php><img border=0 src=../images/logo.jpg></a>";
+fwrite($fp, "<div align=center><a href=../index.html><img border=0 src=../images/logo.jpg></a>");
+print "<h2><a href=../index.html>$Search</a></h2>";
+fwrite($fp, "<table width=700 border=0><tr><td><font face=verdana size=2><b><a href=../index.html>Freetown</a> &gt; $Search</td>");
+fwrite($fp, "<td align=right><font face=verdana size=2><b><a target=_blank href=../advertising.php>advertising</a> | <a target=_blank href=../revise.php>revisions</a></b></font></td></tr></table>");
+fwrite($fp, "</tr></table><p>");
+print "<h3><a href=$mRoot_links.htm>Links</a> <a href=$mRoot_cds.htm>CDs</a> <a href=$mRoot_news.htm>News</a></h3>";
+fwrite($fp, "<font face=verdana size=2><b><a href=$Links2>Links</a> <a href=$CDs>CDs</a> <a href=$Dir>Directory</a> <a href=$News>News</a></b></font>");
+
+
+print "<table><tr><td></td><td>";
+fwrite($fp, "<table><tr><td></td><td>");
+
+
+$Query = "SELECT * from cds where a='$Search' order by b,c";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $m1 = $Row[0];
+	$m2 = $Row[1];
+	$m3 = $Row[2];
+	$m4 = $Row[3];
+	$m5 = $Row[4];
+	$m6 = $Row[5];
+	$m7 = $Row[6];
+	$m8 = $Row[7];
+	$m9 = $Row[8];
+	$m10 = $Row[9];
+	$m11 = $Row[10];
+	$m12 = $Row[11];
+	$m13 = $Row[12];
+	$m14 = $Row[13];
+	$m15 = $Row[14];
+	$m0 = "$m4$m3";
+	if ($m0!=$mo0) {
+	if ($m2!=$mo2) {
+	print "</td></tr>";
+	fwrite($fp, "</td></tr>");
+	print "<tr><td>";
+	fwrite($fp, "<tr><td valign=top align=right>");
+	print "<font face=verdana size=2><b>$m2</b></font>";
+	fwrite($fp, "<font face=verdana size=2><b>$m2</b></font>");
+	print "</td><td>";
+	fwrite($fp, "</td><td><font face=verdana size=2>");
+	}
+	print "<a target=_blank href=$m14>$m3</a>&nbsp;";
+	fwrite($fp, "<a target=_blank href=$m14>$m3</a>&nbsp;");
+	} 
+	$mo1 = $m1;
+	$mo2 = $m2;
+	$mo3 = $m3;
+	$mo4 = $m4;
+	$mo5 = $m5;
+	$mo6 = $m6;
+	$mo7 = $m7;
+	$mo8 = $m8;
+	$mo9 = $m9;
+	$mo10 = $m10;
+	$mo11 = $m11;
+	$mo12 = $m12;
+	$mo13 = $m13;
+	$mo14 = $m14;
+	$mo15 = $m15;
+	$mo0 = "$m4$m3";
+	}
+print "</table>";
+fwrite($fp, "</table>");
+fwrite($fp, "<p><div align=center><b>&copy; 2003 by <a target=_blank href=../bpm/>Blue Pacific Marketing</a></b></font><p></div>");
+fclose($fp);
+
+
+
+$fp = fopen("../freetown/pages/$Dir", "wt");
+
+print "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>";
+fwrite($fp, "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>");
+print "<html>";
+fwrite($fp, "<html>");
+print "<head>";
+fwrite($fp, "<head>");
+print "<title>Freetown Records: $Search</title>";
+fwrite($fp, "<title>Freetown Records: $Search</title>");
+print "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>";
+fwrite($fp, "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>");
+print "<link rel='stylesheet' type='text/css' href='css/freetown.css'>";
+print "</head>";
+fwrite($fp, "</head>");
+print "<body>";
+fwrite($fp, "<body bgcolor=#606060 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF alink=#FFFFFF>");
+print "<a href=index.php><img border=0 src=../images/logo.jpg></a>";
+fwrite($fp, "<div align=center><a href=../index.html><img border=0 src=../images/logo.jpg></a>");
+print "<h2><a href=../index.html>$Search</a></h2>";
+fwrite($fp, "<table width=700 border=0><tr><td><font face=verdana size=2><b><a href=../index.html>Freetown</a> &gt; $Search</td>");
+fwrite($fp, "<td align=right><font face=verdana size=2><b><a target=_blank href=../advertising.php>advertising</a> | <a target=_blank href=../revise.php>revisions</a></b></font></td></tr></table>");
+fwrite($fp, "</tr></table><p>");
+print "<h3><a href=$mRoot_links.htm>Links</a> <a href=$mRoot_cds.htm>CDs</a> <a href=$mRoot_news.htm>News</a></h3>";
+fwrite($fp, "<font face=verdana size=2><b><a href=$Links2>Links</a> <a href=$CDs>CDs</a> <a href=$Dir>Directory</a> <a href=$News>News</a></b></font>");
+
+print "<table>";
+fwrite($fp, "<p><table>");
+
+$Query = "SELECT * from freetown where g='$Search' order by c,l,j";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $m1 = $Row[0];
+	$m2 = $Row[1];
+	$m3 = $Row[2];
+	$m4 = $Row[3];
+	$m5 = $Row[4];
+	$m6 = $Row[5];
+	$m7 = $Row[6];
+	$m8 = $Row[7];
+	$m9 = $Row[8];
+	$m10 = $Row[9];
+	$m11 = $Row[10];
+	$m12 = $Row[11];
+	$m13 = $Row[12];
+	$m14 = $Row[13];
+	$m0 = "$m3$m12$m10$m11$m13$m14";
+	if ($m0!=$mo0) {
+	print "<tr>";
+	fwrite($fp, "<tr>");
+	if ($m3==$mo3) {
+		print "<td>&nbsp;</td>";
+		fwrite($fp, "<td>&nbsp;</td>");
+		} else {
+		print "<td>$m3&nbsp;</td>";
+		fwrite($fp, "<td><font face=verdana size=2>$m3&nbsp;</font></td>");
+		}
+	if ($m12==$mo12) {
+		print "<td>&nbsp;</td>";
+		fwrite($fp, "<td>&nbsp;</td>");
+		} else {
+		print "<td><font face=verdana size=2>$m12&nbsp;</font></td>";
+		fwrite($fp, "<td><font face=verdana size=2>$m12&nbsp;</font></td>");
+		}
+	print "<td><font face=verdana size=2>$m10&nbsp;</font></td>";
+	if ($m14) {
+	fwrite($fp, "<td><font face=verdana size=2>$m10<br><a href=$m14><b>$m14</b></a>&nbsp;</font></td>");
+	} else {
+	fwrite($fp, "<td><font face=verdana size=2>$m10&nbsp;</font></td>");	
+	}
+	print "<td>$m11&nbsp;</td>";
+	fwrite($fp, "<td><font face=verdana size=2>$m11&nbsp;</font></td>");
+	print "<td>$m13&nbsp;</td>";
+	fwrite($fp, "<td><font face=verdana size=2>$m13&nbsp;</font></td>");
+	print "<td>$m14&nbsp;</td>";
+
+	print "</tr>";
+	fwrite($fp, "</tr>");
+	}
+	$mo1 = $m1;
+	$mo2 = $m2;
+	$mo3 = $m3;
+	$mo4 = $m4;
+	$mo5 = $m5;
+	$mo6 = $m6;
+	$mo7 = $m7;
+	$mo8 = $m8;
+	$mo9 = $m9;
+	$mo10 = $m10;
+	$mo11 = $m11;
+	$mo12 = $m12;
+	$mo13 = $m13;
+	$mo14 = $m14;
+	$mo0 = "$m3$m12$m10$m11$m13$m14";
+	}
+print "</table>";
+fwrite($fp, "</table>");
+fwrite($fp, "<p><div align=center><font face=verdana size=2><b>&copy; 2003 by <a target=_blank href=../bpm/>Blue Pacific Marketing</a></b></font><p></div>");
+fclose($fp);
+
+
+$fp = fopen("../freetown/pages/$News", "wt");
+
+print "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>";
+fwrite($fp, "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>");
+print "<html>";
+fwrite($fp, "<html>");
+print "<head>";
+fwrite($fp, "<head>");
+print "<title>Freetown Records: $Search</title>";
+fwrite($fp, "<title>Freetown Records: $Search</title>");
+print "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>";
+fwrite($fp, "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>");
+print "<link rel='stylesheet' type='text/css' href='css/freetown.css'>";
+print "</head>";
+fwrite($fp, "</head>");
+print "<body>";
+fwrite($fp, "<body bgcolor=#606060 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF alink=#FFFFFF>");
+print "<a href=index.php><img border=0 src=../images/logo.jpg></a>";
+fwrite($fp, "<div align=center><a href=../index.html><img border=0 src=../images/logo.jpg></a>");
+print "<h2><a href=../index.html>$Search</a></h2>";
+fwrite($fp, "<table width=700 border=0><tr><td><font face=verdana size=2><b><a href=../index.html>Freetown</a> &gt; $Search</td>");
+fwrite($fp, "<td align=right><font face=verdana size=2><b><a target=_blank href=../advertising.php>advertising</a> | <a target=_blank href=../revise.php>revisions</a></b></font></td></tr></table>");
+fwrite($fp, "</tr></table><p>");
+print "<h3><a href=$mRoot_links.htm>Links</a> <a href=$mRoot_cds.htm>CDs</a> <a href=$mRoot_news.htm>News</a></h3>";
+fwrite($fp, "<font face=verdana size=2><b><a href=$Links2>Links</a> <a href=$CDs>CDs</a> <a href=$Dir>Directory</a> <a href=$News>News</a></b></font>");
+
+print "<table>";
+fwrite($fp, "<p><table>");
+
+$Query = "SELECT * from freetown_news where SEARCH='$Search' order by LAND, STORY, SOURCE, TIME, YEAR";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $m1 = $Row[0];
+	$m2 = $Row[1];
+	$m3 = $Row[2];
+	$m4 = $Row[3];
+	$m5 = $Row[4];
+	$m6 = $Row[5];
+	$m7 = $Row[6];
+	$m8 = $Row[7];
+	$m9 = $Row[8];
+	$m10 = $Row[9];
+	$m11 = $Row[10];
+	$m12 = $Row[11];
+	$m13 = $Row[12];
+	$m14 = $Row[13];
+	$m15 = $Row[14];
+	$m0 = "$m7";
+	if ($m0!=$mo0) {
+	if (strlen($m7)>0 and strlen($m4)>0) {
+	print "<tr>";
+	fwrite($fp, "<tr>");
+	print "<td width=30%>$m4: <a target=_blank href=$m2>$m7</a>&nbsp;</td>";
+	if ($m4==$mo4) {
+	fwrite($fp, "<td width=10%><font face=verdana size=2><b>&nbsp;</b></font></td><td><font face=verdana size=2><a target=_blank href=$m2>$m7</a></font></td>");
+	} else {
+	fwrite($fp, "<td width=10%><font face=verdana size=2><b>$m4</b></font></td><td><font face=verdana size=2><a target=_blank href=$m2>$m7</a></font></td>");	
+	}
+	print "</tr>";
+	fwrite($fp, "</tr>");
+	}
+	} 
+	$mo1 = $m1;
+	$mo2 = $m2;
+	$mo3 = $m3;
+	$mo4 = $m4;
+	$mo5 = $m5;
+	$mo6 = $m6;
+	$mo7 = $m7;
+	$mo8 = $m8;
+	$mo9 = $m9;
+	$mo10 = $m10;
+	$mo11 = $m11;
+	$mo12 = $m12;
+	$mo13 = $m13;
+	$mo14 = $m14;
+	$mo15 = $m15;
+	$mo0 = "$m7";
+	}
+print "</table>";
+fwrite($fp, "</table>");
+fwrite($fp, "<p><div align=center><font face=verdana size=2><b>&copy; 2003 by Tim Johnson</b></font><p></div>");
+fclose($fp);
+
+}
+mysql_close ($Link);
+?>

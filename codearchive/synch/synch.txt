@@ -1,0 +1,34 @@
+<html>
+<META HTTP-EQUIV="Refresh" Content="10, URL=../freetown/2.php">
+<?
+set_time_limit (600000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query11 = "SELECT * FROM `holisticopia_ads_sept`";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$m1a = $Row11[0];
+	$m1b = $Row11[1];
+	$m1c = $Row11[2];
+	$m1d = $Row11[3];
+	$m1e = $Row11[4];
+	$m1f = $Row11[5];
+	$m1g = $Row11[6];
+	$m1h = $Row11[7];
+	$m1i = $Row11[8];
+	$m1j = $Row11[9];
+		
+    print "$Row11[1]<br>";
+	
+	$Query13 = "INSERT INTO `holisticopia` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('m1e', 'm1d', 'm1b', 'm1c', 'm1j', 'm1a', '', '', '', '1');";
+	$Result13 = mysql_db_query($DBName, $Query13, $Link);		
+	
+	}
+mysql_close ($Link);
+?>

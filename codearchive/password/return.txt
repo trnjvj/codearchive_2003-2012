@@ -1,0 +1,65 @@
+<?
+setcookie("system", "1", time()+"10000000");
+setcookie("user", "$a", time()+"10000000");
+?>
+<HTML><HEAD><TITLE>Welcome to The Daily Newsgrabber</TITLE></HEAD>
+<body bgcolor=ffffff background="images/bottom_second.jpg">
+<center>
+  <img src="images/logo.jpg" width="321" height="115"> <br>
+  <br>
+  <table border=0 cellpadding=4 cellspacing=0 width=650>
+<tr>
+      <td bgcolor="#B6C7E5"><font size=+1 face=Arial color=black
+><b>Registration Completed - Welcome to The Daily Newsgrabber!</b></font> </td>
+    </tr>
+</table>
+<table border=0 cellpadding=4 cellspacing=0 width=650>
+<tr>
+      <td><font face=Arial size=-1>A confirmation message has been emailed to 
+        your email address. Be sure to <b>write down your Daily Newsgrabber ID 
+        and password</b> for future reference.</font> </td>
+    </tr>
+</table>
+  <form method=post action="main.php" ><input type=hidden name=".done"> <input type=hidden name=".src" value="ym" ><input type=hidden name=".optin" value="" >
+    <table cellpadding=2 cellspacing=0 border=0 width="100%">
+<tr><td >
+<center>
+            <input type=submit name=.submit value="Continue to the Daily Newsgrabber">
+</center> 
+<p>
+
+</td></tr>
+</table>
+</form>
+<p>
+<center>
+<hr width="80%" size=1 noshade>
+<table width="750" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td align="middle"><font size=-2 face=arial color="#8d8d8d">Copyright 
+          &copy; 2002 The Daily Newsgrabber. All rights reserved<br>
+          </font></td>
+      </tr></table></center>
+</center>
+
+<?
+$mLevel = $Level;
+$Host = "localhost";
+$User = "grabber_world";
+$Password = "turnip";
+$DBName = "grabber_world";
+$Tablename = "users";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query = "INSERT INTO `users` (`a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`, `i`, `j`, `k`, `l`, `m`, `n`, `o`, `p`) VALUES ('$a', '$b', '$c',
+ '$d', '$e', '$f', '$g', '$h', '$i', '$j', '$k', '$l', '$m', '$n', '$o', '$p');";
+$Result = mysql_db_query($DBName, $Query, $Link);
+
+
+?>
+
+
+
+</body>
+</html>

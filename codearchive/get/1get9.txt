@@ -1,0 +1,54 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=1get9.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+$Query120 = "SELECT b FROM `xml_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];
+	}
+print "$mbb!<br>";
+
+$Query110 = "SELECT * FROM `newsletters_herbage_new5` ORDER BY a LIMIT $mbb,5000;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<font face=verdana,arial size=1>";
+$m0=0;
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$ma = strtolower($Row110[0]);
+	$mb = $Row110[1];
+	$mc = $Row110[2];
+	if ($moa==$ma) {$m0++;} else {
+		$mo0=$m0;
+		$m0=0;
+		if ($mob=='new') {
+		print "<b>hi!</b><br>";
+		$Query130 = "INSERT INTO `newsletters_herbage_new6` ( `a` , `b` , `c` ) VALUES ('$moa', '', '');";
+		$Result130 = mysql_db_query($DBName, $Query130, $Link);
+		}
+		}
+	print "$ma $mb $mc $m0 | ";
+	
+	$moa = $ma;
+	$mob = $mb;
+	$moc = $mc;
+	}
+
+$mbb=$mbb+5000;
+$Query112 = "UPDATE `xml_state` SET b='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+mysql_close ($Link);
+?>

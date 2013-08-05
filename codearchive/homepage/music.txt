@@ -1,0 +1,234 @@
+<html>
+<title>The Daily Newsgrabber</title>
+<script language="JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<body background='images/bottom_second.jpg' bgcolor=#CCCC99 text=#663333 link=#663333 vlink=#663333 alink=#663333 onLoad="MM_preloadImages('http://www.thedailynewsgrabber.com/images/ABOUTUS.jpg','http://www.thedailynewsgrabber.com/images/NEWS.jpg','http://www.thedailynewsgrabber.com/images/MOVIES.jpg','http://www.thedailynewsgrabber.com/images/MUSIC.jpg','http://www.thedailynewsgrabber.com/images/HEALTH.jpg')"><div align=center> 
+<table border="0" cellpadding="0">
+  <tr> 
+    <td colspan="5"> 
+      <div align="center"><a href="http://www.thedailynewsgrabber.com/main.php"><img src="http://www.thedailynewsgrabber.com/images/NG.jpg" width="449" height="135" border="0"></a></div>
+    </td>
+  </tr>
+  <tr> 
+    <td><a href="http://www.bluepacificmarketing.com/main.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('aboutus','','http://www.thedailynewsgrabber.com/images/ABOUTUS.jpg',1)"><img src="http://www.thedailynewsgrabber.com/images/ABOUTUS3.jpg" width="99" height="20" border="0" name="aboutus"></a></td>
+    <td><a href="http://www.thedailynewsgrabber.com/main.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('news','','http://www.thedailynewsgrabber.com/images/NEWS.jpg',1)"><img src="http://www.thedailynewsgrabber.com/images/NEWS3.jpg" width="99" height="20" border="0" name="news"></a></td>
+    <td><a href="http://www.stardigger.com/main.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('movies','','http://www.thedailynewsgrabber.com/images/MOVIES.jpg',1)"><img src="http://www.thedailynewsgrabber.com/images/MOVIES2.jpg" width="99" height="20" name="movies" border="0"></a></td>
+    <td><a href="http://www.freetownrecords.com/main.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('music','','http://www.thedailynewsgrabber.com/images/MUSIC.jpg',1)"><img src="http://www.thedailynewsgrabber.com/images/MUSIC2.jpg" width="99" height="20" name="music" border="0"></a></td>
+    <td><a href="http://www.holisticopia.com/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('health','','http://www.thedailynewsgrabber.com/images/HEALTH.jpg',1)"><img src="http://www.thedailynewsgrabber.com/images/HEALTH2.jpg" width="99" height="20" name="health" border="0"></a></td>
+  </tr>
+</table>
+<p>
+<?
+$mSearch = str_replace(" ", "+", $Search);
+$mReturn = str_replace(" ", "+", $Return);
+$mContinent = str_replace(" ", "_", $Continent);
+$mContinent2 = str_replace(" ", "+", $Continent);
+$mReturn2 = str_replace(":", "_", $mReturn);
+$mReturn2 = str_replace("+", "_", $mReturn2);
+$mCountry = str_replace("_", " ", $Return);
+$mCountry = str_replace(".php", "", $mCountry);
+print "<font face=arial size=3><a href='../grab.php?Search=$mSearch&Return=$mReturn&Continent=$mContinent2'>headlines</a> - <a href='../expand.php?Search=$mSearch&Return=$mReturn&Continent=$mContinent2'>full coverage</a>  - <a href='../books.php?Search=$mSearch&Return=$mReturn&Continent=$mContinent2'>books</a> - <a href='../movies.php?Search=$mSearch&Return=$mReturn&Continent=$mContinent2'>movies</a> - <a href='../music.php?Search=$mSearch&Return=$mReturn&Continent=$mContinent2'>music</a></div><hr>";
+
+print "<table border=0 width=100% cellpadding=0><tr><td width=62% valign=top align=left><font face=arial size=3><a href=main.php>Home</a> &gt; ";
+print "<a href=$mContinent.php>$Continent</a> ";
+if ($mContinent) {
+	print "&gt; ";
+	}
+print "<a href=files/$mReturn2.php>$mCountry</a> ";
+if ($mCountry) {
+	print "&gt; ";
+	}
+print "$Search &gt; Music</font></td>";
+print "<td width=38% align=right valign=middle><form action='music.php' method=post><input type='text' name='Search' size=15 maxlength=100>&nbsp;<input type=submit value='Search'></form></td></tr></table>";
+
+
+
+print "</div>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$PFound=1;
+for ($m1 = 1; $m1 < 20; $m1++) {
+
+if ($PFound==1) {
+$TheFile = "http://www.amazon.com/exec/obidos/external-search?tag=stardigger&mode=Music&keyword=$mSearch&pg=$m1";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$PFound=0;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			
+			$S1 = strstr($Array[$m], '<a href=/exec/obidos/tg/detail/-/');
+			if ($S1) {
+					$S2 = strpos($Array[$m], "-");
+					$S3 = strpos($Array[$m], "/", $S2+2);
+					$S4 = substr($Array[$m], $S2+2, $S3-$S2-2);
+					$T0 = strpos($Array[$m], "<img");
+					if ($T0) {
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T3b = strpos($Array[$m], "<", $T3+1);
+						$T4 = substr($Array[$m], $T2+1, $T3b-$T2-1);
+						$T5 = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_thedailynewsg-20>$T4</a>";
+						$Image=$T5;
+								$Image = str_replace("THUMB", "LZZZZ", $Image);
+								$Image = str_replace("width=50 height=49 ", "", $Image);
+								$Image = str_replace("width=50 height=50 ", "", $Image);
+								$Image = str_replace("align=left ", "", $Image);
+						$T6 = strpos($Image, "music-no-image.gif");
+						if ($T6) {
+							$Image = "";
+							}
+						} else {
+
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T4 = substr($Array[$m], $T2+1, $T3-$T2-1);
+						$Story = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_thedailynewsg-20>$T4</a>";
+						if ($First==0) {
+							Print "<p>&nbsp;<p><font face=arial size=3><b>$Story</b></a><p>$Image<p>\n";
+							$TFound=1;
+							$PFound=1;
+							}
+							else {
+							$First=0;
+							$PFound=1;
+							}
+						}
+					$Sound = $S4;
+					$Found=1;
+					
+						$mStory = str_replace("<a href=/exec/", "<a href=http://www.amazon.com/exec/", $Array[$m]);
+					$mStory = str_replace(" align=left", "", $mStory);
+					$S5 = strstr($mStory, "<img");
+					if ($TFound==1) {
+								
+					
+
+
+
+$TheFile2 = "http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_freetownrecor-20";
+$Open2 = fopen($TheFile2, "r");
+if ($Open2) {
+	$Data2 = file($TheFile2);
+	for ($n2 = 0; $n2 < count($Data2); $n2++) {
+		$String2 = trim($Data2[$n2]);
+		$Array2 = explode("<p>", $String2);
+		for ($m2 = 0; $m2 < count($Array2); $m2++) {
+					$mStory2 = $Array2[$m2];
+					$VV1 = strstr($Array2[$m2], '/artist/');
+					if ($VV1) {
+						$VV2 = strstr($Array2[$m2], "<li");
+						if ($VV2) {} else {
+								$VV3 = strpos($String2, ">");
+								$VV4 = strlen($String2);
+								$VV5 = substr($String2, $VV3+1, $VV4-$VV3);
+								$VV7 = strpos($VV5, "<");
+								$VV8 = substr($VV5, 0, $VV7);
+
+								$VV6 = str_replace(" ", "+", $VV8);
+								print "<a href=music.php?Search=$VV6&Return=$mReturn&Continent=$mContinent2>$VV8</a><p>";
+								}
+							}
+					$S22 = strstr($Array2[$m2], '<hr');
+					$S23 = strstr($Array2[$m2], $S4);
+					
+					if ($S22) {
+						$Found2 = 0;
+						$TFound=0;
+						}
+					if ($S23) {
+						$S24 = strstr($Array2[$m2], "<img");
+						if ($S24) {
+							
+							}
+						}
+
+					
+					if ($Found2==1) {
+						Print "$mStory2\n";
+						
+						
+						}
+					$S21 = strstr($Array2[$m2], 'audio help page');
+					if ($S21) {
+						$Found2 = 1;
+						}
+					$S21 = strstr($Array2[$m2], 'Track Listings');
+					if ($S21) {
+						$Found2 = 1;
+						}
+				}
+			}
+		}
+	
+}
+
+
+
+
+
+
+
+
+				}
+			}
+		}
+	}
+}
+}
+?>
+
+<hr><div align=center><font face=arial size=1>&copy; 2002 by Tim Johnson</font></div>
+</center>
+</html>

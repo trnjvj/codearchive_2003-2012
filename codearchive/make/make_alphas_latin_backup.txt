@@ -1,0 +1,107 @@
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mPageNum=0;
+$Query1201 = "SELECT * FROM `herbage_latin_alpha` WHERE c='' LIMIT 1;";
+$Result1201 = mysql_db_query($DBName, $Query1201, $Link);
+while ($Row1201 = mysql_fetch_array ($Result1201))
+	{
+	$m1 = $Row1201[0];
+	$m2 = $Row1201[1];		
+	}
+$m1 = "Latin Name";
+
+$m11 = str_replace(" ", "_", $m1);
+$m22 = str_replace(" ", "_", $m2);
+$m33 = $m11."_".$m2.".htm";
+
+$mFile = "files/$m33";
+$fp = fopen("$mFile", "wt");
+
+print '<html><head><META HTTP-EQUIV="Refresh" Content="1, URL=make_alphas_latin.php">';
+print "<title>Herbage 4</title>";
+print "<body bgcolor=#006633 text=#CCFF66 link=#CCCC66 vlink=#CCCC66 alink=#CCCC66><div align=center><table border=0 width=780><tr><td>";
+print "<div align=center><a href=../index.html><img src='files/images/header_herbage2.jpg' border=0 width='600' height='125' alt='Herbage 4'></a></b></div></div>";
+print "<hr>";
+print "<font face=arial size=4><a href=../index.html>Index</a>: $m1: ";
+
+fwrite($fp, "<html>");
+fwrite($fp, "<title>Herbage 4</title>");
+fwrite($fp, "<body bgcolor=#006633 text=#CCFF66 link=#CCCC66 vlink=#CCCC66 alink=#CCCC66><div align=center><table border=0 width=780><tr><td>");
+fwrite($fp, "<div align=center><a href=../index.html><img src='images/header_herbage2.jpg' border=0 width='600' height='125' alt='Herbage 4'></a></b></div></div>");
+fwrite($fp, "<hr>");
+fwrite($fp, "<font face=arial size=4><a href=../index.html>Index</a>: $m1: ");
+
+$mType = str_replace(" ", "_", $m1);
+$Query1201 = "SELECT b FROM `herbage_latin_alpha` WHERE a='$m1';";
+$Result1201 = mysql_db_query($DBName, $Query1201, $Link);
+while ($Row1201 = mysql_fetch_array ($Result1201))
+	{
+	$m3 = $Row1201[0];
+	$m4 = $mType."_".$m3.".htm";
+	
+	if ($m2==$m3) {print "<b>";}
+	print "<a href=$m4>$m3</a> ";
+	if ($m2==$m3) {print "</b>";}
+	
+	if ($m2==$m3) {fwrite($fp, "<b>");}
+	fwrite($fp, "<a href=$m4>$m3</a> ");
+	if ($m2==$m3) {fwrite($fp, "</b>");}
+		
+	}
+	
+$mCol = 1;
+print "</font><hr><table border=0 cellpadding=1 width=100%><tr>";
+fwrite($fp, "</font><hr><table border=0 cellpadding=1 width=100%><tr>");
+
+$Query1 = "SELECT * FROM `herbage_latin2` WHERE a = '$m1' AND b = '$m2';";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$m5 = $Row1[1];
+	$m6 = $Row1[2];
+	
+	$mFound2 = 0;
+	$Query2 = "SELECT * FROM `herbage_plant_index` WHERE a='$m6' LIMIT 1;";
+	$Result2 = mysql_db_query($DBName, $Query2, $Link);
+	while ($Row2 = mysql_fetch_array ($Result2))
+		{
+		$m8 = $Row2[1];
+		
+		$m55 = str_replace("|", "'", $m5);
+		print "<td width=33%><font face=arial size=2><a href=$m8>$m6</a></font></td>";
+		fwrite($fp, "<td width=33%><font face=arial size=2><a href=$m8>$m6</a></font></td>");
+		$mFound2=1;
+		}
+	if ($mFound2==0) {
+	$m55 = str_replace("|", "'", $m5);
+	print "<td width=33%><font face=arial size=2><a href=$m8>$m55 ($m6)</a></font></td>";
+	fwrite($fp, "<td width=33%><font face=arial size=2><a href=$m8>$m55 ($m6)</a></font></td>");
+	}
+		
+	$mCol++;
+	if ($mCol>3) {print "</tr><tr>"; fwrite($fp, "</tr><tr>"); $mCol=1;}
+	}
+print "</tr></table>";
+print "<hr><div align=center><font face=arial size=1>&copy; 2004 by Tim Johnson<br>All Rights Reserved</font></div>";
+print "</html>";
+print "</td></tr></table>";
+
+fwrite($fp, "</tr></table>");
+fwrite($fp, "<hr><div align=center><font face=arial size=1>&copy; 2004 by Tim Johnson<br>All Rights Reserved</font></div>");
+fwrite($fp, "</html>");
+fwrite($fp, "</td></tr></table>");
+
+$Query1202 = "UPDATE `herbage_latin_alpha` SET `c` = '1' WHERE `a` = '$m1' AND `b` = '$m2';";
+$Result1202 = mysql_db_query($DBName, $Query1202, $Link);
+
+mysql_close ($Link);
+fclose($fp);
+?>

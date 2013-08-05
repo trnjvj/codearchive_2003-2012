@@ -1,0 +1,40 @@
+<?
+print "myFiles=";
+$dir = "./";
+$dh  = opendir($dir); while (false !== ($filename = readdir($dh))) {$files[] = $filename;}
+sort($files);
+srand((float) microtime() * 10000000);
+$rand_keys = array_rand($files, count($files));
+$mFirst = 0;
+
+for ($m = 0; $m < count($files); $m++) {
+/*
+$this1 = $files[$rand_keys[$m]];
+*/
+$this1 = $files[$m];
+$this1 = $files[$rand_keys[$m]];
+$mFlag=0;
+if ($this1=="..") {$mFlag=1;}
+if ($this1==".") {$mFlag=1;}
+if ($this1=="Thumbs.db") {$mFlag=1;}
+if ($mFlag==0) {
+if ($mFirst==0) {$mFirst=1;} else {print "";}
+$mz1 = strpos($this1, ".flv");
+$mz2 = strpos($this1, ".jpg");
+$mz3 = strpos($this1, ".swf");
+//$mz1 = 1;
+if ($mz2 || $mz1) {
+$this2 = str_replace(" ", "+", $this1);
+//$this1 = str_replace(".flv", "", $this1);
+$mzz1 = strpos($this1, "- Track");
+
+if ($mzz1) {} else {
+$show_this = 1;
+if ($this1 == "slideshow.swf") {$show_this=0;}
+if ($this1 == "projector.swf") {$show_this=0;}
+if ($this1 == "main.swf") {$show_this=0;}
+if ($show_this) {
+print "$this1~"; 
+} 
+}}}}
+?>

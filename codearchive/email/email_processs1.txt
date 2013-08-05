@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=email_processs1.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Import URLs</TITLE>
+<?
+set_time_limit(0);
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query120 = "SELECT a,b FROM `archipelago_websites_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];
+	$mcc = $Row120[1];
+	$Query121 = "SELECT * FROM `newsletters_herbage_new5` ORDER BY a LIMIT $mbb,5000;";
+$Result121 = mysql_db_query($DBName, $Query121, $Link);
+while ($Row121 = mysql_fetch_array ($Result121))
+	{
+	$ma = $Row121[0];
+	if ($ma==$moa) {
+	print "$ma ";
+	}
+	else {
+	$mFlag23=0;
+	$Query122 = "SELECT * FROM `herbage_email_unsubscribe` WHERE a='$ma';";
+$Result122 = mysql_db_query($DBName, $Query122, $Link);
+while ($Row122 = mysql_fetch_array ($Result122))
+	{
+	$mFlag23=1;
+	}
+	
+	if ($mFlag23==0) {
+	print "<b>$ma</b> ";
+	$Query123 = "INSERT INTO `herbage_email_list` ( `a` , `b` ) VALUES ('$ma', '');";
+	$Result123 = mysql_db_query($DBName, $Query123, $Link);
+	} else {
+	print "<h2>$ma</h2> ";
+	}
+	}
+	
+	$moa = $ma;
+	}
+	
+	
+	}
+
+$mbb=$mbb+5000;
+$Query112 = "UPDATE `archipelago_websites_state` SET a='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+mysql_close ($Link);
+?>

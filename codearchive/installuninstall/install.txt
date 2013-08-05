@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>Install</TITLE>
+</HEAD>
+<?
+
+print "<div align=center>";
+print "<img src=logo.jpg><p>";
+
+include('db_connect.php');
+
+$Query111 = "CREATE TABLE `archipelago_books` (`a` VARCHAR( 255 ) NOT NULL ,`b` VARCHAR( 255 ) NOT NULL ,`c` VARCHAR( 255 ) NOT NULL ,`d` VARCHAR( 255 ) NOT NULL ,`e` VARCHAR( 255 ) NOT NULL ,`f` VARCHAR( 255 ) NOT NULL ,`g` VARCHAR( 255 ) NOT NULL ,`h` VARCHAR( 255 ) NOT NULL ,`i` VARCHAR( 255 ) NOT NULL ,`j` VARCHAR( 255 ) NOT NULL ,`k` VARCHAR( 255 ) NOT NULL ,`l` VARCHAR( 255 ) NOT NULL ,`m` VARCHAR( 255 ) NOT NULL ,`n` VARCHAR( 255 ) NOT NULL ,`o` VARCHAR( 255 ) NOT NULL);";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "CREATE TABLE `archipelago_dvds` (`a` VARCHAR( 255 ) NOT NULL ,`b` VARCHAR( 255 ) NOT NULL ,`c` VARCHAR( 255 ) NOT NULL ,`d` VARCHAR( 255 ) NOT NULL);";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "CREATE TABLE `archipelago_searchterms` (`a` VARCHAR( 255 ) NOT NULL ,`b` VARCHAR( 255 ) NOT NULL ,`c` VARCHAR( 255 ) NOT NULL ,`d` VARCHAR( 255 ) NOT NULL ,`e` VARCHAR( 255 ) NOT NULL ,`f` VARCHAR( 255 ) NOT NULL ,`g` VARCHAR( 255 ) NOT NULL ,`h` VARCHAR( 255 ) NOT NULL ,`i` VARCHAR( 255 ) NOT NULL ,`j` VARCHAR( 255 ) NOT NULL);";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "CREATE TABLE `archipelago_websites` (`a` VARCHAR( 255 ) NOT NULL ,`b` VARCHAR( 255 ) NOT NULL ,`c` VARCHAR( 255 ) NOT NULL ,`d` VARCHAR( 255 ) NOT NULL ,`e` VARCHAR( 255 ) NOT NULL ,`f` VARCHAR( 255 ) NOT NULL ,`g` VARCHAR( 255 ) NOT NULL ,`h` VARCHAR( 255 ) NOT NULL ,`i` VARCHAR( 255 ) NOT NULL ,`j` VARCHAR( 255 ) NOT NULL ,`k` VARCHAR( 255 ) NOT NULL ,`l` VARCHAR( 255 ) NOT NULL ,`m` VARCHAR( 255 ) NOT NULL ,`n` VARCHAR( 255 ) NOT NULL ,`o` VARCHAR( 255 ) NOT NULL);";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "CREATE TABLE `archipelago_websites_state` (`a` VARCHAR( 255 ) NOT NULL ,`b` VARCHAR( 255 ) NOT NULL);";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "INSERT INTO `archipelago_websites_state` ( `a` , `b` ) VALUES ('0', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "CREATE TABLE `archipelago_menu` (`a` VARCHAR( 255 ) NOT NULL ,`b` VARCHAR( 255 ) NOT NULL ,`c` VARCHAR( 255 ) NOT NULL ,`d` VARCHAR( 255 ) NOT NULL ,`e` VARCHAR( 255 ) NOT NULL ,`f` VARCHAR( 255 ) NOT NULL);";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "CREATE TABLE `archipelago_color` (`a` VARCHAR( 255 ) NOT NULL , `b` VARCHAR( 255 ) NOT NULL , `c` VARCHAR( 255 ) NOT NULL , `d` VARCHAR( 255 ) NOT NULL , `e` VARCHAR( 255 ) NOT NULL , `f` VARCHAR( 255 ) NOT NULL );";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "CREATE TABLE `archipelago_cds` (`a` VARCHAR( 255 ) NOT NULL , `b` VARCHAR( 255 ) NOT NULL , `c` VARCHAR( 255 ) NOT NULL , `d` VARCHAR( 255 ) NOT NULL , `e` VARCHAR( 255 ) NOT NULL , `f` VARCHAR( 255 ) NOT NULL , `g` VARCHAR( 255 ) NOT NULL , `h` VARCHAR( 255 ) NOT NULL , `i` VARCHAR( 255 ) NOT NULL , `j` VARCHAR( 255 ) NOT NULL );";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+print "<div class='div1'>Installed.</div><p>";
+mysql_close ($Link);
+?>

@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=generate_plants.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Dump URLs</TITLE>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query1201 = "UPDATE `herbage_state` SET a='0';";
+$Result1201 = mysql_db_query($DBName, $Query1201, $Link);
+$Query1201 = "UPDATE `herbage_plant_page` SET a='1';";
+$Result1201 = mysql_db_query($DBName, $Query1201, $Link);
+
+mysql_close ($Link);
+
+?>

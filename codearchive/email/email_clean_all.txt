@@ -1,0 +1,75 @@
+<?php
+set_time_limit (600000);
+print ".<p>";
+print ".<p>";
+print ".<p>";
+print ".<p>";
+print ".<p>";
+print ".<p>";
+print ".<p>";
+print ".<p>";
+print ".<p>";
+$mCount=1;
+$moThis=$mThis;
+$mStartFlag=0;
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$fp = fopen("all_holistic_emails.txt", "wt");
+$Query = "SELECT * FROM `email_addresses` WHERE a != 'ALL+HOLISTIC' order by b LIMIT $mCount, 10000";
+$Result = mysql_db_query($DBName, $Query, $Link);
+
+while ($Row = mysql_fetch_array ($Result))
+	{    
+	$mThis = "$Row[1]";
+	$Query2 = "SELECT * FROM `email_unsubscribe_holisticopia` WHERE a='$mThis'";
+	$Result2 = mysql_db_query($DBName, $Query2, $Link);
+	$mFound=0;
+	while ($Row2 = mysql_fetch_array ($Result2))
+	{
+	$mFound=1;
+	}
+	
+	$Query2 = "SELECT * FROM `email_filter_holisticopia`";
+	$Result2 = mysql_db_query($DBName, $Query2, $Link);
+	while ($Row2 = mysql_fetch_array ($Result2))
+	{
+	$S1 = strstr($mThis, $Row2[0]);
+	if ($S1) {$mFound=1;}
+	}
+	
+	$S1 = strstr($mThis, ".");
+	if ($S1) {} else {$mFound=1;}
+	$S1 = strstr($mThis, "@");
+	if ($S1) {} else {$mFound=1;}
+	
+	if (strtolower($mThis)==$moThis) {$mFound=1;}
+	$S2=substr($mThis, 0,1);
+	print "|$S2|";
+	if ($S2=="I") {$mStartFlag=1;}
+	if ($S2=="i") {$mStartFlag=1;}
+	if ($mStartFlag==0) {$mFound=1;}
+	if ($mFound==1) {
+		print "<b>$mThis</b><br>";
+		$Query23 = "DELETE FROM `email_addresses` WHERE b='$mThis' LIMIT 1";
+		$Result23 = mysql_db_query($DBName, $Query23, $Link);
+		}
+		else
+		{
+		if ($mFound==2) {} else {
+		$mCount=$mCount+1;
+		print "$mThis ($mCount)<br>\n\r";
+		$mThis2="$mThis\r\n";
+		
+		$moThis=strtolower($mThis);
+		}
+		}
+	}
+fclose($fp);
+mysql_close ($Link);
+?>

@@ -1,0 +1,99 @@
+<body bgcolor="#FFFFFF" text="#333300" link="#669999" vlink="#669999" onLoad="MM_preloadImages('images/ABOUTUS3.jpg','images/NEWS3.jpg','images/MOVIES2.jpg','images/HEALTH2.jpg','images/MUSIC2.jpg')">
+
+<div align="center">
+<div align=center><font size=1 face=verdana>
+<a href=http://www.thedailynewsgrabber.com/>newsgrabber</a> 
+<a href=http://www.holisticopia.com/>holisticopia</a> 
+<a href=http://www.terracopia.net/>terracopia</a> 
+<a href=http://www.ecocopia.com/>ecocopia</a> 
+<a href=http://www.freetownrecords.com/>freetown</a>
+</font>
+<p>
+<img src="../images/bluepacific1.jpg" width="513" height="101">
+<p>
+<font face=verdana size=1><b>New Advertisements - April 2003</b></font><p>
+</div>
+<table width=100% cellpadding=4 border=0>
+
+
+<?php
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "pacific_world";
+$Password = "turnip";
+$DBName = "pacific_world";
+$Tablename = "ads";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query25 = "SELECT DISTINCT * from ad2 order by a,b";
+$Result25 = mysql_db_query($DBName, $Query25, $Link);
+while ($Row25 = mysql_fetch_array ($Result25))
+{
+print "<tr>";
+print "<td width=10%><font face=verdana size=1>";
+print "<b>$Row25[0]";
+print "</td><td width=10%><font face=verdana size=1>";
+print "<a href=$Row25[5]><b>$Row25[1]</b></a><p> ";
+print "<a href=$Row25[5]>$Row25[5]</a> ";
+print "</td><td width=10%><font face=verdana size=1>";
+print "$Row25[2]";
+print "</td><td width=10%><font face=verdana size=1>";
+print "$Row25[3], $Row25[4]";
+print "</td><td width=10%><font face=verdana size=1>";
+print "$Row25[9]";
+print "</td></tr><tr><td></td><td colspan=4><font face=verdana size=1>";
+print "$Row25[8]<p>";
+print "</td></tr>";
+
+print "<tr><td colspan=5><hr></td></tr>";
+}
+print "</table><p>";
+
+mysql_close ($Link);
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

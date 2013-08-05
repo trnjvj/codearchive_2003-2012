@@ -1,0 +1,82 @@
+<HTML><HEAD><META HTTP-EQUIV="Refresh" Content="1; URL=agg_feeds.php"></HEAD>
+<?
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query115 = "SELECT * FROM `bloggle_feed_data` WHERE b='' LIMIT 20;";
+$Result115 = mysql_db_query($DBName, $Query115, $Link);
+while ($Row115 = mysql_fetch_array ($Result115))
+	{
+	$m15a = $Row115[0];
+	$m15b = $Row115[1];
+	$m15c = $Row115[2];
+	$m15d = $Row115[3];
+	$m15e = $Row115[4];
+	$m15f = str_replace("<", " [", $m15e);
+	$m15f = str_replace(">", "]", $m15f);	
+	print "<font face=verdana size=1><br><strong><br>$m15b $m15c $m15d</strong>";
+	$Array = explode("[", $m15f);
+	print "<p>";
+	for ($m = 0; $m < count($Array); $m++) {
+		$mA1 = " ".$Array[$m];
+		$mmm1 = strpos($mA1, "title]", 0);
+		$mmm2 = strpos($mA1, "/title]", 0);
+		if ($mmm1) {if ($mmm2) {} else {
+			$mDescription = " ".$mDescription;
+			$nnn1 = strlen($mDescription);
+			$nnnn1 = "";
+			$mFlagn=1;
+			for ($nn1 = 0; $nn1<$nnn1; $nn1++)
+				{
+				$nnnnn1 = substr($mDescription, $nn1, 1);
+				if ($nnnnn1=="<") {$mFlagn=0;$nnnn1 = $nnnn1."??".$nnnnn1;}
+				if ($mFlagn==1) {
+					$nnnn1 = $nnnn1.$nnnnn1;
+					}
+				if ($nnnnn1==">") {$mFlagn=1;}
+				}
+			print "\n<a target=_blank href='$mLink'>$mTitle</a> $nnnn1<br>";
+			$n1 = trim(substr($nnnn1, 0, 255));
+			$mLink = trim($mLink);
+			$mTitle = trim($mTitle);
+			$Query117 = "INSERT INTO `bloggle_headlines` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$mLink', '$mTitle', '$nnnn1', '', '');";
+			$Result117 = mysql_db_query($DBName, $Query117, $Link);
+			$nnnn1 = '';
+			$mDescription = '';
+			print "";
+			$mTitle=str_replace("title]", "", $mA1);
+			}}
+		print "";
+		if ($mmm1) {if ($mmm2) {} else {print "";}}
+		$mmm1 = strpos($mA1, "link]", 0);
+		$mmm2 = strpos($mA1, "/link]", 0);
+		if ($mmm1) {if ($mmm2) {} else {
+			print "";
+			$mLink=str_replace("link]", "", $mA1);
+			}}
+		print "";
+		if ($mmm1) {if ($mmm2) {} else {print "";}}
+		$mmm1 = strpos($mA1, "description]", 0);
+		$mmm2 = strpos($mA1, "/description]", 0);
+		if ($mmm1) {if ($mmm2) {} else {print "";
+			$mDescription=str_replace("description]", "", $mA1);
+			}}
+		print "";
+		if ($mmm1) {if ($mmm2) {} else {print "";}}		
+	}
+	print "</p></font><br>";
+	$Query116 = "UPDATE `bloggle_feed_data` SET `b` = '1' WHERE `a` = '$m15a' LIMIT 1;";
+	$Result116 = mysql_db_query($DBName, $Query116, $Link);
+	}
+mysql_close ($Link);
+print '<div align=center><font face=verdana size=1>';
+print '©2003 by <a href="mailto:info@bloggle.org">Tim Johnson</a></font></font>';
+print '</div>';
+print '</body>';
+print '</html>';
+?>
+

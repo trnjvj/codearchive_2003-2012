@@ -1,0 +1,18 @@
+<?php
+
+   error_reporting(E_ALL);
+
+   // $thisUser = (! empty($_SERVER['REMOTE_USER'])) ? $_SERVER['REMOTE_USER'] : null;
+
+   $thisUser = (! empty($_SERVER['PHP_AUTH_USER'])) ? $_SERVER['PHP_AUTH_USER'] : null;
+
+   if (empty($thisUser))
+   {
+      // Your Web server authentication is
+      // not working.
+      exit;
+   }
+
+   echo "Hello $thisUser";
+
+?>

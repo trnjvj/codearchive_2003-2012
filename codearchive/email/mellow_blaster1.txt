@@ -1,0 +1,44 @@
+<?
+$MailTo = "trnjvj@yahoo.com";
+$Subject="January 2003: What's New?";
+$Body="Holisticopia http://www.holisticopia.com/
+
+Holisticopia is a geographic directory of over 50,000 holistic places and practitioners all over the world.
+
+JANUARY 2003 - WHAT'S NEW?
+
+THE HERBAGE ETHNOBOTANY DATABASE CD-ROM, SECOND EDITION http://www.holisticopia.com/herbage/
+This month, Holisticopia released the long-awaited second edition of Tim Johnson's CD-ROM database of over 29,000 herbs. Now over ten years in the making, this database was published in 1998 as the well-known 1224-page reference book: The CRC Ethnobotany Desk Reference, which is now available in reference libraries all over the world. This is the largest commercially-available herb database, and is now available for a free preview on Holisticopia.
+
+NOW OVER 130 CATEGORIES http://www.holisticopia.com/
+Some of our new categories include: Aura Photography, Breema, Colon Hydrotherapy, Feng Shui, Homeopathy, Iridology, Metaphysical, Midwifery, Numerology, Pilates, Sports Massage, Stress Management, etc.
+
+NEWS http://www.holisticopia.com/news_photos.php?mSearch=Meditation
+Each category now has a news service. Our news services search the world news wires for up-to-the-minute news coverage. Some primary examples: Astrology, Chiropractic, Herbal, Holistic, Meditation, Spiritual, and Yoga.
+
+BOOKS http://www.holisticopia.com/books.php?mSearch=Ayurveda
+Thousands of books, which are available for sale from Holisticopia the moment they are released by the publisher. Some of our book categories include Ayurveda, Clairvoyance, Psychotherapy, and Vegetarian.
+
+VIDEO http://www.holisticopia.com/vhs.php?mSearch=Yoga
+Many modalities are taught via instructional videos. The hundreds of video titles in our library are constantly updated, and include: Alexander Technique, Feng Shui, Meditation, Reflexology, and Yoga.
+
+Holisticopia's mission is to create a place for healers and healing centers to advertise their services, to be easily found via the Internet. And, in this effort, we strive to keep our advertising rates as affordable as possible. We are now ranked #1 on Google for over 900 search terms. Holisticopia consistently outranks the major search engines and directories in the categories of our domain. If you would like to place an ad that will achieve maximum exposure both locally and globally, please see our advertising form: http://www.holisticopia.com/advertising.htm or contact us at advertising@holisticopia.com. 
+
+To UNSUBSCRIBE from our list, simply click here: http://www.holisticopia.com/email/unsubscribe.htm
+";
+
+if (mail($MailTo, $Subject, $Body, "From: Holisticopia Newsletter <newsletter@holisticopia.com>")) {print "<font face=arial size=1></font>";}
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+

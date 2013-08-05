@@ -1,0 +1,215 @@
+<?php
+$mC="USA";
+if ($State=="Alberta" or $State=="British Columbia" or $State=="Manitoba" or $State=="New Brunswick" or $State=="Newfoundland" or $State=="Nova Scotia" or $State=="Northwest Territories" or $State=="Nunavut" or $State=="Ontario" or $State=="Prince Edward Island" or $State=="Québec" or $State=="Saskatchewan" or $State=="Yukon") {$mC="Canada";}
+
+$MM2=str_replace(" ", "_", $M2);
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_holisti";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "world";
+$Tablename = "yellow_pages";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "<html><title>Holisticopia: $State $M2</title>";
+print "<body bgcolor=#006633 text=#CCFF66 link=#CCCC66 vlink=#CCCC66 alink=#CCCC66>";
+if ($State) {} else {$State="California";}
+
+print "<div align=center><a href=../index.html><img border=0 src=../images/HCA5.jpg></a>";
+print "<table width=579 border=0><tr><td valign=top align=left><font face=verdana size=2><b><a href=../index.html>Home</a> &gt; <a href=../holistic/$MM2.htm>$M2</a></b></font></td></tr></table><br>";
+print "<p><b><font face=verdana size=3>$State $M2</font></b><p> ";
+print "<font face=verdana size=1><b><a href=../advertising.htm>advertise on this page</a></b></font><p>";
+
+print "</div>";
+
+$Query26 = "SELECT * from ad2 where e='$State' and a='$M2'";
+$Result26 = mysql_db_query($DBName, $Query26, $Link);
+while ($Row26 = mysql_fetch_array ($Result26))
+	{
+
+$checkbox2=$Row26[7];
+$Name=$Row26[1];
+$Description=$Row26[8];
+$Street=$Row26[2];
+$City=$Row26[3];
+$State=$Row26[4];
+$URL=$Row26[5];
+$Phone=$Row26[9];
+$Email=$Row26[10];
+
+if ($URL) {
+$URL3=str_replace("http://", "", $URL);
+$URL3=str_replace("http:/", "", $URL3);
+$URL3=str_replace("http:", "", $URL3);
+$URL2="http://$URL3";
+}
+
+$mAddresss = str_replace(" ", "+", $Street);
+$mAddresss = str_replace("#", "%23", $mAddresss);
+$mAddresss = str_replace("&", "%26", $mAddresss);
+$mCityy = str_replace(" ", "+", $City);
+$mStatee = str_replace(" ", "+", $State);
+$mSSSearch="$Name $City $State";
+$mSSearch=str_replace(" ", "+", $mSSSearch);
+$mSSSearch = str_replace("&", "%26", $mSSSearch);
+$mSSSearch = str_replace("#", "%23", $mSSSearch);
+
+
+
+if ($checkbox2=="yes") {
+print "<div align=center><table bgcolor=#003300 border=0 cellspacing=4 width=520>";
+print "  <tr>";
+print "    <td>";
+print "      <table border=0 cellpadding=3 cellspacing=0 width=100%>";
+print "        <tr>";
+print "          <td><font face=Verdana size=2><b>";
+if ($URL) {
+print "<a href=$URL2 target=_blank>$Name</font></b></a>";
+}
+else
+{
+print "$Name</font></b>";
+}
+print "<font face=Verdana, Arial, Helvetica, sans-serif><br>";
+print "            <font face=verdana size=1>$Description<br>";
+print "<a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$Street</a> - $City, $State<br>";
+print "$Phone<br>";
+print "<a href=$URL2 target=_blank>$URL</a> <a href=mailto:$Email>$Email</a></font></font></font></td>";
+print "        </tr>";
+print "      </table>";
+print "    </td>";
+print "  </tr>";
+print "</table></div><p>";
+}
+
+}
+
+$mFound10000=0;
+$mFound100=0;
+print "<div align=center><table border=0 cellpadding=10 width=100%>";
+
+$Query24 = "SELECT DISTINCT a,b,k,e,f,g,i,j,l,m from listings where b='$State' and f='$M2' order by b,k,e,f,g,h,i,j,l,m";
+$Result = mysql_db_query($DBName, $Query24, $Link);
+print "<font face=verdana size=1>";
+while ($Row = mysql_fetch_array ($Result))
+	{
+
+if ($mo2==$Row[2]) {} else {
+
+
+print "</td></tr></table><table cellpadding=5 width=100%><tr><td width=25%  valign=top align=right><b><font face=verdana size=2>$Row[2]</font></b></td><td><font face=verdana size=2>";}
+if ($mo4==$Row[4]) {} else {
+print "<font face=verdana size=2><br><b>$Row[4]</b><br></font>";
+}
+
+$mAddresss = str_replace(" ", "+", $Row[7]);
+$mAddresss = str_replace("#", "%23", $mAddresss);
+$mAddresss = str_replace("&", "%26", $mAddresss);
+$mCityy = str_replace(" ", "+", $Row[2]);
+$mStatee = str_replace(" ", "+", $Row[1]);
+$mSSSearch="$Row[6] $Row[2] $Row[1]";
+$mSSearch=str_replace(" ", "+", $mSSSearch);
+$mSSSearch = str_replace("&", "%26", $mSSSearch);
+$mSSSearch = str_replace("#", "%23", $mSSSearch);
+print "$Row[5] ";
+
+$LL1 = strpos($Row[6], "anch");
+if ($LL1) {$mo6=$Row[6];}
+$LL1 = strpos($Row[6], "xotic");
+if ($LL1) {$mo6=$Row[6];}
+$LL1 = strpos($Row[6], "oudoir");
+if ($LL1) {$mo6=$Row[6];}
+$LL1 = strpos($Row[6], "emptress");
+if ($LL1) {$mo6=$Row[6];}
+$LL1 = strpos($Row[6], "aughty");
+if ($LL1) {$mo6=$Row[6];}
+$LL1 = strpos($Row[6], "irls");
+if ($LL1) {$mo6=$Row[6];}
+$LL1 = strpos($Row[6], "scort");
+if ($LL1) {$mo6=$Row[6];}
+
+if ($mo6==$Row[6]) {} else {
+
+$URL=$Row[9];
+if ($URL) {
+$URL3=str_replace("http://", "", $URL);
+$URL3=str_replace("http:/", "", $URL3);
+$URL3=str_replace("http:", "", $URL3);
+$URL2="http://$URL3";
+}
+
+if ($Row[9]) {
+print "<a target=_blank href=$URL2><b>$Row[6]</b></a> ";
+}
+else
+{
+print "<a target=_blank href=http://www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=$mSSearch&btnG=Google+Search>$Row[6]</a> ";
+}
+
+if ($mC=="USA") {
+print "<a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$Row[7]</a> ";
+}
+if ($mC=="Canada") {
+print "<a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=ca&Get%A0Map=Get+Map>$Row[7]</a> ";
+}
+print "$Row[8] ";
+print "<br>\n";
+
+}
+$mo0=$Row[0];
+$mo1=$Row[1];
+$mo2=$Row[2];
+$mo3=$Row[3];
+$mo4=$Row[4];
+$mo6=$Row[6];
+	}
+print "</tr></table>";	
+print "<p>&nbsp;<p>© 2003 by Tim Johnson";
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,95 @@
+<?
+$a = $_GET['a'];
+$b = $_GET['b'];
+$c = $_GET['c'];
+$d = $_GET['d'];
+
+include('db_connect.php');
+
+
+$mFound1=0;				
+$Query111 = "SELECT * FROM `world`.`craigslist2_sending_email` WHERE b='' LIMIT 1;";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			while ($Row110 = mysql_fetch_array ($Result111))
+				{	
+				$Cat = $Row110[0];
+				$Cat1 = $Row110[1];
+				$mFound1=1;
+				
+				$Query112 = "UPDATE `world`.`craigslist2_sending_email` SET `b` = '1' WHERE CONVERT( `craigslist2_sending_email`.`a` USING utf8 ) = '$Cat' LIMIT 1 ;";
+				$Result112 = mysql_db_query($DBName, $Query112, $Link);
+				}
+				
+if ($mFound1==0) {
+
+$Query111 = "UPDATE `world`.`craigslist2_sending_email` SET b='';";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "SELECT * FROM `world`.`craigslist2_sending_email` WHERE b='' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$Cat = $Row110[0];
+		$Cat1 = $Row110[1];
+		$mFound1=1;
+		$Query112 = "UPDATE `world`.`craigslist2_sending_email` SET `b` = '1' WHERE CONVERT( `craigslist2_sending_email`.`a` USING utf8 ) = '$Cat' LIMIT 1 ;";
+		$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	}
+}	
+			
+$a=$Cat;
+
+
+$mFound=0;
+			//$Query111 = "SELECT * FROM `craigslist2_get` WHERE a='$Array[1]' LIMIT 1;";
+			$Query111 = "SELECT * FROM `world`.`craigslist2_sent_mail` WHERE b='$b';";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			while ($Row110 = mysql_fetch_array ($Result111))
+				{	
+				$Cat = $Row110[0];
+				$Cat1 = $Row110[1];
+				$mFound=1;
+				
+				}
+				
+if ($mFound==0) {			
+$Query111 = "INSERT INTO `world`.`craigslist2_sent_mail` (`a` , `b` , `c` , `d` , `e` , `f` , `g`) VALUES ('$a', '$b', '$c', '$d', '', '', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+
+$a = str_replace(" ", "%20", $a);
+$b = str_replace(" ", "%20", $b);
+$c = str_replace(" ", "%20", $c);
+$d = str_replace(" ", "%20", $d);
+
+$TheFile = "http://www.bestcybersolutions.com/sendmail.php?a=$a&b=$b&c=$c&d=$d";
+print "$TheFile<br />";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		print "$String";
+		}
+	}
+} else {
+print "previously sent.";
+}
+
+/*
+$headers  = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text; charset=iso-8859-1\r\n";
+$headers .= "From: $d <$a>";
+$Body='I am available for $40/hr.
+
+- Tim
+
+http://www.bestcybersolutions.com/';
+$Subject=$c;	
+$MailTo=$b; if (mail($MailTo, $Subject, $Body, $headers)) {print "<li>$MailTo";}
+*/
+mysql_close ($Link);
+?>
+
+
+
+

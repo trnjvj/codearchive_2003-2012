@@ -1,0 +1,49 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=dice_skills_report.php">
+<font face=verdana size=1>
+<?
+set_time_limit(10000);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$count=0;
+$count2=0;
+$story="";
+
+$mStart=0;
+$Query110 = "SELECT * FROM `dice_skills`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1 = $Row110[0];
+print "$m1 ";
+$m2 = $Row110[1];
+$m3 = $Row110[2];
+
+$count++;
+$count2++;
+
+if ($m2==$om2) {} else {$story = "$story $om2$count2 "; $count2=0;}
+if ($m1==$om1) {} else {
+$Query111 = "INSERT INTO `dice_skills_count` ( `a` , `b` , `c` , `d` , `e` , `f` ) VALUES ('$count', '$om1', '$story', '', '', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$count=0;
+$count2=0;
+$story="";
+}
+
+
+$om1 = $m1;
+$om2 = $m2;
+$om3 = $m3;
+
+}
+
+mysql_close ($Link);
+?>

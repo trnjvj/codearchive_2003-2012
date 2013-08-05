@@ -1,0 +1,43 @@
+<?PHP
+$z1 = $_GET['z1'];
+$z2 = $_GET['z2'];
+$z3 = $_GET['z3'];
+if ($z1) {} else {$z1 = $_POST['z1'];}
+if ($z2) {} else {$z2 = $_POST['z2'];}
+$ip=$_SERVER['REMOTE_ADDR'];
+include('db_connect.php');
+$myemail="";
+$Query7 = "SELECT a FROM `sessions2` WHERE b='$z1' AND c='$z2' AND d='$ip';";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$myemail = $Row7[0];
+	}
+if ($myemail) {
+
+	if ($z3) {
+		$Query2 = "INSERT INTO `friends` (`friend1`, `friend2`, `a`, `b`, `c`) VALUES ('$myemail', '$z3', '', '', '');";
+		$Result2 = mysql_db_query($DBName, $Query2, $Link);
+		$Query3 = "INSERT INTO `friends` (`friend1`, `friend2`, `a`, `b`, `c`) VALUES ('$z3', '$myemail', '', '', '');";
+		$Result3 = mysql_db_query($DBName, $Query3, $Link);
+		$Query4 = "DELETE FROM `friendrequests2` WHERE toemail='$myemail' AND fromemail='$z3';";
+		$Result4 = mysql_db_query($DBName, $Query4, $Link);
+	}
+	print "<b>friend requests</b><br />&nbsp;<br />";
+	//print "your email: $myemail";
+	
+	$Query1 = "SELECT * FROM `friendrequests2` WHERE toemail='$myemail';";
+	//print "$Query1<br />";
+	$Result1 = mysql_db_query($DBName, $Query1, $Link);
+	while ($Row1 = mysql_fetch_array ($Result1))
+		{	
+		$myfrom = $Row1[0];
+		$mytime = $Row1[2];
+		$mystatus = $Row1[3];
+		
+		print "$myfrom $mytime <a href='?z1=$z1&z2=$z2&z3=$myfrom'>accept</a><br />";
+		}
+	
+}
+mysql_close ($Link);
+?>

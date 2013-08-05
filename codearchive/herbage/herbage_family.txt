@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=herbage_family.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Import URLs</TITLE>
+<?
+set_time_limit(0);
+
+print "<font face=verdana size=4>";
+print "Archipelago 1<br>";
+print "Import URLs - Copyright 2004 by Tim Johnson<br>";
+print "All Rights Reserved</font><font face=verdana size=1><p>";
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Cat='';
+$mCount=0;
+
+$Query120 = "SELECT a,b FROM `herbage_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	
+	$mbb = $Row120[0];
+	$mcc = $Row120[1];
+	}
+$Query121 = "SELECT * FROM `herbage3` WHERE b='Family' ORDER BY b,c,a LIMIT $mbb,5000;";
+$Result121 = mysql_db_query($DBName, $Query121, $Link);
+while ($Row121 = mysql_fetch_array ($Result121))
+	{
+	
+	$ma = $Row121[0];
+	$mb = $Row121[1];
+	$mc = $Row121[2];
+	$Query123 = "INSERT INTO `herbage_family` ( `a` , `b` , `c` ) VALUES ('$mb', '$mc', '$ma');";
+	$Result123 = mysql_db_query($DBName, $Query123, $Link);
+	print "$mb $mc $ma<br>";
+	
+	}
+
+$mbb=$mbb+5000;
+$Query112 = "UPDATE `herbage_state` SET a='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+
+
+mysql_close ($Link);
+?>

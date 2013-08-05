@@ -1,0 +1,30 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="11111115, URL=get_5a.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+$Query12= "SELECT *  FROM `emails_herbagecdrom`;";
+$Result12 = mysql_db_query($DBName, $Query12, $Link);
+while ($Row12 = mysql_fetch_array ($Result12))
+{
+$String = trim($Row12[0]);
+$String = str_replace(';', '', $String);
+$String2 = trim($Row12[1]);
+$String2 = str_replace(';', '', $String2);
+$Query111 = "INSERT INTO `emails_herbagecdrom2` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$String', '$String2', '', '', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+print ".";
+}
+
+mysql_close ($Link);
+?>

@@ -1,0 +1,178 @@
+<?
+
+set_time_limit (0);
+print "<font face=verdana size=1>";
+for ($mNum=1; $mNum<200; $mNum++) {	
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mFile = "b".$mNum.".php";
+$mmm = $mNum+1;
+$mF2 = "b$mmm";
+$fp = fopen("$mDir$mFile", "wt");
+
+fwrite($fp, '<HTML><HEAD><META HTTP-EQUIV="Refresh" Content="3, URL=');
+fwrite($fp, "$mF2");
+fwrite($fp, '.php"></HEAD> ');
+
+fwrite($fp, '<? ');
+
+fwrite($fp, '$Body= ');
+fwrite($fp, "'");
+fwrite($fp, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> ');
+fwrite($fp, '<div align="center"> ');
+fwrite($fp, '<table bgcolor="#006633" cellpadding="10" bordercolor="green" border="3" width="95%"> ');
+fwrite($fp, '<tr><td> ');
+fwrite($fp, '<div align="center">  ');
+fwrite($fp, '<table width="100%" border="0" cellpadding="0"> ');
+fwrite($fp, '<tr><td><p> ');
+fwrite($fp, '<a href="http://www.web-of-life.org/herbage/"> ');
+fwrite($fp, '<img border="0" align=left src="http://www.web-of-life.org/images/herbagecdrom.jpeg"></a> ');
+fwrite($fp, '<font color="CCFF66" face="Arial" size="3"> ');
+fwrite($fp, '<B>Herbage Ethnobotany Database CD-ROM<BR>Third Edition</B> ');
+fwrite($fp, '<br> ');
+fwrite($fp, 'by Tim Johnson ');
+fwrite($fp, '<br> ');
+fwrite($fp, 'author of <I>the CRC Ethnobotany Desk Reference</I> ');
+fwrite($fp, '</P><P> ');
+fwrite($fp, 'Limited time offer! Order directly from the Author and ');
+fwrite($fp, 'save $130 off the retail price. ');
+fwrite($fp, '</P><P> ');
+fwrite($fp, 'The Herbage CD-ROM contains a database of over 28,000 ');
+fwrite($fp, 'concise monographs of medicinal plant species ');
+fwrite($fp, 'characteristics - and an inventory of claimed ');
+fwrite($fp, 'attributes and historical uses by cultures throughout ');
+fwrite($fp, 'the world. - the result of more than a decade of ');
+fwrite($fp, 'independent research. ');
+fwrite($fp, '</P><P> ');
+fwrite($fp, 'Monographs are linked to hundreds of thousands of ');
+fwrite($fp, 'articles and images via the world wide web, providing ');
+fwrite($fp, 'an exhaustive tool for in-depth global herb research. ');
+fwrite($fp, 'Each species listing has links to powerful image and ');
+fwrite($fp, 'article searches. ');
+fwrite($fp, '</P> ');
+fwrite($fp, '</font> ');
+fwrite($fp, '<table cellpadding="3" border="0" width="100%"><tr><td valign="top" align="center" colspan="2"> ');
+fwrite($fp, '<font color="CCFF66" face="Arial" size="3"> ');
+fwrite($fp, '<strong>Features</strong> ');
+fwrite($fp, '</font> ');
+fwrite($fp, '</td></tr> ');
+fwrite($fp, '<tr><td valign="top" width="50%"> ');
+fwrite($fp, '<font color="CCFF66" face="Arial" size="3"> ');
+fwrite($fp, '- Presents information from diverse fields, including ');
+fwrite($fp, 'botany, ethnobatany, entheobotany, and Asian ');
+fwrite($fp, 'traditional medicine ');
+fwrite($fp, '</P><P> ');
+fwrite($fp, '- Addresses the global uses of all plant families ');
+fwrite($fp, '</P> ');
+fwrite($fp, '</td><td valign="top" width=50%> ');
+fwrite($fp, '<font color="CCFF66" face="Arial" size="3"> ');
+fwrite($fp, '- Organizes monograph information in 12 categories, ');
+fwrite($fp, 'including plant family, indigenous use, and body parts ');
+fwrite($fp, 'treated by plant ');
+fwrite($fp, '</P><P> ');
+fwrite($fp, '- Alphabetical listing of plant species ');
+fwrite($fp, '</P> ');
+fwrite($fp, '</td></tr> ');
+fwrite($fp, '<tr><td valign="top" align="center" colspan="2"> ');
+fwrite($fp, '<font color="CCFF66" face="Arial" size="3"> ');
+fwrite($fp, '- Web-browser based, compatible with any Windows or Macintosh computer ');
+fwrite($fp, '</font> ');
+fwrite($fp, '</td></tr> ');
+fwrite($fp, '</p> ');
+fwrite($fp, '</font> ');
+fwrite($fp, '</td></tr></table> ');
+fwrite($fp, '<br> ');
+fwrite($fp, '</div> ');
+fwrite($fp, '<table border="0" border="3" cellpadding="6" width="100%" bgcolor="#FFFFFF"> ');
+fwrite($fp, '<tr>  ');
+fwrite($fp, '<td>  ');
+fwrite($fp, '<table align=center width="100%" border="3" cellpadding=4 cellspacing=1 > ');
+fwrite($fp, '<tr bgcolor="#eeeccc">  ');
+fwrite($fp, '<td colspan=6> ');
+fwrite($fp, '<div align="center"><b> ');
+fwrite($fp, '<font face="Arial" color="#000000"> ');
+fwrite($fp, 'Order Directly from the Author ');
+fwrite($fp, '</font></b></div></td></tr> ');
+fwrite($fp, '<tr align=center bgcolor=#dddddd>  ');
+fwrite($fp, '<td width="27%" ><b><font color="000000" face="Arial">Item Name</font></b></td> ');
+fwrite($fp, '<td width="15%" ><font color="000000" face="Arial"><b><font color="000000" color="#000000">Quantity</font></b></font></td> ');
+fwrite($fp, '<td width="15%" ><b><font color="000000" face="Arial">Price</font></b>  ');
+fwrite($fp, '</td> ');
+fwrite($fp, '<td width="14%" class=minusone><b><font color="000000" face="Arial">Payment</font></b></td> ');
+fwrite($fp, '<td width="14%" class=minusone><b><font color="000000" face="Arial">Shipping</font></b></td> ');
+fwrite($fp, '<td width="22%"><b><font color="000000" face="Arial">Ordering</font></b></td> ');
+fwrite($fp, '</tr> ');
+fwrite($fp, '<tr align=center bgcolor=#dddddd>  ');
+fwrite($fp, '<td width="27%" bgcolor="#FFFFFF"><b><font color="000000" face="Arial" size="2" color="#000000">Herbage CD-ROM, Third Edition</font></b></td> ');
+fwrite($fp, '<td width="15%" bgcolor="#FFFFFF"><font color="000000" face="Arial">1 copy</font></td> ');
+fwrite($fp, '<td width="15%" bgcolor="#FFFFFF"><font color="000000" face="Arial">$70.00<br> ');
+fwrite($fp, '<font color="000000" size=1>includes shipping cost<br>(regular price is $200.00)</font></font></td> ');
+fwrite($fp, '<td width="14%" bgcolor="#FFFFFF"><font color="000000" face="Arial" size="2" color="#000000">Visa or Mastercard</font></td> ');
+fwrite($fp, '<td width="14%" bgcolor="#FFFFFF"><font color="000000" size="2" face="Arial" color="#000000">Please allow 1 week</font></td> ');
+fwrite($fp, '<td width="22%" bgcolor="#FFFFFF" valign="middle"> ');
+fwrite($fp, '<br><form method="POST" action="https://payflowlink.verisign.com/payflowlink.cfm"> ');
+fwrite($fp, '<div align="center"> <font color="000000" size="2" face="Arial">  ');
+fwrite($fp, '<input type="hidden" name="LOGIN" value="holisticopia"> ');
+fwrite($fp, '<input type="hidden" name="PARTNER" value="Verisign"> ');
+fwrite($fp, '<!-- The transaction AMOUNT must be at least 1.00 (one dollar) --> ');
+fwrite($fp, '<input type="hidden" name="AMOUNT" value="70.00"> ');
+fwrite($fp, '<input type="hidden" name="TYPE" value="S"> ');
+fwrite($fp, '<input type="submit" value="Order Online" name="submit"> ');
+fwrite($fp, '</font></div> ');
+fwrite($fp, '</form></td> ');
+fwrite($fp, '</tr> ');
+fwrite($fp, '</table></td> ');
+fwrite($fp, '</tr> ');
+fwrite($fp, '</table> ');
+fwrite($fp, '<p align="center"><font color="CCFF66" face="Arial">Or send a check or money order to:</font></p> ');
+fwrite($fp, '<p align="center"><font color="CCFF66" face="Arial"> ');
+fwrite($fp, 'Tim Johnson<br> ');
+fwrite($fp, '309 Cedar Street #33<br> ');
+fwrite($fp, 'Santa Cruz, CA 95060<br> ');
+fwrite($fp, 'USA <br> ');
+fwrite($fp, '(831) 426-6268 ');
+fwrite($fp, '</p> ');
+fwrite($fp, '<div align=center> ');
+fwrite($fp, '<a href=http://www.web-of-life.org/herbage/pages/18.htm><img border=0 height=135 width=150 src=http://www.web-of-life.org/herbage/pix_small/SP32-20030609-150603.jpg></a>	 ');
+fwrite($fp, '<a href=http://www.web-of-life.org/herbage/pages/19.htm><img border=0 height=135 width=150 src=http://www.web-of-life.org/herbage/pix_small/SP32-20030609-150616.jpg></a>	 ');
+fwrite($fp, '<a href=http://www.web-of-life.org/herbage/pages/20.htm><img border=0 height=135 width=150 src=http://www.web-of-life.org/herbage/pix_small/SP32-20030609-150657.jpg></a>	 ');
+fwrite($fp, '</div> ');
+fwrite($fp, '</font></p></td></tr></table></td></tr></table> ');
+fwrite($fp, '<p>If you would like to unsubscribe from this mailing list, please click here: <a href="http://www.web-of-life.org/unsubscribe.htm">here.</a> ');
+fwrite($fp, '</div> ');
+fwrite($fp, "';");
+fwrite($fp, '$headers .= "From: Tim Johnson <timjohnson@terracopia.net>\r\n"; ');
+fwrite($fp, '$headers .= "Content-type: text/html; charset=iso-XXXX-XX\r\n"; ');
+fwrite($fp, '$Subject = "Herbage Ethnobotany Database"; ');
+fwrite($fp, ' ');
+
+$mNum2 = $mNum * 100;
+
+$Query110 = "SELECT b FROM `newsletters` WHERE c='Herbage' ORDER BY b LIMIT $mNum2,100";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$mm1 = $Row110[0];
+	fwrite($fp, '$m1 = "');
+	fwrite($fp, "$mm1");
+	print "$mm1 | ";
+	fwrite($fp, '"; ');
+	fwrite($fp, 'if (mail($m1, $Subject, $Body, $headers)) {print "<li>$m1";} ');
+	}
+fwrite($fp, '?> ');	
+fclose($fp);
+mysql_close ($Link);
+
+}
+
+
+
+			
+?>

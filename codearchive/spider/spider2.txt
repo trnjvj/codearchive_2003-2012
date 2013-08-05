@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=spider2.php">
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>Herbage</TITLE>
+</HEAD>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query110 = "SELECT * FROM `herbage_state`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$Cat = $Row110[0];
+	$Cat2=$Cat+1;
+	$Query112 = "UPDATE `herbage_state` SET a = '$Cat2';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	}
+$mFlag="";
+$TheFile = "files/H$Cat.htm";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);	
+		$m1 = strpos($String, "Latin_Name");
+		if ($m1) {
+		$Latin = $String;
+		$V2 = explode("<", $String);
+		$ii = count($V2)+1;
+		for($i=1;$i<$ii;$i++){
+		$V10 = strpos($V2[$i], "Latin_Name");
+		if ($V10) {
+			$m2 = strpos($V2[$i], ">");
+			$m3 = substr($V2[$i], 0, $m2+1);
+			$mLatin = str_replace($m3, "", $V2[$i]);
+			print "$mLatin<br>";
+			}
+			}		
+		}
+		$m1 = strpos($String, "Family:");
+		if ($m1) {$mFlag="Family";}
+		$m1 = strpos($String, "Range:");
+		if ($m1) {$mFlag="Range";}
+		$m1 = strpos($String, "Action:");
+		if ($m1) {$mFlag="Action";}
+		$m1 = strpos($String, "Indigenous Use:");
+		if ($m1) {$mFlag="Indigenous Use";}
+		$m1 = strpos($String, "Used to Treat:");
+		if ($m1) {$mFlag="Used to Treat";}
+		$m1 = strpos($String, "<b>Use:");
+		if ($m1) {$mFlag="Use";}
+		$m1 = strpos($String, "Associated Body Area:");
+		if ($m1) {$mFlag="Associated Body Area";}
+		$m1 = strpos($String, "Common Name:");
+		if ($m1) {$mFlag="Common Name";}
+		$m1 = strpos($String, "Contains:");
+		if ($m1) {$mFlag="Contains";}
+		$m1 = strpos($String, "Comments:");
+		if ($m1) {
+		$mFlag="Comments";
+		$mComments = str_replace("<br><b>Comments:</b> ", "", $String);
+		$mComments = str_replace("'", "|", $mComments);
+		$Query112 = "INSERT INTO `herbage_comments` ( `a` , `b` , `c` ) VALUES ('$mLatin', '', '$mComments');";
+		$Result112 = mysql_db_query($DBName, $Query112, $Link);
+		}		
+		$m4 = strpos($String, "href=P");
+		if ($m4) {
+			$V2 = explode(">", $String);
+			$ii = count($V2)+1;
+			for($i=1;$i<$ii;$i++){
+			$V10 = strpos($V2[$i], "</a");
+			if ($V10) {
+				$mProperty = str_replace("</a>, ", "", $V2[$i]);
+				$mProperty = str_replace("</a", "", $mProperty);
+				$mProperty= str_replace("'", "|", $mProperty);
+				$mLatin= str_replace("'", "|", $mLatin);
+				$mFlag = str_replace("'", "|", $mFlag);
+				print "$mLatin | $mFlag | $mProperty<br>";
+				if ($mFlag=="Comments") {
+				
+				} else {
+				$Query112 = "INSERT INTO `herbage` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$mLatin', '$mFlag', '$mProperty', '', '');";
+				$Result112 = mysql_db_query($DBName, $Query112, $Link);
+				}
+				}
+			}		
+		}
+		}
+	}
+fclose($Open);
+mysql_close ($Link);
+print ".";
+?>

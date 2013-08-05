@@ -1,0 +1,37 @@
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query110 = "SELECT * FROM `herbage_state`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$Cat = $Row110[0];
+	$Cat2=$Cat+1;
+	$Query112 = "UPDATE `herbage_state` SET a = '$Cat2';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	}
+	
+$TheFile = "S:/herbage3/files/H$Cat.htm";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);	
+		print "$String";
+		}
+	}
+fclose($Open);
+
+mysql_close ($Link);
+print ".";
+?>

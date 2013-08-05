@@ -1,0 +1,803 @@
+<html><body bgcolor="#000000" text="#999999" link="#CCCCCC" vlink="#AAAAAA">
+<style type="text/css" media="screen">
+	select {
+ background-color: #FFFFFF;
+ color: #000000;
+}
+</style>
+<?PHP
+$email = $_POST['email'];
+$username = $_POST['username'];
+$country = $_POST['country'];
+$language = $_POST['language'];
+$month = $_POST['day'];
+$year = $_POST['year'];
+$month = $_POST['month'];
+$day = $_POST['day'];
+$gender = $_POST['gender'];
+$agree = $_POST['agree'];
+$agreement = $_POST['agreement'];
+/*
+print "$email<br />";
+print "$username<br />";
+print "$country<br />";
+print "$language<br />";
+print "$year<br />";
+print "$month<br />";
+print "$day<br />";
+print "$gender<br />";
+print "$agree<br />";
+print "$agreement<br />";
+*/
+if ($email) {
+	$ip=$_SERVER['REMOTE_ADDR'];
+	include('db_connect.php');
+	$Query14 = "INSERT INTO `members` (`email`, `username`, `country`, `language`, `year`, `month`, `day`, `gender`, `agree`, `agreement`, `a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`, `i`, `j`, `k`, `l`, `m`) VALUES ('$email', '$username', '$country', '$language', '$year', '$month', '$day', '$gender', '$agree', '$agreement', '$ip', '', '', '', '', '', '', '', '', '', '', '', '');";
+	$Result14 = mysql_db_query($DBName, $Query14, $Link);
+	mysql_close ($Link);
+	print "<div align='center'>Thanks for signing up. We will notify you via email when we open for business.</div><br />&nbsp;<br />";
+	include('index.php');
+	exit;
+}
+//print "$c";
+$mVideo = "3CE66E9AE25C2754";
+include('db_connect.php');
+$ip=$_SERVER['REMOTE_ADDR'];
+print "<div align='center'><table width='560'><tr><td>";
+
+
+	print "<form method='post' action='signup.php' name='logform'>";
+print "Email Address:";
+	print "<input name='email' size='25' maxlength='125' type='text' value='$email'><br />";
+print "Username:";
+	print "<input name='username' size='25' maxlength='125' type='text' value='$username'><br />";
+print "Your username can only contain letters A-Z or numbers 0-9<br />&nbsp;<br />";
+
+print "Location:";
+print "<select name='country'>";
+if ($country=="United States of America") {print "<option selected>United States of America</option>";} else {print "<option>United States of America</option>";}
+if ($country=="Albania") {print "<option selected>Albania</option>";} else {print "<option>Albania</option>";}
+if ($country=="Argentina") {print "<option selected>Argentina</option>";} else {print "<option>Argentina</option>";}
+if ($country=="Aruba") {print "<option selected>Aruba</option>";} else {print "<option>Aruba</option>";}
+if ($country=="Australia") {print "<option selected>Australia</option>";} else {print "<option>Australia</option>";}
+if ($country=="Austria") {print "<option selected>Austria</option>";} else {print "<option>Austria</option>";}
+if ($country=="Azerbaijan") {print "<option selected>Azerbaijan</option>";} else {print "<option>Azerbaijan</option>";}
+if ($country=="Bahamas") {print "<option selected>Bahamas</option>";} else {print "<option>Bahamas</option>";}
+if ($country=="Bangladesh") {print "<option selected>Bangladesh</option>";} else {print "<option>Bangladesh</option>";}
+if ($country=="Barbados") {print "<option selected>Barbados</option>";} else {print "<option>Barbados</option>";}
+if ($country=="Belarus") {print "<option selected>Belarus</option>";} else {print "<option>Belarus</option>";}
+if ($country=="Belgium") {print "<option selected>Belgium</option>";} else {print "<option>Belgium</option>";}
+if ($country=="Belize") {print "<option selected>Belize</option>";} else {print "<option>Belize</option>";}
+if ($country=="Bermuda") {print "<option selected>Bermuda</option>";} else {print "<option>Bermuda</option>";}
+if ($country=="Bolivia") {print "<option selected>Bolivia</option>";} else {print "<option>Bolivia</option>";}
+if ($country=="Bosnia-Herzegovina") {print "<option selected>Bosnia-Herzegovina</option>";} else {print "<option>Bosnia-Herzegovina</option>";}
+if ($country=="Botswana") {print "<option selected>Botswana</option>";} else {print "<option>Botswana</option>";}
+if ($country=="Brazil") {print "<option selected>Brazil</option>";} else {print "<option>Brazil</option>";}
+if ($country=="Brunei") {print "<option selected>Brunei</option>";} else {print "<option>Brunei</option>";}
+if ($country=="Bulgaria") {print "<option selected>Bulgaria</option>";} else {print "<option>Bulgaria</option>";}
+if ($country=="Canada (English)") {print "<option selected>Canada (English)</option>";} else {print "<option>Canada (English)</option>";}
+if ($country=="Canada (French)") {print "<option selected>Canada (French)</option>";} else {print "<option>Canada (French)</option>";}
+if ($country=="Cayman Islands") {print "<option selected>Cayman Islands</option>";} else {print "<option>Cayman Islands</option>";}
+if ($country=="Chile") {print "<option selected>Chile</option>";} else {print "<option>Chile</option>";}
+if ($country=="China") {print "<option selected>China</option>";} else {print "<option>China</option>";}
+if ($country=="Colombia") {print "<option selected>Colombia</option>";} else {print "<option>Colombia</option>";}
+if ($country=="Costa Rica") {print "<option selected>Costa Rica</option>";} else {print "<option>Costa Rica</option>";}
+if ($country=="Croatia") {print "<option selected>Croatia</option>";} else {print "<option>Croatia</option>";}
+if ($country=="Cyprus") {print "<option selected>Cyprus</option>";} else {print "<option>Cyprus</option>";}
+if ($country=="Czech Republic") {print "<option selected>Czech Republic</option>";} else {print "<option>Czech Republic</option>";}
+if ($country=="Denmark") {print "<option selected>Denmark</option>";} else {print "<option>Denmark</option>";}
+if ($country=="Dominica") {print "<option selected>Dominica</option>";} else {print "<option>Dominica</option>";}
+if ($country=="Dominican Republic") {print "<option selected>Dominican Republic</option>";} else {print "<option>Dominican Republic</option>";}
+if ($country=="Ecuador") {print "<option selected>Ecuador</option>";} else {print "<option>Ecuador</option>";}
+if ($country=="Egypt") {print "<option selected>Egypt</option>";} else {print "<option>Egypt</option>";}
+if ($country=="El Salvador") {print "<option selected>El Salvador</option>";} else {print "<option>El Salvador</option>";}
+if ($country=="Estonia") {print "<option selected>Estonia</option>";} else {print "<option>Estonia</option>";}
+if ($country=="Ethiopia") {print "<option selected>Ethiopia</option>";} else {print "<option>Ethiopia</option>";}
+if ($country=="Faroe Islands") {print "<option selected>Faroe Islands</option>";} else {print "<option>Faroe Islands</option>";}
+if ($country=="Finland") {print "<option selected>Finland</option>";} else {print "<option>Finland</option>";}
+if ($country=="France") {print "<option selected>France</option>";} else {print "<option>France</option>";}
+if ($country=="French Guiana") {print "<option selected>French Guiana</option>";} else {print "<option>French Guiana</option>";}
+if ($country=="Georgia") {print "<option selected>Georgia</option>";} else {print "<option>Georgia</option>";}
+if ($country=="Germany") {print "<option selected>Germany</option>";} else {print "<option>Germany</option>";}
+if ($country=="Ghana") {print "<option selected>Ghana</option>";} else {print "<option>Ghana</option>";}
+if ($country=="Greece") {print "<option selected>Greece</option>";} else {print "<option>Greece</option>";}
+if ($country=="Greenland") {print "<option selected>Greenland</option>";} else {print "<option>Greenland</option>";}
+if ($country=="Grenada") {print "<option selected>Grenada</option>";} else {print "<option>Grenada</option>";}
+if ($country=="Guadeloupe") {print "<option selected>Guadeloupe</option>";} else {print "<option>Guadeloupe</option>";}
+if ($country=="Guatemala") {print "<option selected>Guatemala</option>";} else {print "<option>Guatemala</option>";}
+if ($country=="Guyana") {print "<option selected>Guyana</option>";} else {print "<option>Guyana</option>";}
+if ($country=="Haiti") {print "<option selected>Haiti</option>";} else {print "<option>Haiti</option>";}
+if ($country=="Honduras") {print "<option selected>Honduras</option>";} else {print "<option>Honduras</option>";}
+if ($country=="Hong Kong") {print "<option selected>Hong Kong</option>";} else {print "<option>Hong Kong</option>";}
+if ($country=="Hungary") {print "<option selected>Hungary</option>";} else {print "<option>Hungary</option>";}
+if ($country=="Iceland") {print "<option selected>Iceland</option>";} else {print "<option>Iceland</option>";}
+if ($country=="India") {print "<option selected>India</option>";} else {print "<option>India</option>";}
+if ($country=="Indonesia") {print "<option selected>Indonesia</option>";} else {print "<option>Indonesia</option>";}
+if ($country=="Ireland") {print "<option selected>Ireland</option>";} else {print "<option>Ireland</option>";}
+if ($country=="Israel") {print "<option selected>Israel</option>";} else {print "<option>Israel</option>";}
+if ($country=="Italy") {print "<option selected>Italy</option>";} else {print "<option>Italy</option>";}
+if ($country=="Jamaica") {print "<option selected>Jamaica</option>";} else {print "<option>Jamaica</option>";}
+if ($country=="Japan") {print "<option selected>Japan</option>";} else {print "<option>Japan</option>";}
+if ($country=="Kazakhstan") {print "<option selected>Kazakhstan</option>";} else {print "<option>Kazakhstan</option>";}
+if ($country=="Kenya") {print "<option selected>Kenya</option>";} else {print "<option>Kenya</option>";}
+if ($country=="Korea") {print "<option selected>Korea</option>";} else {print "<option>Korea</option>";}
+if ($country=="Laos") {print "<option selected>Laos</option>";} else {print "<option>Laos</option>";}
+if ($country=="Latvia") {print "<option selected>Latvia</option>";} else {print "<option>Latvia</option>";}
+if ($country=="Lithuania") {print "<option selected>Lithuania</option>";} else {print "<option>Lithuania</option>";}
+if ($country=="Luxembourg") {print "<option selected>Luxembourg</option>";} else {print "<option>Luxembourg</option>";}
+if ($country=="Macedonia") {print "<option selected>Macedonia</option>";} else {print "<option>Macedonia</option>";}
+if ($country=="Malawi") {print "<option selected>Malawi</option>";} else {print "<option>Malawi</option>";}
+if ($country=="Malaysia") {print "<option selected>Malaysia</option>";} else {print "<option>Malaysia</option>";}
+if ($country=="Malta") {print "<option selected>Malta</option>";} else {print "<option>Malta</option>";}
+if ($country=="Martinique") {print "<option selected>Martinique</option>";} else {print "<option>Martinique</option>";}
+if ($country=="Mauritius") {print "<option selected>Mauritius</option>";} else {print "<option>Mauritius</option>";}
+if ($country=="Mexico") {print "<option selected>Mexico</option>";} else {print "<option>Mexico</option>";}
+if ($country=="Moldova") {print "<option selected>Moldova</option>";} else {print "<option>Moldova</option>";}
+if ($country=="Monaco") {print "<option selected>Monaco</option>";} else {print "<option>Monaco</option>";}
+if ($country=="Montenegro") {print "<option selected>Montenegro</option>";} else {print "<option>Montenegro</option>";}
+if ($country=="Morocco") {print "<option selected>Morocco</option>";} else {print "<option>Morocco</option>";}
+if ($country=="Myanmar") {print "<option selected>Myanmar</option>";} else {print "<option>Myanmar</option>";}
+if ($country=="Namibia") {print "<option selected>Namibia</option>";} else {print "<option>Namibia</option>";}
+if ($country=="Nepal") {print "<option selected>Nepal</option>";} else {print "<option>Nepal</option>";}
+if ($country=="Netherland") {print "<option selected>Netherland</option>";} else {print "<option>Netherland</option>";}
+if ($country=="Netherland Antilles") {print "<option selected>Netherland Antilles</option>";} else {print "<option>Netherland Antilles</option>";}
+if ($country=="New Zealand") {print "<option selected>New Zealand</option>";} else {print "<option>New Zealand</option>";}
+if ($country=="Nicaragua") {print "<option selected>Nicaragua</option>";} else {print "<option>Nicaragua</option>";}
+if ($country=="Nigeria") {print "<option selected>Nigeria</option>";} else {print "<option>Nigeria</option>";}
+if ($country=="Norway") {print "<option selected>Norway</option>";} else {print "<option>Norway</option>";}
+if ($country=="Pakistan") {print "<option selected>Pakistan</option>";} else {print "<option>Pakistan</option>";}
+if ($country=="Panamá") {print "<option selected>Panamá</option>";} else {print "<option>Panamá</option>";}
+if ($country=="Paraguay") {print "<option selected>Paraguay</option>";} else {print "<option>Paraguay</option>";}
+if ($country=="Perú") {print "<option selected>Perú</option>";} else {print "<option>Perú</option>";}
+if ($country=="Philippines") {print "<option selected>Philippines</option>";} else {print "<option>Philippines</option>";}
+if ($country=="Poland") {print "<option selected>Poland</option>";} else {print "<option>Poland</option>";}
+if ($country=="Portugal") {print "<option selected>Portugal</option>";} else {print "<option>Portugal</option>";}
+if ($country=="Puerto Rico") {print "<option selected>Puerto Rico</option>";} else {print "<option>Puerto Rico</option>";}
+if ($country=="República Dominicana") {print "<option selected>República Dominicana</option>";} else {print "<option>República Dominicana</option>";}
+if ($country=="Romania") {print "<option selected>Romania</option>";} else {print "<option>Romania</option>";}
+if ($country=="Russia") {print "<option selected>Russia</option>";} else {print "<option>Russia</option>";}
+if ($country=="Saint Lucia") {print "<option selected>Saint Lucia</option>";} else {print "<option>Saint Lucia</option>";}
+if ($country=="Saudi Arabia") {print "<option selected>Saudi Arabia</option>";} else {print "<option>Saudi Arabia</option>";}
+if ($country=="Serbia") {print "<option selected>Serbia</option>";} else {print "<option>Serbia</option>";}
+if ($country=="Singapore") {print "<option selected>Singapore</option>";} else {print "<option>Singapore</option>";}
+if ($country=="Slovak Republic") {print "<option selected>Slovak Republic</option>";} else {print "<option>Slovak Republic</option>";}
+if ($country=="Slovenia") {print "<option selected>Slovenia</option>";} else {print "<option>Slovenia</option>";}
+if ($country=="South Africa") {print "<option selected>South Africa</option>";} else {print "<option>South Africa</option>";}
+if ($country=="Spain") {print "<option selected>Spain</option>";} else {print "<option>Spain</option>";}
+if ($country=="Sri Lanka") {print "<option selected>Sri Lanka</option>";} else {print "<option>Sri Lanka</option>";}
+if ($country=="St. Vincent Islands") {print "<option selected>St. Vincent Islands</option>";} else {print "<option>St. Vincent Islands</option>";}
+if ($country=="Suriname") {print "<option selected>Suriname</option>";} else {print "<option>Suriname</option>";}
+if ($country=="Sweden") {print "<option selected>Sweden</option>";} else {print "<option>Sweden</option>";}
+if ($country=="Switzerland") {print "<option selected>Switzerland</option>";} else {print "<option>Switzerland</option>";}
+if ($country=="Taiwan") {print "<option selected>Taiwan</option>";} else {print "<option>Taiwan</option>";}
+if ($country=="Thailand") {print "<option selected>Thailand</option>";} else {print "<option>Thailand</option>";}
+if ($country=="Trinidad and Tobago") {print "<option selected>Trinidad and Tobago</option>";} else {print "<option>Trinidad and Tobago</option>";}
+if ($country=="Tunisia") {print "<option selected>Tunisia</option>";} else {print "<option>Tunisia</option>";}
+if ($country=="Turkey") {print "<option selected>Turkey</option>";} else {print "<option>Turkey</option>";}
+if ($country=="U.S. Virgin Islands") {print "<option selected>U.S. Virgin Islands</option>";} else {print "<option>U.S. Virgin Islands</option>";}
+if ($country=="Ukraine") {print "<option selected>Ukraine</option>";} else {print "<option>Ukraine</option>";}
+if ($country=="United Arab Emirates") {print "<option selected>United Arab Emirates</option>";} else {print "<option>United Arab Emirates</option>";}
+if ($country=="United Kingdom") {print "<option selected>United Kingdom</option>";} else {print "<option>United Kingdom</option>";}
+if ($country=="Uruguay") {print "<option selected>Uruguay</option>";} else {print "<option>Uruguay</option>";}
+if ($country=="Venezuela") {print "<option selected>Venezuela</option>";} else {print "<option>Venezuela</option>";}
+if ($country=="Virgin Islands") {print "<option selected>Virgin Islands</option>";} else {print "<option>Virgin Islands</option>";}
+if ($country=="West Indies") {print "<option selected>West Indies</option>";} else {print "<option>West Indies</option>";}
+if ($country=="Zimbabwe") {print "<option selected>Zimbabwe</option>";} else {print "<option>Zimbabwe</option>";}
+print "</select><br />";
+
+
+print "Language: ";
+print "<select name='language'>";
+
+if ($language=="English") {Print "<option selected>English</option>";} Else {print "<option>English</option>";}
+if ($language=="Amharic") {Print "<option selected>Amharic</option>";} Else {print "<option>Amharic</option>";}
+if ($language=="Arabic") {Print "<option selected>Arabic</option>";} Else {print "<option>Arabic</option>";}
+if ($language=="Assamese") {Print "<option selected>Assamese</option>";} Else {print "<option>Assamese</option>";}
+if ($language=="Bengali") {Print "<option selected>Bengali</option>";} Else {print "<option>Bengali</option>";}
+if ($language=="Burmese") {Print "<option selected>Burmese</option>";} Else {print "<option>Burmese</option>";}
+if ($language=="Cantonese") {Print "<option selected>Cantonese</option>";} Else {print "<option>Cantonese</option>";}
+if ($language=="Dutch-Flemish") {Print "<option selected>Dutch-Flemish</option>";} Else {print "<option>Dutch-Flemish</option>";}
+if ($language=="French") {Print "<option selected>French</option>";} Else {print "<option>French</option>";}
+if ($language=="German") {Print "<option selected>German</option>";} Else {print "<option>German</option>";}
+if ($language=="Gujarati") {Print "<option selected>Gujarati</option>";} Else {print "<option>Gujarati</option>";}
+if ($language=="Hausa") {Print "<option selected>Hausa</option>";} Else {print "<option>Hausa</option>";}
+if ($language=="Hekkan") {Print "<option selected>Hekkan</option>";} Else {print "<option>Hekkan</option>";}
+if ($language=="Hindi") {Print "<option selected>Hindi</option>";} Else {print "<option>Hindi</option>";}
+if ($language=="Hungarian") {Print "<option selected>Hungarian</option>";} Else {print "<option>Hungarian</option>";}
+if ($language=="Igbo") {Print "<option selected>Igbo</option>";} Else {print "<option>Igbo</option>";}
+if ($language=="Italian") {Print "<option selected>Italian</option>";} Else {print "<option>Italian</option>";}
+if ($language=="Japanese") {Print "<option selected>Japanese</option>";} Else {print "<option>Japanese</option>";}
+if ($language=="Javanese") {Print "<option selected>Javanese</option>";} Else {print "<option>Javanese</option>";}
+if ($language=="Kannada") {Print "<option selected>Kannada</option>";} Else {print "<option>Kannada</option>";}
+if ($language=="Korean") {Print "<option selected>Korean</option>";} Else {print "<option>Korean</option>";}
+if ($language=="Malayalam") {Print "<option selected>Malayalam</option>";} Else {print "<option>Malayalam</option>";}
+if ($language=="Malay-Indonesian") {Print "<option selected>Malay-Indonesian</option>";} Else {print "<option>Malay-Indonesian</option>";}
+if ($language=="Mandarin") {Print "<option selected>Mandarin</option>";} Else {print "<option>Mandarin</option>";}
+if ($language=="Marathi") {Print "<option selected>Marathi</option>";} Else {print "<option>Marathi</option>";}
+if ($language=="Min") {Print "<option selected>Min</option>";} Else {print "<option>Min</option>";}
+if ($language=="Nepalese") {Print "<option selected>Nepalese</option>";} Else {print "<option>Nepalese</option>";}
+if ($language=="Oriya") {Print "<option selected>Oriya</option>";} Else {print "<option>Oriya</option>";}
+if ($language=="Persian") {Print "<option selected>Persian</option>";} Else {print "<option>Persian</option>";}
+if ($language=="Polish") {Print "<option selected>Polish</option>";} Else {print "<option>Polish</option>";}
+if ($language=="Portuguese") {Print "<option selected>Portuguese</option>";} Else {print "<option>Portuguese</option>";}
+if ($language=="Punjabi") {Print "<option selected>Punjabi</option>";} Else {print "<option>Punjabi</option>";}
+if ($language=="Rumanian") {Print "<option selected>Rumanian</option>";} Else {print "<option>Rumanian</option>";}
+if ($language=="Russian") {Print "<option selected>Russian</option>";} Else {print "<option>Russian</option>";}
+if ($language=="Serbo-Croatian") {Print "<option selected>Serbo-Croatian</option>";} Else {print "<option>Serbo-Croatian</option>";}
+if ($language=="Sindhi") {Print "<option selected>Sindhi</option>";} Else {print "<option>Sindhi</option>";}
+if ($language=="Sinhalese") {Print "<option selected>Sinhalese</option>";} Else {print "<option>Sinhalese</option>";}
+if ($language=="Spanish") {Print "<option selected>Spanish</option>";} Else {print "<option>Spanish</option>";}
+if ($language=="Sudanese") {Print "<option selected>Sudanese</option>";} Else {print "<option>Sudanese</option>";}
+if ($language=="Swahili") {Print "<option selected>Swahili</option>";} Else {print "<option>Swahili</option>";}
+if ($language=="Tagalog") {Print "<option selected>Tagalog</option>";} Else {print "<option>Tagalog</option>";}
+if ($language=="Tamil") {Print "<option selected>Tamil</option>";} Else {print "<option>Tamil</option>";}
+if ($language=="Telugu") {Print "<option selected>Telugu</option>";} Else {print "<option>Telugu</option>";}
+if ($language=="Thai") {Print "<option selected>Thai</option>";} Else {print "<option>Thai</option>";}
+if ($language=="Turkish") {Print "<option selected>Turkish</option>";} Else {print "<option>Turkish</option>";}
+if ($language=="Ukrainian") {Print "<option selected>Ukrainian</option>";} Else {print "<option>Ukrainian</option>";}
+if ($language=="Urdu") {Print "<option selected>Urdu</option>";} Else {print "<option>Urdu</option>";}
+if ($language=="Vietnamese") {Print "<option selected>Vietnamese</option>";} Else {print "<option>Vietnamese</option>";}
+if ($language=="Wu") {Print "<option selected>Wu</option>";} Else {print "<option>Wu</option>";}
+if ($language=="Yoruba") {Print "<option selected>Yoruba</option>";} Else {print "<option>Yoruba</option>";}
+if ($language=="Zhuang") {Print "<option selected>Zhuang</option>";} Else {print "<option>Zhuang</option>";}
+
+print "</select><br />";
+
+
+print "Date of Birth: 	";
+print "<select name='month'>";
+if ($month=="January") {Print "<option selected>January</option>";} Else {print "<option>January</option>";}
+if ($month=="February") {Print "<option selected>February</option>";} Else {print "<option>February</option>";}
+if ($month=="March") {Print "<option selected>March</option>";} Else {print "<option>March</option>";}
+if ($month=="April") {Print "<option selected>April</option>";} Else {print "<option>April</option>";}
+if ($month=="May") {Print "<option selected>May</option>";} Else {print "<option>May</option>";}
+if ($month=="June") {Print "<option selected>June</option>";} Else {print "<option>June</option>";}
+if ($month=="July") {Print "<option selected>July</option>";} Else {print "<option>July</option>";}
+if ($month=="August") {Print "<option selected>August</option>";} Else {print "<option>August</option>";}
+if ($month=="September") {Print "<option selected>September</option>";} Else {print "<option>September</option>";}
+if ($month=="October") {Print "<option selected>October</option>";} Else {print "<option>October</option>";}
+if ($month=="November") {Print "<option selected>November</option>";} Else {print "<option>November</option>";}
+if ($month=="December") {Print "<option selected>December</option>";} Else {print "<option>December</option>";}
+print "</select>";
+print "<select name='day'>";
+if ($day=="1") {Print "<option selected>1</option>";} Else {print "<option>1</option>";}
+if ($day=="2") {Print "<option selected>2</option>";} Else {print "<option>2</option>";}
+if ($day=="3") {Print "<option selected>3</option>";} Else {print "<option>3</option>";}
+if ($day=="4") {Print "<option selected>4</option>";} Else {print "<option>4</option>";}
+if ($day=="5") {Print "<option selected>5</option>";} Else {print "<option>5</option>";}
+if ($day=="6") {Print "<option selected>6</option>";} Else {print "<option>6</option>";}
+if ($day=="7") {Print "<option selected>7</option>";} Else {print "<option>7</option>";}
+if ($day=="8") {Print "<option selected>8</option>";} Else {print "<option>8</option>";}
+if ($day=="9") {Print "<option selected>9</option>";} Else {print "<option>9</option>";}
+if ($day=="10") {Print "<option selected>10</option>";} Else {print "<option>10</option>";}
+if ($day=="11") {Print "<option selected>11</option>";} Else {print "<option>11</option>";}
+if ($day=="12") {Print "<option selected>12</option>";} Else {print "<option>12</option>";}
+if ($day=="13") {Print "<option selected>13</option>";} Else {print "<option>13</option>";}
+if ($day=="14") {Print "<option selected>14</option>";} Else {print "<option>14</option>";}
+if ($day=="15") {Print "<option selected>15</option>";} Else {print "<option>15</option>";}
+if ($day=="16") {Print "<option selected>16</option>";} Else {print "<option>16</option>";}
+if ($day=="17") {Print "<option selected>17</option>";} Else {print "<option>17</option>";}
+if ($day=="18") {Print "<option selected>18</option>";} Else {print "<option>18</option>";}
+if ($day=="19") {Print "<option selected>19</option>";} Else {print "<option>19</option>";}
+if ($day=="20") {Print "<option selected>20</option>";} Else {print "<option>20</option>";}
+if ($day=="21") {Print "<option selected>21</option>";} Else {print "<option>21</option>";}
+if ($day=="22") {Print "<option selected>22</option>";} Else {print "<option>22</option>";}
+if ($day=="23") {Print "<option selected>23</option>";} Else {print "<option>23</option>";}
+if ($day=="24") {Print "<option selected>24</option>";} Else {print "<option>24</option>";}
+if ($day=="25") {Print "<option selected>25</option>";} Else {print "<option>25</option>";}
+if ($day=="26") {Print "<option selected>26</option>";} Else {print "<option>26</option>";}
+if ($day=="27") {Print "<option selected>27</option>";} Else {print "<option>27</option>";}
+if ($day=="28") {Print "<option selected>28</option>";} Else {print "<option>28</option>";}
+if ($day=="29") {Print "<option selected>29</option>";} Else {print "<option>29</option>";}
+if ($day=="30") {Print "<option selected>30</option>";} Else {print "<option>30</option>";}
+if ($day=="31") {Print "<option selected>31</option>";} Else {print "<option>31</option>";}
+print "</select>";
+print "<select name='year'>";
+if ($year=="1900") {Print "<option selected>1900</option>";} Else {print "<option>1900</option>";}
+if ($year=="1901") {Print "<option selected>1901</option>";} Else {print "<option>1901</option>";}
+if ($year=="1902") {Print "<option selected>1902</option>";} Else {print "<option>1902</option>";}
+if ($year=="1903") {Print "<option selected>1903</option>";} Else {print "<option>1903</option>";}
+if ($year=="1904") {Print "<option selected>1904</option>";} Else {print "<option>1904</option>";}
+if ($year=="1905") {Print "<option selected>1905</option>";} Else {print "<option>1905</option>";}
+if ($year=="1906") {Print "<option selected>1906</option>";} Else {print "<option>1906</option>";}
+if ($year=="1907") {Print "<option selected>1907</option>";} Else {print "<option>1907</option>";}
+if ($year=="1908") {Print "<option selected>1908</option>";} Else {print "<option>1908</option>";}
+if ($year=="1909") {Print "<option selected>1909</option>";} Else {print "<option>1909</option>";}
+if ($year=="1910") {Print "<option selected>1910</option>";} Else {print "<option>1910</option>";}
+if ($year=="1911") {Print "<option selected>1911</option>";} Else {print "<option>1911</option>";}
+if ($year=="1912") {Print "<option selected>1912</option>";} Else {print "<option>1912</option>";}
+if ($year=="1913") {Print "<option selected>1913</option>";} Else {print "<option>1913</option>";}
+if ($year=="1914") {Print "<option selected>1914</option>";} Else {print "<option>1914</option>";}
+if ($year=="1915") {Print "<option selected>1915</option>";} Else {print "<option>1915</option>";}
+if ($year=="1916") {Print "<option selected>1916</option>";} Else {print "<option>1916</option>";}
+if ($year=="1917") {Print "<option selected>1917</option>";} Else {print "<option>1917</option>";}
+if ($year=="1918") {Print "<option selected>1918</option>";} Else {print "<option>1918</option>";}
+if ($year=="1919") {Print "<option selected>1919</option>";} Else {print "<option>1919</option>";}
+if ($year=="1920") {Print "<option selected>1920</option>";} Else {print "<option>1920</option>";}
+if ($year=="1921") {Print "<option selected>1921</option>";} Else {print "<option>1921</option>";}
+if ($year=="1922") {Print "<option selected>1922</option>";} Else {print "<option>1922</option>";}
+if ($year=="1923") {Print "<option selected>1923</option>";} Else {print "<option>1923</option>";}
+if ($year=="1924") {Print "<option selected>1924</option>";} Else {print "<option>1924</option>";}
+if ($year=="1925") {Print "<option selected>1925</option>";} Else {print "<option>1925</option>";}
+if ($year=="1926") {Print "<option selected>1926</option>";} Else {print "<option>1926</option>";}
+if ($year=="1927") {Print "<option selected>1927</option>";} Else {print "<option>1927</option>";}
+if ($year=="1928") {Print "<option selected>1928</option>";} Else {print "<option>1928</option>";}
+if ($year=="1929") {Print "<option selected>1929</option>";} Else {print "<option>1929</option>";}
+if ($year=="1930") {Print "<option selected>1930</option>";} Else {print "<option>1930</option>";}
+if ($year=="1931") {Print "<option selected>1931</option>";} Else {print "<option>1931</option>";}
+if ($year=="1932") {Print "<option selected>1932</option>";} Else {print "<option>1932</option>";}
+if ($year=="1933") {Print "<option selected>1933</option>";} Else {print "<option>1933</option>";}
+if ($year=="1934") {Print "<option selected>1934</option>";} Else {print "<option>1934</option>";}
+if ($year=="1935") {Print "<option selected>1935</option>";} Else {print "<option>1935</option>";}
+if ($year=="1936") {Print "<option selected>1936</option>";} Else {print "<option>1936</option>";}
+if ($year=="1937") {Print "<option selected>1937</option>";} Else {print "<option>1937</option>";}
+if ($year=="1938") {Print "<option selected>1938</option>";} Else {print "<option>1938</option>";}
+if ($year=="1939") {Print "<option selected>1939</option>";} Else {print "<option>1939</option>";}
+if ($year=="1940") {Print "<option selected>1940</option>";} Else {print "<option>1940</option>";}
+if ($year=="1941") {Print "<option selected>1941</option>";} Else {print "<option>1941</option>";}
+if ($year=="1942") {Print "<option selected>1942</option>";} Else {print "<option>1942</option>";}
+if ($year=="1943") {Print "<option selected>1943</option>";} Else {print "<option>1943</option>";}
+if ($year=="1944") {Print "<option selected>1944</option>";} Else {print "<option>1944</option>";}
+if ($year=="1945") {Print "<option selected>1945</option>";} Else {print "<option>1945</option>";}
+if ($year=="1946") {Print "<option selected>1946</option>";} Else {print "<option>1946</option>";}
+if ($year=="1947") {Print "<option selected>1947</option>";} Else {print "<option>1947</option>";}
+if ($year=="1948") {Print "<option selected>1948</option>";} Else {print "<option>1948</option>";}
+if ($year=="1949") {Print "<option selected>1949</option>";} Else {print "<option>1949</option>";}
+if ($year=="1950") {Print "<option selected>1950</option>";} Else {print "<option>1950</option>";}
+if ($year=="1951") {Print "<option selected>1951</option>";} Else {print "<option>1951</option>";}
+if ($year=="1952") {Print "<option selected>1952</option>";} Else {print "<option>1952</option>";}
+if ($year=="1953") {Print "<option selected>1953</option>";} Else {print "<option>1953</option>";}
+if ($year=="1954") {Print "<option selected>1954</option>";} Else {print "<option>1954</option>";}
+if ($year=="1955") {Print "<option selected>1955</option>";} Else {print "<option>1955</option>";}
+if ($year=="1956") {Print "<option selected>1956</option>";} Else {print "<option>1956</option>";}
+if ($year=="1957") {Print "<option selected>1957</option>";} Else {print "<option>1957</option>";}
+if ($year=="1958") {Print "<option selected>1958</option>";} Else {print "<option>1958</option>";}
+if ($year=="1959") {Print "<option selected>1959</option>";} Else {print "<option>1959</option>";}
+if ($year=="1960") {Print "<option selected>1960</option>";} Else {print "<option>1960</option>";}
+if ($year=="1961") {Print "<option selected>1961</option>";} Else {print "<option>1961</option>";}
+if ($year=="1962") {Print "<option selected>1962</option>";} Else {print "<option>1962</option>";}
+if ($year=="1963") {Print "<option selected>1963</option>";} Else {print "<option>1963</option>";}
+if ($year=="1964") {Print "<option selected>1964</option>";} Else {print "<option>1964</option>";}
+if ($year=="1965") {Print "<option selected>1965</option>";} Else {print "<option>1965</option>";}
+if ($year=="1966") {Print "<option selected>1966</option>";} Else {print "<option>1966</option>";}
+if ($year=="1967") {Print "<option selected>1967</option>";} Else {print "<option>1967</option>";}
+if ($year=="1968") {Print "<option selected>1968</option>";} Else {print "<option>1968</option>";}
+if ($year=="1969") {Print "<option selected>1969</option>";} Else {print "<option>1969</option>";}
+if ($year=="1970") {Print "<option selected>1970</option>";} Else {print "<option>1970</option>";}
+if ($year=="1971") {Print "<option selected>1971</option>";} Else {print "<option>1971</option>";}
+if ($year=="1972") {Print "<option selected>1972</option>";} Else {print "<option>1972</option>";}
+if ($year=="1973") {Print "<option selected>1973</option>";} Else {print "<option>1973</option>";}
+if ($year=="1974") {Print "<option selected>1974</option>";} Else {print "<option>1974</option>";}
+if ($year=="1975") {Print "<option selected>1975</option>";} Else {print "<option>1975</option>";}
+if ($year=="1976") {Print "<option selected>1976</option>";} Else {print "<option>1976</option>";}
+if ($year=="1977") {Print "<option selected>1977</option>";} Else {print "<option>1977</option>";}
+if ($year=="1978") {Print "<option selected>1978</option>";} Else {print "<option>1978</option>";}
+if ($year=="1979") {Print "<option selected>1979</option>";} Else {print "<option>1979</option>";}
+if ($year=="1980") {Print "<option selected>1980</option>";} Else {print "<option>1980</option>";}
+if ($year=="1981") {Print "<option selected>1981</option>";} Else {print "<option>1981</option>";}
+if ($year=="1982") {Print "<option selected>1982</option>";} Else {print "<option>1982</option>";}
+if ($year=="1983") {Print "<option selected>1983</option>";} Else {print "<option>1983</option>";}
+if ($year=="1984") {Print "<option selected>1984</option>";} Else {print "<option>1984</option>";}
+if ($year=="1985") {Print "<option selected>1985</option>";} Else {print "<option>1985</option>";}
+if ($year=="1986") {Print "<option selected>1986</option>";} Else {print "<option>1986</option>";}
+if ($year=="1987") {Print "<option selected>1987</option>";} Else {print "<option>1987</option>";}
+if ($year=="1988") {Print "<option selected>1988</option>";} Else {print "<option>1988</option>";}
+if ($year=="1989") {Print "<option selected>1989</option>";} Else {print "<option>1989</option>";}
+if ($year=="1990") {Print "<option selected>1990</option>";} Else {print "<option>1990</option>";}
+if ($year=="1991") {Print "<option selected>1991</option>";} Else {print "<option>1991</option>";}
+if ($year=="1992") {Print "<option selected>1992</option>";} Else {print "<option>1992</option>";}
+if ($year=="1993") {Print "<option selected>1993</option>";} Else {print "<option>1993</option>";}
+if ($year=="1994") {Print "<option selected>1994</option>";} Else {print "<option>1994</option>";}
+if ($year=="1995") {Print "<option selected>1995</option>";} Else {print "<option>1995</option>";}
+if ($year=="1996") {Print "<option selected>1996</option>";} Else {print "<option>1996</option>";}
+if ($year=="1997") {Print "<option selected>1997</option>";} Else {print "<option>1997</option>";}
+if ($year=="1998") {Print "<option selected>1998</option>";} Else {print "<option>1998</option>";}
+if ($year=="1999") {Print "<option selected>1999</option>";} Else {print "<option>1999</option>";}
+if ($year=="2000") {Print "<option selected>2000</option>";} Else {print "<option>2000</option>";}
+if ($year=="2001") {Print "<option selected>2001</option>";} Else {print "<option>2001</option>";}
+if ($year=="2002") {Print "<option selected>2002</option>";} Else {print "<option>2002</option>";}
+if ($year=="2003") {Print "<option selected>2003</option>";} Else {print "<option>2003</option>";}
+if ($year=="2004") {Print "<option selected>2004</option>";} Else {print "<option>2004</option>";}
+if ($year=="2005") {Print "<option selected>2005</option>";} Else {print "<option>2005</option>";}
+if ($year=="2006") {Print "<option selected>2006</option>";} Else {print "<option>2006</option>";}
+if ($year=="2007") {Print "<option selected>2007</option>";} Else {print "<option>2007</option>";}
+if ($year=="2008") {Print "<option selected>2008</option>";} Else {print "<option>2008</option>";}
+if ($year=="2009") {Print "<option selected>2009</option>";} Else {print "<option>2009</option>";}
+if ($year=="2010") {Print "<option selected>2010</option>";} Else {print "<option>2010</option>";}
+if ($year=="2011") {Print "<option selected>2011</option>";} Else {print "<option>2011</option>";}
+print "</select><br />";
+
+print "Gender: ";
+print "<select name='gender'>";
+if ($gender=="female") {Print "<option selected>female</option>";} Else {print "<option>female</option>";}
+if ($gender=="male") {Print "<option selected>male</option>";} Else {print "<option>male</option>";}
+print "</select><br />";
+if ($agreement=="on") {print '<INPUT TYPE="CHECKBOX" NAME="agreement" CHECKED></INPUT> ';}
+else {print '<INPUT TYPE="CHECKBOX" NAME="agreement"></INPUT> ';}
+?>
+
+I would like to receive occasional product-related email communications that ProLamp believes would be of interest to me<br />&nbsp;<br />
+
+Please review the ProLamp Terms of Service and ProLamp Terms of Use below:<br />
+
+<textarea cols="60" rows="10">Terms of Service
+
+1. Your Acceptance
+
+   A. By using or visiting the ProLamp website or any ProLamp products, software, data feeds, and services provided to you on, from, or through the ProLamp website (collectively the "Service") you signify your agreement to (1) these terms and conditions (the "Terms of Service"), (2) ProLamp's privacy notice, found at http://www.ProLamp.com/t/privacy and incorporated herein by reference, and (3) ProLamp's Community Guidelines, found at http://www.ProLamp.com/t/community_guidelines and also incorporated herein by reference. If you do not agree to any of these terms, the ProLamp privacy notice, or the Community Guidelines, please do not use the Service.
+   
+   B. Although we may attempt to notify you when major changes are made to these Terms of Service, you should periodically review the most up-to-date version http://www.ProLamp.com/t/terms). ProLamp may, in its sole discretion, modify or revise these Terms of Service and policies at any time, and you agree to be bound by such modifications or revisions. Nothing in these Terms of Service shall be deemed to confer any third-party rights or benefits.
+
+2. Service
+
+   A. These Terms of Service apply to all users of the Service, including users who are also contributors of Content on the Service. “Content” includes the text, software, scripts, graphics, photos, sounds, music, videos, audiovisual combinations, interactive features and other materials you may view on, access through, or contribute to the Service. The Service includes all aspects of ProLamp, including but not limited to all products, software and services offered via the ProLamp website, such as the ProLamp channels, the ProLamp "Embeddable Player," the ProLamp "Uploader" and other applications.
+   
+   B. The Service may contain links to third party websites that are not owned or controlled by ProLamp. ProLamp has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party websites. In addition, ProLamp will not and cannot censor or edit the content of any third-party site. By using the Service, you expressly relieve ProLamp from any and all liability arising from your use of any third-party website.
+   
+   C. Accordingly, we encourage you to be aware when you leave the Service and to read the terms and conditions and privacy policy of each other website that you visit.
+
+3. ProLamp Accounts
+
+   A. In order to access some features of the Service, you will have to create a ProLamp or ProLamp account. You may never use another's account without permission. When creating your account, you must provide accurate and complete information. You are solely responsible for the activity that occurs on your account, and you must keep your account password secure. You must notify ProLamp immediately of any breach of security or unauthorized use of your account.
+   
+   B. Although ProLamp will not be liable for your losses caused by any unauthorized use of your account, you may be liable for the losses of ProLamp or others due to such unauthorized use.
+
+4. General Use of the Service—Permissions and Restrictions
+
+ProLamp hereby grants you permission to access and use the Service as set forth in these Terms of Service, provided that:
+
+   A. You agree not to distribute in any medium any part of the Service or the Content without ProLamp's prior written authorization, unless YouTube makes available the means for such distribution through functionality offered by the Service (such as the Embeddable Player).
+   
+   B. You agree not to alter or modify any part of the Service.
+   
+   C. You agree not to access Content through any technology or means other than the video playback pages of the Service itself, the Embeddable Player, or other explicitly authorized means ProLamp may designate.
+   
+   D. You agree not to use the Service for any of the following commercial uses unless you obtain ProLamp's prior written approval:
+          * the sale of access to the Service;
+          * the sale of advertising, sponsorships, or promotions placed on or within the Service or Content; or
+          * the sale of advertising, sponsorships, or promotions on any page of an ad-enabled blog or website containing Content delivered via the Service, unless other material not obtained from ProLamp appears on the same page and is of sufficient value to be the basis for such sales.
+   E. Prohibited commercial uses do not include:
+          * uploading an original video to ProLamp, or maintaining an original channel on ProLamp, to promote your business or artistic enterprise;
+          * showing ProLamp videos through the Embeddable Player on an ad-enabled blog or website, subject to the advertising restrictions set forth above in Section 4.D; or
+          * any use that ProLamp expressly authorizes in writing.
+
+      (For more information about what constitutes a prohibited commercial use, see our FAQ.)
+   
+   F. If you use the Embeddable Player on your website, you may not modify, build upon, or block any portion or functionality of the Embeddable Player, including but not limited to links back to the ProLamp website.
+   
+   G. If you use the ProLamp Uploader, you agree that it may automatically download and install updates from time to time from ProLamp. These updates are designed to improve, enhance and further develop the Uploader and may take the form of bug fixes, enhanced functions, new software modules and completely new versions. You agree to receive such updates (and permit ProLamp to deliver these to you) as part of your use of the Uploader.
+   
+   H. You agree not to use or launch any automated system, including without limitation, "robots," "spiders," or "offline readers," that accesses the Service in a manner that sends more request messages to the ProLamp servers in a given period of time than a human can reasonably produce in the same period by using a conventional on-line web browser. Notwithstanding the foregoing, ProLamp grants the operators of public search engines permission to use spiders to copy materials from the site for the sole purpose of and solely to the extent necessary for creating publicly available searchable indices of the materials, but not caches or archives of such materials. ProLamp reserves the right to revoke these exceptions either generally or in specific cases. You agree not to collect or harvest any personally identifiable information, including account names, from the Service, nor to use the communication systems provided by the Service (e.g., comments, email) for any commercial solicitation purposes. You agree not to solicit, for commercial purposes, any users of the Service with respect to their Content.
+   
+   I. In your use of the Service, you will comply with all applicable laws.
+  
+   J. ProLamp reserves the right to discontinue any aspect of the Service at any time.
+
+5. Your Use of Content
+
+In addition to the general restrictions above, the following restrictions and conditions apply specifically to your use of Content.
+
+   A. The Content on the Service, and the trademarks, service marks and logos ("Marks") on the Service, are owned by or licensed to ProLamp, subject to copyright and other intellectual property rights under the law.
+   
+   B. Content is provided to you AS IS. You may access Content for your information and personal use solely as intended through the provided functionality of the Service and as permitted under these Terms of Service. You shall not download any Content unless you see a “download” or similar link displayed by ProLamp on the Service for that Content. You shall not copy, reproduce, distribute, transmit, broadcast, display, sell, license, or otherwise exploit any Content for any other purposes without the prior written consent of ProLamp or the respective licensors of the Content. ProLamp and its licensors reserve all rights not expressly granted in and to the Service and the Content.
+   
+   C. You agree not to circumvent, disable or otherwise interfere with security-related features of the Service or features that prevent or restrict use or copying of any Content or enforce limitations on use of the Service or the Content therein.
+   
+   D. You understand that when using the Service, you will be exposed to Content from a variety of sources, and that ProLamp is not responsible for the accuracy, usefulness, safety, or intellectual property rights of or relating to such Content. You further understand and acknowledge that you may be exposed to Content that is inaccurate, offensive, indecent, or objectionable, and you agree to waive, and hereby do waive, any legal or equitable rights or remedies you have or may have against ProLamp with respect thereto, and, to the extent permitted by applicable law, agree to indemnify and hold harmless ProLamp, its owners, operators, affiliates, licensors, and licensees to the fullest extent allowed by law regarding all matters related to your use of the Service.
+
+6. Your Content and Conduct
+
+   A. As a ProLamp account holder you may submit Content to the Service, including videos and user comments. You understand that ProLamp does not guarantee any confidentiality with respect to any Content you submit.
+   
+   B. You shall be solely responsible for your own Content and the consequences of submitting and publishing your Content on the Service. You affirm, represent, and warrant that you own or have the necessary licenses, rights, consents, and permissions to publish Content you submit; and you license to ProLamp all patent, trademark, trade secret, copyright or other proprietary rights in and to such Content for publication on the Service pursuant to these Terms of Service.
+   
+   C. For clarity, you retain all of your ownership rights in your Content. However, by submitting Content to ProLamp, you hereby grant ProLamp a worldwide, non-exclusive, royalty-free, sublicenseable and transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform the Content in connection with the Service and ProLamp's (and its successors' and affiliates') business, including without limitation for promoting and redistributing part or all of the Service (and derivative works thereof) in any media formats and through any media channels. You also hereby grant each user of the Service a non-exclusive license to access your Content through the Service, and to use, reproduce, distribute, display and perform such Content as permitted through the functionality of the Service and under these Terms of Service. The above licenses granted by you in video Content you submit to the Service terminate within a commercially reasonable time after you remove or delete your videos from the Service. You understand and agree, however, that ProLamp may retain, but not display, distribute, or perform, server copies of your videos that have been removed or deleted. The above licenses granted by you in user comments you submit are perpetual and irrevocable.
+   
+   D. You further agree that Content you submit to the Service will not contain third party copyrighted material, or material that is subject to other third party proprietary rights, unless you have permission from the rightful owner of the material or you are otherwise legally entitled to post the material and to grant ProLamp all of the license rights granted herein.
+   
+   E. You further agree that you will not submit to the Service any Content or other material that is contrary to the ProLamp Community Guidelines, currently found at http://www.ProLamp.com/t/community_guidelines, which may be updated from time to time, or contrary to applicable local, national, and international laws and regulations.
+   
+   F. ProLamp does not endorse any Content submitted to the Service by any user or other licensor, or any opinion, recommendation, or advice expressed therein, and ProLamp expressly disclaims any and all liability in connection with Content. ProLamp does not permit copyright infringing activities and infringement of intellectual property rights on the Service, and ProLamp will remove all Content if properly notified that such Content infringes on another's intellectual property rights. ProLamp reserves the right to remove Content without prior notice.
+
+7. Account Termination Policy
+
+   A. ProLamp will terminate a user's access to the Service if, under appropriate circumstances, the user is determined to be a repeat infringer.
+   
+   B. ProLamp reserves the right to decide whether Content violates these Terms of Service for reasons other than copyright infringement, such as, but not limited to, pornography, obscenity, or excessive length. ProLamp may at any time, without prior notice and in its sole discretion, remove such Content and/or terminate a user'su account for submitting such material in violation of these Terms of Service.
+
+8. Digital Millennium Copyright Act
+
+   A. If you are a copyright owner or an agent thereof and believe that any Content infringes upon your copyrights, you may submit a notification pursuant to the Digital Millennium Copyright Act ("DMCA") by providing our Copyright Agent with the following information in writing (see 17 U.S.C 512(c)(3) for further detail):
+          * A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed;
+          * Identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works at a single online site are covered by a single notification, a representative list of such works at that site;
+          * Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled and information reasonably sufficient to permit the service provider to locate the material;
+          * Information reasonably sufficient to permit the service provider to contact you, such as an address, telephone number, and, if available, an electronic mail;
+          * A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law; and
+          * A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
+
+            ProLamp's designated Copyright Agent to receive notifications of claimed infringement is Shadie Farazian, 901 Cherry Ave., San Bruno, CA 94066, email: copyright@ProLamp.com, fax: 650-872-8513. For clarity, only DMCA notices should go to the Copyright Agent; any other feedback, comments, requests for technical support, and other communications should be directed to ProLamp customer service through http://www.ProLamp.com/support/ProLamp. You acknowledge that if you fail to comply with all of the requirements of this Section 5(D), your DMCA notice may not be valid.
+   
+   B. Counter-Notice. If you believe that your Content that was removed (or to which access was disabled) is not infringing, or that you have the authorization from the copyright owner, the copyright owner's agent, or pursuant to the law, to post and use the material in your Content, you may send a counter-notice containing the following information to the Copyright Agent:
+          * Your physical or electronic signature;
+          * Identification of the Content that has been removed or to which access has been disabled and the location at which the Content appeared before it was removed or disabled;
+          * A statement that you have a good faith belief that the Content was removed or disabled as a result of mistake or a misidentification of the Content; and
+          * Your name, address, telephone number, and e-mail address, a statement that you consent to the jurisdiction of the federal court in San Francisco, California, and a statement that you will accept service of process from the person who provided notification of the alleged infringement.
+
+            If a counter-notice is received by the Copyright Agent, ProLamp may send a copy of the counter-notice to the original complaining party informing that person that it may replace the removed Content or cease disabling it in 10 business days. Unless the copyright owner files an action seeking a court order against the Content provider, member or user, the removed Content may be replaced, or access to it restored, in 10 to 14 business days or more after receipt of the counter-notice, at ProLamp's sole discretion.
+
+9. Warranty Disclaimer
+
+YOU AGREE THAT YOUR USE OF THE SERVICES SHALL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, ProLamp, ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF. ProLamp MAKES NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THIS SITE'S CONTENT OR THE CONTENT OF ANY SITES LINKED TO THIS SITE AND ASSUMES NO LIABILITY OR RESPONSIBILITY FOR ANY (I) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT, (II) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF OUR SERVICES, (III) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (IV) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM OUR SERVICES, (IV) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH OUR SERVICES BY ANY THIRD PARTY, AND/OR (V) ANY ERRORS OR OMISSIONS IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, EMAILED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SERVICES. ProLamp DOES NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SERVICES OR ANY HYPERLINKED SERVICES OR FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND ProLamp WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.
+
+10. Limitation of Liability
+
+IN NO EVENT SHALL ProLamp, ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS, BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE, OR CONSEQUENTIAL DAMAGES WHATSOEVER RESULTING FROM ANY (I) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT, (II) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF OUR SERVICES, (III) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (IV) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM OUR SERVICES, (IV) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE, WHICH MAY BE TRANSMITTED TO OR THROUGH OUR SERVICES BY ANY THIRD PARTY, AND/OR (V) ANY ERRORS OR OMISSIONS IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF YOUR USE OF ANY CONTENT POSTED, EMAILED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SERVICES, WHETHER BASED ON WARRANTY, CONTRACT, TORT, OR ANY OTHER LEGAL THEORY, AND WHETHER OR NOT THE COMPANY IS ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE FOREGOING LIMITATION OF LIABILITY SHALL APPLY TO THE FULLEST EXTENT PERMITTED BY LAW IN THE APPLICABLE JURISDICTION.
+
+YOU SPECIFICALLY ACKNOWLEDGE THAT ProLamp SHALL NOT BE LIABLE FOR CONTENT OR THE DEFAMATORY, OFFENSIVE, OR ILLEGAL CONDUCT OF ANY THIRD PARTY AND THAT THE RISK OF HARM OR DAMAGE FROM THE FOREGOING RESTS ENTIRELY WITH YOU.
+
+The Service is controlled and offered by ProLamp from its facilities in the United States of America. ProLamp makes no representations that the Service is appropriate or available for use in other locations. Those who access or use the Service from other jurisdictions do so at their own volition and are responsible for compliance with local law.
+
+11. Indemnity
+
+To the extent permitted by applicable law, you agree to defend, indemnify and hold harmless ProLamp, its parent corporation, officers, directors, employees and agents, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees) arising from: (i) your use of and access to the Service; (ii) your violation of any term of these Terms of Service; (iii) your violation of any third party right, including without limitation any copyright, property, or privacy right; or (iv) any claim that your Content caused damage to a third party. This defense and indemnification obligation will survive these Terms of Service and your use of the Service.
+12. Ability to Accept Terms of Service
+
+You affirm that you are either more than 18 years of age, or an emancipated minor, or possess legal parental or guardian consent, and are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations, and warranties set forth in these Terms of Service, and to abide by and comply with these Terms of Service. In any case, you affirm that you are over the age of 13, as the Service is not intended for children under 13. If you are under 13 years of age, then please do not use the Service. There are lots of other great web sites for you. Talk to your parents about what sites are appropriate for you.
+
+13. Assignment
+
+These Terms of Service, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by ProLamp without restriction.
+
+14. General
+
+You agree that: (i) the Service shall be deemed solely based in California; and (ii) the Service shall be deemed a passive website that does not give rise to personal jurisdiction over ProLamp, either specific or general, in jurisdictions other than California. These Terms of Service shall be governed by the internal substantive laws of the State of California, without respect to its conflict of laws principles. Any claim or dispute between you and ProLamp that arises in whole or in part from the Service shall be decided exclusively by a court of competent jurisdiction located in Santa Clara County, California. These Terms of Service, together with the Privacy Notice at http://www.ProLamp.com/t/privacy and any other legal notices published by ProLamp on the Service, shall constitute the entire agreement between you and ProLamp concerning the Service. If any provision of these Terms of Service is deemed invalid by a court of competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of these Terms of Service, which shall remain in full force and effect. No waiver of any term of this these Terms of Service shall be deemed a further or continuing waiver of such term or any other term, and ProLamp's failure to assert any right or provision under these Terms of Service shall not constitute a waiver of such right or provision. ProLamp reserves the right to amend these Terms of Service at any time and without notice, and it is your responsibility to review these Terms of Service for any changes. Your use of the Service following any amendment of these Terms of Service will signify your assent to and acceptance of its revised terms. YOU AND ProLamp AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE SERVICES MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION IS PERMANENTLY BARRED.
+
+Dated: June 9, 2010
+﻿ProLamp Terms of Service
+
+Welcome to ProLamp!
+
+1. Your relationship with ProLamp
+
+    1.1 Your use of ProLamp’s products, software, services and web sites (referred to collectively as the “Services” in this document and excluding any services provided to you by ProLamp under a separate written agreement) is subject to the terms of a legal agreement between you and ProLamp. “ProLamp” means ProLamp Inc., whose principal place of business is at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States. This document explains how the agreement is made up, and sets out some of the terms of that agreement.
+
+    1.2 Unless otherwise agreed in writing with ProLamp, your agreement with ProLamp will always include, at a minimum, the terms and conditions set out in this document. These are referred to below as the “Universal Terms”.
+
+    1.3 Your agreement with ProLamp will also include the terms of any Legal Notices applicable to the Services, in addition to the Universal Terms. All of these are referred to below as the “Additional Terms”. Where Additional Terms apply to a Service, these will be accessible for you to read either within, or through your use of, that Service.
+
+    1.4 The Universal Terms, together with the Additional Terms, form a legally binding agreement between you and ProLamp in relation to your use of the Services. It is important that you take the time to read them carefully. Collectively, this legal agreement is referred to below as the “Terms”.
+
+    1.5 If there is any contradiction between what the Additional Terms say and what the Universal Terms say, then the Additional Terms shall take precedence in relation to that Service.
+
+2. Accepting the Terms
+
+    2.1 In order to use the Services, you must first agree to the Terms. You may not use the Services if you do not accept the Terms.
+
+    2.2 You can accept the Terms by:
+
+        (A) clicking to accept or agree to the Terms, where this option is made available to you by ProLamp in the user interface for any Service; or
+
+        (B) by actually using the Services. In this case, you understand and agree that ProLamp will treat your use of the Services as acceptance of the Terms from that point onwards.
+
+    2.3 You may not use the Services and may not accept the Terms if (a) you are not of legal age to form a binding contract with ProLamp, or (b) you are a person barred from receiving the Services under the laws of the United States or other countries including the country in which you are resident or from which you use the Services.
+
+    2.4 Before you continue, you should print off or save a local copy of the Universal Terms for your records.
+
+3. Language of the Terms
+
+    3.1 Where ProLamp has provided you with a translation of the English language version of the Terms, then you agree that the translation is provided for your convenience only and that the English language versions of the Terms will govern your relationship with ProLamp.
+
+    3.2 If there is any contradiction between what the English language version of the Terms says and what a translation says, then the English language version shall take precedence.
+
+4. Provision of the Services by ProLamp
+
+    4.1 ProLamp has subsidiaries and affiliated legal entities around the world (“Subsidiaries and Affiliates”). Sometimes, these companies will be providing the Services to you on behalf of ProLamp itself. You acknowledge and agree that Subsidiaries and Affiliates will be entitled to provide the Services to you.
+
+    4.2 ProLamp is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services which ProLamp provides may change from time to time without prior notice to you.
+
+    4.3 As part of this continuing innovation, you acknowledge and agree that ProLamp may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally at ProLamp’s sole discretion, without prior notice to you. You may stop using the Services at any time. You do not need to specifically inform ProLamp when you stop using the Services.
+
+    4.4 You acknowledge and agree that if ProLamp disables access to your account, you may be prevented from accessing the Services, your account details or any files or other content which is contained in your account.
+
+    4.5 You acknowledge and agree that while ProLamp may not currently have set a fixed upper limit on the number of transmissions you may send or receive through the Services or on the amount of storage space used for the provision of any Service, such fixed upper limits may be set by ProLamp at any time, at ProLamp’s discretion.
+
+5. Use of the Services by you
+
+    5.1 In order to access certain Services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the Service, or as part of your continued use of the Services. You agree that any registration information you give to ProLamp will always be accurate, correct and up to date.
+
+    5.2 You agree to use the Services only for purposes that are permitted by (a) the Terms and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).
+
+    5.3 You agree not to access (or attempt to access) any of the Services by any means other than through the interface that is provided by ProLamp, unless you have been specifically allowed to do so in a separate agreement with ProLamp. You specifically agree not to access (or attempt to access) any of the Services through any automated means (including use of scripts or web crawlers) and shall ensure that you comply with the instructions set out in any robots.txt file present on the Services.
+
+    5.4 You agree that you will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services).
+
+    5.5 Unless you have been specifically permitted to do so in a separate agreement with ProLamp, you agree that you will not reproduce, duplicate, copy, sell, trade or resell the Services for any purpose.
+
+    5.6 You agree that you are solely responsible for (and that ProLamp has no responsibility to you or to any third party for) any breach of your obligations under the Terms and for the consequences (including any loss or damage which ProLamp may suffer) of any such breach.
+
+6. Your passwords and account security
+
+    6.1 You agree and understand that you are responsible for maintaining the confidentiality of passwords associated with any account you use to access the Services.
+
+    6.2 Accordingly, you agree that you will be solely responsible to ProLamp for all activities that occur under your account.
+
+    6.3 If you become aware of any unauthorized use of your password or of your account, you agree to notify ProLamp immediately at http://www.ProLamp.com/support/accounts/bin/answer.py?answer=48601.
+
+7. Privacy and your personal information
+
+    7.1 For information about ProLamp’s data protection practices, please read ProLamp’s privacy policy at http://www.ProLamp.com/privacy.html. This policy explains how ProLamp treats your personal information, and protects your privacy, when you use the Services.
+
+    7.2 You agree to the use of your data in accordance with ProLamp’s privacy policies.
+
+8. Content in the Services
+
+    8.1 You understand that all information (such as data files, written text, computer software, music, audio files or other sounds, photographs, videos or other images) which you may have access to as part of, or through your use of, the Services are the sole responsibility of the person from which such content originated. All such information is referred to below as the “Content”.
+
+    8.2 You should be aware that Content presented to you as part of the Services, including but not limited to advertisements in the Services and sponsored Content within the Services may be protected by intellectual property rights which are owned by the sponsors or advertisers who provide that Content to ProLamp (or by other persons or companies on their behalf). You may not modify, rent, lease, loan, sell, distribute or create derivative works based on this Content (either in whole or in part) unless you have been specifically told that you may do so by ProLamp or by the owners of that Content, in a separate agreement.
+
+    8.3 ProLamp reserves the right (but shall have no obligation) to pre-screen, review, flag, filter, modify, refuse or remove any or all Content from any Service. For some of the Services, ProLamp may provide tools to filter out explicit sexual content. These tools include the SafeSearch preference settings (see http://www.ProLamp.com/help/customize.html#safe). In addition, there are commercially available services and software to limit access to material that you may find objectionable.
+
+    8.4 You understand that by using the Services you may be exposed to Content that you may find offensive, indecent or objectionable and that, in this respect, you use the Services at your own risk.
+
+    8.5 You agree that you are solely responsible for (and that ProLamp has no responsibility to you or to any third party for) any Content that you create, transmit or display while using the Services and for the consequences of your actions (including any loss or damage which ProLamp may suffer) by doing so.
+
+9. Proprietary rights
+
+    9.1 You acknowledge and agree that ProLamp (or ProLamp’s licensors) own all legal right, title and interest in and to the Services, including any intellectual property rights which subsist in the Services (whether those rights happen to be registered or not, and wherever in the world those rights may exist). You further acknowledge that the Services may contain information which is designated confidential by ProLamp and that you shall not disclose such information without ProLamp’s prior written consent.
+
+    9.2 Unless you have agreed otherwise in writing with ProLamp, nothing in the Terms gives you a right to use any of ProLamp’s trade names, trade marks, service marks, logos, domain names, and other distinctive brand features.
+
+    9.3 If you have been given an explicit right to use any of these brand features in a separate written agreement with ProLamp, then you agree that your use of such features shall be in compliance with that agreement, any applicable provisions of the Terms, and ProLamp's brand feature use guidelines as updated from time to time. These guidelines can be viewed online at http://www.ProLamp.com/permissions/guidelines.html (or such other URL as ProLamp may provide for this purpose from time to time).
+
+    9.4 Other than the limited license set forth in Section 11, ProLamp acknowledges and agrees that it obtains no right, title or interest from you (or your licensors) under these Terms in or to any Content that you submit, post, transmit or display on, or through, the Services, including any intellectual property rights which subsist in that Content (whether those rights happen to be registered or not, and wherever in the world those rights may exist). Unless you have agreed otherwise in writing with ProLamp, you agree that you are responsible for protecting and enforcing those rights and that ProLamp has no obligation to do so on your behalf.
+
+    9.5 You agree that you shall not remove, obscure, or alter any proprietary rights notices (including copyright and trade mark notices) which may be affixed to or contained within the Services.
+
+    9.6 Unless you have been expressly authorized to do so in writing by ProLamp, you agree that in using the Services, you will not use any trade mark, service mark, trade name, logo of any company or organization in a way that is likely or intended to cause confusion about the owner or authorized user of such marks, names or logos.
+
+10. License from ProLamp
+
+    10.1 ProLamp gives you a personal, worldwide, royalty-free, non-assignable and non-exclusive licence to use the software provided to you by ProLamp as part of the Services as provided to you by ProLamp (referred to as the “Software” below). This licence is for the sole purpose of enabling you to use and enjoy the benefit of the Services as provided by ProLamp, in the manner permitted by the Terms.
+
+    10.2 You may not (and you may not permit anyone else to) copy, modify, create a derivative work of, reverse engineer, decompile or otherwise attempt to extract the source code of the Software or any part thereof, unless this is expressly permitted or required by law, or unless you have been specifically told that you may do so by ProLamp, in writing.
+
+    10.3 Unless ProLamp has given you specific written permission to do so, you may not assign (or grant a sub-licence of) your rights to use the Software, grant a security interest in or over your rights to use the Software, or otherwise transfer any part of your rights to use the Software.
+
+11. Content licence from you
+
+    11.1 You retain copyright and any other rights you already hold in Content which you submit, post or display on or through, the Services. By submitting, posting or displaying the content you give ProLamp a perpetual, irrevocable, worldwide, royalty-free, and non-exclusive licence to reproduce, adapt, modify, translate, publish, publicly perform, publicly display and distribute any Content which you submit, post or display on or through, the Services. This licence is for the sole purpose of enabling ProLamp to display, distribute and promote the Services and may be revoked for certain Services as defined in the Additional Terms of those Services.
+
+    11.2 You agree that this licence includes a right for ProLamp to make such Content available to other companies, organizations or individuals with whom ProLamp has relationships for the provision of syndicated services, and to use such Content in connection with the provision of those services.
+
+    11.3 You understand that ProLamp, in performing the required technical steps to provide the Services to our users, may (a) transmit or distribute your Content over various public networks and in various media; and (b) make such changes to your Content as are necessary to conform and adapt that Content to the technical requirements of connecting networks, devices, services or media. You agree that this licence shall permit ProLamp to take these actions.
+
+    11.4 You confirm and warrant to ProLamp that you have all the rights, power and authority necessary to grant the above licence.
+
+12. Software updates
+
+    12.1 The Software which you use may automatically download and install updates from time to time from ProLamp. These updates are designed to improve, enhance and further develop the Services and may take the form of bug fixes, enhanced functions, new software modules and completely new versions. You agree to receive such updates (and permit ProLamp to deliver these to you) as part of your use of the Services.
+
+13. Ending your relationship with ProLamp
+
+    13.1 The Terms will continue to apply until terminated by either you or ProLamp as set out below.
+
+    13.2 If you want to terminate your legal agreement with ProLamp, you may do so by (a) notifying ProLamp at any time and (b) closing your accounts for all of the Services which you use, where ProLamp has made this option available to you. Your notice should be sent, in writing, to ProLamp’s address which is set out at the beginning of these Terms.
+
+    13.3 ProLamp may at any time, terminate its legal agreement with you if:
+
+        (A) you have breached any provision of the Terms (or have acted in manner which clearly shows that you do not intend to, or are unable to comply with the provisions of the Terms); or
+
+        (B) ProLamp is required to do so by law (for example, where the provision of the Services to you is, or becomes, unlawful); or
+
+        (C) the partner with whom ProLamp offered the Services to you has terminated its relationship with ProLamp or ceased to offer the Services to you; or
+
+        (D) ProLamp is transitioning to no longer providing the Services to users in the country in which you are resident or from which you use the service; or
+
+        (E) the provision of the Services to you by ProLamp is, in ProLamp’s opinion, no longer commercially viable.
+
+    13.4 Nothing in this Section shall affect ProLamp’s rights regarding provision of Services under Section 4 of the Terms.
+
+    13.5 When these Terms come to an end, all of the legal rights, obligations and liabilities that you and ProLamp have benefited from, been subject to (or which have accrued over time whilst the Terms have been in force) or which are expressed to continue indefinitely, shall be unaffected by this cessation, and the provisions of paragraph 20.7 shall continue to apply to such rights, obligations and liabilities indefinitely.
+
+14. EXCLUSION OF WARRANTIES
+
+    14.1 NOTHING IN THESE TERMS, INCLUDING SECTIONS 14 AND 15, SHALL EXCLUDE OR LIMIT ProLamp’S WARRANTY OR LIABILITY FOR LOSSES WHICH MAY NOT BE LAWFULLY EXCLUDED OR LIMITED BY APPLICABLE LAW. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR CONDITIONS OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR LOSS OR DAMAGE CAUSED BY NEGLIGENCE, BREACH OF CONTRACT OR BREACH OF IMPLIED TERMS, OR INCIDENTAL OR CONSEQUENTIAL DAMAGES. ACCORDINGLY, ONLY THE LIMITATIONS WHICH ARE LAWFUL IN YOUR JURISDICTION WILL APPLY TO YOU AND OUR LIABILITY WILL BE LIMITED TO THE MAXIMUM EXTENT PERMITTED BY LAW.
+
+    14.2 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SERVICES IS AT YOUR SOLE RISK AND THAT THE SERVICES ARE PROVIDED "AS IS" AND “AS AVAILABLE.”
+
+    14.3 IN PARTICULAR, ProLamp, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS DO NOT REPRESENT OR WARRANT TO YOU THAT:
+
+        (A) YOUR USE OF THE SERVICES WILL MEET YOUR REQUIREMENTS,
+
+        (B) YOUR USE OF THE SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE OR FREE FROM ERROR,
+
+        (C) ANY INFORMATION OBTAINED BY YOU AS A RESULT OF YOUR USE OF THE SERVICES WILL BE ACCURATE OR RELIABLE, AND
+
+        (D) THAT DEFECTS IN THE OPERATION OR FUNCTIONALITY OF ANY SOFTWARE PROVIDED TO YOU AS PART OF THE SERVICES WILL BE CORRECTED.
+
+    14.4 ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SERVICES IS DONE AT YOUR OWN DISCRETION AND RISK AND THAT YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE OR LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OF ANY SUCH MATERIAL.
+
+    14.5 NO ADVICE OR INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED BY YOU FROM ProLamp OR THROUGH OR FROM THE SERVICES SHALL CREATE ANY WARRANTY NOT EXPRESSLY STATED IN THE TERMS.
+
+    14.6 ProLamp FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+15. LIMITATION OF LIABILITY
+
+    15.1 SUBJECT TO OVERALL PROVISION IN PARAGRAPH 14.1 ABOVE, YOU EXPRESSLY UNDERSTAND AND AGREE THAT ProLamp, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU FOR:
+
+        (A) ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL CONSEQUENTIAL OR EXEMPLARY DAMAGES WHICH MAY BE INCURRED BY YOU, HOWEVER CAUSED AND UNDER ANY THEORY OF LIABILITY.. THIS SHALL INCLUDE, BUT NOT BE LIMITED TO, ANY LOSS OF PROFIT (WHETHER INCURRED DIRECTLY OR INDIRECTLY), ANY LOSS OF GOODWILL OR BUSINESS REPUTATION, ANY LOSS OF DATA SUFFERED, COST OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, OR OTHER INTANGIBLE LOSS;
+
+        (B) ANY LOSS OR DAMAGE WHICH MAY BE INCURRED BY YOU, INCLUDING BUT NOT LIMITED TO LOSS OR DAMAGE AS A RESULT OF:
+
+            (I) ANY RELIANCE PLACED BY YOU ON THE COMPLETENESS, ACCURACY OR EXISTENCE OF ANY ADVERTISING, OR AS A RESULT OF ANY RELATIONSHIP OR TRANSACTION BETWEEN YOU AND ANY ADVERTISER OR SPONSOR WHOSE ADVERTISING APPEARS ON THE SERVICES;
+
+            (II) ANY CHANGES WHICH ProLamp MAY MAKE TO THE SERVICES, OR FOR ANY PERMANENT OR TEMPORARY CESSATION IN THE PROVISION OF THE SERVICES (OR ANY FEATURES WITHIN THE SERVICES);
+
+            (III) THE DELETION OF, CORRUPTION OF, OR FAILURE TO STORE, ANY CONTENT AND OTHER COMMUNICATIONS DATA MAINTAINED OR TRANSMITTED BY OR THROUGH YOUR USE OF THE SERVICES;
+
+            (III) YOUR FAILURE TO PROVIDE ProLamp WITH ACCURATE ACCOUNT INFORMATION;
+
+            (IV) YOUR FAILURE TO KEEP YOUR PASSWORD OR ACCOUNT DETAILS SECURE AND CONFIDENTIAL;
+
+    15.2 THE LIMITATIONS ON ProLamp’S LIABILITY TO YOU IN PARAGRAPH 15.1 ABOVE SHALL APPLY WHETHER OR NOT ProLamp HAS BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.
+
+16. Copyright and trade mark policies
+
+    16.1 It is ProLamp’s policy to respond to notices of alleged copyright infringement that comply with applicable international intellectual property law (including, in the United States, the Digital Millennium Copyright Act) and to terminating the accounts of repeat infringers. Details of ProLamp’s policy can be found at http://www.ProLamp.com/dmca.html.
+
+    16.2 ProLamp operates a trade mark complaints procedure in respect of ProLamp’s advertising business, details of which can be found at http://www.ProLamp.com/tm_complaint.html.
+
+17. Advertisements
+
+    17.1 Some of the Services are supported by advertising revenue and may display advertisements and promotions. These advertisements may be targeted to the content of information stored on the Services, queries made through the Services or other information.
+
+    17.2 The manner, mode and extent of advertising by ProLamp on the Services are subject to change without specific notice to you.
+
+    17.3 In consideration for ProLamp granting you access to and use of the Services, you agree that ProLamp may place such advertising on the Services.
+
+18. Other content
+
+    18.1 The Services may include hyperlinks to other web sites or content or resources. ProLamp may have no control over any web sites or resources which are provided by companies or persons other than ProLamp.
+
+    18.2 You acknowledge and agree that ProLamp is not responsible for the availability of any such external sites or resources, and does not endorse any advertising, products or other materials on or available from such web sites or resources.
+
+    18.3 You acknowledge and agree that ProLamp is not liable for any loss or damage which may be incurred by you as a result of the availability of those external sites or resources, or as a result of any reliance placed by you on the completeness, accuracy or existence of any advertising, products or other materials on, or available from, such web sites or resources.
+
+19. Changes to the Terms
+
+    19.1 ProLamp may make changes to the Universal Terms or Additional Terms from time to time. When these changes are made, ProLamp will make a new copy of the Universal Terms available at http://www.ProLamp.com/accounts/TOS?hl=en and any new Additional Terms will be made available to you from within, or through, the affected Services.
+
+    19.2 You understand and agree that if you use the Services after the date on which the Universal Terms or Additional Terms have changed, ProLamp will treat your use as acceptance of the updated Universal Terms or Additional Terms.
+
+20. General legal terms
+
+    20.1 Sometimes when you use the Services, you may (as a result of, or through your use of the Services) use a service or download a piece of software, or purchase goods, which are provided by another person or company. Your use of these other services, software or goods may be subject to separate terms between you and the company or person concerned. If so, the Terms do not affect your legal relationship with these other companies or individuals.
+
+    20.2 The Terms constitute the whole legal agreement between you and ProLamp and govern your use of the Services (but excluding any services which ProLamp may provide to you under a separate written agreement), and completely replace any prior agreements between you and ProLamp in relation to the Services.
+
+    20.3 You agree that ProLamp may provide you with notices, including those regarding changes to the Terms, by email, regular mail, or postings on the Services.
+
+    20.4 You agree that if ProLamp does not exercise or enforce any legal right or remedy which is contained in the Terms (or which ProLamp has the benefit of under any applicable law), this will not be taken to be a formal waiver of ProLamp’s rights and that those rights or remedies will still be available to ProLamp.
+
+    20.5 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of these Terms is invalid, then that provision will be removed from the Terms without affecting the rest of the Terms. The remaining provisions of the Terms will continue to be valid and enforceable.
+
+    20.6 You acknowledge and agree that each member of the group of companies of which ProLamp is the parent shall be third party beneficiaries to the Terms and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the Terms which confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the Terms.
+
+    20.7 The Terms, and your relationship with ProLamp under the Terms, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and ProLamp agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the Terms. Notwithstanding this, you agree that ProLamp shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.
+
+</textarea>
+
+<?PHP
+
+	print "<br /><input name='agree' value='I accept' type='submit'>";
+	print "</form>";
+
+
+mysql_close ($Link);
+/*
+phpinfo();
+*/
+?>
+</td></tr></table>
+</div>
+</body></html>

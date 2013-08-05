@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>Websites Clear</TITLE>
+</HEAD>
+<?
+
+print "<div align=center>";
+print "<img src=logo.jpg><p>";
+print "<div class='div1'>Websites Cleared</div><p>";
+print "<p>";
+
+include('db_connect.php');
+
+$mFound3000=0;
+$Query111 = "DELETE FROM `archipelago_websites`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+
+mysql_close ($Link);
+?>

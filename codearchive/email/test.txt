@@ -1,0 +1,22 @@
+<html>
+<?
+$mSearch = trim($Search);
+$mSearch = str_replace(" ", "+", $mSearch);
+$mReturn = str_replace(" ", "+", $Return);
+$mCountry = str_replace("_", " ", $Return);
+$mCountry = str_replace(".php", "", $mCountry);
+
+$Host = "localhost";
+$User = "pacific_world";
+$Password = "turnip";
+$DBName = "pacific_world";
+$Tablename = "email";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+
+mysql_select_db ("$Tablename");
+$Query = "INSERT INTO `email` (`source`, `group`, `email`) VALUES ('source', 'group', 'email3');";
+mysql_db_query($DBName, $Query, $Link);
+
+
+?>
+<hr><div align=center><font face=arial size=1>&copy; 2002 by Tim Johnson/</font></div></html>

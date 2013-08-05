@@ -1,0 +1,778 @@
+<HTML>
+<BODY BGCOLOR="#c7d6e3" BORDER='0'>
+<font face="Verdana">
+<?PHP
+$username = $_POST['username'];
+$password = $_POST['password'];
+if ($username) {} else {
+	$username = $_GET['username'];
+	$password = $_GET['password'];
+}
+$id = $_POST['id'];
+$transactionid = $_POST['transactionid'];
+$transactionstatus = $_POST['transactionstatus'];
+$settlementamount = $_POST['settlementamount'];
+$settlementcurrency = $_POST['settlementcurrency'];
+$settlementdatetime = $_POST['settlementdatetime'];
+$authorizationamount = $_POST['authorizationamount'];
+$authorizationcurrency = $_POST['authorizationcurrency'];
+$submitdatetime = $_POST['submitdatetime'];
+$authorizationcode = $_POST['authorizationcode'];
+$referencetransactionid = $_POST['couponcode'];
+$transactiontype = $_POST['transactiontype'];
+$addressverificationstatus = $_POST['addressverificationstatus'];
+$cardcodestatus = $_POST['cardcodestatus'];
+$fraudscreenapplied = $_POST['fraudscreenapplied'];
+$reseller = $_POST['reseller'];
+$sort = $_POST['sort'];
+$sortorder = $_POST['sortorder'];
+$setsession="ydY5V3z";
+$rowsperpage = $_POST['rowsperpage'];
+$pagenumber = $_POST['pagenumber'];
+
+if ($startrow) {} else {$startrow=0;}
+if ($rowsperpage) {} else {$rowsperpage=25;}
+if ($pagenumber) {} else {$pagenumber=1;}
+
+if ($username=='admin' && $password='password') {
+
+print "<div align='center'>";
+
+print "<b>Authorize.net Transactions</b><br />";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+
+print "<table border='0'><tr><td>";
+
+print "<table>";
+print "<tr><td align='right'>id:</td><td><input type='text' name='id' size='17' maxlength='125' value='$id'></td></tr>";
+print "<tr><td align='right'>transactionid:</td><td><input type='text' name='transactionid' size='17' maxlength='125' value='$transactionid'></td></tr>";
+print "<tr><td align='right'>transactionstatus:</td><td><input type='text' name='transactionstatus' size='17' maxlength='125' value='$transactionstatus'></td></tr>";
+print "<tr><td align='right'>settlementamount:</td><td><input type='text' name='settlementamount' size='17' maxlength='125' value='$settlementamount'></td></tr>";
+
+print "</table></td><td><table>";
+
+print "<tr><td align='right'>settlementcurrency:</td><td><input type='text' name='settlementcurrency' size='17' maxlength='125' value='$settlementcurrency'></td></tr>";
+print "<tr><td align='right'>settlementdatetime:</td><td><input type='text' name='settlementdatetime' size='17' maxlength='125' value='$settlementdatetime'></td></tr>";
+print "<tr><td align='right'>authorizationamount:</td><td><input type='text' name='authorizationamount' size='17' maxlength='125' value='$authorizationamount'></td></tr>";
+print "<tr><td align='right'>authorizationcurrency:</td><td><input type='text' name='authorizationcurrency' size='17' maxlength='125' value='$authorizationcurrency'></td></tr>";
+
+print "</table></td><td><table>";
+
+print "<tr><td align='right'>submitdatetime:</td><td><input 	type='text' name='submitdatetime' size='17' maxlength='125' value='$submitdatetime'></td></tr>";
+print "<tr><td align='right'>authorizationcode:</td><td><input type='text' name='authorizationcode' size='17' maxlength='125' value='$authorizationcode'></td></tr>";
+print "<tr><td align='right'>referencetransactionid:</td><td><input type='text' name='referencetransactionid' size='17' maxlength='125' value='$referencetransactionid'></td></tr>";
+print "<tr><td align='right'>transactiontype:</td><td><input type='text' name='transactiontype' size='17' maxlength='125' value='$transactiontype'></td></tr>";
+
+print "</table></td><td><table>";
+
+print "<tr><td align='right'>addressverificationstatus:</td><td><input type='text' name='addressverificationstatus' size='17' maxlength='125' value='$addressverificationstatus'></td></tr>";
+print "<tr><td align='right'>cardcodestatus:</td><td><input type='text' name='cardcodestatus' size='17' maxlength='125' value='$cardcodestatus'></td></tr>";
+print "<tr><td align='right'>fraudscreenapplied:</td><td><input type='text' name='fraudscreenapplied' size='17' maxlength='125' value='$fraudscreenapplied'></td></tr>";
+print "<tr><td align='right'>reseller:</td><td><input type='text' name='reseller' size='17' maxlength='125' value='$reseller'></td></tr>";
+print "</table>";
+print "</td><td><table>";
+
+print "<tr><td align='right'>page number:</td><td><input type='text' name='pagenumber' size='7' maxlength='125' value='$pagenumber'></td></tr>";
+print "<tr><td align='right'>rows per page:</td><td><input type='text' name='rowsperpage' size='7' maxlength='125' value='$rowsperpage'></td></tr>";
+
+print "<tr><td align='right'></td><td></td></tr>";
+print "<tr><td align='right'></td><td></td></tr>";	
+print "</table>";
+print "</td><td>";
+print "<input type='hidden' name='sort' value='$sort'>";
+print "<input type='hidden' name='sortorder' value='$sortorder'>";
+print "<input type='submit' name='search' value='search'><br />&nbsp;<br />";
+print "<a href='authnet.php'>logout</a>";
+print "</td></tr></table>";
+
+print "</form>";
+print "<table><tr><td>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='$sort'>";
+print "<input type='hidden' name='sortorder' value='$sortorder'>";
+$pagenumber1 = $pagenumber-1;
+print "<input type='hidden' name='pagenumber' value='$pagenumber1'>";
+print "<input type='hidden' name='rowsperpage' value='$rowsperpage'>";
+print "<input type='submit' name='search' value='<'>";
+print "</form>";
+print "</td><td>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='$sort'>";
+print "<input type='hidden' name='sortorder' value='$sortorder'>";
+$pagenumber2 = $pagenumber+1;
+print "<input type='hidden' name='pagenumber' value='$pagenumber2'>";
+print "<input type='hidden' name='rowsperpage' value='$rowsperpage'>";
+print "<input type='submit' name='search' value='>'>";
+print "</form></div>";
+print "</td></tr></table>";
+
+include('db_connect.php');
+
+$mFound=0;	  
+$Query1 = "SELECT * FROM `csrcust`";
+if ($submitdatetime) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;}
+	$Query1=$Query1." (submitdatetime='$submitdatetime' OR submitdatetime LIKE '%$submitdatetime' OR submitdatetime LIKE '%$submitdatetime%' OR submitdatetime LIKE '$submitdatetime%')";
+	}
+if ($transactiontype) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (transactiontype='$transactiontype' OR transactiontype LIKE '%$transactiontype' OR transactiontype LIKE '%$transactiontype%' OR transactiontype LIKE '$transactiontype%')";
+	}	
+if ($id) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (id='$id' OR id LIKE '%$id' OR id LIKE '%$id%' OR id LIKE '$id%')";
+	}
+
+if ($transactionid) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (transactionid='$transactionid' OR transactionid LIKE '%$transactionid' OR transactionid LIKE '%$transactionid%' OR transactionid LIKE '$transactionid%')";
+	}
+if ($transactionstatus) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (transactionstatus='$transactionstatus' OR transactionstatus LIKE '%$transactionstatus' OR transactionstatus LIKE '%$transactionstatus%' OR transactionstatus LIKE '$transactionstatus%')";
+	}
+if ($settlementamount) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (settlementamount='$settlementamount' OR settlementamount LIKE '%$settlementamount' OR settlementamount LIKE '%$settlementamount%' OR settlementamount LIKE '$settlementamount%')";
+	}
+if ($settlementcurrency) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (settlementcurrency='$settlementcurrency' OR settlementcurrency LIKE '%$settlementcurrency' OR settlementcurrency LIKE '%$settlementcurrency%' OR settlementcurrency LIKE '$settlementcurrency%')";
+	}
+if ($settlementdatetime) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (settlementdatetime='$settlementdatetime' OR settlementdatetime LIKE '%$settlementdatetime' OR settlementdatetime LIKE '%$settlementdatetime%' OR settlementdatetime LIKE '$settlementdatetime%')";
+	}
+if ($authorizationamount) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (authorizationamount='$authorizationamount' OR authorizationamount LIKE '%$authorizationamount' OR authorizationamount LIKE '%$authorizationamount%' OR authorizationamount LIKE '$authorizationamount%')";
+	}
+if ($authorizationcurrency) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (authorizationcurrency='$authorizationcurrency' OR authorizationcurrency LIKE '%$authorizationcurrency' OR authorizationcurrency LIKE '%$authorizationcurrency%' OR authorizationcurrency LIKE '$authorizationcurrency%')";
+	}
+if ($authorizationcode) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (authorizationcode='$authorizationcode' OR authorizationcode LIKE '%$authorizationcode' OR authorizationcode LIKE '%$authorizationcode%' OR authorizationcode LIKE '$authorizationcode%')";
+	}
+if ($referencetransactionid) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (referencetransactionid='$referencetransactionid' OR referencetransactionid LIKE '%$referencetransactionid' OR referencetransactionid LIKE '%$referencetransactionid%' OR referencetransactionid LIKE '$referencetransactionid%')";
+	}
+if ($addressverificationstatus) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (addressverificationstatus='$addressverificationstatus' OR addressverificationstatus LIKE '%$addressverificationstatus' OR addressverificationstatus LIKE '%$addressverificationstatus%' OR addressverificationstatus LIKE '$addressverificationstatus%')";
+	}
+	
+if ($cardcodestatus) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (cardcodestatus='$cardcodestatus' OR cardcodestatus LIKE '%$cardcodestatus' OR cardcodestatus LIKE '%$cardcodestatus%' OR cardcodestatus LIKE '$cardcodestatus%')";
+	}
+if ($fraudscreenapplied) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (fraudscreenapplied='$fraudscreenapplied' OR fraudscreenapplied LIKE '%$fraudscreenapplied' OR fraudscreenapplied LIKE '%$fraudscreenapplied%' OR fraudscreenapplied LIKE '$fraudscreenapplied%')";
+	}
+	if ($reseller) {
+	if ($mFound==0) {$Query1=$Query1." WHERE"; $mFound=1;} else {$Query1=$Query1." AND";}
+	$Query1=$Query1." (reseller='$reseller' OR reseller LIKE '%$reseller' OR reseller LIKE '%$reseller%' OR reseller LIKE '$reseller%')";
+	}
+
+$mOddRow=1;
+print "<table width='100%' border='0'>";	
+
+print "<tr>";
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+
+
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='id'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='id'>";
+print "</form>";
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='transactionid'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='transactionid'>";
+print "</form>";		
+print "</th>";
+		
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='transactionstatus'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='transactionstatus'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='settlementamount'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='settlementamount'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='settlementcurrency'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='settlementcurrency'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='settlementdatetime'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='settlementdatetime'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='authorizationamount'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='authorizationamount'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='authorizationcurrency'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='authorizationcurrency'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='submitdatetime'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='submitdatetime'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='authorizationcode'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='authorizationcode'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='referencetransactionid'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='referencetransactionid'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='transactiontype'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='transactiontype'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='addressverificationstatus'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='addressverificationstatus'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='cardcodestatus'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='cardcodestatus'>";
+print "</form>";		
+print "</th>";
+
+print "<th bgcolor='#EEEEEE' valign='top' align='left'>";
+print "<form method=post action='authnet.php' name='activateform'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print "<input type='hidden' name='id' value='$id'>";
+print "<input type='hidden' name='transactionid' value='$transactionid'>";
+print "<input type='hidden' name='transactionstatus' value='$transactionstatus'>";
+print "<input type='hidden' name='settlementamount' value='$settlementamount'>";
+print "<input type='hidden' name='settlementcurrency' value='$settlementcurrency'>";
+print "<input type='hidden' name='settlementdatetime' value='$settlementdatetime'>";
+print "<input type='hidden' name='authorizationamount' value='$authorizationamount'>";
+print "<input type='hidden' name='authorizationcurrency' value='$authorizationcurrency'>";
+print "<input type='hidden' name='submitdatetime' value='$submitdatetime'>";
+print "<input type='hidden' name='authorizationcode' value='$authorizationcode'>";
+print "<input type='hidden' name='referencetransactionid' value='$referencetransactionid'>";
+print "<input type='hidden' name='transactiontype' value='$transactiontype'>";
+print "<input type='hidden' name='addressverificationstatus' value='$addressverificationstatus'>";
+print "<input type='hidden' name='cardcodestatus' value='$cardcodestatus'>";
+print "<input type='hidden' name='fraudscreenapplied' value='$fraudscreenapplied'>";
+print "<input type='hidden' name='reseller' value='$reseller'>";
+print "<input type='hidden' name='sort' value='fraudscreenapplied'>";
+if ($sortorder) {
+	if ($sortorder=='ASC') {print "<input type='hidden' name='sortorder' value='DESC'>";}
+	if ($sortorder=='DESC') {print "<input type='hidden' name='sortorder' value='ASC'>";}	
+} else {
+	print "<input type='hidden' name='sortorder' value='ASC'>";
+}
+print "<input type='submit' name='search' value='fraudscreenapplied'>";
+print "</form>";		
+print "</th>";
+
+		print "</tr>";
+if ($sort) {if ($sortorder) {$Query1=$Query1." ORDER BY $sort $sortorder";} else {$Query1=$Query1." ORDER BY $sort";}}		
+
+$startrow= ($pagenumber-1) * ($rowsperpage);
+$Query1=$Query1." LIMIT $startrow,$rowsperpage;";
+
+
+
+//print "$Query1";
+
+$Query1 = "SELECT * FROM `tim_authnet` LIMIT 5;";
+
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+		{
+		$myA = $Row1[0];
+		$myB = $Row1[1];
+		$myC = $Row1[2];
+		$myD = $Row1[3];
+		$myE = $Row1[4];
+		$myF = $Row1[5];
+		$myG = $Row1[6];
+		$myH = $Row1[7];
+		$myI = $Row1[8];
+		$myJ = $Row1[9];
+		$myK = $Row1[10];
+		$myL = $Row1[11];
+		$myM = $Row1[12];
+		$myN = $Row1[13];
+		$myO = $Row1[14];
+		$mOddRow=$mOddRow*-1;
+		if ($mOddRow==1) {
+		print "<tr>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myA</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myB</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myC</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myD</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myE</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myF</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myG</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myH</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myI</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myJ</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myK</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myL</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myM</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myN</font></td>";
+		print "<td bgcolor='#EEEEEE' valign='top' align='left'><font face='Verdana' size='2'>$myO</font></td>";	
+		print "</tr>";	
+	} else {
+		print "<tr>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myA</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myB</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myC</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myD</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myE</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myF</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myG</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myH</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myI</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myJ</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myK</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myL</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myM</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myN</font></td>";
+		print "<td bgcolor='#CCCCCC' valign='top' align='left'><font face='Verdana' size='2'>$myO</font></td>";	
+		print "</tr>";	
+	}
+		
+		}
+print "</table>";
+mysql_close ($Link);
+} else {
+print '
+<div align="center">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<form method="post" action="authnet.php" name="logform">
+<table border=0><tr><td>
+username:</td><td> <input name="username" size="25" maxlength="125" value="" type="text"></td></tr>
+<tr><td>password:</td><td><input name="password" size="25" maxlength="125" value="" type="password"></td></tr>
+</table>
+&nbsp;<br />
+<input name="Submit" value="log in" type="submit">
+</form>';
+print '</div>';
+}
+
+?>
+</font>
+</BODY></HTML>

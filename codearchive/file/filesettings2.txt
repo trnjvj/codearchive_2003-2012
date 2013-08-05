@@ -1,0 +1,32 @@
+<html>
+<?
+$today = getdate();
+$month = $today['month'];
+$mday = $today['mday'];
+$year = $today['year'];
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$weekday = $today['weekday'];
+$mStamp = "$mday $month, $year - $hours:$minutes:$seconds";
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+$b=$m5t;
+$p=$mp;
+
+
+
+$Query111 = "UPDATE `bloggle_blog2` SET `a` = '$m6a', `e` = '$m6e', `f` = '$m6f', `g` = '$m6g', `u` = '$m6u' WHERE `t` = '$m5t' LIMIT 1 ;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+
+mysql_close ($Link);
+include('edit.php');
+?>

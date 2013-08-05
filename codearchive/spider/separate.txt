@@ -1,0 +1,107 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=separate.php">
+</HEAD>
+<?
+/*
+
+*/
+include('db_connect.php');
+set_time_limit(0);
+
+$m1 = ""; $m2 = ""; $m3 = ""; $m4 = ""; $m5 = "";
+
+
+$Query111 = "SELECT * FROM `craigslist2_new` WHERE d='1' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$myA = $Row110[0];
+		
+		
+		$myB = $Row110[1];
+		$myC = $Row110[2];
+		$myD = $Row110[6];
+		
+		$myD = str_replace("<", "[", $myD);
+		$myD = str_replace(">", "]", $myD);
+		
+		
+		//print "$myA|$myB|$myC<hr>";
+		
+		$myE = explode("]", $myD);
+		
+		for ($m = 1; $m < count($myE); $m++) {
+			$myString1=$myE[$m-1];
+			$myString2=$myE[$m];
+			
+			
+			
+			$mFlag1 = strstr($myString1, 'eply to:'); //if ($mFlag1) {print "<hr><b>REPLY TO</b>";}
+			$mFlag2 = strstr($myString1, '"userbody'); if ($mFlag2) {$mFlag6=1;}
+			$mFlag3 = strstr($myString2, 'ocation:'); //if ($mFlag3) {print "<hr><b>LOCATION</b>";}
+			$mFlag4 = strstr($myString2, 'ompensation:'); //if ($mFlag4) {print "<hr><b>COMPENSATION</b>";}
+			$mFlag5 = strstr($myString1, '[h2'); //if ($mFlag5) {print "<hr><b>TITLE</b>";}
+			
+			$mFlag7 = strstr($myString2, '[tr'); if ($mFlag7) {$mFlag6=0;}
+			
+			$myString2 = str_replace("[/h2", "", $myString2);
+			$myString2 = str_replace('Reply to: [a href="mailto:', '', $myString2);
+			$myString2 = str_replace('[table summary="craigslist hosted images"', '', $myString2);
+			$myString2 = str_replace('[li', '', $myString2);
+			$myString2 = str_replace('[/ul', '', $myString2);
+			$myString2 = str_replace('Compensation: ', '', $myString2);
+			$myString2 = str_replace('Location: ', '', $myString2);
+			$myString2 = str_replace('[/a', '', $myString2);
+			$myString2 = str_replace('[br', '', $myString2);
+			
+			if ($mFlag1) {$m1 = $myString2;}
+			if ($mFlag6) {$m2 = "$m2 $myString2";}
+			if ($mFlag3) {$m3 = $myString2;}
+			if ($mFlag4) {$m4 = $myString2;}
+			if ($mFlag5) {$m5 = $myString2;}
+			//if ($mFlag1) {$m1 = $myString2;}
+			
+			
+			//print "$myString2<br>";
+		}
+		
+		}
+print "<hr>";
+
+for ($j=0; $j<256; $j++)
+			{	
+			$m2 = str_replace("&#$j;", chr($j), $m2);
+			}
+print "$m2";
+$mFlag2 = strstr($m2, '@');
+if ($mFlag2) {print "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<hr>";}
+$m223 = "";
+$my222 = explode(" ", $m2);
+for ($m2 = 0; $m2 < count($my222)+1; $m2++) {
+			$myString222=$my222[$m2];
+			$mFlag1 = strstr($myString222, '@');
+			if ($mFlag1) {$my223 = "$myString222"; print "$myString222<hr>";}
+			
+			}
+
+
+for ($j=0; $j<256; $j++)
+			{	
+			$m1 = str_replace("&#$j;", chr($j), $m1);
+			}
+			
+print "<hr>";
+$Query111 = "INSERT INTO `craigslist3_result_new` (`a` ,`b` ,`c` ,`d` ,`e` ,`f` ,`g` ,`h` ,`i` ,`j`) VALUES ('$myA', '$myB', '$myC', '$m1', '', '$m3', '$m4', '$m5', '$my223', '$m2');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+$Query111 = "INSERT INTO `craigslist2_result` (`a` ,`b` ,`c` ,`d` ,`e` ,`f` ,`g` ,`h` ,`i` ,`j`) VALUES ('$myA', '$myB', '$myC', '$m1', '', '$m3', '$m4', '$m5', '$my223', '$m2');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+print "$myA<br />$myB<br />$myC<br />$m1<br />$m2<br />$m3<br />$m4<br />$m5<br /><br />";
+
+$Query111 = "UPDATE `craigslist2_new` SET d='2' WHERE a='$myA';";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+mysql_close ($Link);
+?>

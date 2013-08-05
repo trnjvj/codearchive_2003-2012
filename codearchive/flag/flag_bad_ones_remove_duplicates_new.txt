@@ -1,0 +1,22 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="111112, URL=flag_bad_ones_remove_duplicates.php">
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+print "<font face=verdana size=1>";
+$Query110 = "SELECT DISTINCT a FROM `newsletters_herbage1205` WHERE b='2' ORDER by a";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$m1 = trim($Row110[0]);
+	$Query111 = "INSERT INTO `newsletters_herbage1205a` ( `a` , `b` , `c` ) VALUES ('$m1', '', '');";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	}
+mysql_close ($Link);
+?>

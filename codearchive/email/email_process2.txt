@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=email_process2.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Import URLs</TITLE>
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$mcount24=0;
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query120 = "SELECT a,b FROM `archipelago_websites_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];
+	$mcc = $Row120[1];
+	$Query121 = "SELECT * FROM `herbage_email_list` ORDER BY a LIMIT $mbb,500;";
+$Result121 = mysql_db_query($DBName, $Query121, $Link);
+while ($Row121 = mysql_fetch_array ($Result121))
+	{
+	$ma = $Row121[0];
+	if ($ma==$moa) {
+	
+	}
+	else {
+	
+	$mFlag23=0;
+	$Query122 = "SELECT b FROM `newsletters_filters`;";
+	$Result122 = mysql_db_query($DBName, $Query122, $Link);
+	while ($Row122 = mysql_fetch_array ($Result122))
+		{
+		$m1a = $Row122[0];
+		$m1b = " $m1a";
+		$m1c = strpos($ma, $m1b);
+		if ($m1c) {$mFlag23++;}
+		$m1c = strpos($ma, ".uk");
+		if ($m1c) {$mFlag23++;}
+		$m1c = strpos($ma, ".se");
+		if ($m1c) {$mFlag23++;}
+		$m1c = strpos($ma, ".us");
+		if ($m1c) {$mFlag23++;}
+		}
+	
+	if ($mFlag23>0) {
+	print "<font size=5><b>$ma</b></font> ";
+	} else {print "$ma ";}
+	$mcount24++;
+	if ($mcount24>23) {$mcount24=0;}
+	$Query123 = "INSERT INTO `herbage_email_list2` ( `a` , `b` , `c` ) VALUES ('$ma', '$mFlag23', '$mcount24');";
+	$Result123 = mysql_db_query($DBName, $Query123, $Link);
+		}
+	}
+	
+	$moa = $ma;
+	}
+	
+	
+
+
+$mbb=$mbb+500;
+$Query112 = "UPDATE `archipelago_websites_state` SET a='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+mysql_close ($Link);
+?>

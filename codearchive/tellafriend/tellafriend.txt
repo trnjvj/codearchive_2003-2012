@@ -1,0 +1,104 @@
+<?PHP
+$z1 = $_GET['z1'];
+$z2 = $_GET['z2'];
+$z3 = $_GET['z3'];
+if ($z1) {} else {$z1 = $_POST['z1'];}
+if ($z2) {} else {$z2 = $_POST['z2'];}
+$ip=$_SERVER['REMOTE_ADDR'];
+include('db_connect.php');
+$myemail="";
+$Query7 = "SELECT a FROM `sessions2` WHERE b='$z1' AND c='$z2' AND d='$ip';";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$myemail = $Row7[0];
+	}
+if ($myemail) {
+
+
+
+
+$sendpassword = $_POST['sendpassword'];
+$friendemail = $_POST['friendemail'];
+
+$ip=$_SERVER['REMOTE_ADDR'];
+include('db_connect.php');
+
+$Query7 = "SELECT c,d FROM `members` WHERE email='$myemail';";
+//print "$Query7";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$m1 = $Row7[0];
+$m2 = $Row7[1];
+	}
+
+if ($friendemail) {} else {
+print '
+<form method="post" action="tellafriend.php" name="logform">
+your friend - email: <input name="friendemail" size="25" maxlength="125" value="" type="text"> 
+';
+print "<input name='z1' size='25' maxlength='125' value='$z1' type='hidden'>";
+print "<input name='z2' size='25' maxlength='125' value='$z2' type='hidden'>";
+print '
+<input name="sendpassword" value="send email" type="submit">
+</form>
+';
+}
+
+if ($friendemail) {
+
+// multiple recipients
+$to  = "$friendemail";
+//print "to=$to<br />";
+// subject
+$subject = 'Invitation';
+
+// message
+$message = "$m1 $m2 is inviting you to join Exquisite Web Creations http://www.exquisitewebcreations.com/";
+/*
+$message = '
+<html>
+<head>
+  <title>Birthday Reminders for August</title>
+</head>
+<body>
+  <p>Here are the birthdays upcoming in August!</p>
+  <table>
+    <tr>
+      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
+    </tr>
+    <tr>
+      <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
+    </tr>
+    <tr>
+      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
+    </tr>
+  </table>
+</body>
+</html>
+';
+*/
+// To send HTML mail, the Content-type header must be set
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+// Additional headers
+//$headers .= "To: Tim <$myemail>" . "\r\n";
+$headers .= 'From: Exquisite Web Creations <noreply@exquisitewebcreations.com>' . "\r\n";
+/*
+$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
+$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
+*/
+// Mail it
+mail($to, $subject, $message, $headers);
+//print "to, $subject, $message, $headers";
+print "<br />mail sent.";
+}
+
+
+
+	
+}
+mysql_close ($Link);
+?>

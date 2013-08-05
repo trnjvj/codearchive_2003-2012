@@ -1,0 +1,84 @@
+<?
+print "$Land $Land $Land ?????????? <p>";
+$mNation=$Land;
+include "street_address.php";
+
+$Land2 = str_replace(" ", "+", $Land);
+$Land3 = str_replace(" ", "_", $Land);
+
+
+
+fwrite($fp, "<div align=center><div class='content'>");
+
+fwrite($fp, "</font>");
+fwrite($fp, "<table width=100%>");
+fwrite($fp, "<tr>");
+fwrite($fp, "<td valign=top align=left><div class='content_tableheader'>");
+fwrite($fp, "$Land");
+fwrite($fp, "</div></td>");
+fwrite($fp, "</tr></table>");
+
+fwrite($fp, "");
+$mFlag23=0;
+$mFlag1=0;
+$mFlag23=0;
+
+$om1g="";
+fwrite($fp, "<p>&nbsp;</p><table border=0 cellpadding=1 width=510>");
+fwrite($fp, "<tr>");
+$Col11=1;
+$Query11 = "SELECT DISTINCT g FROM `holisticopia2` WHERE a='$Land' ORDER BY g;";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+$om1g = "";
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$mFlag23++;
+	$m1a = $Row11[0];
+	$m2a = str_replace(" ", "+", $m1a);
+	$Geo2=$m2a;
+	$Geo2=$Land2."_";
+	$Geo2=$Geo2.$m2a;
+	fwrite($fp, "<td width=33%><div class='content'><a href=../geo/$Geo2.htm>$m1a</a></div></td>");
+	$Col11++;
+	if ($Col11>3) {
+	$Col11=1;
+	fwrite($fp, "</tr><tr>");
+	}
+	}
+fwrite($fp, "</tr></table>");
+if ($mFlag23>9) {
+fwrite($fp, "<p>");
+}
+$mFlag23=0;
+$om1g="";
+fwrite($fp, "<p>&nbsp;</p><table border=0 cellpadding=1 width=510>");
+fwrite($fp, "<tr>");
+$Col11=1;
+$Query11 = "SELECT DISTINCT b FROM `holisticopia2` WHERE a='$Land' ORDER BY b;";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+$om1g = "";
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$m1a = $Row11[0];
+	$m2a = str_replace(" ", "+", $m1a);
+	$Geo2=$m2a;
+	$Geo2=$Land2."_";
+	$Geo2=$Geo2.$m2a;
+	fwrite($fp, "<td width=33%><div class='content'><a href=../city/$Geo2.htm>$m1a</a></div></td>");
+	$Col11++;
+	if ($Col11>3) {
+	$Col11=1;
+	fwrite($fp, "</tr><tr>");
+	}
+	}
+fwrite($fp, "</tr></table>");
+
+
+$mSSearch="$Land2";
+if ($mFlag23>9) {
+fwrite($fp, "<p>");
+}
+
+
+
+?>

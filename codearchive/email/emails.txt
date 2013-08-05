@@ -1,0 +1,150 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=emails.php">
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>Email Obtainer</TITLE>
+</HEAD>
+<?
+
+/* Expanded Page Obtainer v1.0 - copyright 2004 by Tim Johnson (trnjvj@yahoo.com) - all rights reserved */
+print "<font face=arial size=3>";
+
+include('db_connect.php');
+
+for ($ml=0; $ml<5; $ml++) {
+
+$CountA = 0;
+$Query111 = "SELECT c FROM `newsgrabber_links_temp` WHERE d='' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat = $Row110[0];
+$mk1 = strlen($Cat);
+$mk2 = $mk1-7;
+$mk3 = $mk1-$mk2;
+$mk4 = substr($Cat, 7, $mk2);
+$mk5 = strpos($mk4, "/");
+$mk6 = substr($mk4, 0, $mk5);
+
+
+print "<p>$mk4 | $mk6 ";
+
+	print "| $Cat | ";
+	$Query112 = "UPDATE newsgrabber_links_temp SET d='1' WHERE c='$Cat';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	}
+
+
+$TheFile = $Cat;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+$pieces = explode("<", $String);
+$ii = count($pieces);
+ for($i=0;$i<$ii;$i++){ 
+
+	$thispiece = $pieces[$i];
+	$thispiece2 = str_replace("<", "[", $thispiece);
+	
+		$mPos099 = strpos($thispiece2, ' href="http');
+		if ($mPos099==1) {
+		$thispiece2 = str_replace('a href="', '', $thispiece2);
+		
+		$t12 = strpos($thispiece2, '"');
+		$t12b = strpos($thispiece2, '>');
+		$t13b = substr($thispiece2, 0, $t12b);
+		$t12c = str_replace("$t13b>", "", $thispiece2);
+		$t13 = substr($thispiece2, 0, $t12);
+		
+		$pieces23 = explode(" ", $t12c);
+		$ii23 = count($pieces23);
+		
+		print "<a target='_blank' href='$t13'>$t12c</a> | ";
+		$Query1111 = "INSERT INTO `newsgrabber_links_temp` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$ste', '$t12c', '$t13', '', '');";
+		$Result1111 = mysql_db_query($DBName, $Query1111, $Link);
+		
+		$ot12c=$t12c;
+		
+		
+		
+		}
+	
+	}}}
+
+$TheFile = $Cat;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+$pieces = explode(">", $String);
+$ii = count($pieces);
+ for($i=0;$i<$ii;$i++){ 
+
+	$thispiece = $pieces[$i];
+	$t12 = strpos($thispiece, '@');
+	$t13 = strpos($thispiece, 'mailto');
+	if ($t12 or $t13) {
+	$thispiece2 = $thispiece;
+	$thispiece2 = str_replace("'", "", $thispiece2);
+	$thispiece2 = str_replace('"', '', $thispiece2);
+	
+	
+	$thispiece2 = str_replace(":", " ", $thispiece2);
+	$thispiece2 = str_replace(">", " ", $thispiece2);
+	$thispiece2 = str_replace("<", " ", $thispiece2);
+	$thispiece2 = str_replace("?", " ", $thispiece2);
+	$thispiece2 = str_replace(";", " ", $thispiece2);
+	$thispiece2 = str_replace("&", " ", $thispiece2);
+	$thispiece2 = str_replace("%20", " ", $thispiece2);
+	$thispiece2 = str_replace("=", " ", $thispiece2);
+	
+	$pieces2 = explode(" ", $thispiece2);
+$ii2 = count($pieces);
+ for($i2=0;$i2<$ii2;$i2++) { 
+	$thispiece3 = strtolower($pieces2[$i2]);
+		$t112 = strpos($thispiece3, '@');
+		if ($t112) {
+		if ($thispiece3==$ot12c) {} else {
+		$t1112 = strpos($thispiece3, '/');
+		if ($t1112) {} else {
+		$t1113 = strpos($thispiece3, '.');
+		if ($t1113) {
+		$t1114 = strlen($thispiece3);
+		$t1115 = substr($thispiece3, $t1114-3, 1);
+		$t1116 = substr($thispiece3, $t1114-4, 1);
+		print ")$t1115)$t1116 | ";
+		if ($t1115=="." or $t1116==".") {
+		$Query1111 = "INSERT INTO `archipelago_emails` ( `a` , `b` , `c` , `d` ) VALUES ('$Cat', '$thispiece3', '', '');";
+		$Result1111 = mysql_db_query($DBName, $Query1111, $Link);
+$mCountA++;
+		print "$thispiece3 | ";
+		}
+		}
+		}
+		}
+		$ot12c=$thispiece3;
+		}
+		}
+		}
+		}
+	}
+	}
+if ($mCountA==0) {
+$mnbv = strlen($Cat);
+if ($mnbv>3) {
+$Query112 = "UPDATE newsgrabber_links_temp SET d='1' WHERE c LIKE '%$Cat%';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+}
+}
+
+mysql_close ($Link);
+
+}
+?>

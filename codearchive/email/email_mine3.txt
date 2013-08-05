@@ -1,0 +1,144 @@
+<HTML><HEAD><META HTTP-EQUIV="Refresh" Content="1, URL=email_mine3.php">
+<font face=verdana size=1>
+<?
+set_time_limit(60);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mFlag2=1;
+
+$Query110 = "SELECT * FROM `ore` WHERE c='' LIMIT 1;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$Cat =  $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];	
+	$Query112 = "UPDATE `ore` SET `c` = '1' WHERE `b` = '$Cat1';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	}
+print "$Cat1<hr>";
+mysql_close ($Link);
+
+
+$mnb=0;
+
+$TheFile = $Cat1;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$String = str_replace ("<", " ", $String);
+		$String = str_replace (">", " ", $String);
+		$String = str_replace ('"', ' ', $String);
+		$String = str_replace (':', ' ', $String);
+		$String = strtolower($String);
+		
+		$m123 = strpos ($String, "@");
+		
+		if ($m123>0) {
+			$script_name_array = explode(" ", $String);
+			$ii = count($script_name_array)+1;
+			for($i=0;$i<$ii;$i++){
+			$Sstring=$script_name_array[$i];
+			
+
+			$m1234 = strpos ($Sstring, "@");
+			if ($m1234>0) {
+			
+			if ($Sstring==$osstring) {} else {
+			print "$Sstring<br>";
+			
+			$mFlag2000=0;
+			$mLa = strlen($Sstring);
+			$mLa1 = substr($Sstring, $mLa-3, 1);
+			print "!$mLa1!";
+			if ($mLa1==".") {$mFlag2000=1;}
+			$mLa1 = substr($Sstring, $mLa-4, 1);
+			print "!$mLa1!";
+			if ($mLa1==".") {$mFlag2000=1;}			
+			
+			if ($mFlag2000==1) {
+			$mok=0;
+			
+
+			if (strlen($Sstring)>40) {$mok=1;}
+			if (strstr($Sstring, ",")) {$mok=1;}
+			if (strstr($Sstring, ";")) {$mok=1;}
+			if (strstr($Sstring, "=")) {$mok=1;}
+			if (strstr($Sstring, "/")) {$mok=1;}
+			if (strstr($Sstring, "=")) {$mok=1;}
+			if (strstr($Sstring, "%")) {$mok=1;}
+			if (strstr($Sstring, "*")) {$mok=1;}
+			if (strstr($Sstring, "1")) {$mok=1;}
+			if (strstr($Sstring, "2")) {$mok=1;}
+			if (strstr($Sstring, "3")) {$mok=1;}
+			if (strstr($Sstring, "4")) {$mok=1;}
+			if (strstr($Sstring, "5")) {$mok=1;}
+			if (strstr($Sstring, "6")) {$mok=1;}
+			if (strstr($Sstring, "7")) {$mok=1;}
+			if (strstr($Sstring, "8")) {$mok=1;}
+			if (strstr($Sstring, "9")) {$mok=1;}
+			if (strstr($Sstring, "0")) {$mok=1;}
+			if (strstr($Sstring, "(")) {$mok=1;}
+			if (strstr($Sstring, ")")) {$mok=1;}
+			print "$Sstring|$mok<br>";
+			
+			$TT = " $Sstring";
+			
+				
+			print "$Sstring|$mok<br>";
+			$ma1 = strlen($Sstring);
+			$mj = 0;
+			for ($i = 0; $i <= $ma1; $i++) {
+				$mi = substr($Sstring, $i, 1);		
+				if ($mi=='a') {$mj++;}
+				if ($mi=='e') {$mj++;}
+				if ($mi=='i') {$mj++;}
+				if ($mi=='o') {$mj++;}
+				if ($mi=='u') {$mj++;}
+				if ($mi=='y') {$mj++;}
+				}
+			$mScore = intval(($ma1/$mj)*100);
+
+			if ($mScore>500) {$mok=1;}
+			if ($mScore<200) {$mok=1;}
+			print "$Sstring|$mok<br>";				
+			
+			$pl[$mnb]=$Sstring;
+			$lp[$mnb]=$mok;
+			$mnb++;			
+	
+			print "<p>$Sstring</p>";
+
+			
+			}
+			}
+			
+			$osstring = $Sstring;
+			}
+			}			
+			}
+		}
+	}
+
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+if ($i>0) {
+for ($i = 0; $i <= $mnb; $i++) {
+if (strlen(trim($pl[$i]))>0) {
+$Query112 = "INSERT INTO `emails_new_processed5` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$pl[$i]', '$lp[$i]', '', '', '');";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+}
+}
+}
+mysql_close ($Link);
+?>

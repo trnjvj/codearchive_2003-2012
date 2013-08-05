@@ -1,0 +1,542 @@
+<html>
+<HEAD>
+<TITLE>Holisticopia</TITLE>
+<script language="JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</HEAD>
+
+<body bgcolor="#000000" link="#FFFFFF" alink="#FFFFFF" vlink="#FFFFFF" text="#FFFFFF" onLoad="MM_preloadImages('images/ABOUTUS.jpg','images/NEWS.jpg','images/MOVIES.jpg','images/MUSIC.jpg','images/HEALTH.jpg')" ><div align=center> 
+<table border="0" cellpadding="1">
+  <tr> 
+    <td colspan="5"><a href="http://www.holisticopia.com/"><img src="http://www.bluepacificmarketing.com/buttons2/holisticopia1.jpg" width="512" height="100" lowsrc="http://www.bluepacificmarketing.com/buttons2/holisticopia1.gif" border="0"></a></td>
+  </tr>
+  <tr> 
+    <td><a href="http://www.bluepacificmarketing.com/main.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('aboutus','','images/ABOUTUS.jpg',1)"><img src="images/ABOUTUS2.jpg" width="99" height="20" border="0" name="aboutus"></a></td>
+    <td><a href="http://www.thedailynewsgrabber.com/main.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('news','','images/NEWS.jpg',1)"><img src="images/NEWS2.jpg" width="99" height="20" border="0" name="news"></a></td>
+    <td><a href="http://www.stardigger.com/main.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('movies','','images/MOVIES.jpg',1)"><img src="images/MOVIES2.jpg" width="99" height="20" border="0" name="movies"></a></td>
+    <td><a href="http://www.freetownrecords.com/main.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('music','','images/MUSIC.jpg',1)"><img src="images/MUSIC2.jpg" width="99" height="20" border="0" name="music"></a></td>
+    <td><a href="http://www.holisticopia.com/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('health','','images/HEALTH.jpg',1)"><img src="images/HEALTH2.jpg" width="99" height="20" border="0" name="health"></a></td>
+  </tr>
+</table>
+<?
+$mSearch = str_replace(" ", "+", $Search);
+$mGenus = str_replace(" ", "+", $Genus);
+$mType = str_replace(" ", "+", $Type);
+$mProperty = str_replace(" ", "+", $Property);
+$mGenre = str_replace(" ", "+", $Genre);
+$mGenre2 = str_replace("+", "_", $mGenre);
+$mReturn = str_replace(" ", "+", $Return);
+$mCountry = str_replace("_", " ", $Return);
+$mCountry = str_replace(".php", "", $mCountry);
+print "</div><font face=arial size=3>";
+print "<hr><table border=0 width=100% cellpadding=0><tr><td valign=top align=left>";
+
+
+$mSearch = str_replace(" ", "+", $Search);
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "herbage";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+if ($mLevel==0) {
+print "<font face=arial size=3><a href=index.html>Home</a> &gt; <b>CRC Ethnobotany Desk Reference</b></td>";
+print "<td align=right valign=middle><form action='grab.php' method=post><input type='text' name='Search' size=15 maxlength=100>&nbsp;<input type=submit value='Search'></form>";
+
+print "</td></tr></table>";
+print "<table border=0 width=100%><tr><td width=50% valign=top>";
+$Query = "SELECT DISTINCT c from herbage order by c";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result)) 
+	{
+	$mLink = str_replace(" ", "+", $Row[0]);
+	print "<font face=arial size=3><li><a href=property.php?Level=1&Search=$mLink>$Row[0]</a></font>\n";
+
+	}
+print "<font face=arial size=3><li><a href=herbage.php?Level=0>Species</a></font>\n";
+print "</td><td width=50% align=center>";
+print "<a href=http://www.holisticopia.com/herbage/index.html>Order on CD-ROM</a><p><a target=_blank href=http://www.amazon.com/exec/obidos/tg/detail/-/084931187X/ref=lib_rd_ss_TFCV/103-1295479-3689449?v=glance&vi=reader&img=1#reader-link><img src=crc.jpg></a>";
+print "</td></tr></table>";
+}
+
+if ($mLevel==1) {
+$mLink = str_replace(" ", "+", $Search);	
+print "<font face=arial size=3><a href=index.html>Home</a> &gt; <a href=property.php?Level=0>CRC Ethnobotany Desk Reference</a> &gt; <b>$Search</b></font></td>";
+print "<td align=right valign=middle><form action='grab.php' method=post><input type='text' name='Search' size=15 maxlength=100>&nbsp;<input type=submit value='Search'></form></td></tr></table>";
+
+$Query = "SELECT DISTINCT c,d from herbage where c='$Search' order by d";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result)) 
+	{
+	$mLink0 = str_replace(" ", "+", $Row[0]);
+	$mLink = str_replace(" ", "+", $Row[1]);
+	print "<font face=arial size=3><a href=property.php?Level=2&Genus=$mLink0&Search=$mLink>$Row[1]</a></font>\n";
+	}
+$mSearch="$mLink0";
+}
+
+if ($mLevel==2) {
+$mLink = str_replace(" ", "+", $Search);	
+$Query = "SELECT DISTINCT c,d,e from herbage where c='$Genus' and d='$Search' order by e";
+$Result = mysql_db_query($DBName, $Query, $Link);
+$mFirst = 1;
+while ($Row = mysql_fetch_array ($Result)) 
+	{
+	$mLink0 = str_replace(" ", "+", $Row[0]);
+	$mLink1 = str_replace(" ", "+", $Row[1]);
+	$mLink2 = str_replace(" ", "+", $Row[2]);
+	$mLink3 = str_replace(" ", "+", $Row[3]);
+if ($mFirst==1) {
+	print "<font face=arial size=3><a href=index.html>Home</a> &gt; ";
+	
+	print "<a href=property.php?Level=0>CRC Ethnobotany Desk Reference</a> &gt; <a href=property.php?Level=1&Search=$mLink0>$Row[0]</a> &gt; <b>$Row[1]</b> </font></td>";
+	print "<td align=right valign=middle><form action='grab.php' method=post><input type='text' name='Search' size=15 maxlength=100>&nbsp;<input type=submit value='Search'></form></td></tr></table>";
+	$mFirst=0;
+		}
+	
+	$mLink = str_replace(" ", "+", $Row[2]);
+	if ($o2==$Row[2]) {
+	print ", <a href=property.php?Level=4&Genus=$mLink0&Species=$mLink1&Type=$mLink2&Property=$mLink3>$Row[3]</a>";
+
+		} else {
+	print "<li><a href=property.php?Level=3&Genus=$mLink0&Species=$mLink1&Type=$mLink2&Property=$mLink3>$Row[2]</a>";
+
+}
+	$o2=$Row[2];
+	}
+$mSearch="$mLink0+$mLink1";
+}
+
+if ($mLevel==3) {
+$mLink = str_replace(" ", "+", $Search);	
+
+
+
+
+
+$Query = "SELECT DISTINCT c,d,e,f,g,h,i,j,k,l from mesh where b='$Type' order by c,d,e,f,g,h,i,j,k,l";
+$Result = mysql_db_query($DBName, $Query, $Link);
+$mFirst = 1;
+while ($Row = mysql_fetch_array ($Result)) 
+	{
+
+	print "<font face=arial size=1><a href=index.html>Home</a> &gt; ";
+	$mLink0 = str_replace(" ", "+", $Row[0]);
+	$mLink1 = str_replace(" ", "+", $Row[1]);
+	$mLink2 = str_replace(" ", "+", $Row[2]);
+	$mLink3 = str_replace(" ", "+", $Row[3]);	
+	$mLink4 = str_replace(" ", "+", $Row[4]);
+	$mLink5 = str_replace(" ", "+", $Row[5]);
+	$mLink6 = str_replace(" ", "+", $Row[6]);
+	$mLink7 = str_replace(" ", "+", $Row[7]);
+	$mLink8 = str_replace(" ", "+", $Row[8]);
+	$mLink9 = str_replace(" ", "+", $Row[9]);
+	$mLink10 = str_replace(" ", "+", $Row[10]);
+print "<a href=tree.php?Level=0>MESH</a>";
+if ($Row[0]) {print " &gt; <a href=tree.php?Level=1&Search=$mLink0>$Row[0]</a>";}
+if ($Row[1]) {print " &gt; <a href=tree.php?Level=2&Search=$mLink1>$Row[1]</a>";}
+if ($Row[2]) {print " &gt; <a href=tree.php?Level=3&Search=$mLink2>$Row[2]</a>";}
+if ($Row[3]) {print " &gt; <a href=tree.php?Level=4&Search=$mLink3>$Row[3]</a>";}
+if ($Row[4]) {print " &gt; <a href=tree.php?Level=5&Search=$mLink4>$Row[4]</a>";}
+if ($Row[5]) {print " &gt; <a href=tree.php?Level=6&Search=$mLink5>$Row[5]</a>";}
+if ($Row[6]) {print " &gt; <a href=tree.php?Level=7&Search=$mLink6>$Row[6]</a>";}
+if ($Row[7]) {print " &gt; <a href=tree.php?Level=8&Search=$mLink7>$Row[7]</a>";}
+if ($Row[8]) {print " &gt; <a href=tree.php?Level=9&Search=$mLink8>$Row[8]</a>";}
+if ($Row[9]) {print " &gt; <a href=tree.php?Level=10&Search=$mLink9>$Row[9]</a></font>";}
+print "<br>";
+	$mFirst=0;
+	}
+if ($mFirst==1){
+
+} else {print "<hr>";}
+
+
+
+
+$Query = "SELECT DISTINCT c,d,e,a,b from herbage where c='$Genus' and d='$Species' and e='$Type' order by a,b";
+$Result = mysql_db_query($DBName, $Query, $Link);
+$mFirst = 1;
+while ($Row = mysql_fetch_array ($Result)) 
+	{
+	$mLink0 = str_replace(" ", "+", $Row[0]);
+	$mLink1 = str_replace(" ", "+", $Row[1]);
+	$mLink2 = str_replace(" ", "+", $Row[2]);
+	$mLink3 = str_replace(" ", "+", $Row[3]);
+	$mLink4 = str_replace(" ", "+", $Row[4]);
+	if ($mFirst==1) {
+	print "<font face=arial size=3><a href=index.html>Home</a> &gt; ";
+	print "<a href=property.php?Level=0>CRC Ethnobotany Desk Reference</a> &gt; ";
+	print "<a href=property.php?Level=1&Search=$mLink0>$Row[0]</a> &gt; ";
+	print "<a href=property.php?Level=2&Genus=$mLink0&Search=$mLink1>$Row[1]</a> &gt; ";	
+	print "<b>$Row[2]</b><hr>";
+	print "<td align=right valign=top><form action='grab.php' method=post><input type='text' name='Search' size=15 maxlength=100>&nbsp;<input type=submit value='Search'></form></td></tr></table>";
+	$mFirst=0;
+		}
+	$mLink = str_replace(" ", "+", $Row[3]);
+	print "<font face=arial size=3><li><a href=herbage.php?Level=2&Genus=$mLink3&Search=$mLink4>$Row[3] $Row[4]</a></font>\n";
+	}
+$mSearch="$mLink2";
+}
+
+
+if ($mLevel==4) {
+$mLink = str_replace(" ", "+", $Search);	
+
+$Query = "SELECT DISTINCT a,b,c,e from herbage where a='$Genus' and b='$Species' and c='$Type' and e='$Property' order by c,e";
+$Result = mysql_db_query($DBName, $Query, $Link);
+$mFirst = 1;
+while ($Row = mysql_fetch_array ($Result)) 
+	{
+	$mLink0 = str_replace(" ", "+", $Row[0]);
+	$mLink1 = str_replace(" ", "+", $Row[1]);
+	$mLink2 = str_replace(" ", "+", $Row[2]);
+	$mLink3 = str_replace(" ", "+", $Row[3]);
+	if ($mFirst==1) {
+	print "<font face=arial size=3><a href=index.html>Home</a> &gt; ";
+	print "<a href=herbage.php?Level=0>Species</a> &gt; ";
+	print "<a href=herbage.php?Level=1&Search=$mLink0>$Row[0]</a> &gt; ";
+	print "<a href=herbage.php?Level=2&Genus=$mLink0&Search=$mLink1>$Row[1]</a> &gt; ";	
+	print "<a href=herbage.php?Level=3&Genus=$mLink0&Species=$mLink1&Type=$mLink2>$Row[2]</a> &gt; ";
+	print "<b>$Row[3]</b></font></td>";
+	print "<td align=right valign=middle><form action='grab.php' method=post><input type='text' name='Search' size=15 maxlength=100>&nbsp;<input type=submit value='Search'></form></td></tr></table>";
+	$mFirst=0;
+		}
+	$mLink = str_replace(" ", "+", $Row[3]);
+	$mSearch="$mLink0+$mLink1+$mLink3";
+	}
+}
+
+
+
+
+print "<hr><font face=arial size=1>";
+$mCol = 1;
+print "<table width=100% cellpadding=0 border=0><tr>";
+for ($o = 1; $o < 100; $o = $o + 20) {
+$TheFile = "http://google.yahoo.com/bin/query?p=$mSearch&b=$o&hc=0&hs=1&xargs=";
+$Start=0;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	
+	$First=1;
+	$TFound=-1;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$V1 = strstr($String, "ig>");
+		if ($V1) {
+				$TFound=$TFound*-1;
+				}
+		if ($TFound==1) {
+			if ($V1) {} else {
+			$String = str_replace("<a ", "<a target=_blank ", $String);
+$String = str_replace("<b>", "", $String);
+$String = str_replace("</b>", "", $String);
+			if ($String) {
+$V2 = strstr($String, "<a");
+
+
+if ($V2) {
+$mCol = $mCol + 1;
+if ($mCol==4) {
+	print "</tr><tr>";
+	$mCol=1;
+}
+print "<td width=33%><font face=arial size=1><li>";}					
+print "$String\n";
+if ($V2) {} else {print "</td>";
+}
+
+					}
+				}
+			}
+			
+}
+}
+}
+
+print "</tr></table><hr>";
+
+
+
+
+
+
+
+
+$PFound=1;
+for ($m1 = 1; $m1 < 25; $m1++) {
+
+if ($PFound==1) {
+
+$TheFile = "http://www.amazon.com/exec/obidos/external-search?tag=stardigger&mode=Books&keyword=$mSearch&pg=$m1";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$PFound=0;
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			
+			$S1 = strstr($Array[$m], '<a href=/exec/obidos/tg/detail/-/');
+			if ($S1) {
+					$S2 = strpos($Array[$m], "-");
+					$S3 = strpos($Array[$m], "/", $S2+2);
+					$S4 = substr($Array[$m], $S2+2, $S3-$S2-2);
+					$T0 = strpos($Array[$m], "<img");
+					if ($T0) {
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T3b = strpos($Array[$m], "<", $T3+1);
+						$T4 = substr($Array[$m], $T2+1, $T3b-$T2-1);
+						$T5 = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20>$T4</a>";
+						$oImage = $T4;
+						$Image=$T5;
+								$Image = str_replace("THUMB", "LZZZZ", $Image);
+								$Image = str_replace("width=50 height=49 ", "", $Image);
+								$Image = str_replace("width=39 height=60 ", "", $Image);
+								$Image = str_replace("width=", "alt=", $Image);
+								$Image = str_replace("height=", "alt=", $Image);
+								$Image = str_replace("src=", "height=480 width=320 src=", $Image);
+								$Image = str_replace("align=left ", "", $Image);
+						$T6 = strpos($Image, "books-no-image.gif");
+						if ($T6) {
+							$Image = "";
+							}
+						} else {
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T4 = substr($Array[$m], $T2+1, $T3-$T2-1);
+						$Story = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20>$T4</a>";
+						if ($First==0) {
+							$Display=1;
+							
+							$W1 = strpos($Story, "Paperback");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Hardcover");
+							if ($W1) {
+								$Display=0;
+								}
+$W1 = strpos($Story, "Textbook Binding");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Unknown Binding");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Library Binding");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Audio CD");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Audio Cassette");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Image, $oImage);
+							if ($T4=="") {
+								$Display=0;
+								}
+if ($T4=="Digital") {
+								$Display=0;
+								}
+							if ($Story=="") {
+								$Display=0;
+								}
+							if ($Display==1) {
+								$ZZZ1 = strlen($Image);
+								if ($ZZZ1 > 0) {
+									Print "$Image\n";
+									$PFound=1;
+									}
+								}
+							$TFound=1;
+							}
+							else {
+							$First=0;
+							}
+						}
+					$Sound = $S4;
+					$Found=1;
+					
+						$mStory = str_replace("<a href=/exec/", "<a href=http://www.amazon.com/exec/", $Array[$m]);
+					$mStory = str_replace(" align=left", "", $mStory);
+					$S5 = strstr($mStory, "<img");
+					
+								
+					
+
+
+
+
+
+
+
+
+
+
+
+
+				}
+			}
+		}
+	}
+}
+}
+
+
+print "<hr>";
+
+$mSearch2=$mSearch;
+
+
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=100&o=a&p=%22$mSearch2%22&c=news_photos";
+if ($mReturn) {
+	$LL1 = strpos($mReturn, ":");
+	if ($LL1) {
+		$LL2 = strlen($mReturn);
+		$mReturn5 = substr($mReturn, 5, $LL2-5);
+		
+	}
+	else
+	{
+	$mReturn5 = $mReturn;
+	}
+if ($mReturn5==$mSearch) {
+	$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=100&o=a&p=%22$mSearch2%22&c=news_photos";
+
+} else {
+	$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=100&o=a&p=%22$mSearch2+$mReturn5%22&c=news_photos";
+}
+	
+}
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$SS1 = strstr($Array[$m], 'http://story.news.yahoo.com/');
+			if ($SS1) {
+				
+					$Found=1;
+					$mLink = str_replace("<TR valign=middle><TD align=center>", "", $Array[$m]);
+					$mLink = str_replace("<A ", "<A ", $mLink);
+					$mLink = str_replace("http://story.news.yahoo.com/news?tmpl=story&u=/", "http://www.thedailynewsgrabber.com/photo.php?Search=$mSearch2&Return=$mReturn&Photo=", $mLink);
+					$mLink = str_replace(".html", "", $mLink);
+
+					}
+
+			$S1 = strstr($Array[$m], '<img border=1 src=http://us.news1.yimg.com');
+			
+			if ($S1) {
+					$Found=1;
+					$mStory = str_replace("</TD>", "", $Array[$m]);
+					$mStory = str_replace("<img ", "<img ", $mStory);
+					Print "<font face=arial size=2>$mLink$mStory</a></font>&nbsp;&nbsp;\n";
+				}
+			}
+		}
+	}
+print "<hr>";
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&p=%22$mSearch2%22&c=news&o=a&s=&n=100&2=&3=";
+if ($mReturn) {
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&p=%22$mSearch2+$mReturn5%22&c=news&o=a&s=&n=100&2=&3=";
+
+}
+if ($mReturn5==$mSearch) {
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&p=%22$mSearch2%22&c=news&o=a&s=&n=100&2=&3=";
+
+}
+else
+{
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&p=%22$mSearch2+$mReturn5%22&c=news&o=a&s=&n=100&2=&3=";
+}
+$Found = 0;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			
+
+
+			$S1 = strstr($Array[$m], '<a href="http://story.news.yahoo.com/');
+			$S2 = strstr($Array[$m], '<img');
+			if ($S1) {
+				if ($S2) {} else {
+					$Found=1;
+					$mStory = str_replace("<b>", "", $Array[$m]);
+					$mStory = str_replace("</b>", "", $mStory);
+					$mStory = str_replace("http://story.news.yahoo.com/news?tmpl=story&u=/", "http://www.thedailynewsgrabber.com/story.php?Search=$mSearch2&Return=$mReturn&Story=", $mStory);
+					$mStory = str_replace(".html", "", $mStory);
+					Print "<li><font face=arial size=2>$mStory</font><br>\n";
+					
+					}
+				}
+			}
+		}
+	}
+
+
+if ($Found == 0) {
+print "No News Found.";
+}
+else
+{
+}
+
+
+
+
+
+mysql_close ($Link);
+
+
+?>
+<hr><div align=center><font face=arial size=1>&copy; 2002 by Tim Johnson</font></div>
+</body>
+</html>
+

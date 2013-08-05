@@ -1,0 +1,362 @@
+<HTML>
+<HEAD>
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Import URLs</TITLE>
+<?
+set_time_limit(0);
+print "<div align=center><font face=arial size=3>Credit Card Orders, Dec 2002 - May 2004</font><p>";
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+$mCol=1;
+print "<table width=600 border=1><tr><td align=center><font face=arial size=4>number of orders by state or province</font></td></tr></table>";
+print "<table width=600 border=1><tr>";
+$mcount = 0;
+$Query120 = "SELECT * FROM `business_customers` order by i;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{	
+	$merchant=$Row120[0];
+	$orderid=$Row120[1];
+	$orderplaced=$Row120[2];
+	$amount=$Row120[3];
+	$paymenttype=$Row120[4];
+	$name=$Row120[5];
+	$street=$Row120[6];
+	$city=$Row120[7];
+	$state=$Row120[8];
+	$zip=$Row120[9];
+	$country=$Row120[10];
+	$phone=$Row120[11];
+	$email=$Row120[12];
+	$mcount++;
+	if ($state==$ostate) {} else {
+		$m123 = strlen($ostate);
+		if ($m123>1) {
+		print "<td><font face=arial size=3>$ostate $mcount</font></td>";
+		$mCol++;
+		if ($mCol>3) {print "</tr><tr>"; $mCol=1;}
+		$mcount=0;
+		}
+		}
+	$ostate=$state;
+	}
+print "<td><font face=arial size=3>$ostate $mcount</font></td>";
+		
+print "</tr></table><p>";
+
+
+$mCol=1;
+print "<table width=600 border=1><tr><td align=center><font face=arial size=4>number of orders by country</font></td></tr></table>";
+print "<table width=600 border=1><tr>";
+$mcount = 0;
+$Query120 = "SELECT * FROM `business_customers` order by k;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{	
+	$merchant=$Row120[0];
+	$orderid=$Row120[1];
+	$orderplaced=$Row120[2];
+	$amount=$Row120[3];
+	$paymenttype=$Row120[4];
+	$name=$Row120[5];
+	$street=$Row120[6];
+	$city=$Row120[7];
+	$state=$Row120[8];
+	$zip=$Row120[9];
+	$country=$Row120[10];
+	$phone=$Row120[11];
+	$email=$Row120[12];
+	$mcount++;
+	if ($country==$ocountry) {} else {
+		$m123 = strlen($ocountry);
+		if ($m123>1) {
+		print "<td><font face=arial size=3>$ocountry $mcount</font></td>";
+		$mCol++;
+		if ($mCol>3) {print "</tr><tr>"; $mCol=1;}
+		$mcount=0;
+		}
+		}
+	$ocountry=$country;
+	}
+print "<td><font face=arial size=3>$ocountry $mcount</font></td>";
+		
+print "</tr></table><p>";
+
+
+$mCol=1;
+print "<table width=600 border=1><tr><td align=center><font face=arial size=4>number of orders by date</font></td></tr></table>";
+print "<table width=600 border=1><tr>";
+$mcount = 0;
+$Query120 = "SELECT * FROM `business_customers`;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{	
+	$merchant=$Row120[0];
+	$orderid=$Row120[1];
+	$orderplaced=$Row120[2];
+	
+	$ml1 = strpos($orderplaced, " ");
+	$date = substr($orderplaced, 0, $ml1);
+	
+	$amount=$Row120[3];
+	$paymenttype=$Row120[4];
+	$name=$Row120[5];
+	$street=$Row120[6];
+	$city=$Row120[7];
+	$state=$Row120[8];
+	$zip=$Row120[9];
+	$country=$Row120[10];
+	$phone=$Row120[11];
+	$email=$Row120[12];
+	$mcount++;
+	if ($date==$odate) {} else {
+		$m123 = strlen($ocountry);
+		if ($m123>1) {
+		print "<td><font face=arial size=$mcount>$odate $mcount</font></td>";
+		$mCol++;
+		if ($mCol>3) {print "</tr><tr>"; $mCol=1;}
+		$mcount=0;
+		}
+		}
+	$odate=$date;
+	}
+print "<td><font face=arial size=3>$odate $mcount</font></td>";
+		
+print "</tr></table><p>";
+
+
+$mCol=1;
+print "<table width=600 border=1><tr><td align=center><font face=arial size=4>number of orders by dollar amount</font></td></tr></table>";
+print "<table width=600 border=1><tr>";
+$mcount = 0;
+$Query120 = "SELECT * FROM `business_customers` order by d;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{	
+	$merchant=$Row120[0];
+	$orderid=$Row120[1];
+	$orderplaced=$Row120[2];
+	
+	$ml1 = strpos($orderplaced, " ");
+	$date = substr($orderplaced, 0, $ml1);
+	
+	$amount=$Row120[3];
+	$paymenttype=$Row120[4];
+	$name=$Row120[5];
+	$street=$Row120[6];
+	$city=$Row120[7];
+	$state=$Row120[8];
+	$zip=$Row120[9];
+	$country=$Row120[10];
+	$phone=$Row120[11];
+	$email=$Row120[12];
+	$mcount++;
+	if ($amount==$oamount) {} else {
+		$m123 = strlen($ocountry);
+		if ($m123>1) {
+		print "<td><font face=arial size=3>$oamount $mcount</font></td>";
+		$mCol++;
+		if ($mCol>3) {print "</tr><tr>"; $mCol=1;}
+		$mcount=0;
+		}
+		}
+	$oamount=$amount;
+	}
+	print "<td><font face=arial size=3>$oamount $mcount</font></td>";
+		
+print "</tr></table><p>";
+
+
+$mCol=1;
+print "<table width=600 border=1><tr><td align=center><font face=arial size=4>number of orders by payment type</font></td></tr></table>";
+print "<table width=600 border=1><tr>";
+$mcount = 0;
+$Query120 = "SELECT * FROM `business_customers` order by e;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{	
+	$merchant=$Row120[0];
+	$orderid=$Row120[1];
+	$orderplaced=$Row120[2];
+	
+	$ml1 = strpos($orderplaced, " ");
+	$date = substr($orderplaced, 0, $ml1);
+	
+	$amount=$Row120[3];
+	$paymenttype=$Row120[4];
+	$name=$Row120[5];
+	$street=$Row120[6];
+	$city=$Row120[7];
+	$state=$Row120[8];
+	$zip=$Row120[9];
+	$country=$Row120[10];
+	$phone=$Row120[11];
+	$email=$Row120[12];
+	$mcount++;
+	if ($paymenttype==$opaymenttype) {} else {
+		$m123 = strlen($opaymenttype);
+		if ($m123>1) {
+		print "<td><font face=arial size=3>$opaymenttype $mcount</font></td>";
+		$mCol++;
+		if ($mCol>3) {print "</tr><tr>"; $mCol=1;}
+		$mcount=0;
+		}
+		}
+	$opaymenttype=$paymenttype;
+	}
+	print "<td><font face=arial size=3>$opaymenttype $mcount</font></td>";
+		
+print "</tr></table>";
+
+
+$mCol=1;
+print "<table width=600 border=1><tr><td align=center><font face=arial size=4>number of order by city</font></td></tr></table>";
+print "<table width=600 border=1><tr>";
+$mcount = 0;
+$Query120 = "SELECT * FROM `business_customers` order by h;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{	
+	$merchant=$Row120[0];
+	$orderid=$Row120[1];
+	$orderplaced=$Row120[2];
+	
+	$ml1 = strpos($orderplaced, " ");
+	$date = substr($orderplaced, 0, $ml1);
+	
+	$amount=$Row120[3];
+	$paymenttype=$Row120[4];
+	$name=$Row120[5];
+	$street=$Row120[6];
+	$city=$Row120[7];
+	$state=$Row120[8];
+	$zip=$Row120[9];
+	$country=$Row120[10];
+	$phone=$Row120[11];
+	$email=$Row120[12];
+	$mcount++;
+	if ($city==$ocity) {} else {
+		$m123 = strlen($ocity);
+		if ($m123>1) {
+		if ($mcount>1) {
+		print "<td><font face=arial size=$mcount><b>$ocity $mcount</b></font></td>";
+		} else {
+		print "<td><font face=arial size=1>$ocity $mcount</font></td>";
+		}
+		$mCol++;
+		if ($mCol>3) {print "</tr><tr>"; $mCol=1;}
+		$mcount=0;
+		}
+		}
+	$ocity=$city;
+	}
+	print "<td><font face=arial size=3>$ocity $mcount</font></td>";
+		
+print "</tr></table>";
+
+$mCol=1;
+print "<table width=600 border=1><tr><td align=center><font face=arial size=4>number of orders by email</font></td></tr></table>";
+print "<table width=600 border=1><tr>";
+$mcount = 0;
+$Query120 = "SELECT * FROM `business_customers` order by m;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{	
+	$merchant=$Row120[0];
+	$orderid=$Row120[1];
+	$orderplaced=$Row120[2];
+	
+	$ml1 = strpos($orderplaced, " ");
+	$date = substr($orderplaced, 0, $ml1);
+	
+	$amount=$Row120[3];
+	$paymenttype=$Row120[4];
+	$name=$Row120[5];
+	$street=$Row120[6];
+	$city=$Row120[7];
+	$state=$Row120[8];
+	$zip=$Row120[9];
+	$country=$Row120[10];
+	$phone=$Row120[11];
+	$email=$Row120[12];
+	$mcount++;
+	if ($email==$oemail) {} else {
+		$m123 = strlen($oemail);
+		if ($m123>1) {
+		if ($mcount>1) {
+		print "<td><font face=arial size=$mcount><b>$oemail $mcount</b></font></td>";
+		} else {
+		print "<td><font face=arial size=1>$oemail $mcount</font></td>";
+		
+		}
+		$mCol++;
+		if ($mCol>3) {print "</tr><tr>"; $mCol=1;}
+		$mcount=0;
+		}
+		}
+	$oemail=$email;
+	}
+	print "<td><font face=arial size=3>$oemail $mcount</font></td>";
+		
+print "</tr></table>";
+
+
+
+$mCol=1;
+print "<table width=600 border=1><tr><td align=center><font face=arial size=4>number order by customer</font></td></tr></table>";
+print "<table width=600 border=1><tr>";
+$mcount = 0;
+$Query120 = "SELECT * FROM `business_customers` order by f;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{	
+	$merchant=$Row120[0];
+	$orderid=$Row120[1];
+	$orderplaced=$Row120[2];
+	
+	$ml1 = strpos($orderplaced, " ");
+	$date = substr($orderplaced, 0, $ml1);
+	
+	$amount=$Row120[3];
+	$paymenttype=$Row120[4];
+	$name=$Row120[5];
+	$street=$Row120[6];
+	$city=$Row120[7];
+	$state=$Row120[8];
+	$zip=$Row120[9];
+	$country=$Row120[10];
+	$phone=$Row120[11];
+	$email=$Row120[12];
+	$mcount++;
+	if ($city==$ocity) {} else {
+		$m123 = strlen($oname);
+		if ($m123>1) {
+		if ($mcount>1) {
+		print "<td><font face=arial size=3><b>$oname $mcount</b></font></td>";
+		} else {
+		print "<td><font face=arial size=3>$oname $mcount</font></td>";
+		
+		}
+		$mCol++;
+		if ($mCol>3) {print "</tr><tr>"; $mCol=1;}
+		$mcount=0;
+		}
+		}
+	$oname=$name;
+	}
+	print "<td><font face=arial size=3>$oname $mcount</font></td>";
+		
+print "</tr></table>";
+
+print "</div>";
+mysql_close ($Link);
+?>

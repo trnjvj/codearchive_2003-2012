@@ -1,0 +1,71 @@
+<?
+$mSearch2=str_replace(" ", "+", $mSearch);
+print "<font face=verdana size=1><b>\n\r\n\r";
+print "<h1>$mSearch</h1>";
+print "<font face=arial size=1>";
+$mSearchUL = str_replace(" ", "_", $mSearch);
+$mSearchPlus = str_replace(" ", "+", $mSearch);
+$mKill=0;
+$mFound=1;
+for ($m1 = 1; $m1 < 50; $m1++) {
+if ($mFound==0) {$mKill=1;}
+$mFound=0;
+if ($mKill==0) {
+$TheFile = "http://www.amazon.com/exec/obidos/external-search?tag=holisticopia&mode=Books&keyword=$mSearchPlus&pg=$m1";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$mA1 = strstr($Array[$m], "glance&s=books");
+			if ($mA1) {
+				$Book = $Array[$m];
+			}
+			$mA3 = strstr($Array[$m], "by ");
+				if ($mA3) {
+					$Author = $Array[$m];
+					$Book2 = str_replace("a href=/exec/obidos/tg/detail/-/", "", $Book);
+					$ASIN = substr($Book2, 0, 10);
+					$mA4 = strpos($Book, ">");
+					$mA5 = strlen($Book);
+					$Title = substr($Book, $mA4+1, $mA5-$mA4-1);
+					$Author = str_replace("font face=verdana,arial,helvetica size=-1>", "", $Author);
+					$Author = str_replace("by ", "", $Author);
+					$mOK = 1;
+					$mmm1 = strstr($Title, "uy new");
+					if ($mmm1) {$mOK = 0;}
+					$mmm1 = strlen($Title);
+					if ($mmm1<1) {$mOK = 0;}
+					if ($ASIN==$oASIN) {
+						$mKill=0;
+						$mOK = 0;
+						}
+					if ($mOK==1) {					
+					
+					print "<b>$Search | $ASIN | $Title | $Author |</b><br> \n";
+					$mmm1 = strpos($Author, ">");
+					if ($mmm1) {
+						$mmmm1=strlen($Autrhor)-$mmm1;
+						$Author=substr($Author, $mmm1, $mmmm1);
+						
+					}
+					
+					$Query23="INSERT INTO `mine_links` ( `a` , `b` , `c` , `d` , `e`, `f` ) VALUES ('$mSearch', '$Title', 'http://www.amazon.com/exec/obidos/ASIN/$ASIN/holisticopia-20', '$Author', '$ASIN', 'Books');";
+	                $Result23 = mysql_db_query($DBName, $Query23, $Link);
+					$mFound=1;
+					$oASIN=$ASIN;
+					}
+				}
+			}	
+		$StringB = $StringA;	
+		$StringA = $String;
+		}
+		}
+		}
+		}
+
+$Query3 = "UPDATE `mine_cat` SET `d` = '1' WHERE `a` = '$mSearch'";
+$Result3 = mysql_db_query($DBName, $Query3, $Link);	
+?>

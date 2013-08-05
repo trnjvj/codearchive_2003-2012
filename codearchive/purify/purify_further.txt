@@ -1,0 +1,51 @@
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query120 = "SELECT * FROM `love4`;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$ma = $Row120[0];
+	$mok=0;
+	if (!strstr($ma, "@")) {$mok=1;}
+	if (!strstr($ma, ".")) {$mok=1;}
+	if (strstr($ma, ",")) {$mok=1;}
+	if (strstr($ma, ";")) {$mok=1;}
+	if (strstr($ma, "=")) {$mok=1;}
+	if (strstr($ma, "/")) {$mok=1;}
+	if (strstr($ma, "=")) {$mok=1;}
+	if (strstr($ma, "%")) {$mok=1;}
+	if (strstr($ma, "*")) {$mok=1;}
+	if (strstr($ma, "1")) {$mok=1;}
+	if (strstr($ma, "2")) {$mok=1;}
+	if (strstr($ma, "3")) {$mok=1;}
+	if (strstr($ma, "4")) {$mok=1;}
+	if (strstr($ma, "5")) {$mok=1;}
+	if (strstr($ma, "6")) {$mok=1;}
+	if (strstr($ma, "7")) {$mok=1;}
+	if (strstr($ma, "8")) {$mok=1;}
+	if (strstr($ma, "9")) {$mok=1;}
+	if (strstr($ma, "0")) {$mok=1;}
+	if (strstr($ma, "(")) {$mok=1;}
+	if (strstr($ma, ")")) {$mok=1;}
+
+	if ($mok==0) {
+	$Query130 = "INSERT INTO `love5` ( `a` , `b` , `c` ) VALUES ('$ma', '', '');";
+	$Result130 = mysql_db_query($DBName, $Query130, $Link);
+	print "<br>$ma ";
+	}
+	else
+	{
+	print "<br><b>$ma</b> ";
+	}
+	}
+mysql_close ($Link);
+?>

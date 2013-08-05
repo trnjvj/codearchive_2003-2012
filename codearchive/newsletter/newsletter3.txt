@@ -1,0 +1,47 @@
+<?
+$TheFile = "http://www.holisticopia.com/herbage/gateway.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);	
+}}
+$mFlag=0;
+$mThis = strpos($String, "@");
+if ($mThis) {$mFlag++;}
+$mThis = strpos($String, ".");
+if ($mThis) {$mFlag++;}
+
+if ($mFlag==2) {
+
+$Body= '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<a href=http://www.gaiawire.com/herbage/>
+The Herbage CD-ROM, Third Edition
+</a><p>
+The Herbage CD-ROM contains a database of over 28,000 concise monographs of medicinal plant species characteristics and an inventory of claimed attributes and historical uses by cultures throughout the world. - the result of more than a decade of independent research.                    
+<p>
+Monographs are linked to hundreds of thousands of articles and images via the world wide web, providing an exhaustive tool for in-depth global herb research. Each species listing has links to powerful image and article searches.
+<p>
+Features
+<p>
+- Presents information from diverse fields, including botany, ethnobatany, and traditional medicine<br>
+- Organizes monograph information in 12 categories, including plant family, indigenous use, and body parts treated by plant<br>
+- Addresses the global uses of all plant families<br>  
+- Alphabetical listing of plant species
+<p>
+To unsubscribe from this mailing list - click <a href=http://www.gaiawire.com/herbage/unsubscribe.htm>here</a>.
+<p>
+Tim Johnson<br>
+309 Cedar Street, #33<br>
+Santa Cruz, CA 95060<br>
+USA<br>
+(831) 419-0427';
+
+$headers .= "From: Tim Johnson <timjohnson@gaiawire.com>\r\n"; 
+$headers .= "Content-type: text/html; charset=iso-XXXX-XX\r\n"; 
+$Subject = "global database of 28,000 herbs";  
+$m1 = "herbagecdrom@yahoo.com"; if (mail($m1, $Subject, $Body, $headers)) {print "<li>$String";} 
+}
+?>

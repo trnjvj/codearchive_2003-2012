@@ -1,0 +1,87 @@
+<html>
+<?
+$mSearch = trim($Search);
+$mSearch = str_replace(" ", "+", $mSearch);
+$mReturn = str_replace(" ", "+", $Return);
+$mCountry = str_replace("_", " ", $Return);
+$mCountry = str_replace(".php", "", $mCountry);
+
+$Host = "localhost";
+$User = "pacific_world";
+$Password = "turnip";
+$DBName = "pacific_world";
+$Tablename = "email";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+
+mysql_select_db ("$Tablename");
+
+print "<html>";
+print "<title>Blue Pacific Marketing: $Search</title>";
+print "<body background='images/bottom_second.jpg' bgcolor=#CCCC99 text=#663333 link=#663333 vlink=#663333 alink=#663333>";
+print "<div align=center>";
+print "<table border=0 width=100% cellpadding=0><tr>";
+print "<td width=33% align=right valign=middle><form action='email.php' method=post><input type='text' name='Search' size=15 maxlength=100>&nbsp;<input type=submit value='Search'></form></td></tr></table>";
+$Found2=1;
+$T8 = "http://groups.yahoo.com/group/$Search/messages/?expand=1";
+for ($o=1; $o<20; $o++) {
+$TheFile = $T8;
+$Found = 0;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+		$T2 = strstr($Array[$m], 'Prev');
+				if ($T2) {
+					$T3 = strpos($Array[$m], '"');
+					$T4 = strlen($Array[$m]);
+					$T5 = substr($Array[$m], $T3+1, $T4-$T3-1);
+					$T6 = strpos($T5, '"');
+					$T7 = substr($T5, 1, $T6-1);
+					$T8 = "http://groups.yahoo.com/$T7";
+					$Found2 = 1;
+				}
+			$S1 = strstr($Array[$m], 'From:');
+			$S2 = strpos($Array[$m], '&lt;');
+			if ($S1) {
+				if ($S2) {
+					$Found=1;
+					$S3 = strlen($Array[$m]);
+					$mStory = substr($Array[$m], $S2+4, $S3-$S2-4);
+					$mStory = str_replace("&gt;", "", $mStory);
+					$mStory = str_replace("@y...", "@yahoo.com", $mStory);
+					$S4 = strpos($mStory, "yahoo.com");
+					if ($S4) {
+						Print "$mStory, \n";
+
+
+if ($mStory==$OldStory) {} else {
+$Host = "localhost";
+$User = "pacific_world";
+$Password = "turnip";
+$DBName = "pacific_world";
+$Tablename = "email";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+						mysql_select_db ("$Tablename");
+						$Query = "INSERT INTO `email` (`source`, `group`, `email`) VALUES ('', '$Search', '$mStory');";
+						mysql_db_query($DBName, $Query, $Link);
+}
+$OldStory=$mStory;
+
+						}
+					}
+				}
+			}
+		}
+	}
+}
+if ($Found == 0) {
+print "No News Found.";
+}
+else
+{
+}
+?>
+<hr><div align=center><font face=arial size=1>&copy; 2002 by Tim Johnson</font></div></html>

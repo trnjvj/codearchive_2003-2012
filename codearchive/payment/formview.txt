@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<?
+
+$mCatch=0;
+if ($checkbox=="yes") {$mCatch=1;}
+if ($checkbox2=="yes") {$mCatch=1;}
+if ($mCatch==0) {$checkbox="yes";}
+
+
+$today = getdate();
+$month = $today['month'];
+$mday = $today['mday'];
+$year = $today['year'];
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$weekday = $today['weekday'];
+
+$mStamp = "$mday $month, $year - $hours:$minutes:$seconds";
+
+
+print '<form method="POST"';
+print 'action="https://payflowlink.verisign.com/payflowlink.cfm">';
+print '              <div align="center"> <font size="2" face="Arial, Helvetica, sans-serif">';
+print '                <input type="hidden" name="LOGIN" value="holisticopia">';
+print '                <input type="hidden" name="PARTNER" value="Verisign">';
+print '                <!-- The transaction AMOUNT must be at least 1.00 (one dollar) -->';
+if ($checkbox) {$mType=1;}
+if ($checkbox2) {$mType=2;}
+if ($mType==1) {
+print '                <input type="hidden" name="AMOUNT" value="45.00">';
+}
+else {
+print '                <input type="hidden" name="AMOUNT" value="125.00">';
+}
+print '                <input type="hidden" name="TYPE" value="S">';
+print '                <input type="submit" value="Online Payment Form" name="submit">';
+print '                </font></div>';
+print '            </form>';
+
+
+print "<p>Or send a check, payable for ";
+
+if ($mType==1) {
+print "$45.00 ";
+}
+else {
+print "$125.00 ";
+}
+
+print "US Dollars:<p>";
+print "<b>Holisticopia<br>";
+print "309 Cedar Street #33<br>";
+print "Santa Cruz, CA 95060</b><p>";
+print "phone: (831) 419-0427<br>";
+print "email: <a href='mailto:info@holisticopia.com'>info@holisticopia.com</a><p>";
+print "Holisticopia is updated once a month.<p>If you are experiencing problems with this form, or have any other questions, please contact us at <a href=mailto:advertising@holisticopia.com>advertising@holisticopia.com</a>.</div></td><td valign='top' width=80%>";
+print "<table cellpadding=15 border=1><tr><td valign=top>";
+print "<div align=center></div>";
+
+$mAddresss = str_replace(" ", "+", $Street);
+$mAddresss = str_replace("#", "%23", $mAddresss);
+$mAddresss = str_replace("&", "%26", $mAddresss);
+$mCityy = str_replace(" ", "+", $City);
+$mStatee = str_replace(" ", "+", $State);
+$mSSSearch="$Name $City $State";
+$mSSearch=str_replace(" ", "+", $mSSSearch);
+$mSSSearch = str_replace("&", "%26", $mSSSearch);
+$mSSSearch = str_replace("#", "%23", $mSSSearch);
+
+if ($URL) {
+$mA = strstr($URL, "ttp://");
+if ($mA) {$URL2=$URL; print "...."; } else
+ {$URL2="http://$URL";}
+}
+
+print "<div class='content_tableheader' align=center>";
+print "$State $Category";
+print "</b></font></div><p>";
+
+if ($checkbox2=="yes") {
+print "<div align=center><table border=0 cellspacing=0 width=520>";
+print "  <tr>";
+print "    <td>";
+print "      <table border=0 cellpadding=3 cellspacing=0 width=100%>";
+print "        <tr>";
+print "          <td><div class='content'>";
+if ($URL) {
+print "<a href='$URL2' target='_blank'>$Name</div></a>";
+}
+else
+{
+print "$Name</div>";
+}
+print "<br>";
+print "<div class='content'>$Description<br>";
+print "<a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$Street</a> - $City, $State<br>";
+print "$Phone<br>";
+print "<a href='$URL2' target='_blank'>$URL</a></div></td>";
+print "        </tr>";
+print "      </table>";
+print "    </td>";
+print "  </tr>";
+print "</table></div><p>";
+}
+
+if ($checkbox=="yes") {
+print "<table cellpadding=5 width=100%>";
+print "<tr><td width=25%  valign=top align=right>";
+print "<b><div class='content'>$City</div></td>";
+print "<td><div class='content'>";
+if ($URL) {
+print "<a href=$URL2 target=_blank>$Name</a> ";
+}
+else
+{
+print "$Name ";
+}
+print "<a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$Street</a> ";
+print " $Phone";
+print " ";
+print "</div></td></tr></table>";
+
+}
+print "</td></tr></table></td></tr></table>";
+
+$Category=str_replace("'", "&#146;", $Category);
+$Name=str_replace("'", "&#146;", $Name);
+$Street=str_replace("'", "&#146;", $Street);
+$City=str_replace("'", "&#146;", $City);
+$State=str_replace("'", "&#146;", $State);
+$URL=str_replace("'", "&#146;", $URL);
+$checkbox=str_replace("'", "&#146;", $checkbox);
+$checkbox2=str_replace("'", "&#146;", $checkbox2);
+$Description=str_replace("'", "&#146;", $Description);
+$Phone=str_replace("'", "&#146;", $Phone);
+$Email=str_replace("'", "&#146;", $Email);
+$mStamp=str_replace("'", "&#146;", $mStamp);
+
+$mCache="$Category|$Name|$Street|$City|$State|$URL|$checkbox|$checkbox2|$Description|$Phone|$Email|$mStamp";
+
+$Host = "localhost";
+$User = "world";
+$Password = "turnip";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query110 = "INSERT INTO `holisticopia_ads` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` ) VALUES ('$Category', '$Name', '$Street', '$City', '$State', '$URL', '$checkbox', '$checkbox2', '$Description', '$Phone', '$Email', '$mStamp', '', '', '');";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+mysql_close ($Link);
+?>

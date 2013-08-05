@@ -1,0 +1,208 @@
+
+<?
+print '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
+print '<html>';
+print '<head>';
+print '<title>bloggle.org HI!</title>';
+print '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">';
+print '</head>';
+print '<body bgcolor=beige>';
+print '<div align="center">';
+print "<table bgcolor=FFFFFF width=500 cellpadding=5 border=1><tr><td>";
+print "<table cellpadding=5 border=1 width=100%><tr><td align=center valign=middle>";
+print '<p><font color="black" size="+4" face="Times New Roman, Times, serif">Bloggle.org</font></p>';
+print "</td><td valign=middle>";
+print '<form method=get action="index.php">';
+print '<table cellspacing="0" cellpadding="0">';
+print '<tbody><tr>';
+print '<td width="75"> </td>';
+print '<td align="center">';
+print "<input maxlength='256' size='25' name='query' value='$query'>";
+print "<input type='submit' value='Search' name='search'>";
+print '</td><td valign="top" nowrap="nowrap"><font size="-2">&nbsp;</font></td>';
+print "</tr></tbody></table></form><p>";
+print "</td></tr><tr><td colspan=2>";
+
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+if ($l==0) {
+print "<font face=verdana size=1>| ";
+$Query110 = "SELECT DISTINCT d FROM `bloggle_agg_feeds` WHERE c='Top' order by d;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1aa = str_replace(" ", "+", $m1a);
+	print "<a href=index.php?l=1&m1=$m1aa>$m1a</a> | ";
+	$mSearch="";
+	}
+}
+
+if ($l==1) {
+print "<font face=verdana size=1><a href=index.php>Top</a> &gt; <strong>$m1</strong> | ";
+$Query110 = "SELECT DISTINCT e FROM `bloggle_agg_feeds` WHERE c='Top' and d='$m1' order by e;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1b = $m1;
+	$m1bb = str_replace(" ", "+", $m1);
+	$m1a = $Row110[0];
+	$m1aa = str_replace(" ", "+", $m1a);
+	print "<a href=index.php?l=2&m1=$m1bb&m2=$m1aa>$m1a</a> | ";
+	$mSearch=$m1;
+	}
+}
+
+if ($l==2) {
+$m1b = $m1;
+$m1bb = str_replace(" ", "+", $m1);
+$m2b = $m2;
+$m2bb = str_replace(" ", "+", $m2);
+print "<font face=verdana size=1><a href=index.php>Top</a> &gt; <a href=index.php?l=1&m1=$m1bb>$m1</a> &gt; <strong>$m2</strong> &gt; | ";
+$Query110 = "SELECT DISTINCT f FROM `bloggle_agg_feeds` WHERE c='Top' and d='$m1' and e='$m2' order by f;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1aa = str_replace(" ", "+", $m1a);
+print "<a href=index.php?l=3&m1=$m1bb&m2=$m2bb&m3=$m1aa>$m1a</a> | ";
+$mSearch=$m2;
+}
+}
+
+if ($l==3) {
+$m1b = $m1;
+$m1bb = str_replace(" ", "+", $m1);
+$m2b = $m2;
+$m2bb = str_replace(" ", "+", $m2);
+$m3b = $m3;
+$m3bb = str_replace(" ", "+", $m3);
+print "<font face=verdana size=1><a href=index.php>Top</a> &gt; <a href=index.php?l=1&m1=$m1bb>$m1</a> &gt; <a href=index.php?l=2&m1=$m1bb&m2=$m2bb>$m2</a> &gt; <strong>$m3</strong> &gt; | ";
+$Query110 = "SELECT DISTINCT g FROM `bloggle_agg_feeds` WHERE c='Top' and d='$m1' and e='$m2' and f='$m3' order by g;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1aa = str_replace(" ", "+", $m1a);
+print "<a href=index.php?l=4&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m1aa>$m1a</a> | ";
+$mSearch=$m3;
+}
+}
+
+if ($l==4) {
+$m1b = $m1;
+$m1bb = str_replace(" ", "+", $m1);
+$m2b = $m2;
+$m2bb = str_replace(" ", "+", $m2);
+$m3b = $m3;
+$m3bb = str_replace(" ", "+", $m3);
+$m4b = $m4;
+$m4bb = str_replace(" ", "+", $m4);
+print "<font face=verdana size=1><a href=index.php>$m1</a> &gt; <a href=index.php?l=1&m1=$m1bb>$m2</a> &gt; <a href=index.php?l=2&m1=$m1bb&m2=$m2bb>$m3</a> &gt; <a href=index.php?l=3&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m1aa>$m4</a> &gt; | ";
+$Query110 = "SELECT DISTINCT h FROM `bloggle_agg_feeds` WHERE c='Top' and d='$m1' and e='$m2' and f='$m3' and g='$m4' order by h;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1aa = str_replace(" ", "+", $m1a);
+print "<a href=index.php?l=5&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m4bb&m5=$m1aa>$m1a</a> | ";
+$mSearch=$m4;
+}
+}
+
+if ($l==5) {
+$m1b = $m1;
+$m1bb = str_replace(" ", "+", $m1);
+$m2b = $m2;
+$m2bb = str_replace(" ", "+", $m2);
+$m3b = $m3;
+$m3bb = str_replace(" ", "+", $m3);
+$m4b = $m4;
+$m4bb = str_replace(" ", "+", $m4);
+$m5b = $m5;
+$m5bb = str_replace(" ", "+", $m5);
+print "<font face=verdana size=1><a href=index.php>$m1</a> &gt; <a href=index.php?l=1&m1=$m1bb>$m2</a> &gt; <a href=index.php?l=2&m1=$m1bb&m2=$m2bb>$m3</a> &gt; <a href=index.php?l=3&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m1aa>$m4</a> &gt; <a href=index.php?l=4&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m4bb&m5=$m1aa>$m5</a> &gt; | ";
+$Query110 = "SELECT DISTINCT i FROM `bloggle_agg_feeds` WHERE c='Top' and d='$m1' and e='$m2' and f='$m3' and g='$m4' and h='$m5' order by i;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1aa = str_replace(" ", "+", $m1a);
+print "<a href=index.php?l=5&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m4bb&m5=$m5bb&m6=$m1aa>$m1a</a> | ";
+$mSearch=$m5;
+}
+}
+print "</td></tr>";
+print "<tr><td colspan=2><font face=verdana size=2>";
+
+$mMMM = strlen($query);
+if ($mMMM>0) {
+	$mSearch=$query;
+	$Query110 = "SELECT DISTINCT a,k,l,m FROM `bloggle_agg_feeds` WHERE a='$mSearch' OR k LIKE '%mSearch%';";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1b = $Row110[1];
+$m1c = $Row110[2];
+$m1d = $Row110[3];
+$m1e = $Row110[4];
+
+if ($m1e=='1') {
+	$Query115 = "SELECT a,e FROM `bloggle_feed_data` WHERE a = '$m1c';";
+	$Result115 = mysql_db_query($DBName, $Query115, $Link);
+	$m15a = $Row115[0];
+	$m15b = $Row115[1];
+	$m15c = str_replace("<", "[", $m15b);
+	$m15c = str_replace(">", "]", $m15c);
+	print "$m15c";
+	}
+print "<li><strong><a target=_blank href=$m1c>$m1b</a></strong> $m1d";
+}	
+	}
+
+else {
+$Query110 = "SELECT DISTINCT a,k,l,m,t FROM `bloggle_agg_feeds` WHERE a='$mSearch' OR k LIKE '%mSearch%';";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1b = $Row110[1];
+$m1c = $Row110[2];
+$m1d = $Row110[3];
+$m1e = $Row110[4];
+
+print "<li><strong><a target=_blank href=$m1c>$m1b</a></strong> $m1d";
+if ($m1e=='1') {
+	$Query115 = "SELECT * FROM `bloggle_feed_data` WHERE a='$m1c' LIMIT 1;";
+	$Result115 = mysql_db_query($DBName, $Query115, $Link);
+	while ($Row115 = mysql_fetch_array ($Result115))
+	{
+	$m15a = $Row115[0];
+	$m15b = $Row115[1];
+	$m15c = $Row115[2];
+	$m15d = $Row115[3];
+	$m15e = $Row115[4];
+	$m15f = str_replace("<", " [", $m15e);
+	$m15f = str_replace(">", "]", $m15f);	
+	print "<font face=verdana size=1><br><strong><br>$m15b $m15c $m15d</strong><p>$m15f</p></font><br>";
+	}
+	}
+}
+}
+mysql_close ($Link);
+print '&nbsp;</font></td></tr><tr><td colspan=2><div align=center><font face=verdana size=1>';
+print '©2003 by <a href="mailto:info@bloggle.org">Tim Johnson</a></font></font>';
+print "</td></tr></table>";
+print "</td></tr></table>";
+print '</div>';
+print '</body>';
+print '</html>';
+?>
+

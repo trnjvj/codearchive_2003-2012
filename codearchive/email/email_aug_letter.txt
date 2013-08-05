@@ -1,0 +1,71 @@
+<?
+$Body='<div align=center>
+  <table width=520 border=0 cellpadding=5 bgcolor=#EEEEEE>
+    <tr> 
+      <td><p align=center><a href=http://www.freetownrecords.com/><img src=http://www.freetownrecords.com/images/newsltr_logo.jpg width=500 height=100 border=0></a></p>
+        <p align=center><a href=http://www.freetownrecords.com/><font color=#000000 size=2 face=Arial, Helvetica, sans-serif><strong>www.freetownrecords.com</strong></font></a></p>
+        <div align=center> 
+          <table width=500 border=0 cellpadding=5>
+            <tr> 
+              <td><div align=left><font color=#000000 size=1 face=Arial, Helvetica, sans-serif>20th 
+                  Century Composers | A Cappella | African | Afro-Beat | Afro-Pop 
+                  | Alt-Country | Ambient | Arabic | Arabic Rock and Pop | Argentinian 
+                  | Asian | Atmospheric | Australian | Austrian | Bands | Bluegrass 
+                  | Blues | Boogie Woogie | Bossa Nova | Brazilian | Breakbeat 
+                  | British Rock and Pop | Bulgarian | Cajun and Zydeco | California 
+                  | Calypso | Canadian | Cape Verde | Caribbean | Celtic | Childrens 
+                  | Chinese | Chinese Opera | Choirs | Classical Modern Composers 
+                  | Classical | Contemporary Christian | Country | Cuban | Czech 
+                  | Dance Clubs | Danish | Disc Jockeys | Disco | Dixieland Jazz 
+                  | Doo Wop | Drum and Bass | Dutch | Egyptian | Electronic Disc 
+                  Jockeys | Electronic | English Music| Entertainers | Estonian 
+                  | Eurodance | European | Finnish | Flamenco | Folk and Traditional 
+                  | Free Jazz | French | Funk | Georgian | German | Gospel | Gothic 
+                  Industrial | Gothic | Greek | Gypsy | Hawaiian | Hong Kong | 
+                  House | Hungarian | Icelandic | IDM | Illinois | Indian | Indonesian 
+                  | Industrial Dance | Industrial Rock | Industrial Traditional 
+                  and Experimental | Irish | Israeli | Jamaican | Japanese | Jazz 
+                  Bands | Jazz Composers | Jazz Drums and Percussion | Jazz Guitar 
+                  | Jazz | Jazz Piano | Jazz Saxophone | Jazz Trombone | Jazz 
+                  Trumpet | Jazz Vocal Groups | Jazz Vocalists | Jewish | Juju 
+                  | Junkanoo | Klezmer | Latin Jazz | Latin | Latin Rock and Pop 
+                  | Lebanese | Louisiana | Lounge | Malaysian | Mariachi | Massachusetts 
+                  | Medieval | Merengue | Metal | Mexican | Middle Eastern | Minimalist 
+                  | Multimedia | | Education | Festivals | Stores | al Instruments 
+                  | als | ians | Musique Concr&egrave;te | Native American | New 
+                  Age | New Wave and Synthpop | New York | Night Clubs | Novelty 
+                  | Oi! | Opera Baritones | Opera Basses | Opera Contraltos | 
+                  Opera | Opera Sopranos | Opera Tenors | Operetta | Orchestras 
+                  | Oregon | Pakistani | Peruvian | Phillippino | Polish | Polka 
+                  | Portugese | Pre-Medieval | Progressive | Psychobilly | Pubs 
+                  | Punk and Hardcore | R&amp;B and Soul | Radio Stations | Ragtime 
+                  | Rai | Rap and Hip-Hop | Reggae | Rock and Pop | Rockabilly 
+                  | Salsa | Samba | Scottish | Ska | Slovakian | Slovenian | Soca 
+                  | Soukous | South African | South Korean | Southern Gospel | 
+                  Spanish | Spiritual | Spoken Word | Straight Edge Punk | Sudanese 
+                  | Surf Rock | Swedish | Swing | Swiss | Taiwanese | Talent Agencies 
+                  | Tango | Tejano | Texas | Turkish | Vallenato | Venezuelan 
+                  | Washington DC | Washington State | Western | World Fusion 
+                  | Yodelers | Zimbabwe</font></div></td>
+            </tr>
+          </table>
+          <br>
+          <font size=2 face=Arial, Helvetica, sans-serif><strong>New In August</strong></font></div>
+        <p align=center><font color=#000000 size=2 face=Arial, Helvetica, sans-serif>Over 
+          50,000 CDs<br>
+          Over 10,000 musicians worldwide<br>
+          Up-to-date world music news<br>
+          <br>
+          </font></p>
+		          <p align=center><a href=http://www.freetownrecords.com/><font color=#000000 size=2 face=Arial, Helvetica, sans-serif><strong>www.freetownrecords.com</strong></font></a></p>
+</td>
+    </tr>
+  </table>
+</div>
+<p align=center><font size=2 face=Arial, Helvetica, sans-serif>To unsubscribe, 
+  click <a href=http://www.freetownrecords.com/unsubscribe.htm><font color=#000000>here</font></a></font></p>
+';
+$headers  = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+$headers .= "From: Freetown Records <info@freetownrecords.com>";
+$Subject = "[Freetown Records] August 2003";

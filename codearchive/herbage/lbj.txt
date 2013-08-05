@@ -1,0 +1,39 @@
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mFlag=1;
+$TheFile = "lbj2.txt";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n=$n+3) {
+		$String = trim($Data[$n]);	
+		$m1 = strlen($String);
+		
+		$Array = explode("|", $String);
+		$mLatin = trim($Array[0]);
+		
+		$String2 = trim($Array[1]);
+		$Array2 = explode(",", $String2);
+		for ($m = 0; $m < count($Array2); $m++) {
+			$mCommon = str_replace("'", "|", $Array2[$m]);
+			$mCommon2 = strtoupper($mCommon);
+			print "$mLatin | Common Name | $mCommon2<br>";
+			$Query112 = "INSERT INTO `herbage_new` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$mLatin', 'Common Name', '$mCommon2', '', '');";
+			$Result112 = mysql_db_query($DBName, $Query112, $Link);
+			}
+		}
+	}
+fclose($Open);
+mysql_close ($Link);
+print ".";
+?>

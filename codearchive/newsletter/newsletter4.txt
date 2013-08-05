@@ -1,0 +1,47 @@
+<?
+$TheFile = "http://www.holisticopia.com/herbage/gateway.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);	
+}}
+$mFlag=0;
+$mThis = strpos($String, "@");
+if ($mThis) {$mFlag++;}
+$mThis = strpos($String, ".");
+if ($mThis) {$mFlag++;}
+
+if ($mFlag==2) {
+
+$Body= 'The Herbage CD-ROM, Third Edition
+http://www.web-of-life.org/herbage/
+
+The Herbage CD-ROM contains a database of over 28,000 concise monographs of medicinal plant species characteristics and an inventory of claimed attributes and historical uses by cultures throughout the world. - the result of more than a decade of independent research.                    
+
+Monographs are linked to hundreds of thousands of articles and images via the world wide web, providing an exhaustive tool for in-depth global herb research. Each species listing has links to powerful image and article searches.
+
+Features
+
+- Presents information from diverse fields, including botany, ethnobatany, and traditional medicine
+- Organizes monograph information in 12 categories, including plant family, indigenous use, and body parts treated by plant
+- Addresses the global uses of all plant families
+- Alphabetical listing of plant species
+
+To unsubscribe from this mailing list - click here.
+http://www.web-of-life.org/herbage/unsubscribe.htm
+
+Tim Johnson
+309 Cedar Street, #33
+Santa Cruz, CA 95060
+USA
+(831) 419-0427';
+
+$headers .= "From: Tim Johnson <timjohnson@web-of-life.org>\r\n"; 
+$headers .= "Content-type: text/plain; charset=iso-XXXX-XX\r\n"; 
+$Subject = "global ethnobotany database";
+$m1 = $String; if (mail($m1, $Subject, $Body, $headers)) {print "";}   
+}
+?>

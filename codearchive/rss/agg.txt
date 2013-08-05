@@ -1,0 +1,155 @@
+<HTML><HEAD></HEAD>
+<font face=arial size=1>
+<?
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query110 = "SELECT * FROM `bloggle_rss_feeds` WHERE t='' LIMIT 4;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "ALAKAZAM! SHAZAM!<p>";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$mChampLast=9;
+	$m1 = $Row110[0];
+	$m2 = $Row110[1];
+	$m3 = $Row110[2];
+	
+	$Query112 = "UPDATE `bloggle_rss_feeds` SET `t` = '1' WHERE `a` = '$m1' AND `b` = '$m2' AND `c` = '$m3' AND `d` = '' AND `e` = '' AND `f` = '' AND `g` = '' AND `h` = '' AND `i` = '' AND `j` = '' AND `k` = '' AND `l` = '' AND `m` = '' AND `n` = '' AND `o` = '' AND `p` = '' AND `q` = '' AND `r` = '' AND `s` = '' AND `t` = '' LIMIT 1;";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	
+	$mFound=0;
+	$Query111 = "SELECT * FROM `bloggle_cat10` WHERE a = '$m1';";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	$m1a = explode(" ", $m1);
+	if (count($m1a)==0) {}
+	for ($m = 0; $m < count($m1a); $m++) {
+		$mA1 = $m1a[$m];
+		$Query111 = "SELECT * FROM `bloggle_cat10` WHERE a = '$mA1';";
+		$Result111 = mysql_db_query($DBName, $Query111, $Link);
+		while ($Row111 = mysql_fetch_array ($Result111))
+			{
+			$mBA = $Row111[0];
+			$mBB = $Row111[1];
+			$mBC = $Row111[2];
+			$mBD = $Row111[3];
+			$mBE = $Row111[4];
+			$mBF = $Row111[5];
+			$mBG = $Row111[6];
+			$mBH = $Row111[7];
+			$mBI = $Row111[8];
+			$mAll = " $mA1 | $mBA | $mBB | $mBC | $mBD | $mBE | $mBF | $mBG | $mBH | $mBI";
+			
+			if ($mBI=='') {$mLast=8;}
+			if ($mBH=='') {$mLast=7;}
+			if ($mBG=='') {$mLast=6;}
+			if ($mBF=='') {$mLast=5;}
+			if ($mBE=='') {$mLast=4;}
+			if ($mBD=='') {$mLast=3;}
+			if ($mBC=='') {$mLast=2;}
+			if ($mBB=='') {$mLast=1;}
+			if ($mBA=='') {$mLast=0;}
+			
+			if ($mLast==7) {if ($mWinner!=6 and $mWinner!=5 and $mWinner!=4 and $mWinner!=3) {
+				$mWinner=7;
+				$mChamp="<B>$mA1 | $mBA | $mBB | $mBC | $mBD | $mBE | $mBF | $mBG | $mBH | $mBI | $m1 | $m2 | $m3</B><br>";
+					$mChamp1 = $mA1;
+					$mChamp2 = $mBA;
+					$mChamp3 = $mBB;
+					$mChamp4 = $mBC;
+					$mChamp5 = $mBD;
+					$mChamp6 = $mBE;
+					$mChamp7 = $mBF;
+					$mChamp8 = $mBG;
+					$mChamp9 = $mBH;
+					$mChamp10 = $mBI;
+					$mChamp11 = $m1;
+					$mChamp12 = $m2;
+					$mChamp13 = $m3;
+				}}
+			
+			if ($mLast==6) {if ($mWinner!=5 and $mWinner!=4 and $mWinner!=3) {
+				$mWinner=6;
+				$mChamp="<B>$mA1 | $mBA | $mBB | $mBC | $mBD | $mBE | $mBF | $mBG | $mBH | $mBI | $m1 | $m2 | $m3</B><br>";
+					$mChamp1 = $mA1;
+					$mChamp2 = $mBA;
+					$mChamp3 = $mBB;
+					$mChamp4 = $mBC;
+					$mChamp5 = $mBD;
+					$mChamp6 = $mBE;
+					$mChamp7 = $mBF;
+					$mChamp8 = $mBG;
+					$mChamp9 = $mBH;
+					$mChamp10 = $mBI;
+					$mChamp11 = $m1;
+					$mChamp12 = $m2;
+					$mChamp13 = $m3;
+				}}
+			
+			
+			if ($mLast==5 and $mWinner!=4 and $mWinner!=3) {
+				$mWinner=5;
+				$mChamp="<B>$mA1 | $mBA | $mBB | $mBC | $mBD | $mBE | $mBF | $mBG | $mBH | $mBI | $m1 | $m2 | $m3</B><br>";
+					$mChamp1 = $mA1;
+					$mChamp2 = $mBA;
+					$mChamp3 = $mBB;
+					$mChamp4 = $mBC;
+					$mChamp5 = $mBD;
+					$mChamp6 = $mBE;
+					$mChamp7 = $mBF;
+					$mChamp8 = $mBG;
+					$mChamp9 = $mBH;
+					$mChamp10 = $mBI;
+					$mChamp11 = $m1;
+					$mChamp12 = $m2;
+					$mChamp13 = $m3;
+				}
+			if ($mLast==4) {if ($mWinner!=3) {
+				$mWinner=4;
+				$mChamp="<B>$mA1 | $mBA | $mBB | $mBC | $mBD | $mBE | $mBF | $mBG | $mBH | $mBI | $m1 | $m2 | $m3</B><br>";
+				$mChamp1 = $mA1;
+					$mChamp2 = $mBA;
+					$mChamp3 = $mBB;
+					$mChamp4 = $mBC;
+					$mChamp5 = $mBD;
+					$mChamp6 = $mBE;
+					$mChamp7 = $mBF;
+					$mChamp8 = $mBG;
+					$mChamp9 = $mBH;
+					$mChamp10 = $mBI;
+					$mChamp11 = $m1;
+					$mChamp12 = $m2;
+					$mChamp13 = $m3;
+				
+				}}
+			if ($mLast==3) {
+				$mWinner=3;
+				$mChamp="<B>$mA1 | $mBA | $mBB | $mBC | $mBD | $mBE | $mBF | $mBG | $mBH | $mBI | $m1 | $m2 | $m3</B><br>";
+				$mChamp1 = $mA1;
+				$mChamp2 = $mBA;
+				$mChamp3 = $mBB;
+				$mChamp4 = $mBC;
+				$mChamp5 = $mBD;
+				$mChamp6 = $mBE;
+				$mChamp7 = $mBF;
+				$mChamp8 = $mBG;
+				$mChamp9 = $mBH;
+				$mChamp10 = $mBI;
+				$mChamp11 = $m1;
+				$mChamp12 = $m2;
+				$mChamp13 = $m3;
+				}
+			}
+			print "$mChamp<br>";
+			if ($mChamp1=='') {} else {
+			$Query112 = "INSERT INTO `bloggle_agg_feeds` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` , `p` , `q` , `r` , `s` , `t` ) VALUES ('$mChamp1', '$mChamp2', '$mChamp3', '$mChamp4', '$mChamp5', '$mChamp6', '$mChamp7', '$mChamp8', '$mChamp9', '$mChamp10', '$mChamp11', '$mChamp12', '$mChamp13', '', '', '', '', '', '', '');";
+			$Result112 = mysql_db_query($DBName, $Query112, $Link);
+			}
+		}
+	}
+		mysql_close ($Link);
+?>
+</font>

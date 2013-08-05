@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=process_pubmed.php">
+</HEAD><?
+set_time_limit(0);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query120 = "SELECT a,b FROM `archipelago_websites_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];
+	$mcc = $Row120[1];
+	}
+$Query110 = "SELECT * FROM `herbage_pubmed` LIMIT $mbb,10;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = trim($Cat);
+	$Array = explode(">", $Cat2);
+	for ($m = 0; $m < count($Array); $m++) {
+		$mFlag1 = $Array[$m];
+		$m12 = strpos($mFlag1, "</Id");
+		if ($m12) {
+		print "$Cat3|$mFlag1<br>\n";
+		$mFlag2 = str_replace("</Id", "", $mFlag1);
+		$Query113 = "INSERT INTO `herbage_pubmed2` ( `a` , `b` , `c` ) VALUES ('$Cat3', '$mFlag2', '');";
+		$Result113 = mysql_db_query($DBName, $Query113, $Link);
+		}
+		}
+	}
+$mbb=$mbb+10;
+$Query112 = "UPDATE `archipelago_websites_state` SET a='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+mysql_close ($Link);
+?>

@@ -1,0 +1,84 @@
+<html>
+<META HTTP-EQUIV="Refresh" Content="10, URL=../freetown/2.php">
+<?
+set_time_limit (600000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query11 = "SELECT * FROM `freetown_cat_changer` WHERE h='' LIMIT 10";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$m1 = $Row11[0];
+	$m2 = $Row11[1];
+	$m3 = $Row11[2];
+	$m4 = $Row11[3];
+	$m5 = $Row11[4];
+	$m6 = $Row11[5];
+	$m7 = $Row11[6];	
+    print "$Row11[1]<br>";
+	
+	$Query23 = "UPDATE `freetown_cat_changer` SET `h` = '1' WHERE `a` = '$m1' AND `b` = '$m2' AND `c` = '$m3' AND `d` = '$m4' AND `e` = '$m5' AND `f` = '$m6' AND `g` = '$m7' LIMIT 1 ;";
+	$Result23 = mysql_db_query($DBName, $Query23, $Link);
+	
+	$Query12 = "SELECT * FROM `$Row11[1]` WHERE $Row11[2]='$Row11[4]';";
+	print "$Query12";
+	$Result12 = mysql_db_query($DBName, $Query12, $Link);
+	while ($Row12 = mysql_fetch_array ($Result12))
+		{	
+				
+		if ($Row11[1]=="freetown_categories_new") {
+		$m1a = $Row12[0];
+		$m1b = $Row12[1];
+		$m1c = $Row12[2];
+		$m1d = $Row12[3];
+		$m1e = $Row12[4];
+		$m1f = $Row12[5];
+		$m1g = $Row12[6];
+		$m1h = $Row12[7];
+		$m1i = $Row12[8];
+		$m1j = $Row12[9];
+		$Query13 = "INSERT INTO `freetown_categories_new23` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$m1a', '$m1b', '$m6', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";	
+		$Result13 = mysql_db_query($DBName, $Query13, $Link);		
+		}
+		
+		if ($Row11[1]=="freetown_cds") {
+		$m1a = $Row12[0];
+		$m1b = $Row12[1];
+		$m1c = $Row12[2];
+		$m1d = $Row12[3];
+		$m1e = $Row12[4];
+		$m1f = $Row12[5];
+		$m1g = $Row12[6];
+		$m1h = $Row12[7];
+		$m1i = $Row12[8];
+		$m1j = $Row12[9];
+		$m1k = $Row12[10];
+		$m1l = $Row12[11];
+		$m1m = $Row12[12];
+		$m1n = $Row12[13];
+		$m1o = $Row12[14];
+		$m1p = $Row12[15];
+		$Query13 = "INSERT INTO `freetown_cds23` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` , `p` ) VALUES ('$m6', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j', '$m1k', '$m1l', '$m1m', '$m1n', '$m1o', '$m1p');";	
+		$Result13 = mysql_db_query($DBName, $Query13, $Link);		
+		}
+		
+		if ($Row11[1]=="freetown_links") {
+		$m1a = $Row12[0];
+		$m1b = $Row12[1];
+		$m1c = $Row12[2];
+		$m1d = $Row12[3];
+		$m1e = $Row12[4];
+		
+		$Query13 = "INSERT INTO `freetown_links23` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$m6', '$m1b', '$m1c', '$m1d', '$m1e');";	
+		$Result13 = mysql_db_query($DBName, $Query13, $Link);		
+		}
+		
+		}
+	}
+mysql_close ($Link);
+?>

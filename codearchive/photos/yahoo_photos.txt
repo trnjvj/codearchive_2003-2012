@@ -1,0 +1,91 @@
+<?
+$mCount5000=0;
+$mFirst=1;
+$login=1;
+if ($user=="none") {
+$login=0;
+}
+if ($user=="") {
+$login=0;
+}
+$mUser="$user";
+$mCount2002 = 0;
+
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=100&o=a&p=%22$mSearch%22&c=news_photos";
+if ($mReturn) {
+	$LL1 = strpos($mReturn, ":");
+	if ($LL1) {
+		$LL2 = strlen($mReturn);
+		$mReturn5 = substr($mReturn, 5, $LL2-5);
+
+	}
+	else
+	{
+	$mReturn5 = $mReturn;
+	}
+if ($mReturn5==$mSearch) {
+	$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=100&o=a&p=%22$mSearch%22&c=news_photos";
+
+} else {
+	$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=100&o=a&p=%22$mSearch+$mReturn5%22&c=news_photos";
+}
+
+}
+$Open = fopen($TheFile, "r");
+if ($Open) {
+
+
+	if ($login==1 or $mCount2002<3) {
+
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$SS1 = strstr($Array[$m], 'http://story.news.yahoo.com/');
+			if ($SS1) {
+
+					$Found=1;
+					$mLink = str_replace("<TR valign=middle><TD align=center>", "", $Array[$m]);
+					$mLink = str_replace("<A ", "<A ", $mLink);
+					$mLink = str_replace("http://story.news.yahoo.com/news?tmpl=story&u=/", "photo.php?&$mSettings&Search=$mSearch&Return=$mReturn&Photo=", $mLink);
+					$mLink = str_replace(".html", "", $mLink);
+
+					}
+
+			$S1 = strstr($Array[$m], '<img border=1 src=http://us.news1.yimg.com');
+
+			if ($S1) {
+            		if ($mFirst==1) {
+                    print "<div align=center><hr width=520>";
+                    $mFirst=0;
+                    }
+					$Found=1;
+					$mStory = str_replace("</TD>", "", $Array[$m]);
+					$mStory = str_replace("<img ", "<img ", $mStory);
+                    $mCount2002 = $mCount2002+1;
+                    $mCount5000 = $mCount5000+1;
+                    if ($login==1) {
+					Print "<font face=verdana size=1>$mLink$mStory</a></font>&nbsp;&nbsp;\n";
+                    if ($mCount5000>4) {
+                    	$mCount5000=0;
+                        print "<br>";
+                        }
+                    }
+                    else
+                    {
+                    if ($mCount2002>10) {} else {
+                    Print "<font face=verdana size=1>$mLink$mStory</a></font>&nbsp;&nbsp;\n";
+                    if ($mCount5000>4) {
+                    	$mCount5000=0;
+                        print "<br>";
+                        }
+                    }
+                    }
+                    }
+				}
+			}
+		}
+	}
+
+?>

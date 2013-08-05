@@ -1,0 +1,70 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="11111115, URL=get_5a.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query12= "SELECT DISTINCT * FROM `newsletters_herbage_new`;";
+$Result12 = mysql_db_query($DBName, $Query12, $Link);
+while ($Row12 = mysql_fetch_array ($Result12))
+	{
+	
+	$m1a = $Row12[0];
+	$TheFile = $m1a;
+	$Open = fopen($TheFile, "r");
+	if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+	
+$String = trim($Data[$n]);
+$String = str_replace('"', ' ', $String);
+$String = str_replace('=', ' ', $String);
+$String = str_replace('>', ' ', $String);
+$String = str_replace('*', ' ', $String);
+$String = str_replace('<', ' ', $String);
+
+$pieces = explode(' ', $String);
+$ii = count($pieces)+1;
+for($i=0;$i<$ii;$i++){
+$this=$pieces[$i];
+$pos = strpos($this, 'ttp://');
+if ($pos) {
+$mFlag=0;
+$pos2 = strpos($this, 'google');
+if ($pos2) {$mFlag=1;}
+$pos2 = strpos($this, 'yahoo');
+if ($pos2) {$mFlag=1;}
+$pos2 = strpos($this, 'overture');
+if ($pos2) {$mFlag=1;}
+
+if ($mFlag==0) {
+
+if ($this==$othis) {} else {
+print "$this<br>";
+$Query111 = "INSERT INTO `newsletters_herbage_new2` ( `a` , `b` , `c` ) VALUES ('$this', '', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+}
+$othis=$this;
+
+}
+}
+}
+}
+}
+}
+
+
+fclose($Open);
+
+
+mysql_close ($Link);
+?>

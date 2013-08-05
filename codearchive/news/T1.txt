@@ -1,0 +1,24 @@
+<?
+$mSearch="Nude";
+$mSearch=str_replace(" ", "+", $mSearch);
+
+for ($o=0; $o<100; $o=$o+10) {
+$TheFile = "http://news.google.com/news?q=$mSearch&hl=en&lr=&ie=UTF-8&safe=off&edition=&start=$o&sa=N";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$SS1 = strstr($Array[$m], '/font><br><p><a href=');
+			if ($SS1) {
+					$Found=1;
+					print "$Array[$m]";
+					$mLink = str_replace("<TR valign=middle><TD align=center>", "", $Array[$m]);
+					}
+}}}
+}
+
+
+?>

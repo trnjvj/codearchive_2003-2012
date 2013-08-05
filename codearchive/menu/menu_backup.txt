@@ -1,0 +1,170 @@
+<?
+$l=2;
+$bbb="Modalities";
+$ccc="Eco-Living";
+
+print '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
+print '<html>';
+print '<head>';
+print '<title>';
+if ($l==1) {print "Holisticopia: $bbb";}
+print '</title>';
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">';
+print '<link rel="stylesheet" type="text/css" href="css/index.css">';
+print '</head>';
+print '<body bgcolor=#003300 text=#FFFFFF link=#DDFFDD vlink=#DDFFDD alink=#DDFFDD>';
+print '';
+print '<body bgcolor="003300" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">';
+print '<div align="center">';
+print '<table width="100%" border="0" cellpadding="0" cellspacing="0">';
+print '<tr> ';
+print '<td valign="top">';
+print "<div align='center'><table width=100% bgcolor=#003300 border=0 cellpadding=0><tr><td width='230' valign='top'>";
+
+print "<table bgcolor=#002200 border=0 cellpadding=10 width=100%><tr><td class='logo1'>holisticopia.com</td></tr></table>";
+print "<table bgcolor=#002200 border=0 cellpadding=0 width=100%>";
+print "<tr><td class='menu1'>&nbsp;&nbsp;&nbsp;<a href='index.html'>Home</a></td></tr>";
+if ($l==0) {
+	$Query11 = "SELECT DISTINCT a,b FROM `holisticopia_menu` order by a,b";
+	$Result11 = mysql_db_query($DBName, $Query11, $Link);
+	while ($Row11 = mysql_fetch_array ($Result11))
+		{
+		$a = $Row11[0];	
+		$b = $Row11[1];
+		$bb = str_replace(" ", "+", $b);	
+		print "<a href='$bb.htm'>$b</a><br>";
+		}
+	}
+
+
+
+
+
+if ($l==1) {
+	$Query11 = "SELECT DISTINCT a,b FROM `holisticopia_menu` order by a,b";
+	$Result11 = mysql_db_query($DBName, $Query11, $Link);
+	while ($Row11 = mysql_fetch_array ($Result11))
+		{
+		$a = $Row11[0];	
+		$b = $Row11[1];
+		$bb = str_replace(" ", "+", $b);	
+		
+		
+		if ($b==$bbb) {
+		print "<tr><td class='menu5'>&nbsp;&nbsp;&nbsp;$b</td></tr>";
+			$Query12 = "SELECT DISTINCT b,c FROM `holisticopia_menu` WHERE b='$bbb' order by b,c";
+			$Result12 = mysql_db_query($DBName, $Query12, $Link);
+			while ($Row12 = mysql_fetch_array ($Result12))
+				{
+				$b = $Row12[0];
+				$c = $Row12[1];
+				$bb = str_replace(" ", "+", $b);
+				$cc = str_replace(" ", "+", $c);
+				print "<tr><td class='menu1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='../menu/$cc.htm'>$c</a></td></tr>";			  
+				}
+			}
+		else {print "<tr><td class='menu1'>&nbsp;&nbsp;&nbsp;<a href='$bb.htm'>$b</a></td></tr>";}
+		}
+	}
+
+
+
+
+if ($l==2) {
+		
+	$Query11 = "SELECT DISTINCT a,b FROM `holisticopia_menu` order by a,b";
+	$Result11 = mysql_db_query($DBName, $Query11, $Link);
+	while ($Row11 = mysql_fetch_array ($Result11))
+		{
+		$a = $Row11[0];	
+		$b = $Row11[1];
+		$bb = str_replace(" ", "+", $b);	
+		
+		if ($b==$bbb) {
+			print "<tr><td class='menu5'>&nbsp;&nbsp;&nbsp;<a href='$bb.htm'>$b</a></td></tr>";
+			}
+		else {
+		print "<tr><td class='menu1'>&nbsp;&nbsp;&nbsp;<a href='$bb.htm'>$b</a></td></tr>";
+			
+		}	
+			
+		if ($b==$bbb) {
+				
+			$Query12 = "SELECT DISTINCT b,c FROM `holisticopia_menu` WHERE b='$bbb' order by b,c";
+			$Result12 = mysql_db_query($DBName, $Query12, $Link);
+			while ($Row12 = mysql_fetch_array ($Result12))
+				{
+				$b = $Row12[0];
+				$c = $Row12[1];
+				$bb = str_replace(" ", "+", $b);
+				$cc = str_replace(" ", "+", $c);
+				
+
+		if ($c==$ccc) {
+		print "<tr><td class='menu4'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=menu.php?l=2&b=$bb&c=$cc>$c</a></td></tr>";	  
+} else {
+print "<tr><td class='menu1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=menu.php?l=2&b=$bb&c=$cc>$c</a></td></tr>";	  
+}
+if ($c==$ccc) {
+
+			$Query13 = "SELECT DISTINCT b,c,d FROM `holisticopia_menu` WHERE b='$bbb' and c='$ccc' order by b,c,d";
+			$Result13 = mysql_db_query($DBName, $Query13, $Link);
+			while ($Row13 = mysql_fetch_array ($Result13))
+				{
+				$b = $Row13[0];
+				$c = $Row13[1];
+				$d = $Row13[2];
+				$bb = str_replace(" ", "+", $b);
+				$cc = str_replace(" ", "+", $c);
+				$dd = str_replace(" ", "+", $d);
+				print "<tr><td class='menu3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=cat/$dd.htm>$d</a></td></tr>";	  
+}}
+
+
+
+
+
+
+				}
+			}
+		}
+	}
+
+mysql_close ($Link);
+
+
+print "<tr><td><table width=100% cellpadding=10><tr><td class='menu3'>&copy 2004 by <a href=http://www.bluepacificmarketing.com/>Blue Pacific Marketing</a></td></tr></table></td></tr>";
+
+print '</table></td><td valign=top>';
+print '<table width="100%" border="0" cellpadding="5"><tr><td valign=top>';
+print "<span class='content1'>";
+print "&nbsp;&nbsp;&nbsp;<p>";
+print "&nbsp;&nbsp;&nbsp;<p>";
+print "&nbsp;&nbsp;&nbsp;<p>";
+print "&nbsp;&nbsp;&nbsp;<p>";
+print "</span>";
+
+print "</td></tr></table>";
+print '</td>';
+
+print "</td></tr></table></div>";
+print '</td>';
+
+print '</tr>';
+print '  </table>';
+
+
+print '</div>';
+print '</body>';
+print '</html>';
+
+?>

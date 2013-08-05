@@ -1,0 +1,405 @@
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mPageNum=0;
+
+$Query1201 = "SELECT * FROM `herbage_plant_page`;";
+$Result1201 = mysql_db_query($DBName, $Query1201, $Link);
+while ($Row1201 = mysql_fetch_array ($Result1201))
+	{
+	
+	$mPage = $Row1201[0];	
+	}
+$mNext = $mPage+1;
+$mPrev = $mPage-1;
+
+$mFile = "files/H$mPage.htm";
+$fp = fopen("$mFile", "wt");
+$mT30="plants";
+
+print '<html><head><META HTTP-EQUIV="Refresh" Content="1, URL=generate_plants.php"><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><link rel="stylesheet" type="text/css" href="files/index.css">';
+print "<title>Herbage 4</title>";
+print "<body LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0><table background='files/images/700x1200_background_herbage.gif' cellpadding=0 border=0 width=100%><tr><td>";
+print "<div align=center><div align=center><a href=../index.html><img src='files/images/700x120_$mT30.jpg' border=0 width='700' height='120' alt='Herbage Fourth Edition'></a></b></div>";
+print "<br><table cellpadding=3 border=0 width=700><tr><td width=50% align=left><div class='$mT30'><a href=H$mPrev.htm>previous page</a></div></td><td width=50% align=right><div class='$mT30'><a href=H$mNext.htm>next page</a></div></td></tr><tr><td colspan=2>";
+
+fwrite($fp, '<html><head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><link rel="stylesheet" type="text/css" href="index.css">');
+fwrite($fp, "<title>Herbage 4</title>");
+fwrite($fp, "<body LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0><table background='images/700x1200_background_herbage.gif' cellpadding=0 border=0 width=100%><tr><td>");
+fwrite($fp, "<div align=center><div align=center><a href=../index.html><img src='images/700x120_$mT30.jpg' border=0 width='700' height='120' alt='Herbage Fourth Edition'></a></b></div>");
+fwrite($fp, "<br><table cellpadding=3 border=0 width=700><tr><td width=50% align=left><div class='$mT30'><a href=H$mPrev.htm>previous page</a></div></td><td width=50% align=right><div class='$mT30'><a href=H$mNext.htm>next page</a></div></td></tr><tr><td colspan=2>");
+$Cat='';
+$mCount=0;
+
+$Query120 = "SELECT a,b FROM `herbage_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	
+	$mbb = $Row120[0];
+	$mcc = $Row120[1];
+	}
+
+
+$Query121 = "SELECT * FROM `herbage_latin` LIMIT $mbb,20;";
+$Result121 = mysql_db_query($DBName, $Query121, $Link);
+while ($Row121 = mysql_fetch_array ($Result121))
+	{
+	$mSpecies = $Row121[0];
+	$mL = substr($mSpecies, 0, 1);
+	$mSpecies2 = str_replace(" ", "+", $mSpecies);
+
+$mPageNum++;	
+$mEntry= "H$mPage.htm#$mPageNum";
+
+$Query12111 = "INSERT INTO `herbage_plant_index2` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$mSpecies', '$mEntry', '', '', '');";
+$Result12111 = mysql_db_query($DBName, $Query12111, $Link);
+
+print "</span><a name='$mPageNum'><hr></a><span class='plants_head'><a href=Latin_Name_$mL.htm>$mSpecies</a></span>";
+print "	&nbsp;&nbsp;&nbsp;&nbsp;<span class='plants_small'><a href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+article&btnG=Google+Search>articles</a>";
+print " - <a href=http://images.google.com/images?q=$mSpecies2&hl=en&ie=ISO-8859-1&oe=ISO-8859-1&sa=N&tab=wi>images</a>";
+print " - <a href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+seeds&btnG=Google+Search>seeds</a>";
+print " - <a href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+horticulture&btnG=Google+Search>horticulture</a>";
+print " - <a href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+recipes&btnG=Google+Search>recipes</a>";
+print " - <a href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+preparation&btnG=Google+Search>preparation</a>";
+print " - <a href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+wholesale&btnG=Google+Search>wholesale</a>";
+print " - <a href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+products&btnG=Google+Search>products</a>";
+print " - <a href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+oil&btnG=Google+Search>oil</a>";
+print "</span><br><span class='plants'>";
+
+fwrite($fp, "</span><a name='$mPageNum'><hr></a><span class='plants_head'><a href=Latin_Name_$mL.htm>$mSpecies</a></span>");
+fwrite($fp, "	&nbsp;&nbsp;&nbsp;&nbsp;<span class='plants_small'><a target=_blank href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+article&btnG=Google+Search>articles</a>");
+fwrite($fp, " - <a target=_blank href=http://images.google.com/images?q=$mSpecies2&hl=en&ie=ISO-8859-1&oe=ISO-8859-1&sa=N&tab=wi>images</a>");
+fwrite($fp, " - <a target=_blank href=http://news.google.com/news?hl=en&edition=us&ie=ascii&q=$mSpecies2&btnG=Search+News>news</a>");
+fwrite($fp, " - <a target=_blank href=http://groups.google.com/groups?hl=en&edition=us&ie=ascii&q=$mSpecies2&lr=&sa=N&tab=ng>groups</a>");
+fwrite($fp, " - <a target=_blank href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+seeds&btnG=Google+Search>seeds</a>");
+fwrite($fp, " - <a target=_blank href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+horticulture&btnG=Google+Search>horticulture</a>");
+fwrite($fp, " - <a target=_blank href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+recipes&btnG=Google+Search>recipes</a>");
+fwrite($fp, " - <a target=_blank href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+preparation&btnG=Google+Search>preparation</a>");
+fwrite($fp, " - <a target=_blank href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+wholesale&btnG=Google+Search>wholesale</a>");
+fwrite($fp, " - <a target=_blank href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+products&btnG=Google+Search>products</a>");
+fwrite($fp, " - <a target=_blank href=http://www.google.com/search?hl=en&ie=ISO-8859-1&oe=ISO-8859-1&q=$mSpecies2+oil&btnG=Google+Search>oil</a>");
+fwrite($fp, "</span><br><span class='plants'>");
+
+
+
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT b FROM `herbage_common` WHERE c='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='common_name'><b>Common Name:</b> "; fwrite($fp, "</span><br><span class='common_name'><b>Common Name:</b> "); $mFlag=1;}
+	$mCom = $Row1211[0];
+	$mCommon = str_replace("|", "'", $mCom);
+	
+	$Query1231 = "SELECT * FROM `herbage_index_index` WHERE a='Common Name' and b='$mCom';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[2];
+		$mInLink = str_replace("H", "P", $mInLink);
+		}
+	
+	if ($mFlag2==0) {print "<a href=$mInLink>$mCommon</a>"; fwrite($fp, "<a href=$mInLink>$mCommon</a>"); $mFlag2++;} else 
+	{print ", <a href=$mInLink>$mCommon</a>"; fwrite($fp, ", <a href=$mInLink>$mCommon</a>"); $mFlag2++;}
+	
+	}
+
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT b FROM `herbage_family` WHERE c='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='family'><b>Family:</b> "; fwrite($fp, "</span><br><span class='family'><b>Family:</b> ");$mFlag=1;}
+	$mFamily = $Row1211[0];
+	$mFamily2 = str_replace("|", "'", $mFamily);
+	
+	$Query1231 = "SELECT * FROM `herbage_index_index` WHERE a='Family' and b='$mFamily';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[2];
+		$mInLink = str_replace("H", "P", $mInLink);
+		}
+	
+	
+	if ($mFlag2==0) {print "<a href=$mInLink>$mFamily2</a>"; fwrite($fp, "<a href=$mInLink>$mFamily2</a>");$mFlag2++;} else 
+	{print ", <a href=$mInLink>$mFamily2</a>"; fwrite($fp, ", <a href=$mInLink>$mFamily2</a>");$mFlag2++;}
+	
+	}
+
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT b FROM `herbage_range` WHERE c='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='range'><b>Range:</b> "; fwrite($fp, "</span><br><span class='range'><b>Range:</b> ");$mFlag=1;}
+	$mRange = $Row1211[0];
+	$mRange2 = str_replace("|", "'", $mRange);
+	
+	$Query1231 = "SELECT * FROM `herbage_index_index` WHERE a='Range' and b='$mRange';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[2];
+		$mInLink = str_replace("H", "P", $mInLink);
+		}
+	
+	if ($mFlag2==0) {print "<a href=$mInLink>$mRange2</a>"; fwrite($fp, "<a href=$mInLink>$mRange2</a>");$mFlag2++;} else 
+	{print ", <a href=$mInLink>$mRange2</a>"; fwrite($fp, ", <a href=$mInLink>$mRange2</a>");$mFlag2++;}
+	
+	}
+	
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT b FROM `herbage_action` WHERE c='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='action'><b>Action:</b> "; fwrite($fp, "</span><br><span class='action'><b>Action:</b> "); $mFlag=1;}
+	$mAction = $Row1211[0];
+	$mAction2 = str_replace("|", "'", $mAction);
+	
+	$Query1231 = "SELECT * FROM `herbage_index_index` WHERE a='Action' and b='$mAction';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[2];
+		$mInLink = str_replace("H", "P", $mInLink);
+		}
+	
+	if ($mFlag2==0) {print "<a href=$mInLink>$mAction2</a>"; fwrite($fp, "<a href=$mInLink>$mAction2</a>"); $mFlag2++;} else 
+	{print ", <a href=$mInLink>$mAction2</a>"; fwrite($fp, ", <a href=$mInLink>$mAction2</a>"); $mFlag2++;}
+	
+	}
+	
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT b FROM `herbage_treat` WHERE c='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='used_to_treat'><b>Used to Treat:</b> "; fwrite($fp, "</span><br><span class='used_to_treat'><b>Used to Treat:</b> "); $mFlag=1;}
+	$mTreat = $Row1211[0];
+	$mTreat2 = str_replace("|", "'", $mTreat);
+	
+	$Query1231 = "SELECT * FROM `herbage_index_index` WHERE a='Used to Treat' and b='$mTreat';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[2];
+		$mInLink = str_replace("H", "P", $mInLink);
+		}
+	
+	if ($mFlag2==0) {print "<a href=$mInLink>$mTreat2</a>"; fwrite($fp, "<a href=$mInLink>$mTreat2</a>"); $mFlag2++;} else 
+	{print ", <a href=$mInLink>$mTreat2</a>"; fwrite($fp, ", <a href=$mInLink>$mTreat2</a>"); $mFlag2++;}
+	
+	}
+	
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT b FROM `herbage_indigenous` WHERE c='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='indigenous_use'><b>Indigenous Use:</b> "; fwrite($fp, "</span><br><span class='indigenous_use'><b>Indigenous Use:</b> "); $mFlag=1;}
+	$mIndigenous = $Row1211[0];
+	$mIndigenous2 = str_replace("|", "'", $mIndigenous);
+	$Query1231 = "SELECT * FROM `herbage_index_index` WHERE a='Indigenous Use' and b='$mIndigenous';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[2];
+		$mInLink = str_replace("H", "P", $mInLink);
+		}
+	
+	if ($mFlag2==0) {print "<a href=$mInLink>$mIndigenous2</a>"; fwrite($fp, "<a href=$mInLink>$mIndigenous2</a>"); $mFlag2++;} else 
+	{print ", <a href=$mInLink>$mIndigenous2</a>"; fwrite($fp, ", <a href=$mInLink>$mIndigenous2</a>"); $mFlag2++;}
+	
+	}
+
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT b FROM `herbage_use` WHERE c='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='use'><b>Use:</b> "; fwrite($fp, "</span><br><span class='use'><b>Use:</b> "); $mFlag=1;}
+	$mUse = $Row1211[0];
+	$mUse2 = str_replace("|", "'", $mUse);
+	$Query1231 = "SELECT * FROM `herbage_index_index` WHERE a='Use' and b='$mUse';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[2];
+		$mInLink = str_replace("H", "P", $mInLink);
+		}
+	
+	if ($mFlag2==0) {print "<a href=$mInLink>$mUse2</a>"; fwrite($fp, "<a href=$mInLink>$mUse2</a>"); $mFlag2++;} else 
+	{print ", <a href=$mInLink>$mUse2</a>"; fwrite($fp, ", <a href=$mInLink>$mUse2</a>"); $mFlag2++;}
+	
+	}
+	
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT b FROM `herbage_body` WHERE c='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='associated_body_area'><b>Associated Body Area:</b> "; fwrite($fp, "</span><br><span class='associated_body_area'><b>Associated Body Area:</b> "); $mFlag=1;}
+	$mUse = $Row1211[0];
+	$mUse2 = str_replace("|", "'", $mUse);
+	$Query1231 = "SELECT * FROM `herbage_index_index` WHERE a='Associated Body Area' and b='$mUse';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[2];
+		$mInLink = str_replace("H", "P", $mInLink);
+		}
+	
+	if ($mFlag2==0) {print "<a href=$mInLink>$mUse2</a>"; fwrite($fp, "<a href=$mInLink>$mUse2</a>"); $mFlag2++;} else 
+	{print ", <a href=$mInLink>$mUse2</a>"; fwrite($fp, ", <a href=$mInLink>$mUse2</a>"); $mFlag2++;}
+	
+	}
+
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT b FROM `herbage_contains` WHERE c='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='contains'><b>Contains:</b> "; fwrite($fp, "</span><br><span class='contains'><b>Contains:</b> "); $mFlag=1;}
+	$mUse = $Row1211[0];
+	$mUse2 = str_replace("|", "'", $mUse);
+	
+	$Query1231 = "SELECT * FROM `herbage_index_index` WHERE a='Contains' and b='$mUse';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[2];
+		$mInLink = str_replace("H", "P", $mInLink);
+		}
+	
+	if ($mFlag2==0) {print "<a href=$mInLink>$mUse2</a>"; fwrite($fp, "<a href=$mInLink>$mUse2</a>"); $mFlag2++;} else 
+	{print ", <a href=$mInLink>$mUse2</a>"; fwrite($fp, ", <a href=$mInLink>$mUse2</a>"); $mFlag2++;}
+	
+	}
+	
+
+
+$mFlag=0;
+$mFlag2=0;
+
+$Query1211 = "SELECT * FROM `herbage_pubmed2` WHERE a='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	$mU1 = $Row1211[0];
+	$mU2 = $Row1211[1];
+	$mU11 = strlen($mU1);
+	if ($mU11<100) {	
+	if ($mFlag==0) {print "</span><br><span class='websites'><b>Websites:</b> "; fwrite($fp, "</span><br><span class='websites'><b>Websites:</b> "); $mFlag=1;}	
+	if ($mFlag2==0) {print "<a target=_blank href=http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=$mU2>pubmed:$mU2</a>"; fwrite($fp, "<a target=_blank href=http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=$mU2>pubmed:$mU2</a>"); $mFlag2++;} else 
+	{print ", <a target=_blank href=http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=$mU2>pubmed:$mU2</a>"; fwrite($fp, ", <a target=_blank href=http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=$mU2>pubmed:$mU2</a>"); $mFlag2++;}
+	}
+	}
+
+$Query1211 = "SELECT * FROM `herbage_websites` WHERE a='$mSpecies' order by b;";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	$mU1 = $Row1211[1];
+	$mU2 = $Row1211[2];
+	$mU11 = strlen($mU1);
+	if ($mU11<100) {	
+	if ($mFlag==0) {print "</span><br><span class='websites'><b>Websites:</b> "; fwrite($fp, "</span><br><span class='websites'><b>Websites:</b> "); $mFlag=1;}	
+	if ($mFlag2==0) {print "<a target=_blank href=$mU2>$mU1</a>"; fwrite($fp, "<a target=_blank href=$mU2>$mU1</a>"); $mFlag2++;} else 
+	{print ", <a target=_blank href=$mU2>$mU1</a>"; fwrite($fp, ", <a target=_blank href=$mU2>$mU1</a>"); $mFlag2++;}
+	}
+	}
+
+
+	
+	
+$mFlag=0;
+$mFlag2=0;
+$Query1211 = "SELECT c FROM `herbage_comments` WHERE a='$mSpecies';";
+$Result1211 = mysql_db_query($DBName, $Query1211, $Link);
+while ($Row1211 = mysql_fetch_array ($Result1211))
+	{
+	if ($mFlag==0) {print "</span><br><span class='comments'><b>Comments:</b> "; fwrite($fp, "</span><br><span class='comments'><b>Comments:</b> "); $mFlag=1;}
+	$mUse = $Row1211[0];
+	$mUse2 = str_replace("|", "'", $mUse);
+	if ($mFlag2==0) {print "$mUse2"; fwrite($fp, "$mUse2"); $mFlag2++;} else 
+	{print ", $mUse2"; fwrite($fp, "$mUse2"); $mFlag2++;}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+print "<hr><table border=0 width=100%><tr><td width=50% align=left><font face=arial size=2><a href=H$mPrev.htm>previous page</a></td><td width=50% align=right><font face=arial size=2><a href=H$mNext.htm>next page</a></td></tr></table>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "</font>";
+print "</td></tr></table></html>";
+
+fwrite($fp, "<hr><table border=0 width=100%><tr><td width=50% align=left><div class='plants'><a href=H$mPrev.htm>previous page</a></div></td><td width=50% align=right><div class='plants'><a href=H$mNext.htm>next page</a></div></td></tr></table>");
+fwrite($fp, "<hr><div align=center><font face=arial size=1>&copy; 2004 by Tim Johnson and Rebecca Wyatt<br>All Rights Reserved</font></div>");
+fwrite($fp, "<p>&nbsp;<p>");
+fwrite($fp, "<p>&nbsp;<p>");
+fwrite($fp, "<p>&nbsp;<p>");
+fwrite($fp, "<p>&nbsp;<p>");
+fwrite($fp, "<p>&nbsp;<p>");
+fwrite($fp, "<p>&nbsp;<p>");
+fwrite($fp, "<p>&nbsp;<p>");
+fwrite($fp, "<p>&nbsp;<p>");
+fwrite($fp, "<p>&nbsp;<p>");
+fwrite($fp, "</font>");
+fwrite($fp, "</td></tr></table></html>");
+	
+
+$mbb=$mbb+20;
+$Query112 = "UPDATE `herbage_state` SET a='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+$mPage=$mPage+1;
+$Query112 = "UPDATE `herbage_plant_page` SET a='$mPage';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+mysql_close ($Link);
+fclose($fp);
+?>

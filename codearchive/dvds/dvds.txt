@@ -1,0 +1,220 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=dvds.php">
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>DVDs</TITLE>
+</HEAD>
+<?
+
+
+$mCount54321=0;
+print "<div align=center>";
+print "<img src=logo.jpg><p>";
+print "<div class='div1'>DVDs</div><p>";
+print "<p>";
+include('db_connect.php');
+
+$mFound3000=0;
+
+
+$Query111 = "SELECT * FROM `archipelago_searchterms` WHERE f='1' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[5];
+	$Cat2 = $Row110[6];
+	if ($Cat2=='') {$Cat22=2;} else {$Cat22=$Cat2+1;}
+	$Query122 = "UPDATE `archipelago_searchterms` SET f='1', g='$Cat22' where a='$Cat' LIMIT 1;";
+	$Result122 = mysql_db_query($DBName, $Query122, $Link);
+	
+	}
+
+if ($Cat=='') {
+	$Query111 = "SELECT * FROM `archipelago_searchterms` WHERE f='' LIMIT 1;";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$Cat = $Row110[0];
+		$Cat1 = $Row110[5];
+		$Cat2 = $Row110[6];
+		
+		if ($Cat2=='') {$Cat22=2;} else {$Cat22=$Cat2+1;}
+		$Query122 = "UPDATE `archipelago_searchterms` SET f='1', g='$Cat22' where a='$Cat' LIMIT 1;";
+		$Result122 = mysql_db_query($DBName, $Query122, $Link);
+		}
+	}	
+	
+
+$mSearch23=$Cat;
+$mSearch2=$Cat;
+$mSSS1 = strpos($Cat, ",");
+if ($mSSS1) {$Cat = substr($Cat, 0, $mSSS1);}	
+$mSearch=str_replace(' ', '+', $Cat);
+
+$login=1;
+$mCount2002 = 0;
+$mCount3000=0;
+$mCached=0;
+if ($mCached==0) {
+$Cache="";
+$PFound=1;
+$mFirst1=1;
+
+$m1=$Cat2;
+print "<table width=600 border=0><tr><td align=center><div class='div1'><b>$mSearch2 $m1</b></div></td></tr></table><br></div>";
+
+
+if ($PFound==1) {
+
+$TheFile = "http://www.amazon.com/exec/obidos/external-search?tag=stardigger&mode=dvd&keyword=$mSearch&pg=$m1";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	if ($login==1 or $mCount2002<5) {
+
+	$PFound=0;
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+
+			$S1 = strstr($Array[$m], '<a href=/exec/obidos/tg/detail/-/');
+			if ($S1) {
+					$S2 = strpos($Array[$m], "-");
+					$S3 = strpos($Array[$m], "/", $S2+2);
+					$S4 = substr($Array[$m], $S2+2, $S3-$S2-2);
+					$T0 = strpos($Array[$m], "<img");
+					if ($T0) {
+
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T3b = strpos($Array[$m], "<", $T3+1);
+						$T4 = substr($Array[$m], $T2+1, $T3b-$T2-1);
+						$T5 = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20>$T4</a>";
+						$Image=$T5;
+                                $Image = str_replace("THUMB", "LZZZZ", $Image);
+								$Image = str_replace("width=50 height=49 ", "", $Image);
+								$Image = str_replace("width=50 height=50 ", "", $Image);
+								$Image = str_replace("width=", "alt=", $Image);
+								$Image = str_replace("height=", "alt=", $Image);
+								$Image = str_replace("align=left ", "", $Image);
+						$T6 = strpos($Image, "video-no-image.gif");
+						if ($T6) {
+							$Image = "";
+							}
+						} else {
+
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T4 = substr($Array[$m], $T2+1, $T3-$T2-1);
+						$Story = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20>$T4</a>";
+						if ($First==0) {
+
+                            $mSearch10 = str_replace("+", " ", $mSearch);
+                            $VV2 = strlen($mSearch10);
+                            $mSearch11 = substr($mSearch10, 1, $VV2-1);
+                            $VV1 = strpos($String, $mSearch11);
+                            if ($VV1) {
+                            	if($mFirst1==1) {
+                                	print "";
+                                    $Cache="$Cache<div align=center><font face=verdana size=2><hr width=520><b>VHS</b><p>";
+
+                                    $mFirst1=0;
+                                    }
+
+                                $mCount2002 = $mCount2002+1;
+
+                            if ($login==1 or $mCount2002<5) {
+                                $mFound3000=$mFound3000+1;
+                            	if ($mFound3000>2) {
+                                	print "<br>";
+                                    $Cache="$Cache<br>";
+                                    $mFound3000=0;
+                                    }
+								
+								$Story = str_replace("<a target=_blank href=", "", $Story);
+								
+                                
+								$mi1 = strpos($Story, ">");
+								if ($mi1) {
+								$mi2 = substr($Story, $mi1);
+								$mi3 = str_replace($mi2, "", $Story);
+								}
+								else
+								{}
+								$Image=str_replace("<a target=_blank href=", "", $Image);
+								$Image=str_replace('" alt=42 alt=60 align=center border=0></a>', '', $Image);
+								$mi2=str_replace("</a>", "", $mi2);
+								$mi2=str_replace(">", "", $mi2);
+								$jb=strpos($Image, '"');
+								if ($jb) {
+											
+									$Image123=substr($Image, 0, $jb);
+									$Image=str_replace($Image123, "", $Image);
+									$Image=str_replace('"', '', $Image);
+									$Image40=strpos($Image, " ");
+									if ($Image40) {
+										$Image=substr($Image, 0, $Image40);
+									}
+								}
+								$mCount54321++;
+								$Query112 = "INSERT INTO `archipelago_dvds` ( `a` , `b` , `c` , `d` ) VALUES ('$mSearch2', '$mi2', '$mi3', '$Image');";
+								$Result112 = mysql_db_query($DBName, $Query112, $Link);
+								
+								
+								
+								
+								print "<div align=center><table width=600 border=0><tr><td><div class='div1'><a target=_blank href='$mi3'>$mi2</a></div></td></tr></table></div>";
+								
+                                $Cache="$Cache$Image\n";
+    	                        }
+
+	                        	}
+							$TFound=1;
+							$PFound=1;
+							}
+							else {
+							$First=0;
+							$PFound=1;
+							}
+						}
+					$Sound = $S4;
+					$Found=1;
+
+					$mStory = str_replace("<a href=/exec/", "<a href=http://www.amazon.com/exec/", $Array[$m]);
+					$mStory = str_replace(" align=left", "", $mStory);
+					$S5 = strstr($mStory, "<img");
+				    }
+				}
+			}
+		}
+	}
+}
+}
+
+	$Query111 = "SELECT a FROM `archipelago_websites_state`;";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$mmi2 = $Row110[0];
+		}
+if ($mmi2==$mi2) {$mCount54321=0;}
+if ($Cat22>5) {$mCount54321=0;}
+
+if ($mCount54321==0) {
+$Query112 = "UPDATE `archipelago_searchterms` SET f='2' where a='$mSearch23' LIMIT 1;";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+}
+
+$Query112 = "UPDATE `archipelago_websites_state` SET a = '$mi2';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+mysql_close ($Link);
+?>

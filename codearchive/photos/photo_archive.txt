@@ -1,0 +1,97 @@
+<?
+print "<div align=center>";
+$mCol501=0;
+$mFirst=1;
+$login=1;
+if ($user=="none") {
+$login=0;
+}
+if ($user=="") {
+$login=0;
+}
+$mUser="$user";
+$mCount2002 = 0;
+if ($L1) {$mSearch1=$L1;}
+if ($L2) {$mSearch1="$L2 $L1";}
+if ($L3) {$mSearch1="$L3 $L2";}
+
+$mL1=str_replace(" ", "+", $L1);
+$mL2=str_replace(" ", "+", $L2);
+$mL3=str_replace(" ", "+", $L3);
+
+if ($mSearch2) {$mSearch1="$mSearch1+$mSearch2";}
+$mFirst23=0;
+$mSearch23=str_replace(" ", "+", $mSearch1);
+
+if ($L1) {
+$mString23 = "<div align=center><p><font face=verdana size=2><a href=main.php?Level=1&L1=$mL1>$mSearch1</a></font><p>";
+}
+
+if ($L2) {
+$mString23 = "<div align=center><p><font face=verdana size=2><a href=main.php?Level=2&L1=$mL1&L2=$mL2>$mSearch1</a></font><p>";
+}
+
+if ($L3) {
+$mString23 = "<div align=center><p><font face=verdana size=2><a href=main.php?Level=3&L1=$mL1&L2=$mL2&L3=$mL3>$mSearch1</a></font><p>";
+}
+
+$mCount1 = 0;
+
+
+
+$TheFile = "http://www.picsearch.com/search.cgi?num=16&adv=1&q=$mSearch23+Photograph&search=Search%21&anim=no&color=yes&size=800p&rp=same&pl=en";
+$Open = fopen($TheFile, "r");
+$mStart1=0;
+
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+            if ($mStart1==1) {
+
+            $mLa = strpos($Array[$m], "Source</a>");
+            if ($mLa) {
+            	$mLa2 = substr($Array[$m], 0, $mLa);
+                $mLa3 = str_replace("_top", "_blank", $mLa2);
+                if ($mFirst23==0) {
+                	
+                    $mFirst23=1;}
+				if ($mCount1>0) {} else {
+                print "$mLa3$mLa5</a>\n";
+}
+                $mCount1 = $mCount1 + 1;
+                if ($mCount1>0) {
+                	
+                    $mCount1=6;
+                    }
+            }
+
+            $mLa = strstr($Array[$m], "<IMG");
+            $mLa4 = strpos($Array[$m], "<img");
+
+            if ($mLa or $mLa4) {
+            $mLa2 = strpos($Array[$m], "</td>");
+            $mLa3 = substr($Array[$m], $mLa4, $mLa2-$mLa4);
+            $mLa5 = str_replace(' border=0 alt="Click to view image details"></a>', ' border=0>', $mLa3);
+            $mLa5 = str_replace('<img ', '<img height=120 width=120 ',$mLa5);
+
+            }
+            }
+            $SS1 = strstr($Array[$m], 'Result page: ');
+            if ($SS1) {
+                    $mStart1=0;
+
+					}
+            $SS1 = strstr($Array[$m], 'Result page:');
+			if ($SS1) {
+                    $mStart1=1;
+					}
+
+                    }
+				}
+			}
+
+print "</div>";
+?>

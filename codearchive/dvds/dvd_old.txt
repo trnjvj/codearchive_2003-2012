@@ -1,0 +1,147 @@
+<?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$mSearch="Sex";
+print "<div align=center><hr width=520><font face=verdana size=3><b>$mSearch</b></font></div>";
+$login=1;
+
+$mCount2002 = 0;
+
+$mCount3000=0;
+
+if ($mCached==0) {
+
+
+$Cache="";
+
+
+
+$PFound=1;
+$mFirst1=1;
+for ($m1 = 1; $m1 < 6; $m1++) {
+if ($PFound==1) {
+
+$TheFile = "http://www.amazon.com/exec/obidos/external-search?tag=stardigger&mode=dvd&keyword=$mSearch&pg=$m1";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	if ($login==1 or $mCount2002<5) {
+
+	$PFound=0;
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+
+			$S1 = strstr($Array[$m], '<a href=/exec/obidos/tg/detail/-/');
+			if ($S1) {
+					$S2 = strpos($Array[$m], "-");
+					$S3 = strpos($Array[$m], "/", $S2+2);
+					$S4 = substr($Array[$m], $S2+2, $S3-$S2-2);
+					$T0 = strpos($Array[$m], "<img");
+					if ($T0) {
+
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T3b = strpos($Array[$m], "<", $T3+1);
+						$T4 = substr($Array[$m], $T2+1, $T3b-$T2-1);
+						$T5 = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20>$T4</a>";
+						$Image=$T5;
+                                $Image = str_replace("THUMB", "LZZZZ", $Image);
+								$Image = str_replace("width=50 height=49 ", "", $Image);
+								$Image = str_replace("width=50 height=50 ", "", $Image);
+								$Image = str_replace("width=", "alt=", $Image);
+								$Image = str_replace("height=", "alt=", $Image);
+								$Image = str_replace("align=left ", "", $Image);
+						$T6 = strpos($Image, "video-no-image.gif");
+						if ($T6) {
+							$Image = "";
+							}
+						} else {
+
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T4 = substr($Array[$m], $T2+1, $T3-$T2-1);
+						$Story = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20>$T4</a>";
+						if ($First==0) {
+
+                            $mSearch10 = str_replace("+", " ", $mSearch);
+                            $VV2 = strlen($mSearch10);
+                            $mSearch11 = substr($mSearch10, 1, $VV2-1);
+                            $VV1 = strpos($String, $mSearch11);
+                            if ($VV1) {
+                            	if($mFirst1==1) {
+                                	print "<div align=center><font face=verdana size=2><hr width=520><b>VHS</b><p>";
+                                    $Cache="$Cache<div align=center><font face=verdana size=2><hr width=520><b>VHS</b><p>";
+
+                                    $mFirst1=0;
+                                    }
+
+                                $mCount2002 = $mCount2002+1;
+
+                            if ($login==1 or $mCount2002<5) {
+                                $mFound3000=$mFound3000+1;
+                            	if ($mFound3000>2) {
+                                	print "<br>";
+                                    $Cache="$Cache<br>";
+                                    $mFound3000=0;
+                                    }
+								
+								
+                                print "$Story\n";
+                                $Cache="$Cache$Image\n";
+    	                        }
+
+	                        	}
+							$TFound=1;
+							$PFound=1;
+							}
+							else {
+							$First=0;
+							$PFound=1;
+							}
+						}
+					$Sound = $S4;
+					$Found=1;
+
+						$mStory = str_replace("<a href=/exec/", "<a href=http://www.amazon.com/exec/", $Array[$m]);
+					$mStory = str_replace(" align=left", "", $mStory);
+					$S5 = strstr($mStory, "<img");
+
+
+
+
+
+
+
+    }
+				}
+			}
+		}
+	}
+}
+}
+
+if ($login==0 and $mCount2002>5) {
+print "<br><table width=520><tr><td><font face=verdana size=1><a href=login.php>Sign in</a> or <a href=signup/index.html>Subscribe</a> to see more movies.</font></td></tr></table></td></tr></table></div>";
+$Cache="$Cache<br><table width=520><tr><td><font face=verdana size=1><a href=login.php>Sign in</a> or <a href=signup/index.html>Subscribe</a> to see more movies.</font></td></tr></table></td></tr></table></div>";
+
+}
+}
+?>

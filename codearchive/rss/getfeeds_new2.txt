@@ -1,0 +1,141 @@
+<HTML><HEAD></HEAD>
+<font face=arial size=1>
+<?
+
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$today = getdate();
+$month = $today['month'];
+$mday = $today['mday'];
+$year = $today['year'];
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$weekday = $today['weekday'];
+$mStamp = "$year-$month-$mday";
+$mStamp2 = "$hours:$minutes:$seconds";
+
+$Cache2 = "<strong>$mStamp2</strong> ";
+print "$mStamp";
+$Query110 = "SELECT distinct b FROM `bloggle_rss_feeds` WHERE t!='$mStamp' ORDER BY b LIMIT 10;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1 = $Row110[0];
+	$Query112 = "UPDATE `bloggle_rss_feeds` SET `t` = '$mStamp' WHERE `b` = '$m1';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	$TheFile = $m1;
+	$Cache = "";
+	$Open = fopen($TheFile, "r");
+	if ($Open) {
+		$Data = file($TheFile);
+		for ($n = 0; $n < count($Data); $n++) {
+			$String = trim($Data[$n]);
+			$Cache = $Cache.$String;
+			}
+			
+		$today = getdate();
+		$month = $today['month'];
+		$mday = $today['mday'];
+		$year = $today['year'];
+		$seconds = $today['seconds'];
+		$minutes = $today['minutes'];
+		$hours = $today['hours'];
+		$weekday = $today['weekday'];
+		
+
+	$m15e = $Cache;
+	$m15f = str_replace("<", " [", $m15e);
+	$m15f = str_replace(">", "]", $m15f);	
+	$Array = explode("[", $m15f);
+	print "<p>";
+	for ($m = 0; $m < count($Array); $m++) {
+		$mA1 = " ".$Array[$m];
+		$mmm1 = strpos($mA1, "title]", 0);
+		$mmm2 = strpos($mA1, "/title]", 0);
+		if ($mmm1) {if ($mmm2) {} else {
+			$mDescription = " ".$mDescription;
+			$nnn1 = strlen($mDescription);
+			$nnnn1 = "";
+			$mFlagn=1;
+			for ($nn1 = 0; $nn1<$nnn1; $nn1++)
+				{
+				$nnnnn1 = substr($mDescription, $nn1, 1);
+				if ($nnnnn1=="<") {$mFlagn=0;$nnnn1 = $nnnn1."??".$nnnnn1;}
+				if ($mFlagn==1) {
+					$nnnn1 = $nnnn1.$nnnnn1;
+					}
+				if ($nnnnn1==">") {$mFlagn=1;}
+				}
+			
+			$n1 = trim(substr($nnnn1, 0, 255));
+			$mLink = trim($mLink);
+			$mTitle = trim($mTitle);
+			$Query117 = "INSERT INTO `bloggle_headlines` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$mLink', '$mTitle', '$nnnn1', '$mStamp', '$mStamp2');";
+			$Result117 = mysql_db_query($DBName, $Query117, $Link);
+			
+			$mThiss="<a href='$mLink'>$mTitle</a> $nnnn1<br>";
+			$mTThiss=0;
+			$mTThis = strstr($mThiss, "oreover");
+			if ($mTThis) {$mTThiss=1;} 
+			$mTThis = strstr($mThiss, "ashdot");
+			if ($mTThis) {$mTThiss=1;} 
+
+			if ($mTThiss==1) {} else {		
+			$mmnn++;
+			if ($mmnn>50) {
+			$mmnn=-500;
+			$Cache2 = $Cache2 . "</font></td><td valign=top><font face=verdana size=1>";
+			}
+
+			$Cache2 = $Cache2 . "<a target='_blank' href='$mLink'>$mTitle</a> | ";
+}
+			$nnnn1 = '';
+			$mDescription = '';
+			print "";
+			$mTitle=str_replace("title]", "", $mA1);
+			}}
+		print "";
+		if ($mmm1) {if ($mmm2) {} else {print "";}}
+		$mmm1 = strpos($mA1, "link]", 0);
+		$mmm2 = strpos($mA1, "/link]", 0);
+		if ($mmm1) {if ($mmm2) {} else {
+			print "";
+			$mLink=str_replace("link]", "", $mA1);
+			}}
+		print "";
+		if ($mmm1) {if ($mmm2) {} else {print "";}}
+		$mmm1 = strpos($mA1, "description]", 0);
+		$mmm2 = strpos($mA1, "/description]", 0);
+		if ($mmm1) {if ($mmm2) {} else {print "";
+			$mDescription=str_replace("description]", "", $mA1);
+			}}
+		
+		if ($mmm1) {if ($mmm2) {} else {print "";}}		
+	}
+
+$Query113 = "INSERT INTO `bloggle_feed_data` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$m1', '$year:$month', '$mday', '$minutes:$seconds', '$Cache');";
+$Result113 = mysql_db_query($DBName, $Query113, $Link);
+print "<li>$m1";
+		}
+	}
+
+$Cache2 = str_replace("'", "", $Cache2);
+if (strlen($Cache2) > 0) {
+$Query113 = "DELETE FROM `bloggle_system` LIMIT 1;";
+$Result113 = mysql_db_query($DBName, $Query113, $Link);
+
+$Query113 = "INSERT INTO `bloggle_system` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('', '$Cache2', '', '', '');";
+$Result113 = mysql_db_query($DBName, $Query113, $Link);
+}
+
+mysql_close ($Link);
+?>
+
+</font>

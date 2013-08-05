@@ -1,0 +1,130 @@
+<HTML><HEAD>
+
+<title>XML Transfer Utility - Receiving Server - Version 0.9
+</title>
+<font face=verdana size=1>
+<b>
+Holisticopia Site Builder - Version 0.9<br><br>
+XML Transfer Utility - Receiving Server - Version 0.9<br>
+Copyright 2004 by Tim Johnson<br>
+All Rights Reserved<p>
+Email Tim at: <a href=mailto:timjohnson@bluepacificmarketing.com>timjohnson@bluepacificmarketing.com</a>
+</b>
+<p>
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mDoneFlag=1;
+
+$TheFile = "http://timlaptop/holisticopia_dev/transfer_holisticopia2_last42.php";
+$Start=0;
+$Open = @fopen($TheFile, "r");
+print "<font face=verdana size=1>";
+$mTableFlag="";
+
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++)
+    	{
+		$String = trim($Data[$n]);
+		print "$String\n";
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);				
+				}
+			$V7 = strpos($String, "m1d");
+			if ($V7) {
+				$String2 = str_replace("<m1d>", "", $String);
+				$m1d = str_replace("</m1d>", "", $String2);				
+				}
+			$V7 = strpos($String, "m1e");
+			if ($V7) {
+				$String2 = str_replace("<m1e>", "", $String);
+				$m1e = str_replace("</m1e>", "", $String2);				
+				}
+			$V7 = strpos($String, "m1f");
+			if ($V7) {
+				$String2 = str_replace("<m1f>", "", $String);
+				$m1f = str_replace("</m1f>", "", $String2);				
+				}
+			$V7 = strpos($String, "m1g");
+			if ($V7) {
+				$String2 = str_replace("<m1g>", "", $String);
+				$m1g = str_replace("</m1g>", "", $String2);				
+				}
+			$V7 = strpos($String, "m1h");
+			if ($V7) {
+				$String2 = str_replace("<m1h>", "", $String);
+				$m1h = str_replace("</m1h>", "", $String2);				
+				}
+			$V7 = strpos($String, "m1i");
+			if ($V7) {
+				$String2 = str_replace("<m1i>", "", $String);
+				$m1i = str_replace("</m1i>", "", $String2);				
+				}
+			$V7 = strpos($String, "m1j");
+			if ($V7) {
+				$String2 = str_replace("<m1j>", "", $String);
+				$m1j = str_replace("</m1j>", "", $String2);				
+				}
+			$V7 = strpos($String, "m1k");
+			if ($V7) {
+				$String2 = str_replace("<m1k>", "", $String);
+				$m1k = str_replace("</m1k>", "", $String2);
+				}
+			$V7 = strpos($String, "m1l");
+			if ($V7) {
+				$String2 = str_replace("<m1l>", "", $String);
+				$m1l = str_replace("</m1l>", "", $String2);
+				}
+			$V7 = strpos($String, "m1m");
+			if ($V7) {
+				$String2 = str_replace("<m1m>", "", $String);
+				$m1m = str_replace("</m1m>", "", $String2);
+				}
+			$V7 = strpos($String, "m1n");
+			if ($V7) {
+				$String2 = str_replace("<m1n>", "", $String);
+				$m1n = str_replace("</m1n>", "", $String2);
+				}
+			$V7 = strpos($String, "m1o");
+			if ($V7) {
+				$String2 = str_replace("<m1o>", "", $String);
+				$m1o = str_replace("</m1o>", "", $String2);
+				}
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$ThisLine = "'$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j'";
+				
+				$Query120 = "INSERT INTO `holisticopia2` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				$DoneFlag=0;
+				$LastLine = $ThisLine;
+				}
+		
+	}
+}
+
+mysql_close ($Link);
+print "</font>";
+if ($DoneFlag==1) {print "<font face=verdana size=5><p><b>Transfer Completed</b></font>";}
+print "<br></html>";
+?>

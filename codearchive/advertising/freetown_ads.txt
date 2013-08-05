@@ -1,0 +1,52 @@
+
+<?
+$mCache="$Name|$Email";
+$Host = "localhost";
+$User = "jbluepac_world";
+$Password = "turnip";
+$DBName = "jbluepac_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query110 = "SELECT * FROM `freetown_ads`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<freetown_ads>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1b = $Row110[2];
+	$m1c = $Row110[3];
+	$m1d = $Row110[4];
+	$m1e = $Row110[5];
+	$m1f = $Row110[6];
+	$m1g = $Row110[7];
+	$m1h = $Row110[8];
+	$m1i = $Row110[9];
+	$m1j = $Row110[10];
+	$m1k = $Row110[11];
+	$m1l = $Row110[12];
+	$m1m = $Row110[13];
+	$m1n = $Row110[14];
+	$m1o = $Row110[15];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "<m1d>$m1d</m1d>\n";
+	print "<m1e>$m1e</m1e>\n";
+	print "<m1f>$m1f</m1f>\n";
+	print "<m1g>$m1g</m1g>\n";
+	print "<m1h>$m1h</m1h>\n";
+	print "<m1i>$m1i</m1i>\n";
+	print "<m1j>$m1j</m1j>\n";
+	print "<m1k>$m1k</m1k>\n";
+	print "<m1l>$m1l</m1l>\n";
+	print "<m1m>$m1m</m1m>\n";
+	print "<m1n>$m1n</m1n>\n";
+	print "<m1o>$m1o</m1o>\n";
+	print "</line>\n";
+	}
+mysql_close ($Link);
+print "</freetown_ads>\n";
+?>

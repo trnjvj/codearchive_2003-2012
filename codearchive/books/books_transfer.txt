@@ -1,0 +1,72 @@
+<?
+set_time_limit(0);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query111 = "SELECT * FROM `xml_state`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Row = $Row110[1];
+	$Row2 = $Row+5000;
+	$Query112 = "UPDATE `xml_state` SET b='$Row2';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	}	
+$Query111 = "SELECT * FROM `archipelago_books` LIMIT $Row,5000;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat1b = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];
+	$Cat = str_replace("+", " ", $Cat);
+	$Cat1 = str_replace("http://www.amazon.com/exec/obidos/ASIN/", "", $Cat1);
+	$Cat1 = str_replace("/ref=ase_holisticopia-20>", "", $Cat1);
+	$Cat3 = str_replace("<br><font face=verdana,arial,helvetica size=-1>", "", $Cat3);
+	$Cat3 = str_replace("</font>", "", $Cat3);
+	$Cat11 = str_replace('"', '>', $Cat1);
+	$Cat11 = str_replace('<', '>', $Cat11);	
+	$Array = explode(">", $Cat11);
+	$ASIN=$Array[0];
+	for ($m = 0; $m < count($Array); $m++) {	
+		$mFlag1 = strstr($Array[$m], 'http');
+		$mTitle = $Array[$m];
+		if ($mFlag1) {
+			$mImage = $Array[$m];						
+			}
+		}		
+	$Cat11 = str_replace('"', '>', $Cat2);
+	$Cat11 = str_replace('<', '>', $Cat11);	
+	$Array = explode(">", $Cat11);
+	$mTitle=$Array[1];
+	for ($m = 0; $m < count($Array); $m++) {	
+		$mFlag1 = strstr($Array[$m], 'http');		
+		if ($mFlag1) {
+			$mImage = $Array[$m];						
+			}
+		}		
+	$Array = explode('"', $Cat1b);	
+	for ($m = 0; $m < count($Array); $m++) {
+		
+		$mFlag1 = strstr($Array[$m], 'http');		
+		if ($mFlag1) {
+			$mImage = $Array[$m];						
+			}
+		}
+	$m2 = strlen($Cat3);
+	$m4 = $m2-3;	
+	$m1 = substr($Cat3, 0, 3);
+	if ($m1=="by ") {
+		$mAuthor = substr($Cat3, 3, $m4);
+	}		
+	print "Category=$Cat\nASIN=$ASIN\nTitle=$mTitle\nAuthor=$mAuthor\nImage=$mImage\n";	
+	}
+mysql_close ($Link);
+?>

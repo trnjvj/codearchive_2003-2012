@@ -1,0 +1,150 @@
+<?PHP
+include('header.php');
+if ($myemail) {
+?>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="all" />
+<title>jQuery Mega Drop Down Menu Plugin v 1.0</title>
+<link href="css/menustyle.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type='text/javascript' src='js/jquery.hoverIntent.minified.js'></script>
+<script type='text/javascript' src='js/jquery.dcmegamenu.1.0.js'></script>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	jQuery('#mega-menu').dcMegaMenu({
+		rowItems: '3',
+		speed: 'fast'
+	});
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+<h2>jQuery Mega Drop Down Menu Plugin v 1.0 - <a href="http://www.designchemical.com/lab/jquery-mega-drop-down-menu-plugin/getting-started/">Visit Plugin Site</a></h2>
+		  
+		  <ul id="mega-menu"><li><a href="#">Home</a></li>
+
+<li><a href="#">Products</a>
+<ul>
+	<li><a href="#">Mobile Phones &#038; Accessories</a>
+	<ul>
+		<li><a href="#">Product 1</a></li>
+		<li><a href="#">Product 2</a></li>
+		<li><a href="#">Product 3</a></li>
+
+	</ul>
+</li>
+	<li><a href="#">Desktop</a>
+	<ul>
+		<li><a href="#">Product 4</a></li>
+		<li><a href="#">Product 5</a></li>
+		<li><a href="#">Product 6</a></li>
+
+		<li><a href="#">Product 7</a></li>
+	</ul>
+</li>
+	<li><a href="#">Laptop</a>
+	<ul>
+		<li><a href="#">Product 8</a></li>
+		<li><a href="#">Product 9</a></li>
+
+		<li><a href="#">Product 10</a></li>
+	</ul>
+</li>
+	<li class="menu-item-85"><a href="#">Accessories</a>
+	<ul>
+		<li class="menu-item-131"><a href="#">Product 11</a></li>
+		<li class="menu-item-132"><a href="#">Product 12</a></li>
+
+		<li class="menu-item-133"><a href="#">Product 13</a></li>
+	</ul>
+</li>
+	<li class="menu-item-130"><a href="#">Software</a>
+	<ul>
+		<li class="menu-item-134"><a href="#">Product 14</a></li>
+		<li class="menu-item-135"><a href="#">Product 15</a></li>
+
+		<li class="menu-item-136"><a href="#">Product 16</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item-79"><a href="#">Sale</a>
+<ul>
+	<li class="menu-item-96"><a href="#">Special Offers</a>
+	<ul>
+		<li class="menu-item-99"><a href="#">Offer 1</a></li>
+
+		<li class="menu-item-100"><a href="#">Offer 2</a></li>
+		<li class="menu-item-101"><a href="#">Offer 3</a></li>
+	</ul>
+</li>
+	<li class="menu-item-97"><a href="#">Reduced Price</a>
+	<ul>
+		<li class="menu-item-137"><a href="#">Offer 4</a></li>
+
+		<li class="menu-item-138"><a href="#">Offer 5</a></li>
+		<li class="menu-item-139"><a href="#">Offer 6</a></li>
+	</ul>
+</li>
+	<li class="menu-item-98"><a href="#">Clearance Items</a>
+	<ul>
+		<li class="menu-item-140"><a href="#">Offer 7</a></li>
+
+	</ul>
+</li>
+	<li class="menu-item-129"><a href="#">Ex-Stock</a>
+	<ul>
+		<li class="menu-item-141"><a href="#">Offer 8</a></li>
+		<li class="menu-item-142"><a href="#">Offer 9</a></li>
+		<li class="menu-item-143"><a href="#">Offer 10</a></li>
+
+		<li class="menu-item-144"><a href="#">Offer 11</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item-80"><a href="#">About Us</a>
+<ul>
+	<li class="menu-item-118"><a href="#">About Page 1</a></li>
+	<li class="menu-item-119"><a href="#">About Page 2</a></li>
+
+</ul>
+</li>
+<li class="menu-item-120"><a href="#">Services</a>
+<ul>
+	<li class="menu-item-121"><a href="#">Service 1</a>
+	<ul>
+		<li class="menu-item-124"><a href="#">Service Detail A</a></li>
+		<li class="menu-item-125"><a href="#">Service Detail A</a></li>
+	</ul>
+
+</li>
+	<li class="menu-item-122"><a href="#">Service 2</a>
+	<ul>
+		<li class="menu-item-126"><a href="#">Service Detail B</a></li>
+	</ul>
+</li>
+	<li class="menu-item-123"><a href="#">Service 3</a>
+	<ul>
+
+		<li class="menu-item-127"><a href="#">Service Detail C</a></li>
+	</ul>
+</li>
+	<li class="menu-item-128"><a href="#">Service 4</a></li>
+</ul>
+</li>
+<li class="menu-item-81"><a href="#">Contact us</a></li>
+</ul>
+</div>
+</body>
+</html>
+<?PHP
+}
+mysql_close ($Link);
+?>

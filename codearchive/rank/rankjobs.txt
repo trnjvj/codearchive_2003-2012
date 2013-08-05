@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=rankjobs.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Multitopic URL Obtainer</TITLE>
+<?
+set_time_limit(0);
+
+print "<font face=verdana size=1><p>";
+
+for ($hello=0; $hello<30; $hello++) {
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+	$Query111 = "SELECT * FROM `jobspider_websites3` WHERE i='' LIMIT 1;";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$Cat = $Row110[0];
+		$Cat1 = $Row110[1];
+		$Cat2 = $Row110[2];
+		$Cat3 = $Row110[3];
+		$Cat4 = $Row110[4];
+		$Cat5 = $Row110[5];
+		$Cat6 = $Row110[6];
+		$Cat7 = $Row110[7];
+		$Cat8 = $Row110[8];
+		$Cat9 = $Row110[9];
+
+		$Query122 = "UPDATE `jobspider_websites3` SET i='1' where c='$Cat2';";
+		$Result122 = mysql_db_query($DBName, $Query122, $Link);
+		}
+
+$mCount=0;
+
+$Query113 = "SELECT * FROM `jobspider_searchterms`;";
+	$Result113 = mysql_db_query($DBName, $Query113, $Link);
+	while ($Row113 = mysql_fetch_array ($Result113))
+		{	
+		$Cat123 = $Row113[0];
+		$This = strpos($Cat9, $Cat123);
+		if ($This) {$mCount++;}
+		}
+
+$Query112 = "INSERT INTO `jobspider_websites4` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$Cat', '$Cat1', '$Cat2', '$Cat3', '$Cat4', '$Cat5', '$Cat6', '$Cat7', '$mCount', '$Cat9');";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+print "$Cat3 $Cat4 $mCount | ";
+if ($mCount>8) {print "$Cat9 | ";}
+
+}
+mysql_close ($Link);
+?>

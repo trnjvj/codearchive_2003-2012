@@ -1,0 +1,58 @@
+<html>
+<HEAD>
+<TITLE>Secure Online Payments</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+<body bgcolor=#FFFFEE background="images/bgtan.jpg" text=#000000 link=#000000 vlink=#000000 alink=#000000>
+<div align=center><br>
+  <img src="images/logo.jpg" width="720" height="140"> <br>
+  <table width="720" border="0" bgcolor="#FFFFEE">
+    <tr>
+      <td> 
+        <div align="center"><font size="3" face="Arial, Helvetica, sans-serif"><strong>Secure 
+          Online Payments</strong></font></div></td>
+    </tr>
+  </table>
+  <p></div>
+<div align=center><font face=verdana size=3></font></div>
+      
+<div align="center">
+  <table width="720" border="0" cellpadding="10" bgcolor="#FFFFEE">
+    <tr> 
+      <td><table width=100%>
+          <tr> 
+            <td width=20%> <form method="POST"action="https://payflowlink.verisign.com/payflowlink.cfm">
+                <div align="center"> 
+                  <table width="100%" border="0">
+                    <tr> 
+                      <td align="right" valign="top"><font face=Arial, Helvetica, sans-serif size=2><strong>Payment 
+                        Amount is US Dollars:<br>
+                        (ex.: &quot;2.00&quot;)</strong></font></td>
+                      <td valign="top"> <font size="1" face="verdana">
+                        <input type="hidden" name="LOGIN" value="rivercanyon">
+                        <input type="hidden" name="PARTNER" value="Verisign">
+                        <!-- The transaction AMOUNT must be at least 1.00 (one dollar) -->
+                        <input type="text" name="AMOUNT">
+                        </font>
+                        <p> <font size="1" face="verdana">
+                          <input type="hidden" name="TYPE" value="S">
+                          <input type="submit" value="Pay Online" name="submit">
+                          </font></td>
+                    </tr>
+                  </table>
+                   </div>
+              </form> 
+              <div align="center"><font size="1" face="verdana"><b><font size="2" face="Arial, Helvetica, sans-serif">Contact 
+                Info:</font></b></font>
+            
+              
+                <p>&nbsp;</p>
+              </div></td>
+          </tr>
+        </table>
+        <div align="center"><font size="2" face="Arial, Helvetica, sans-serif">An 
+          invoice will be sent to your email adress.</font></div>
+        </td>
+    </tr>
+  </table>
+</div>
+<div align="center"></div>

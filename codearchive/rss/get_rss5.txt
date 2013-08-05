@@ -1,0 +1,49 @@
+<?
+
+print "rssVar=";
+
+$TheFile = "http://rss.news.yahoo.com/rss/topstories";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode(">", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$Array[$m]=str_replace("<", "[", $Array[$m]);
+			$Array[$m]=str_replace(">", "]", $Array[$m]);
+			
+			
+			print "$Array[$m]<hr>";
+			
+			
+			if ($Array[$m] == "[title") {
+				$m123 = $Array[$m+1];
+				print "~$m123";
+			}
+			
+			if ($Array[$m] == "[link") {
+				$m321 = $Array[$m+1];
+				print "|$m321";
+			}
+			
+		
+			
+			/*
+		$mFlag1 = strstr($String, '<title>');
+			if ($mFlag1) {
+				
+				$mTitle = $Data[$n+1];
+				print "~$mTitle|$mUrl";
+				}
+				
+		
+		$Array = explode("<p>", $String);
+		*/
+		}
+		}
+	}
+
+?>

@@ -1,0 +1,181 @@
+<?
+$a = $_GET['a'];
+if ($a) {} else {$a=0;}
+if ($a>253) {$a=0;}
+$b=$a+1;
+
+print '<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=get_youtube.php?a=';
+print "$b";
+print '">
+</HEAD>
+<body background="#000000">
+';
+
+include('db_connect.php');
+set_time_limit(0);
+
+$Query111 = "SELECT a FROM `youtube_search` WHERE b='' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$mFound=1;
+	}
+	$Cat2=$Cat1+1;
+	$Query2 = "UPDATE `youtube_search` SET b='1' WHERE a='$Cat';";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);	
+		
+$mySearch = $Cat;
+$mySearch2 = str_replace(" ", "+", $mySearch);
+$Cat1=1;
+if ($Cat1==1) {
+$TheFile = "http://www.youtube.com/results?search_query=$mySearch2&search_type=&aq=f";
+} else {
+$TheFile = "http://www.youtube.com/results?search_query=$mySearch2&page=$Cat1";
+}
+print "$TheFile<br />";
+/*
+$TheFile[2] = "http://www.youtube.com/results?search_query=$mySearch2&page=3";
+$TheFile[3] = "http://www.youtube.com/results?search_query=$mySearch2&page=4";
+$TheFile[4] = "http://www.youtube.com/results?search_query=$mySearch2&page=5";
+$TheFile[5] = "http://www.youtube.com/results?search_query=$mySearch2&page=6";
+$TheFile[6] = "http://www.youtube.com/results?search_query=$mySearch2&page=7";
+
+for ($i=0; $i<1; $i++) {
+*/
+//$i=$a;
+
+
+//print "$i/253 $wank";
+
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+	
+		$mFlag1 = strstr($String, 'img title="');
+		if ($mFlag1) {
+		
+		$String = str_replace("<", "[", $String);
+		$String = str_replace(">", "]<br />", $String);
+		$Array = explode("]", $String);
+			$video=$Array[3];
+			$Array2 = explode('"', $video);
+			$video=$Array2[3];
+			$video="http://www.youtube.com$video";
+			
+			$title=$Array[4];
+			$Array3 = explode('"', $title);
+			$title=$Array3[1];
+			
+			//$video=$Array2[3];
+			$image=$Array[4];	
+			$Array4 = explode('"', $image);
+			$image=$Array4[5];
+					
+			
+			
+			if (strstr($image,"vimg")) {} else {	
+			
+			$Cat1 = str_replace("--", "-", $title);
+			$Cat1 = strtolower($Cat1);
+			$Cat1 = strtolower($Cat1);
+	$Cat1 = str_replace("$Cat", " ", $Cat1);
+	$Cat1 = str_replace("--", "-", $Cat1);
+	$Cat1 = str_replace("--", "-", $Cat1);
+	$Cat1 = str_replace("$Cat", " ", $Cat1);
+	$Cat1 = str_replace("$Cat4", " ", $Cat1);
+	$Cat1 = str_replace(" - ", " ", $Cat1);
+	$Cat1 = str_replace("|", " ", $Cat1);
+	$Cat1 = str_replace("/ ", " ", $Cat1);
+	$Cat1 = str_replace(":", " ", $Cat1);
+	$Cat1 = str_replace("~", " ", $Cat1);
+	$Cat1 = str_replace("-", " ", $Cat1);
+	$Cat1 = str_replace("¦", " ", $Cat1);
+	$Cat1 = str_replace("•", " ", $Cat1);
+	$Cat1 = str_replace("¦", " ", $Cat1);
+	$Cat1 = str_replace("&amp;", " ", $Cat1);
+	$Cat1 = str_replace("&quot;", " ", $Cat1);
+	$Cat1 = str_replace('"', ' ', $Cat1);
+	$Cat1 = str_replace("@", " ", $Cat1);	
+	$Cat1 = str_replace("  ", " ", $Cat1);	
+	$Cat1 = str_replace("  ", " ", $Cat1);	
+	$Cat1 = trim($Cat1);	
+	
+			$Query111 = "INSERT INTO `youtube` (`a` , `b` , `c` , `d` , `e`) VALUES ('$mySearch', '$title', '$image', '$video', '$Cat1');";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			
+			print "<a href='$video'><img src='$image'>";
+			}
+			
+			//print "$String<hr>";
+		}
+		/*
+			$mCount=1;
+			$mFlag2 = strstr($String, 'Flash'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Actionscript'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'AS2'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'AS3'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Video'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Cairngorm'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Flex'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Website'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'PHP'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'MySqL'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'E-commerce'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Joomla'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Drupal'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'LAMP'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Programmer'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'decompiler'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'XML'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Wordpress'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Word Press'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'WORD PRESS'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'WORDPRESS'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'PhpBB'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'PHPBB'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'PHP BB'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Php BB'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Magento'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'magento'); if ($mFlag2) {$mCount++;}
+			
+			if ($mCount>1) {print "<b>";
+			$wank2 = str_replace("cpg/", "", $wank);
+			$String = str_replace("href=\"", "href=\"$wank2", $String); 
+			print "$String";
+			$Array = explode(">", $String);
+			$Array[1] = str_replace('<a href="', '', $Array[1]);
+			$Array[1] = str_replace('"', '', $Array[1]);
+			$Array[2] = str_replace(' -</a', '', $Array[2]);
+			$Array[4] = str_replace('</font', '', $Array[4]);
+			
+			$mFound=0;
+			$Query111 = "SELECT * FROM `craigslist_get` WHERE a='$Array[1]' LIMIT 1;";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			while ($Row110 = mysql_fetch_array ($Result111))
+				{	
+				$Cat = $Row110[0];
+				$Cat1 = $Row110[1];
+				$mFound=1;
+				}
+			
+			if ($mFound==0) {
+			
+			$Query111 = "INSERT INTO `craigslist_get` (`a` ,`b` ,`c` ,`d` ,`e` ,`f` ,`g`) VALUES ('$Array[1]', '$Array[2]', '$Array[4]', '', '', '', '');";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			
+			$Query111 = "INSERT INTO `craigslist_new` (`a` ,`b` ,`c` ,`d` ,`e` ,`f` ,`g`) VALUES ('$Array[1]', '$Array[2]', '$Array[4]', '', '', '', '');";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			}
+			print "</b>";}
+			}*/
+		}
+	}
+	//}
+mysql_close ($Link);
+?>

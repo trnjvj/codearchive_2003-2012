@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>Search Terms</TITLE>
+</HEAD>
+<?
+set_time_limit(0);
+print "<div align=center>";
+print "<img src=logo.jpg><p>";
+print "<div class='div1'>Search Terms</div><p>";
+print "<p>";
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query111 = "SELECT * FROM `archipelago_searchterms`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+print "<table width=600 border=1>";
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat  = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];
+	$Cat5 = $Row110[5];
+	print "<tr><td><div class='div1'>$Cat</div></td><td><div class='div1'>$Cat1</div></td><td><div class='div1'>$Cat2</div1></td><td><div class='div1'>$Cat3</div></td><td><div class='div1'>$Cat4</div></td><td>$Cat5</td></tr>";
+	}
+print "</table>";
+
+mysql_close ($Link);
+?>

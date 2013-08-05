@@ -1,0 +1,51 @@
+<?
+$myid = $_GET['myid'];
+$mysysinfo = $_GET['mysysinfo'];
+$myimage = $_GET['myimage'];
+
+$your_name = $_GET['your_name'];
+$your_email = $_GET['your_email'];
+$friends_email = $_GET['friends_email'];
+$email_subject = $_GET['email_subject'];
+$mymessage = $_GET['mymessage'];
+
+$hostname1 = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+/*
+$hostname2 = gethostbyaddr($_SERVER['REMOTE_HOST']);
+$hostname3 = gethostbyaddr($_SERVER['REMOTE_PORT']);
+*/
+$hostname = "$hostname1";
+
+$hostname4 = "$hostname1|$hostname2|$hostname3|$mysysinfo|$myimage|$your_email|$friends_email|$email_subject|$mymessage";
+$today = getdate();
+$month = $today['month'];
+$mday = $today['mday'];
+$year = $today['year'];
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$weekday = $today['weekday'];
+$mStamp = "$mday $month, $year - $hours:$minutes:$seconds";
+include('db_connect.php');
+$Query13 = "INSERT INTO `clientid` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$hostname', '$mStamp', '$myimage', '$hostname4', 'send to friend');";
+
+$Result12 = mysql_db_query($DBName, $Query13, $Link);
+print "myVar=";
+
+$Query1 = "SELECT * FROM `images` where name='$myimage';";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	print "$Row1[0]~$Row1[1]~$Row1[2]~$Row1[3]~$Row1[4]~$Row1[5]~$Row1[6]~$Row1[7]~$Row1[8]~$Row1[9]~$Row1[10]~$Row1[11]~$Row1[12]";
+	}
+
+mysql_close ($Link);
+
+$myimage2 = str_replace(" ", "+", $myimage);
+
+$Body="<html><a href='http://www.timjohnson.info/aod4/framing/index.php?a=$myimage2'><img src='http://www.timjohnson.info/aod4/framing/images/prints/$myimage.jpg'></a><br><br>$mymessage</html>";
+$headers .= "From: $your_name <$your_email>\r\n";
+$headers .= "Content-type: text/html; charset=iso-XXXX-XX\r\n";
+$Subject = "$email_subject";
+mail($friends_email, $Subject, $Body, $headers);
+?>

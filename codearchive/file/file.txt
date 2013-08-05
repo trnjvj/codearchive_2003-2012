@@ -1,0 +1,76 @@
+<?
+set_time_limit (0);
+if ($herbage!="xfgh") {
+if ($h1=="x") {
+print "<div align=center><font face=verdana size=2>Your session has expired. Please login again.</font></div><p>";
+}
+include "home.htm";
+}
+else {
+$mlala=0;
+print '
+<html>
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="10; URL=index.php">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+';
+print "<table bgcolor=D6D2CF width=100% cellpadding=0 border=0><tr><td>";
+print "<table bgcolor=D6D2CF border=0><tr>";
+print "<td><font face=verdana size=1>&nbsp;&nbsp;<a href=index.php>File</a>&nbsp;&nbsp;</font></td>";
+print "<td><font face=verdana size=1>&nbsp;&nbsp;View&nbsp;&nbsp;</font></td>";
+print "<td><font face=verdana size=1>&nbsp;&nbsp;Go&nbsp;&nbsp;</font></td>";
+print "<td><font face=verdana size=1>&nbsp;&nbsp;Bookmarks&nbsp;&nbsp;</font></td>";
+print "<td><font face=verdana size=1>&nbsp;&nbsp;Tools&nbsp;&nbsp;</font></td>";
+print "<td><font face=verdana size=1>&nbsp;&nbsp;Window&nbsp;&nbsp;</font></td>";
+print "<td><font face=verdana size=1>&nbsp;&nbsp;Help&nbsp;&nbsp;</font></td>";
+print "</tr></table></td>";
+print "<td align=right><font face=verdana size=1><strong>a r c h i p e l a g o - v 0 . 7</strong>&nbsp;&nbsp;</font></td>";
+print "</tr></table>";
+
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "<table bgcolor=D6D2CF border=0><tr><td valign=top><font face=verdana size=1>";
+$mcount1=3;
+
+print "&nbsp;&nbsp;<a href=filenew.php>New</a>&nbsp;&nbsp;<br>";
+print "&nbsp;&nbsp;<a href=index.php>Close</a>&nbsp;&nbsp;<br>";
+print "&nbsp;&nbsp;<a href=logout.php>Exit</a>&nbsp;&nbsp;<br>";
+
+$mmm=0;
+
+$Query215 = "SELECT DISTINCT t FROM `bloggle_blog2` WHERE S='$Username' ORDER BY t;";
+$Result215 = mysql_db_query($DBName, $Query215, $Link);
+while ($Row215 = mysql_fetch_array ($Result215))
+{
+$m215a = $Row215[0];
+$m215ab = str_replace(" ", "+", $m215a);
+print "&nbsp;&nbsp;<a href=edit.php?b=$m215ab>$m215a</a>&nbsp;&nbsp;<br>";
+$mcount1++;
+if ($mcount1>15) {print "&nbsp;</td><td valign=top><font face=verdana size=1>";$mcount1=0;}
+}
+print "</font>";
+
+}
+if ($mmm==1) {print "</font></td></tr></table>";}
+
+print '';
+
+print "</td></tr></table>";
+print '</table></html>';
+
+mysql_close ($Link);
+
+
+
+?>
+

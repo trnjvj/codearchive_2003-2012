@@ -1,0 +1,96 @@
+<?
+$a = $_GET['a'];
+/*
+$a="Iran Threatens Israel if U.S. Attacks";
+*/
+include('db_connect.php');
+
+$Query13 = "SELECT b FROM `rss_stories` WHERE a='$a'";
+$Result12 = mysql_db_query($DBName, $Query13, $Link);
+while ($Row12 = mysql_fetch_array ($Result12))
+	{
+	$zd = $Row12[0];
+	/*
+	print "$zd";
+	*/
+	}
+/*
+$a="http://us.rd.yahoo.com/dailynews/rss/topstories/*http://news.yahoo.com/s/ap/20060503/ap_on_re_eu/russia_plane_crash";
+*/
+print "myRssStory=";
+$mBigFlag=0;
+$mFlag2000=0;
+$mystory="";
+$TheFile = "$zd";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		/*
+		print "$String";
+		*/
+		$Array = explode(">", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$Array[$m]=str_replace("<", "[", $Array[$m]);
+			$Array[$m]=str_replace(">", "]", $Array[$m]);
+			
+			/*
+			print "$Array[$m]<hr>";
+			*/
+			
+			if (strpos($Array[$m], 'storybody')) {
+				$mFlag2000=1;
+				}
+			
+			if (strpos(" $Array[$m]", "Email Story")) {
+				$mFlag2000=2;
+			}
+			
+			
+			if ($mFlag2000==1) {
+				$mything = strpos($Array[$m], "[");
+				$mthis = substr($Array[$m], 0, $mything);
+				if (strlen($mthis)) {
+				if ($mylast==$mthis) {}  else {
+				print "$mthis ";
+				}
+								
+				$mylast2=$mylast;
+				$mylast=$mthis;
+				}
+			}
+			
+			$m123 = str_replace("<", "[", $Array[$m+1]);
+			$m123  = str_replace(">", "]", $m123);
+				
+				/*
+				
+				$mFlag1 = strstr($m123, 'ahoo! News');
+				$mmm1 = strpos($m22, " ");
+				if ($mFlag1) {} else {
+				$m123  = str_replace('&quot;', '"', $m123);
+				$m123  = str_replace("&#039;", "'", $m123);
+				print "~~$m123";
+				}
+			}
+			
+			if ($Array[$m] == "[link") {
+				$m123 = str_replace("<", "[", $Array[$m+1]);
+				$m123  = str_replace(">", "]", $m123);
+				if ($mBigFlag<2) {$mBigFlag++;} else {
+					$m123  = str_replace("[/link", "", $m123);
+					print "||$m123";
+					
+					}
+					*/	
+			}
+		
+		}
+		
+		}
+
+print "$mystory";
+?>

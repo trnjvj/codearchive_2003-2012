@@ -1,0 +1,173 @@
+<?
+print "<body bgcolor=000000 text=FFFFFF link=FFFFFF vlink=FFFFFF>";
+print "<div align=center><font face=verdana size=3><b>$mSearch</b></font><p></div>";
+$mSearch=str_replace(" ", "+", $mSearch);
+$mCount5000=0;
+$mFirst=1;
+$login=1;
+if ($user=="none") {
+$login=1;
+}
+if ($user=="") {
+$login=1;
+}
+$mUser="$user";
+$mCount2002 = 0;
+
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=6000&o=a&p=%22$mSearch%22&c=news_photos";
+if ($mReturn) {
+	$LL1 = strpos($mReturn, ":");
+	if ($LL1) {
+		$LL2 = strlen($mReturn);
+		$mReturn5 = substr($mReturn, 5, $LL2-5);
+
+	}
+	else
+	{
+	$mReturn5 = $mReturn;
+	}
+if ($mReturn5==$mSearch) {
+	$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=100&o=a&p=%22$mSearch%22&c=news_photos";
+
+} else {
+	$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=100&o=a&p=%22$mSearch+$mReturn5%22&c=news_photos";
+}
+
+}
+$Open = fopen($TheFile, "r");
+if ($Open) {
+
+
+	if ($login==1 or $mCount2002<3) {
+
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$SS1 = strstr($Array[$m], 'http://story.news.yahoo.com/');
+			if ($SS1) {
+
+					$Found=1;
+					$mLink = str_replace("<TR valign=middle><TD align=center>", "", $Array[$m]);
+					
+					
+
+					}
+
+			$S1 = strstr($Array[$m], '<img border=1 src=http://us.news1.yimg.com');
+
+			if ($S1) {
+            		if ($mFirst==1) {
+                    print "<div align=center>";
+                    $mFirst=0;
+                    }
+					$Found=1;
+					$mStory = str_replace("</TD>", "", $Array[$m]);
+					$mStory = str_replace("<img ", "<img ", $mStory);
+                    $mCount2002 = $mCount2002+1;
+                    $mCount5000 = $mCount5000+1;
+                    if ($login==1) {
+					Print "<font face=verdana size=1>$mLink$mStory</a></font>&nbsp;&nbsp;\n";
+                    if ($mCount5000>4) {
+                    	$mCount5000=0;
+                        print "<br>";
+                        }
+                    }
+                    else
+                    {
+                    if ($mCount2002>10) {} else {
+                    Print "<font face=verdana size=1>$mLink$mStory</a></font>&nbsp;&nbsp;\n";
+                    if ($mCount5000>4) {
+                    	$mCount5000=0;
+                        print "<br>";
+                        }
+                    }
+                    }
+                    }
+				}
+			}
+		}
+	}
+
+
+
+$mFirst=1;
+
+$login=1;
+if ($user=="none") {
+$login=1;
+}
+if ($user=="") {
+$login=1;
+}
+$mUser="$user";
+$mCount2002 = 0;
+
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&p=%22$mSearch%22&c=news&o=a&s=&n=100&2=&3=";
+if ($mReturn) {
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&p=%22$mSearch%22&c=news&o=a&s=&n=100&2=&3=";
+
+}
+if ($mReturn5==$mSearch) {
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&p=%22$mSearch%22&c=news&o=a&s=&n=100&2=&3=";
+
+}
+else
+{
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&p=%22$mSearch%22&c=news&o=a&s=&n=100&2=&3=";
+}
+$Found = 0;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+
+
+
+			$S1 = strstr($Array[$m], '<a href="http://story.news.yahoo.com/');
+			$S2 = strstr($Array[$m], '<img');
+			if ($S1) {
+				if ($S2) {} else {
+
+                if ($mFirst==1) {
+print "<div align=center><hr width=520><font face=verdana size=2><b>Headlines</b></font></div><br><div align=center><table width=520><tr><td><font face=verdana size=2>";
+$mFirst=0;
+}
+					$Found=1;
+					$mStory = str_replace("<b>", "", $Array[$m]);
+					$mStory = str_replace("</b>", "", $mStory);
+                    $mStory = str_replace("<a ", "<a target=_blank ", $mStory);
+                    $mStory = str_replace("<A ", "<A target=_blank ", $mStory);
+
+                    $mCount2002 = $mCount2002+1;
+                    if ($login==1) {
+					Print "<li><font face=verdana size=1>$mStory</font></td></tr></table><table width=520 border=0><tr><td>\n";
+                    }
+                    else
+                    {
+                    if ($mCount2002>20) {} else {
+                    Print "<li><font face=verdana size=1>$mStory</font></td></tr></table><table width=520 border=0><tr><td>\n";
+                    }
+                    }
+
+
+
+					}
+				}
+			}
+		}
+	}
+
+
+if ($Found == 0) {
+
+}
+else
+{
+}
+
+?>

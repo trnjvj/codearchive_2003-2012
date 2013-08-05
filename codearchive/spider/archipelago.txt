@@ -1,0 +1,71 @@
+<?
+/* Archipelago v1.1 - copyright 2004 by Tim Johnson trnjvj@yahoo.com */
+
+$mlala=0;
+print '
+<html>
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<style type="text/css">
+body {
+	background-image: url();
+	background-color: #003399;
+}
+-->
+</style></head>
+<body LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+';
+print "<table bgcolor=D6D2CF width=100% cellpadding=0 border=0><tr><td>";
+print "<table bgcolor=D6D2CF border=0><tr>";
+print "<td><font face=verdana size=2><b>$Username's web sites</b>";
+print " | <a href=filenew.php>new website</a> | ";
+print "<a href=logout.php>log out</a></div>";
+print "</b></font></td>";
+print "</tr></table></td>";
+print "<td align=right><font face=verdana size=2><strong>a r c h i p e l a g o - v 1 . 1</strong>&nbsp;&nbsp;</font></td>";
+print "</tr></table>";
+
+$Host = "localhost";
+$User = "holisti_world";
+$Password = "turnip";
+$DBName = "holisti_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "<p><div align=center><table bgcolor=#003399 width=60% border=0><tr><td align=center valign=top><span class='rev'>";
+print "<p><font size=6>$Username</font><hr>";
+$mcount1=1;
+$mmm=0;
+print "<table width==100%><tr>";
+$Query215 = "SELECT DISTINCT b,t FROM `bloggle_blog2` WHERE c='$Yes' ORDER BY b,t;";
+$Result215 = mysql_db_query($DBName, $Query215, $Link);
+while ($Row215 = mysql_fetch_array ($Result215))
+{
+$m215aa = $Row215[0];
+$m215a = $Row215[1];
+$m215ab = str_replace(" ", "+", $m215a);
+print "<td><span class='rev'><a href=view.php?b=$m215ab>$m215aa: $m215a</a></span></td>";
+$mcount1++;
+if ($mcount1>3) {print "</tr><tr>"; $mcount1=1;}
+}
+print "</tr></table>";
+
+print "<hr></div></div>";
+
+if ($mmm==1) {print "</font></td></tr></table>";}
+
+print '';
+
+print "</td></tr></table>";
+print '</table></html>';
+
+mysql_close ($Link);
+
+
+
+?>
+

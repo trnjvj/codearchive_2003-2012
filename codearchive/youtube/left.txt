@@ -1,0 +1,57 @@
+<?
+$a = $_GET['a'];
+if ($a) {} else {$a=0;}
+if ($a>253) {$a=0;}
+$b=$a+1;
+/*
+print '<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=get_youtube.php?a=';
+print "$b";
+print '">
+</HEAD>
+<body background="#000000">
+';
+*/
+include('db_connect.php');
+set_time_limit(0);
+
+$Query111 = "SELECT DISTINCT a,b,c,d,e FROM `youtube` ORDER BY a,e;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat1 = strtolower($Cat1);;
+	$Cat1 = strtolower($Cat1);	
+	$Cat1 = str_replace("$Cat", " ", $Cat1);
+	$Cat1 = str_replace("--", "-", $Cat1);
+	$Cat1 = str_replace("--", "-", $Cat1);
+	$Cat1 = str_replace("$Cat", " ", $Cat1);
+	$Cat1 = str_replace("$Cat4", " ", $Cat1);
+	$Cat1 = str_replace(" - ", " ", $Cat1);
+	$Cat1 = str_replace("|", " ", $Cat1);
+	$Cat1 = str_replace("/ ", " ", $Cat1);
+	$Cat1 = str_replace(":", " ", $Cat1);
+	$Cat1 = str_replace("~", " ", $Cat1);
+	$Cat1 = str_replace("-", " ", $Cat1);
+	$Cat1 = str_replace("¦", " ", $Cat1);
+	$Cat1 = str_replace("•", " ", $Cat1);
+	$Cat1 = str_replace("¦", " ", $Cat1);
+	$Cat1 = str_replace("&amp;", " ", $Cat1);
+	$Cat1 = str_replace("&quot;", " ", $Cat1);
+	$Cat1 = str_replace('"', ' ', $Cat1);
+	$Cat1 = str_replace("@", " ", $Cat1);	
+	$Cat1 = str_replace("  ", " ", $Cat1);	
+	$Cat1 = str_replace("  ", " ", $Cat1);	
+	$Cat1 = trim($Cat1);	
+	if ($Cat==$moCat) {} else {print "<br /><br />$Cat<br /><br />";}
+	print "<a target='right' href='$Cat3'>$Cat1</a><br />\n";  
+	$mFound=1;
+	$moCat=$Cat;
+	}
+
+mysql_close ($Link);
+?>

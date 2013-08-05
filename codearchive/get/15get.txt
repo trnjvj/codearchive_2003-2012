@@ -1,0 +1,82 @@
+<?php
+$Catee=str_replace(" ", "+", $cat);
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "world";
+$Tablename = "yellow_pages";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+print "<pre>";
+$mCount1000=0;
+$Query25 = "SELECT * from ad2";
+$Result25 = mysql_db_query($DBName, $Query25, $Link);
+while ($Row25 = mysql_fetch_array ($Result25))
+	{
+	$mCount1000=$mCount1000+1;
+	if ($mCount1000 > 0)
+		{
+		$m1 = str_replace(";", ",", $Row25[0]);
+$m2 = str_replace(";", ",", $Row25[1]);
+$m3 = str_replace(";", ",", $Row25[2]);
+$m4 = str_replace(";", ",", $Row25[3]);
+$m5 = str_replace(";", ",", $Row25[4]);
+$m6 = str_replace(";", ",", $Row25[5]);
+$m7 = str_replace(";", ",", $Row25[6]);
+$m8 = str_replace(";", ",", $Row25[7]);
+$m9 = str_replace(";", ",", $Row25[8]);
+$m10 = str_replace(";", ",", $Row25[9]);
+$m11 = str_replace(";", ",", $Row25[10]);
+$m12 = str_replace(";", ",", $Row25[11]);
+
+print "$m1|$m2|$m3|$m4|$m5|$m6|$m7|$m8|$m9|$m10|$m11<br>";
+		}
+}
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

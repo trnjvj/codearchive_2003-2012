@@ -1,0 +1,47 @@
+<?PHP
+$z1 = $_GET['z1'];
+$z2 = $_GET['z2'];
+if ($z1) {} else {$z1 = $_POST['z1'];}
+if ($z2) {} else {$z2 = $_POST['z2'];}
+$ip=$_SERVER['REMOTE_ADDR'];
+include('db_connect.php');
+$myemail="";
+$Query7 = "SELECT a FROM `sessions2` WHERE b='$z1' AND c='$z2' AND d='$ip';";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$myemail = $Row7[0];
+	}
+if ($myemail) {
+
+	
+
+	print "<b>Messages</b><br />&nbsp;<br />";
+	//print "your email: $myemail";
+
+$Query8 = "SELECT username FROM `members` WHERE email='$myemail';";
+$Result8 = mysql_db_query($DBName, $Query8, $Link);
+while ($Row8 = mysql_fetch_array ($Result8))
+	{	
+	$myusername = $Row8[0];
+	}
+
+$Query9 = "SELECT * FROM `messages2` WHERE sendee='$myusername';";
+$Result9 = mysql_db_query($DBName, $Query9, $Link);
+while ($Row9 = mysql_fetch_array ($Result9))
+	{	
+	$m0 = $Row9[0];
+	$m1 = $Row9[1];
+	$m2 = $Row9[2];
+	$m3 = $Row9[3];
+	$m4 = $Row9[4];
+	$m5 = $Row9[5];
+
+$mytime = 
+print "from: $m0<br />subject: $m2<br />message: $m3<br />&nbsp;<br />";
+	}
+
+//print "$myusername";
+}
+mysql_close ($Link);
+?>

@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<font face=verdana size=1>
+<?
+set_time_limit(100000);
+
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$TheFile = "holistiopia_geos.csv.php";
+$Open = fopen($TheFile, "r");
+
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+print "$String |  ";
+
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+$String = str_replace(';;', ';"";', $String);
+$String = str_replace(';;', ';"";', $String);
+$String = str_replace(';;', ';"";', $String);
+$String = str_replace(';;', ';"";', $String);
+$String = str_replace(';;', ';"";', $String);
+$String = str_replace(';;', ';"";', $String);
+
+$pieces = explode('";', $String);
+$pieces[0]=str_replace('"', '', $pieces[0]);
+$pieces[0]=str_replace(';', '', $pieces[0]);
+$pieces[1]=str_replace('"', '', $pieces[1]);
+$pieces[1]=str_replace(';', '', $pieces[1]);
+$pieces[2]=str_replace('"', '', $pieces[2]);
+$pieces[2]=str_replace(';', '', $pieces[2]);
+
+$Query111 = "INSERT INTO `holistiopia_geos` ( `a` , `b` , `c`) VALUES ('$pieces[0]', '$pieces[1]', '$pieces[2]');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+}
+}
+}
+
+fclose($Open);
+
+mysql_close ($Link);
+?>

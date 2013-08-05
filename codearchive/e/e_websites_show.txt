@@ -1,0 +1,105 @@
+<?
+set_time_limit (6000);
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query23="DELETE FROM WEBSITES;";
+$Result23 = mysql_db_query($DBName, $Query23, $Link);
+
+$Query = "SELECT * from CATEGORIES";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $mSearch = $Row[0];
+	
+$mCache="List Produced by Pandora23: http://www.thedailynewsgrabber.com/mine/index.php?E1=$E1&L1=$mSearch\n\r";
+$mSearch321=str_replace("+", " ", $mSearch);
+$mSearch321=trim($mSearch321);
+$mCount2002 = 0;
+$mFirst321=1;
+print "hakjshdkjasd";
+
+$mCached=0;
+if ($mCached==0) {
+$Cache="";
+print "<div align=center>";
+$mSearch2003=str_replace(" ", "+", $mSearch);
+$mSkipit=0;
+for ($o = 2; $o < 10000; $o = $o + 20) {
+if ($mSkipit==0) {
+$TheFile = "http://search.dmoz.org/cgi-bin/search?search=$mSearch2003&utf8=1&locale=en&start=$o";
+$Start=0;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=-1;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++)
+    	{
+		$String = trim($Data[$n]);
+        $VVV = strpos($String,"he Open Directory search is currently under a heavy load. Please try back later.");
+        if ($VVV) {
+			$mSkipit=0;
+			}
+
+		$V1 = strpos($String, "li>");
+		if ($V1) {
+                $V3 = strpos($String, '"');
+                $V4 = strlen($mString);
+				if ($V3) {
+                	$T1 = substr($String, $V3+1, $V4-$V3-1);
+                    $V5 = strpos($T1, '"');
+                	if ($V5) {
+                                                                   		$T2 = substr($T1, 0, $V5);
+                        $V6 = strlen($T1);
+                        $T3 = substr($T1, $V5+2, $V6-$V5-2);
+                        $V7 = strpos($T3, "</a>");
+                        $T4 = substr($T3, 0, $V7);
+                        $T4 = str_replace("<b>", "", $T4);
+                        $T4 = str_replace("</b>", "", $T4);
+                        $T4 = str_replace(";", "", $T4);
+                        $V8 = strlen($T3);
+                        $T5 = substr($T3, $V7+4, $V8-$V7-4);
+                        $T5 = str_replace("<b>", "", $T5);
+                        $T5 = str_replace("</b>", "", $T5);
+                        $T5 = str_replace(" - ", "", $T5);
+                        $V9 = strpos($T5, "<");
+                        $T6 = substr($T5, 0, $V9);
+                        $mCount2002 = $mCount2002+1;
+                    $mFound=1;
+					$mNot=0;
+					$VV1 = strpos($T2, ".jpg");
+					if ($VV1) {$mNot=1;}
+$VV1 = strpos($T2, ".gif");
+					if ($VV1) {$mNot=1;}
+if ($mNot==0) {
+                    print "<table width=100%><tr><td><font face=verdana size=1>*** $mSearch|$T4|<a target=_blank href=$T2>$T2</a>|$T6</font></td></tr></table>\n";
+			 $mCache="$mCache\n\r**$mSearch|$T4|$T2\n|$T6";
+			 $Query23="INSERT INTO `websites` ( `a` , `b` , `c` , `d` , `e` , `f` ) VALUES ('$mSearch', '$T4', '$T2', '$T6', 'e', 'f');";
+	         $Result23 = mysql_db_query($DBName, $Query23, $Link);
+			  if ($T4==$oT4) {
+				$mSkipit=3;
+				}
+                    $oT4 = $T4;
+}
+     }
+}
+}
+}
+}
+}
+}
+}
+
+}
+$Subject="Websites: $mSearch";
+$E1="trnjvj@yahoo.com";
+
+mysql_close ($Link);
+?>

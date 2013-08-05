@@ -1,0 +1,68 @@
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mFlag=1;
+$TheFile = "names.txt";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$m2 = strpos($String, "<-");
+		if ($m2) {
+		$m3 = substr($String, 0, $m2);
+		$m4 = str_replace("$m3", "", $String);
+		$m4 = str_replace("<- ", "", $m4);
+		$m3 = trim($m3);
+		
+		$m5 = strpos($m4, " ");
+		$m5a = substr($m4, 0, $m5);
+		$m5b = trim(str_replace($m5a, "", $m4));
+		$m5c = strpos($m5b, " ");
+		$m5d = substr($m5b, 0, $m5c);
+		$m6 = substr($m4, 0, $m5);
+		
+		$m7 = "$m5a $m5d";
+		
+		$mFlag1 = 0;
+		$m7b = " $m7";
+		$m8 = strpos($m7b, "x");
+		
+		if ($m8) {$mFlag1=1;}
+		$m9=strlen($m7);
+		if ($m9<2) {$mFlag1=1;}
+		$m3b = " $m3";
+		$m8 = strpos($m3b, "X");
+		
+		if ($m8) {$mFlag1=1;}
+		$m8 = strpos($m3b, "(");
+		
+		if ($m8) {$mFlag1=1;}
+		$m8 = strpos($m7b, ")");
+		
+		if ($m8) {$mFlag1=1;}
+		$m7 = str_replace("'", "|", $m7);
+		$m3 = str_replace("'", "|", $m3);
+		if ($mFlag1==1) {} else {
+		print "$m7|Common Name|$m3<br>";
+		
+		}
+		
+		
+		
+		
+	
+		}
+		}
+	}
+fclose($Open);
+mysql_close ($Link);
+print ".";
+?>

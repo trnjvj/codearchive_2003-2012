@@ -1,0 +1,526 @@
+<?php
+print "<div align=center>";
+
+
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "world";
+$Tablename = "websites";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+$Query25 = "SELECT DISTINCT c,d from world where b='California'";
+$Result25 = mysql_db_query($DBName, $Query25, $Link);
+while ($Row25 = mysql_fetch_array ($Result25))
+	{
+    $mFound2001=1;
+	print "$Row25[0] $Row25[1]<br>\n";
+
+
+
+$L1="USA";
+$L2="California";
+$L3="$Row25[0]";
+$L4="$Row25[1]";
+$M1="Holistic";
+$M2="Health Spas";
+
+
+
+
+$mFound10000=0;
+$mFound100=0;
+print "<div align=center><table border=0 width=820>";
+
+$Query24 = "SELECT DISTINCT a,b,c,d,e,f,g,h,i,j,k,l,m from yellow_pages limit 0";
+
+
+if ($L2) {
+if ($M1 or $M2 or $M3) {} else {
+$Query24 = "SELECT DISTINCT a,b,c,d,e,f,g,h,i,j,k,l,m from yellow_pages where b='$L2' order by e,f,g,k,h";
+$M1;
+}
+
+if ($L3) {
+if ($M1 or $M2 or $M3) {} else {
+$Query24 = "SELECT DISTINCT a,b,c,d,e,f,g,h,i,j,k,l,m from yellow_pages where c='$L3' order by e,f,g,k,h";
+$mSlearch=$M1;
+}
+
+if ($M1) {
+$Query24 = "SELECT DISTINCT a,b,c,d,e,f,g,h,i,j,k,l,m from yellow_pages where e='$M1' and c='$L3' order by e,f,g,k,h";
+$mSlearch=$M1;
+}
+if ($M2) {
+$Query24 = "SELECT DISTINCT a,b,c,d,e,f,g,h,i,j,k,l,m from yellow_pages where f='$M2' and c='$L3' order by e,f,g,k,h";
+$mSlearch=$M2;
+}
+if ($M3) {
+$Query24 = "SELECT DISTINCT a,b,c,d,e,f,g,h,i,j,k,l,m from yellow_pages where g='$M3' and c='$L3' order by e,f,g,k,h";
+$mSlearch=$M3;
+}
+}
+
+if ($L4) {
+if ($M1) {
+$Query24 = "SELECT DISTINCT a,b,c,d,e,f,g,h,i,j,k,l,m from yellow_pages where e='$M1' and k='$L4' order by e,f,g,k,h";
+$mSlearch=$M1;
+}
+if ($M2) {
+$Query24 = "SELECT DISTINCT a,b,c,d,e,f,g,h,i,j,k,l,m from yellow_pages where f='$M2' and k='$L4' order by e,f,g,k,h";
+$mSlearch=$M2;
+}
+if ($M3) {
+$Query24 = "SELECT DISTINCT a,b,c,d,e,f,g,h,i,j,k,l,m from yellow_pages where g='$M3' and k='$L4' order by e,f,g,k,h";
+$mSlearch=$M3;
+}
+}
+
+$mRow11=1;
+$mFound2001=0;
+$Result = mysql_db_query($DBName, $Query24, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $mFound2001=1;
+    $mFound100=0;
+      $mAddresss = str_replace(" ", "+", $Row[9]);
+    $mAddresss = str_replace("#", "%23", $mAddresss);
+    $mCityy = str_replace(" ", "+", $Row[10]);
+    $mStatee = str_replace(" ", "+", $Row[1]);
+
+    print "<tr>";
+    $mLaLa2000=0;
+    $mLimit=0;
+    if ($Row[6]==$o6) {}
+    else {print "</tr></table><br><font face=verdana size=2><b>$Row[4] $Row[5] $Row[6]</b><p></font><table border=0 width=820><tr>";$mLimit=1;}
+    if ($Row[5]==$o5) {}
+    else {if ($mLimit==0) {print "</tr></table><br><font face=verdana size=2><b>$Row[4] $Row[5]</b><p></font><table border=0 width=820><tr>";}}
+    if ($Row[4]==$o4) {}
+    else {if ($mLimit==0) {print "</tr></table><br><font face=verdana size=2><b>$Row[4]</b><p></font><table border=0 width=820><tr>";}}
+
+    if ($Row[3]==$Row[10]) {$mFound10000=1;}
+
+    $o4=$Row[4];
+    $o5=$Row[5];
+    $o6=$Row[6];
+    $mSSSearch="$Row[8] $Row[10]";
+    $mSSearch=str_replace(" ", "+", $mSSSearch);
+    if ($Row[10]==$o10) {print "<td width=12%><font face=verdana size=1>&nbsp;</font></td>";}
+    else {print "<td width=12%><font face=verdana size=1><b>$Row[10]</b></td>";}
+    $o10=$Row[10];
+
+
+    print "<td width=12%><a target=_blank href=http://www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=$mSSearch&btnG=Google+Search><font face=verdana size=1>$Row[8]</a>";
+    if ($Row[12]) {print "<br><a href=$Row[12]>$Row[12]</a>";}
+    print "</td>";
+
+
+    if ($Row[0]=="USA") {
+       print "<td width=12%><font face=verdana size=1><a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$Row[9]</a></font></td>";
+       }
+       if ($Row[0]=="Canada") {
+       print "<td width=12%><font face=verdana size=1><a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=ca&Get%A0Map=Get+Map>$Row[9]</a></font></td>";
+       }
+    print "<td width=12%><font face=verdana size=1>$Row[11]</td>\n";
+
+    }
+print "</tr></table></div>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if ($mFound2001==0) {print "<div align=center>";}
+$mCache2="$mCache2<div align=center>";
+if ($mFound2001==0) {print "<table width=620 cellpadding=2 border=0>";}
+$mCache2="$mCache2<table width=620 cellpadding=2 border=0>";
+
+$mSearch321=str_replace("+", " ", $mSearch);
+$mSearch321=trim($mSearch321);
+$mSettings2="?";
+if ($LevelB) {
+$mSettings2 = "?LevelB=$LevelB";
+}
+if ($Level) {
+$mSettings2 = "$mSettings2&Level=$Level";
+}
+if ($L1) {
+$mSettings2 = "$mSettings2&L1=$mL1";
+}
+if ($L2) {
+$mSettings2 = "$mSettings2&L2=$mL2";
+}
+if ($L3) {
+$mSettings2 = "$mSettings2&L3=$mL3";
+}
+if ($L4) {
+$mSettings2 = "$mSettings2&L4=$mL4";
+}
+if ($M1) {
+$mSettings2 = "$mSettings2&M1=$mM1";
+}
+if ($M2) {
+$mSettings2 = "$mSettings2&M2=$mM2";
+}
+if ($M3) {
+$mSettings2 = "$mSettings2&M3=$mM3";
+}
+if ($M4) {
+$mSettings2 = "$mSettings2&M4=$mM4";
+}
+if ($M5) {
+$mSettings2 = "$mSettings2&M5=$mM5";
+}
+if ($M6) {
+$mSettings2 = "$mSettings2&M6=$mM6";
+}
+if ($mSettings2=="?") {$mSettings2="";}
+
+
+
+$mBA=0;
+if ($L1=="USA") {$mBA=1;}
+if ($L1=="Canada") {$mBA=1;}
+
+if ($M1) {$mSS=$M1;}
+if ($M2) {$mSS=$M2;}
+if ($M3) {$mSS=$M3;}
+if ($M4) {$mSS=$M4;}
+if ($M5) {$mSS=$M5;}
+if ($M6) {$mSS=$M6;}
+$mSSS = str_replace(" ", "+", $mSS);
+
+if ($mBA) {
+$mBA1 = strlen($L2);
+$mBA2 = $L2;
+
+if ($mBA2=="British Columbia") {$mST="BC";}
+if ($mBA2=="Manitoba") {$mST="MB";}
+if ($mBA2=="New Brunswick") {$mST="NB";}
+if ($mBA2=="Newfoundland") {$mST="NF";}
+if ($mBA2=="Northwest Territories") {$mST="NT";}
+if ($mBA2=="Nunavut") {$mST="NU";}
+if ($mBA2=="Ontario") {$mST="ON";}
+if ($mBA2=="Prince Edward Island") {$mST="PE";}
+if ($mBA2=="Québec") {$mST="QC";}
+if ($mBA2=="Saskatchewan") {$mST="SK";}
+if ($mBA2=="Yukon") {$mST="YK";}
+
+if ($mBA2=="California") {$mST="CA";}
+if ($mBA2=="Alabama") {$mST="AL";}
+if ($mBA2=="Alaska") {$mST="AK";}
+if ($mBA2=="Arizona") {$mST="AZ";}
+if ($mBA2=="Arkansas") {$mST="AR";}
+if ($mBA2=="California") {$mST="CA";}
+if ($mBA2=="Colorado") {$mST="CO";}
+if ($mBA2=="Connecticut") {$mST="CT";}
+if ($mBA2=="Delaware") {$mST="DE";}
+if ($mBA2=="District of Columbia") {$mST="DC";}
+if ($mBA2=="Florida") {$mST="FL";}
+if ($mBA2=="Georgia") {$mST="GA";}
+if ($mBA2=="Hawaii") {$mST="HI";}
+if ($mBA2=="Idaho") {$mST="ID";}
+if ($mBA2=="Illinois") {$mST="IL";}
+if ($mBA2=="Indiana") {$mST="IN";}
+if ($mBA2=="Iowa") {$mST="IA";}
+if ($mBA2=="Kansas") {$mST="KS";}
+if ($mBA2=="Kentucky") {$mST="KY";}
+if ($mBA2=="Louisiana") {$mST="LA";}
+if ($mBA2=="Maine") {$mST="ME";}
+if ($mBA2=="Maryland") {$mST="MD";}
+if ($mBA2=="Massachusetts") {$mST="MA";}
+if ($mBA2=="Michigan") {$mST="MI";}
+if ($mBA2=="Minnesota") {$mST="MN";}
+if ($mBA2=="Mississippi") {$mST="MS";}
+if ($mBA2=="Missouri") {$mST="MO";}
+if ($mBA2=="Montana") {$mST="MT";}
+if ($mBA2=="Nebraska") {$mST="NE";}
+if ($mBA2=="Nevada") {$mST="NV";}
+if ($mBA2=="New Hampshire") {$mST="NH";}
+if ($mBA2=="New Jersey") {$mST="NJ";}
+if ($mBA2=="New Mexico") {$mST="NM";}
+if ($mBA2=="New York") {$mST="NY";}
+if ($mBA2=="North Carolina") {$mST="NC";}
+if ($mBA2=="North Dakota") {$mST="ND";}
+if ($mBA2=="Ohio") {$mST="OH";}
+if ($mBA2=="Oklahoma") {$mST="OK";}
+if ($mBA2=="Oregon") {$mST="OR";}
+if ($mBA2=="Pennsylvania") {$mST="PA";}
+if ($mBA2=="Rhode Island") {$mST="RI";}
+if ($mBA2=="South Carolina") {$mST="SC";}
+if ($mBA2=="South Dakota") {$mST="SD";}
+if ($mBA2=="Tennessee") {$mST="TN";}
+if ($mBA2=="Texas") {$mST="TX";}
+if ($mBA2=="Utah") {$mST="UT";}
+if ($mBA2=="Vermont") {$mST="VT";}
+if ($mBA2=="Virginia") {$mST="VA";}
+if ($mBA2=="Washington") {$mST="WA";}
+if ($mBA2=="West Virginia") {$mST="WV";}
+if ($mBA2=="Wisconsin") {$mST="WI";}
+if ($mBA2=="Wyoming") {$mST="WY";}
+
+
+}
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "websites";
+
+
+$mFound20=1;
+for ($i=0; $i<200; $i=$i+13)
+{
+
+if ($mFound20==1) {
+$mFound20=0;
+$mStart=0;
+$mStart2=0;
+
+if ($mL3) {$mCt="$mL3";}
+if ($mL4) {$mCt="$mL4";}
+
+if ($L1=="USA") {$TheFile = "http://yp.yahoo.com/py/ypResults.py?&&city=$mCt&state=$mST&country=us&stx=$mSSS&offset=$i";}
+if ($L1=="Canada") {$TheFile = "http://yp.yahoo.com/py/ypResults.py?&&city=$mCt&state=$mST&country=ca&stx=$mSSS&offset=$i";}
+
+$Found = 0;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+	        $mZA3 = strstr($Array[$m], "Sponsored Businesses");
+            if ($mZA3) {$mStart2=1;}
+        	$mBA3 = strstr($Array[$m], "All Businesses");
+
+            if ($mBA3) {
+            	if ($mStart2==1) {$mStart2=0;} else {
+            	$mStart=1;
+                }
+                }
+            if ($mStart==1) {
+
+            	$mCA1 = strpos($Array[$m], 'hr size="1" noshade width="100%">');
+                if ($mCA1) {
+                	$mXA1 = strpos($mAddress, "erving Your Area");
+                    if ($mXA1) {} else {
+
+                    	if ($mFound2001==0) {print "<tr>";}
+                        $mCache2="$mCache2<tr>";
+                    	if ($mWebsite) {
+                        if ($mFound2001==0) {print "<td><font face=verdana size=1>$mName<br><a target=_blank href=$mWebsite>$mWebsite</a></font></td>";}
+                        $mCache2="$mCache2<td><font face=verdana size=1>$mName<br><a target=_blank href=$mWebsite>$mWebsite</a></font></td>";
+
+                        $mFound11=0;
+                        $Query = "SELECT DISTINCT d from websites where d='$mWebsite'";
+    					$Result = mysql_db_query($DBName, $Query, $Link);
+						while ($Row = mysql_fetch_array ($Result))
+							{
+							$mFound11=1;
+                            }
+                        $mSearch100="$mCity $mState $mSS";
+
+                        if ($mFound11==0) {
+	                        $Query12="INSERT INTO `websites` ( `a` , `b` , `c` , `d` , `e` , `f`, `g`, `h`, `i`) VALUES ('$mSearch100', '$login', '$mName', '$mWebsite', '1', '$mSettings2', '', '', '');";
+							$Result12 = mysql_db_query($DBName, $Query12, $Link);
+
+                        	}
+                        }
+                        else
+                        {
+                        $mSSSearch="$mName $mCity";
+                        $mSSearch=str_replace(" ", "+", $mSSSearch);
+                        if ($mFound2001==0) {print "<td><font face=verdana size=1><a target=_blank href=http://www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=$mSSearch&btnG=Google+Search>$mName</a></font></td>";}
+                        $mCache2="$mCache2<td><font face=verdana size=1><a target=_blank href=http://www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=$mSSearch&btnG=Google+Search>$mName</a></font></td>";
+
+                        }
+                        if ($mAddress) {
+                        $mAddresss = str_replace(" ", "+", $mAddress);
+                        $mAddresss = str_replace("#", "%23", $mAddresss);
+                        $mCityy = str_replace(" ", "+", $mCity);
+                        $mStatee = str_replace(" ", "+", $mState);
+                        if ($L1=="USA") {
+                        if ($mFound2001==0) {print "<td><font face=verdana size=1><a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$mAddress</a></font></td>";}
+                        $mCache2="$mCache2<td><font face=verdana size=1><a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$mAddress</a></font></td>";
+
+                        }
+                        if ($L1=="Canada") {
+                        if ($mFound2001==0) {print "<td><font face=verdana size=1><a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=ca&Get%A0Map=Get+Map>$mAddress</a></font></td>";}
+                        $mCache2="$mCache2<td><font face=verdana size=1><a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=ca&Get%A0Map=Get+Map>$mAddress</a></font></td>";
+
+                        }
+
+                        } else {
+                        if ($mFound2001==0) {print "<td><font face=verdana size=1>&nbsp;</font></td>";}
+                        $mCache2="$mCache2<td><font face=verdana size=1>&nbsp;</font></td>";
+
+                        }
+                        if ($mFound2001==0) {print "<td><font face=verdana size=1>$mCity</font></td>";}
+                        $mCache2="$mCache2<td><font face=verdana size=1>$mCity</font></td>";
+
+                        if ($mFound2001==0) {print "<td><font face=verdana size=1>$mState</font></td>";}
+                        $mCache2="$mCache2<td><font face=verdana size=1>$mState</font></td>";
+
+                        if ($mFound2001==0) {print "<td><font face=verdana size=1>$mPhone</font></td>";}
+                        $mCache2="$mCache2<td><font face=verdana size=1>$mPhone</font></td>";
+
+                        if ($mFound2001==0) {print "</tr>\n";}
+                        $mCache2="$mCache2</tr>\n";
+
+                        if ($mFound10000==0) {
+                        $Query23="INSERT INTO `yellow_pages` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` ) VALUES (   '$L1', '$mState', '$L3', '$L4', '$M1', '$M2', '$M3', '$M4', '$mName', '$mAddress', '$mCity', '$mPhone', '$mWebsite' );";
+                        $Result23 = mysql_db_query($DBName, $Query23, $Link);
+                        }
+
+                        $mFound20=1;
+                        }
+                    $mName="";
+                    $mAddress="";
+                    $mCity="";
+                    $mState="";
+                    $mPhone="";
+                    $mWebsite="";
+                	$mRank=0;
+                    }
+                if ($mLu1==1) {
+                    $mLu1=0;
+                    $mF1=str_replace("<B>", "", $Array[$m]);
+                    $mF2=str_replace("</B>", "", $mF1);
+                    $mF3=trim($mF2);
+                    $mF4 = strpos($mF3, ',');
+                    $mF5 = substr($mF3, 0, $mF4);
+                    $mF6 = strlen($mF3);
+                    $mF7 = substr($mF3, $mF4+2, $mF6-$mF4-2);
+                    $mCity=$mF5;
+                    if ($mF7=="CA") {$mState="California";}
+
+if ($mF7=="AL") {$mState="Alabama";}
+if ($mF7=="AK") {$mState="Alaska";}
+if ($mF7=="AZ") {$mState="Arizona";}
+if ($mF7=="AR") {$mState="Arkansas";}
+if ($mF7=="CO") {$mState="Colorado";}
+if ($mF7=="CT") {$mState="Connecticut";}
+if ($mF7=="DE") {$mState="Delaware";}
+if ($mF7=="DC") {$mState="District of Columbia";}
+if ($mF7=="FL") {$mState="Florida";}
+if ($mF7=="GA") {$mState="Georgia";}
+if ($mF7=="HI") {$mState="Hawaii";}
+if ($mF7=="ID") {$mState="Idaho";}
+if ($mF7=="IL") {$mState="Illinois";}
+if ($mF7=="IA") {$mState="Iowa";}
+if ($mF7=="KS") {$mState="Kansas";}
+if ($mF7=="KY") {$mState="Kentucky";}
+if ($mF7=="LA") {$mState="Louisiana";}
+if ($mF7=="ME") {$mState="Maine";}
+if ($mF7=="MD") {$mState="Maryland";}
+if ($mF7=="MA") {$mState="Massachusetts";}
+if ($mF7=="MI") {$mState="Michigan";}
+if ($mF7=="MN") {$mState="Minnesota";}
+if ($mF7=="MS") {$mState="Mississippi";}
+if ($mF7=="MO") {$mState="Missouri";}
+if ($mF7=="MT") {$mState="Montana";}
+if ($mF7=="NE") {$mState="Nebraska";}
+if ($mF7=="NV") {$mState="Nevada";}
+if ($mF7=="NJ") {$mState="New Jersey";}
+if ($mF7=="NM") {$mState="New Mexico";}
+if ($mF7=="NY") {$mState="New York";}
+if ($mF7=="NC") {$mState="North Carolina";}
+if ($mF7=="ND") {$mState="North Dakota";}
+if ($mF7=="OH") {$mState="Ohio";}
+if ($mF7=="OK") {$mState="Oklahoma";}
+if ($mF7=="OR") {$mState="Oregon";}
+if ($mF7=="PA") {$mState="Pennsylvania";}
+if ($mF7=="RI") {$mState="Rhode Island";}
+if ($mF7=="SC") {$mState="South Carolina";}
+if ($mF7=="SD") {$mState="South Dakota";}
+if ($mF7=="UT") {$mState="Utah";}
+if ($mF7=="VT") {$mState="Vermont";}
+if ($mF7=="VA") {$mState="Virginia";}
+if ($mF7=="WA") {$mState="Washington";}
+if ($mF7=="WV") {$mState="West Virginia";}
+if ($mF7=="WI") {$mState="Wisconsin";}
+if ($mF7=="WY") {$mState="Wyoming";}
+
+if ($mF7=="BC") {$mState="British Columbia";}
+if ($mF7=="MB") {$mState="Manitoba";}
+if ($mF7=="NB") {$mState="New Brunswick";}
+if ($mF7=="NF") {$mState="Newfoundland";}
+if ($mF7=="NT") {$mState="Northwest Territories";}
+if ($mF7=="NU") {$mState="Nunavut";}
+if ($mF7=="ON") {$mState="Ontario";}
+if ($mF7=="PE") {$mState="Prince Edward Island";}
+if ($mF7=="QC") {$mState="Québec";}
+if ($mF7=="SK") {$mState="Saskatchewan";}
+if ($mF7=="YK") {$mState="Yukon";}
+
+                	}
+            	$mBA4 = strpos($Array[$m], '<font face="Arial" size="-1">');
+                if ($mBA4) {
+                	$mBA5 = strlen($Array[$m]);
+                    $mBA6 = substr($Array[$m], $mBA4+29, $mBA5-$mBA4-29);
+                    $mBA7 = strpos($mBA6, "<");
+                    $mBA8 = substr($mBA6, 0, $mBA7);
+                    $mRank=$mRank+1;
+                    if ($mRank==1) {
+                    	$mName=$mBA8;
+                        }
+                    if ($mRank==2) {
+                    	$mAddress=$mBA8;
+                    	$mLu1=1;
+                        }
+
+                	}
+                 $mDA4 = strpos($Array[$m], 'http%3a');
+                 if ($mDA4) {
+                	$mDA5 = strlen($Array[$m]);
+                    $mDA6 = substr($Array[$m], $mDA4+7, $mDA5-$mDA4-7);
+                    $mDA7 = strpos($mDA6, '"');
+                    $mDA8 = substr($mDA6, 0, $mDA7);
+                    $mDA9 = strpos($mDA8, 'yahoo');
+                    if ($mDA9) {} else {$mWebsite="http:$mDA8";}
+                    }
+                 $mEA4 = strpos($Array[$m], 'size="-1" face="Arial"><B>');
+                 if ($mEA4) {
+
+                	$mEA5 = strlen($Array[$m]);
+                    $mEA6 = substr($Array[$m], $mEA4+26, $mEA5-$mEA4-26);
+                    $mEA7 = strpos($mEA6, '<');
+                    $mEA8 = substr($mEA6, 0, $mEA7);
+                    $mPhone=$mEA8;
+                    }
+
+            	}
+
+ 			}
+		}
+	}
+}
+}}
+
+if ($mFound2001==0) {print "</table>";}
+$mCache2="$mCache2</table>";
+
+
+ }
+
+
+
+?>

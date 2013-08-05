@@ -1,0 +1,515 @@
+<?
+/* World News Widget v1.0 - copyright 2004 by Tim Johnson (timjohnson@timjohnson.info) - all rights reserved */
+
+$Host = "localhost";
+$User = "dailywor_world";
+$Password = "turnip";
+$DBName = "dailywor_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+if ($l==0) {$s="World"; $Cat="World";}
+$Cat23=$s;
+if ($l==3) {$Cat="$s, $u"; $Cat23="$s, $u";}
+if ($l==5) {$Cat="$s $t"; $Cat23="$s $t";}
+if ($l==6) {$Cat="$s $u $t"; $Cat23="$s $u $t";}
+if ($l==7) {$Cat="$s $t $v $u"; $Cat23="$s $t $v $u";}
+if ($l==8) {$Cat="$s $t $u $w $v"; $Cat23="$s $t $u $w $v";}
+if ($l==9) {$Cat="$s $t $u $w $v $x"; $Cat23="$s $t $u $w $v $x";}
+if ($l==10) {$Cat="$s $t $u $w $v $x $y"; $Cat23="$s $t $u $w $v $x $y";}
+$mo1 = strlen($s);
+if ($mo1) {} else {$Cat="World"; $Cat23="World";}
+
+
+print "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'";
+print "	'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>";
+print "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' >";
+print "<head>";
+print "	<meta http-equiv='content-type' content='text/html; charset=iso-8859-1' />";
+print "	<title>dailyworldnews.net</title>";
+print "	<style type='text/css' title='currentStyle'>";
+print "		@import 'index.css';";
+print "	</style>";
+print "</head>";
+print "<body id='index'>";
+print "<div id='container'>";
+print "<div id='intro'>";
+print "	<div id='pageHeader'>";
+print "	<h1><span>Title1</span></h1>";
+print "	<h2><span>$s</span></h2>";
+print "	</div>";
+print "	<div id='quickSummary'>";
+print "	<p class='p1'><span>";
+print '<div align=center>';
+if ($l) {} else {$l=0;}
+print '</div>';
+if ($l==0) {
+print "| <a href=index_new.php?l=1&s=Africa>Africa</a> | ";
+print "<a href=index_new.php?l=2&s=Antarctica>Antarctica</a> | ";
+print "<a href=index_new.php?l=1&s=Asia>Asia</a> | ";
+print "<a href=index_new.php?l=1&s=Central+America>Central America</a> | ";
+print "<a href=index_new.php?l=1&s=Europe>Europe</a> | ";
+print "<a href=index_new.php?l=1&s=Middle+East>Middle East</a> | ";
+print "<a href=index_new.php?l=1&s=North+America>North America</a> | ";
+print "<a href=index_new.php?l=1&s=Oceania>Oceania</a> |<br>&nbsp;<br>| ";
+
+$Query123 = "SELECT DISTINCT c FROM `bloggle_cat10` ORDER BY c;";
+$Result123 = mysql_db_query($DBName, $Query123, $Link);
+while ($Row123 = mysql_fetch_array ($Result123))
+	{
+    $m123 = $Row123[0];
+	$m1232 = str_replace(" ", "+", $m123);
+	print "<a href=index_new.php?l=4&s=$m1232>$m123</a> | ";
+	}
+
+} 
+if ($l==1) {
+$tt = str_replace(" ", "+", $t);
+print "<a href=index_new.php>World</a> &gt; $s</span></p>";
+print "<p><br>&nbsp;<br>";
+$Query11 = "SELECT d FROM `holisticopia_menu` WHERE c = '$s'";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+    $ma1 = $Row11[0];
+	$ma2 = str_replace(" ", "+", $ma1);
+	$ma4 = str_replace(" ", "+", $s);
+	print "<a href=index_new.php?l=2&s=$ma2&t=$ma4>$ma1</a> | ";
+	}
+}
+
+if ($l==4) {
+$tt = str_replace(" ", "+", $t);
+print "<a href=index_new.php>Home</a> &gt; $s</span></p>";
+print "<p><br>&nbsp;<br>";
+$Query123 = "SELECT DISTINCT d FROM `bloggle_cat10` WHERE c='$s' ORDER BY d;";
+$Result123 = mysql_db_query($DBName, $Query123, $Link);
+while ($Row123 = mysql_fetch_array ($Result123))
+	{
+    $m123 = $Row123[0];
+	$m1232 = str_replace(" ", "+", $m123);
+	$m1233 = str_replace(" ", "+", $s);
+	print "<a href=index_new.php?l=5&s=$m1232&t=$m1233>$m123</a> | ";
+	}
+}
+
+if ($l==5) {
+$tt = str_replace(" ", "+", $t);
+print "<a href=index_new.php>Home</a> &gt; <a href=index_new.php?l=4&s=$tt>$t</a> &gt; $s</span></p>";
+print "<p><br>&nbsp;<br>";
+$Query123 = "SELECT DISTINCT e FROM `bloggle_cat10` WHERE d='$s' ORDER BY e;";
+$Result123 = mysql_db_query($DBName, $Query123, $Link);
+while ($Row123 = mysql_fetch_array ($Result123))
+	{
+    $m123 = $Row123[0];
+	$m1232 = str_replace(" ", "+", $m123);
+	$m1233 = str_replace(" ", "+", $s);
+	print "<a href=index_new.php?l=6&s=$m1232&t=$tt&u=$m1233>$m123</a> | ";
+	}
+}
+
+if ($l==6) {
+$tt = str_replace(" ", "+", $t);
+$ss = str_replace(" ", "+", $s);
+$uu = str_replace(" ", "+", $u);
+print "<a href=index_new.php>Home</a> &gt; <a href=index_new.php?l=4&s=$tt>$t</a> &gt; <a href=index_new.php?l=5&s=$uu&t=$tt>$u</a> &gt; $s</span></p>";
+print "<p><br>&nbsp;<br>";
+$Query123 = "SELECT DISTINCT f FROM `bloggle_cat10` WHERE e='$s' ORDER BY f;";
+$Result123 = mysql_db_query($DBName, $Query123, $Link);
+while ($Row123 = mysql_fetch_array ($Result123))
+	{
+    $m123 = $Row123[0];
+	$m1232 = str_replace(" ", "+", $m123);
+	$m1233 = str_replace(" ", "+", $s);
+	print "<a href=index_new.php?l=7&s=$m1232&t=$ss&u=$tt&v=$uu>$m123</a> | ";
+	}
+}
+
+if ($l==7) {
+$tt = str_replace(" ", "+", $t);
+$ss = str_replace(" ", "+", $s);
+$uu = str_replace(" ", "+", $u);
+$vv = str_replace(" ", "+", $v);
+print "<a href=index_new.php>Home</a> &gt; <a href=index_new.php?l=4&s=$uu>$u</a> &gt; <a href=index_new.php?l=5&s=$vv&t=$uu>$v</a> &gt; <a href=index_new.php?l=6&s=$tt&t=$uu&u=$vv>$t</a> &gt; $s</span></p>";
+print "<p><br>&nbsp;<br>";
+$Query123 = "SELECT DISTINCT g FROM `bloggle_cat10` WHERE f='$s' ORDER BY g;";
+$Result123 = mysql_db_query($DBName, $Query123, $Link);
+while ($Row123 = mysql_fetch_array ($Result123))
+	{
+    $m123 = $Row123[0];
+	$m1232 = str_replace(" ", "+", $m123);
+	$m1233 = str_replace(" ", "+", $s);
+	print "<a href=index_new.php?l=8&s=$m1232&t=$ss&u=$tt&v=$uu&w=$vv>$m123</a> | ";
+	}
+}
+
+if ($l==8) {
+$tt = str_replace(" ", "+", $t);
+$ss = str_replace(" ", "+", $s);
+$uu = str_replace(" ", "+", $u);
+$vv = str_replace(" ", "+", $v);
+$ww = str_replace(" ", "+", $w);
+print "<a href=index_new.php>Home</a> &gt; <a href=index_new.php?l=4&s=$vv>$v</a> &gt; <a href=index_new.php?l=5&s=$ww&t=$vv>$w</a> &gt; <a href=index_new.php?l=6&s=$uu&t=$vv&u=$ww>$u</a> &gt; <a href=index_new.php?l=7&s=$tt&t=$uu&u=$vv&v=$ww>$t</a> &gt; $s</span></p>";
+print "<p><br>&nbsp;<br>";
+$Query123 = "SELECT DISTINCT h FROM `bloggle_cat10` WHERE g='$s' ORDER BY h;";
+$Result123 = mysql_db_query($DBName, $Query123, $Link);
+while ($Row123 = mysql_fetch_array ($Result123))
+	{
+    $m123 = $Row123[0];
+	$m1232 = str_replace(" ", "+", $m123);
+	$m1233 = str_replace(" ", "+", $s);
+	print "<a href=index_new.php?l=9&s=$m1232&t=$ss&u=$tt&v=$uu&w=$vv&x=$ww&&y=$xx>$m123</a> | ";
+	}
+}
+
+if ($l==9) {
+$tt = str_replace(" ", "+", $t);
+$ss = str_replace(" ", "+", $s);
+$uu = str_replace(" ", "+", $u);
+$vv = str_replace(" ", "+", $v);
+$ww = str_replace(" ", "+", $w);
+$xx = str_replace(" ", "+", $x);
+print "<a href=index_new.php>Home</a> &gt; <a href=index_new.php?l=4&s=$ww>$w</a> &gt; <a href=index_new.php?l=5&s=$xx&t=$ww>$x</a> &gt; <a href=index_new.php?l=6&s=$vv&t=$xx&u=$ww>$v</a> &gt; <a href=index_new.php?l=7&s=$uu&t=$vv&u=$ww&v=$xx>$u</a> &gt; <a href=index_new.php?l=8&s=$tt&t=$uu&u=$vv&v=$ww&w=$xx>$t</a> &gt; $s</span></p>";
+print "<p><br>&nbsp;<br>";
+$Query123 = "SELECT DISTINCT i FROM `bloggle_cat10` WHERE h='$s' ORDER BY i;";
+$Result123 = mysql_db_query($DBName, $Query123, $Link);
+while ($Row123 = mysql_fetch_array ($Result123))
+	{
+    $m123 = $Row123[0];
+	$m1232 = str_replace(" ", "+", $m123);
+	$m1233 = str_replace(" ", "+", $s);
+	print "<a href=index_new.php?l=10&s=$m1232&t=$ss&u=$tt&v=$uu&w=$vv&x=$ww&y=$xx>$m123</a> | ";
+	}
+}
+
+if ($l==10) {
+$tt = str_replace(" ", "+", $t);
+$ss = str_replace(" ", "+", $s);
+$uu = str_replace(" ", "+", $u);
+$vv = str_replace(" ", "+", $v);
+$ww = str_replace(" ", "+", $w);
+$xx = str_replace(" ", "+", $x);
+$yy = str_replace(" ", "+", $y);
+print "<a href=index_new.php>Home</a> &gt; <a href=index_new.php?l=4&s=$xx>$x</a> &gt; <a href=index_new.php?l=5&s=$yy&t=$xx>$y</a> &gt; <a href=index_new.php?l=6&s=$ww&t=$xx&u=$yy>$w</a> &gt; <a href=index_new.php?l=7&s=$vv&t=$ww&v=$yy&u=$xx&w=$uu>$v</a> &gt; <a href=index_new.php?l=8&s=$uu&t=$vv&u=$ww&v=$xx&w=$yy>$u</a> &gt; <a href=index_new.php?l=9&s=$tt&t=$uu&u=$vv&v=$ww&w=$xx&x=$yy>$t</a> &gt; $s</span></p>";
+print "<p><br>&nbsp;<br>";
+
+}
+if ($l==-1) {
+$tt = str_replace(" ", "+", $t);
+print "<a href=index_new.php>World</a> &gt; $s</span></p>";
+}
+
+if ($l==2) {
+$tt = str_replace(" ", "+", $t);
+print "<a href=index_new.php>World</a> &gt; <a href=index_new.php?l=1&s=$tt>$t</a> &gt; $s</span></p>";
+}
+if ($l==3) {
+$tt = str_replace(" ", "+", $t);
+$ss = str_replace(" ", "+", $u);
+print "<a href=index_new.php>World</a> &gt; <a href=index_new.php?l=1&s=$tt>$t</a> &gt; <a href=index_new.php?l=2&s=$ss&t=$tt>$u</a> &gt; $s</span></p>";
+} 
+$Cat=$s;
+if ($l==3) {$Cat="$s, $u";}
+if ($l==5) {$Cat="$s $t";}
+if ($l==6) {$Cat="$s $u $t";}
+if ($l==7) {$Cat="$s $t $v $u";}
+if ($l==8) {$Cat="$s $t $u $w $v";}
+if ($l==9) {$Cat="$s $t $u $w $v $x";}
+if ($l==10) {$Cat="$s $t $u $w $v $x $y";}
+
+include('pix.php');
+$picnum=-1;
+
+$mFlag1111 = 0;
+$Query1111 = "SELECT * FROM `newsgrabber_searches` WHERE a='$Cat23';";
+$Result1111 = mysql_db_query($DBName, $Query1111, $Link);
+while ($Row1111 = mysql_fetch_array ($Result1111))
+	{
+    $ma1 = $Row1111[0];
+	$mFlag1111 = 1;
+	}
+
+if ($mFlag1111==0) {
+$Query1111 = "INSERT INTO `newsgrabber_searches` ( `a` , `b` ) VALUES ('$Cat23', '');";
+$Result1111 = mysql_db_query($DBName, $Query1111, $Link);
+}
+
+print "		</div>";
+print "";
+print "		<div id='preamble'>";
+print "			<h3><span></span></h3>";
+print "			<p class='p1'><span>";
+print "</span></p>";
+print "		</div>";
+print "	</div>";
+print "";
+$mNum1 = 0;
+$mCacheNum = 0;
+
+if ($mFlag1111==0) {
+
+$Query11 = "SELECT b from holisticopia_cities where a='$s';";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+    $ma1 = $Row11[0];
+	$ma2 = str_replace(" ", "+", $ma1);
+	$ma3 = str_replace(" ", "+", $s);
+	$ma4 = str_replace(" ", "+", $t);
+	$mLen = strlen($ma1);
+	$mCacheNum = $mCacheNum + $mLen;
+	if ($mCacheNum>1000) {
+	$Cache[$mNum1]=str_replace("'", "|", $Cache[$mNum1]);
+	$ste=str_replace("'", "|", $s);
+	$Query1111 = "INSERT INTO `newsgrabber_cache` ( `a` , `b` , `c` , `d` ) VALUES ('$Cat23', '$mNum1', '$Cache[$mNum1]', '');";
+	$Result1111 = mysql_db_query($DBName, $Query1111, $Link);
+	$mNum1++; $mCacheNum=0;
+	}
+	$Cache[$mNum1] = $Cache[$mNum1]."<a href=index_new.php?l=3&s=$ma2&u=$ma3&t=$ma4>$ma1</a> | ";
+	}
+
+for ($Cat2=0;$Cat2<200;$Cat2=$Cat2+10) {include ('urls.php');}
+
+} else {
+$Query11111 = "SELECT * FROM `newsgrabber_cache` WHERE a = '$Cat23'";
+$Result11111 = mysql_db_query($DBName, $Query11111, $Link);
+$ma11112=-1;
+while ($Row11111 = mysql_fetch_array ($Result11111))
+	{
+    $ma11111 = $Row11111[0];
+	/* $ma11112 = $Row11111[1]; */
+	$ma11112++;
+	$ma11113 = $Row11111[2];
+	$Cache[$ma11112]=$ma11113;
+	$Cache[$ma11112]=str_replace("|", "'", $Cache[$ma11112]);
+	}
+}
+
+print "<table width=750 border=0><tr><td valign=top width=250>";
+print "	<div id='supportingText'>";
+print "		<div id='explanation'>";
+print "			<h3><span> </span></h3>";
+print "			<p class='p2'><span>";
+$allcache="| ";
+$Cache[0]=str_replace("|", "'", $Cache[0]);
+$Cache[0]=str_replace(" ' ", " | ", $Cache[0]);
+$mTFlag=strlen($Cache[0]);
+if ($mTFlag) {
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=left ", $Pix[$picnum]); print "$Pix[$picnum]";
+}
+print "$Cache[0]";
+if ($mTFlag) {} else {
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+}
+print "</span></p>";
+print "			<p class='p2'><span></span></p>";
+print "		</div>";
+print "</td><td valign=top width=250>";
+print "		<div id='explanation'>";
+print "			<h3><span><div align=center><form method=get action='index_new.php'><input type='text' name='s' size='30'></div><p><div align='center'><input type='hidden' name='l' value='-1'><input type='submit' name='Search' value='Search'><br>&nbsp;</form></div></span></h3>";
+print "			</p>			<p class='p2'>";
+print "";
+$Cache[1]=str_replace("|", "'", $Cache[1]);
+$Cache[1]=str_replace(" ' ", " | ", $Cache[1]);
+
+print "";
+					
+if ($l==0) {
+include 'maps/geo-worl.html';
+}
+if ($l==1) {
+if ($s=="Central America") {
+include 'maps/geo-ceam.html';
+}
+if ($s=="North America") {
+include 'maps/geo-noam.html';
+}
+if ($s=="Asia") {
+include 'maps/geo-asia.html';
+}
+if ($s=="Africa") {
+include 'maps/geo-afri.html';
+}
+if ($s=="Europe") {
+include 'maps/geo-euro.html';
+}
+if ($s=="Middle East") {
+include 'maps/geo-mide.html';
+}
+if ($s=="Oceania") {
+include 'maps/geo-ocea.html';
+}
+if ($s=="South America") {
+include 'maps/geo-soam.html';
+}
+if ($s=="USA") {
+include 'maps/geo-usa.html';
+}
+}
+
+if ($l==2 or $l==3) {
+if ($t=="Central America") {
+include 'maps/geo-ceam.html';
+}
+if ($t=="North America") {
+include 'maps/geo-noam.html';
+}
+if ($t=="Asia") {
+include 'maps/geo-asia.html';
+}
+if ($t=="Africa") {
+include 'maps/geo-afri.html';
+}
+if ($t=="Europe") {
+include 'maps/geo-euro.html';
+}
+if ($t=="Middle East") {
+include 'maps/geo-mide.html';
+}
+if ($t=="Oceania") {
+include 'maps/geo-ocea.html';
+}
+if ($t=="South America") {
+include 'maps/geo-soam.html';
+}
+if ($t=="USA") {
+include 'maps/geo-usa.html';
+}
+}
+
+print "$Cache[1]";
+
+print "</p></div>";
+print "</td><td valign=top width=250>";
+print "<div id='participation'>";
+print "<h3><span> </span></h3>";
+print "	<p class='p2'>";
+$Cache[2]=str_replace("|", "'", $Cache[2]);
+$Cache[2]=str_replace(" ' ", " | ", $Cache[2]);
+$mTFlag=strlen($Cache[2]);
+if ($mTFlag) {
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=right ", $Pix[$picnum]); print "$Pix[$picnum]";
+}
+print "$Cache[2]";
+if ($mTFlag) {} else {
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum] ";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print " $Pix[$picnum]</div>";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum] ";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print " $Pix[$picnum]</div>";
+}
+print "</div></p></div>";
+print "</td></tr></table>";
+if ($l==0) {} else {
+for ($mmm=3; $mmm<30; $mmm=$mmm+3) {
+if ($Cache[$mmm]) {
+print "<table width=750 border=0><tr><td valign=top width=250>";
+print "<div id='supportingText'>";
+print "<div id='explanation'>";
+print "<h3><span> </span></h3>";
+print "<p class='p2'><span>";
+
+$Cache[$mmm]=str_replace("|", "'", $Cache[$mmm]);
+$Cache[$mmm]=str_replace(" ' ", " | ", $Cache[$mmm]);
+$mTFlag=strlen($Cache[$mmm]);
+if ($mTFlag) {
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=left ", $Pix[$picnum]); print "$Pix[$picnum]";
+}
+print "$Cache[$mmm]";
+if ($mTFlag) {} else {
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum] ";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum] ";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+}
+print "</span></p>";
+print "			<p class='p2'><span></span></p>";
+print "		</div>";
+print "</td><td valign=top width=250>";
+print "<div id='explanation'>";
+print "<h3><span> </span></h3>";
+print "</p><p class='p2'>";
+$mm1 = $mmm+1;
+$Cache[$mm1]=str_replace("|", "'", $Cache[$mm1]);
+$Cache[$mm1]=str_replace(" ' ", " | ", $Cache[$mm1]);
+$mTFlag=strlen($Cache[$mm1]);
+print "$Cache[$mm1]";
+if ($mTFlag) {} else {
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum] ";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum] ";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+}
+print "</p></div>";
+print "</td><td valign=top width=250>";
+print "<div id='participation'>";
+print "<h3><span> </span></h3>";
+print "<p class='p2'>";
+$mm2 = $mmm+2;
+$Cache[$mm2]=str_replace("|", "'", $Cache[$mm2]);
+$Cache[$mm2]=str_replace(" ' ", " | ", $Cache[$mm2]);
+$mTFlag=strlen($Cache[$mm2]);
+if ($mTFlag) {
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=right ", $Pix[$picnum]); print "$Pix[$picnum]";
+}
+print "$Cache[$mm2]";
+if ($mTFlag) {} else
+{
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+$picnum++; $Pix[$picnum]=str_replace("<img ", "<img align=center ", $Pix[$picnum]); print "<div align=center><br>$Pix[$picnum]</div>";
+}
+print "<p><div align=center>";
+print "</td></tr></table>";
+}
+}
+}
+
+print "<table width=750 border=0><tr><td valign=top width=250>";
+print "<div id='supportingText'>";
+print "<div id='explanation'>";
+print "<h3><span> </span></h3>";
+print "<p class='p2'><span>";
+
+$mCacheNum=0;
+$mCol=1;
+$Query12311 = "SELECT b FROM `newsgrabber_pages` WHERE a='$s'";
+$Result12311 = mysql_db_query($DBName, $Query12311, $Link);
+while ($Row12311 = mysql_fetch_array ($Result12311))
+	{
+    $m12311 = $Row12311[0];
+	$m12311 = str_replace("|", "'", $m12311);
+	$mLen = strlen($m12311);
+	$mCacheNum = $mCacheNum + $mLen;
+	if ($mCacheNum>1000) {
+	$mCol++; 
+	$mCacheNum=$mLen; 
+	print "</span></p>";
+print "			<p class='p2'><span></span></p>";
+print "		</div>";
+print "</td>";
+if ($mCol>3) {print "</tr><tr>"; $mCol=1;}
+print "<td valign=top width=250>";
+print "<div id='explanation'>";
+print "<h3><span> </span></h3>";
+print "</p><p class='p2'>";
+
+	
+	}
+	print "$m12311<br>&nbsp;<br>";
+}
+print "<p><div align=center>";
+print "</td></tr></table>";
+print "<hr>";
+print "<div align=center>&nbsp;&copy; 2004 by <a target=_blank href=http://www.timjohnson.info/>Tim Johnson</a><br>&nbsp;<br></p></div></div>";
+
+print "<!-- These extra divs/spans may be used as catch-alls to add extra imagery. -->";
+print "<div id='extraDiv1'><span></span></div><div id='extraDiv2'><span></span></div><div id='extraDiv3'><span></span></div>";
+print "<div id='extraDiv4'><span></span></div><div id='extraDiv5'><span></span></div><div id='extraDiv6'><span></span></div>";
+print "</body>";
+print "</html>";
+mysql_close ($Link);
+?>

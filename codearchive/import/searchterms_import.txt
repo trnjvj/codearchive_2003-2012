@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>Search Term Import</TITLE>
+</HEAD>
+<?
+
+
+$search = $_GET['search'];
+
+print "<div align=center>";
+print "<img src=logo.jpg><p>";
+print "<div class='div1'><a href='index.html'>Search Term Import</a></div><p>";
+print "<p>";
+
+include('db_connect.php');
+
+$TheFile = "searchterms.txt";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode(";", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$mA = trim($Array[$m]);
+			$mABC=strlen($mA);
+			if ($mABC>1) {
+			print "<div class='div1'>$mA</div>";
+			$Query111 = "INSERT INTO `archipelago_searchterms` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$mA', '', '', '', '', '', '', '', '', '');";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			}
+			
+}}}
+/*
+print "<div class='div1'>$search</div>";
+$Query111 = "INSERT INTO `archipelago_searchterms` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$search', '', '', '', '', '', '', '', '', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	*/		
+mysql_close ($Link);
+?>

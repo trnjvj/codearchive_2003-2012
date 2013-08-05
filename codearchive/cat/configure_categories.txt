@@ -1,0 +1,20 @@
+<?php
+set_time_limit (60000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query2 = "SELECT DISTINCT g FROM freetown ORDER BY g";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+while ($Row = mysql_fetch_array ($Result2))
+	{
+    $mSearch = $Row[0];
+	print "$mSearch";
+	$Query = "INSERT INTO `categories` ( `a` , `b` ) VALUES ('$mSearch', '');";
+	$Result = mysql_db_query($DBName, $Query, $Link);
+	}
+mysql_close ($Link);
+?>

@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=boildown_urls.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Boildown URLs</TITLE>
+<?
+set_time_limit(0);
+
+print "<font face=verdana size=4>";
+print "Archipelago 0.9.0<br>";
+print "Boildown URLs - Copyright 2004 by Tim Johnson<br>";
+print "All Rights Reserved</font><font face=verdana size=1><p>";
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Cat='';
+$mCount=0;
+
+$Query120 = "SELECT a,b FROM `ore_websites_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	
+	$mbb = $Row120[0];
+	$mcc = $Row120[1];
+	}
+print "$mbb<br>";
+if ($mcc=='done') {
+print "done.<p>";
+print "<a href='boildown_urls_continue.php'>continue</a> - <a href='boildown_urls_reset.php'>reset</a>";
+} else {
+$mFlag=0;
+
+$mFile = "../dump/ore_websites$mbb.txt";
+
+$fp = fopen("$mFile", "wt");
+
+$Query110 = "SELECT * FROM `ore_websites` LIMIT $mbb,5000;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];
+
+	if ($Cat1==$oCat1) {} else {
+	fwrite($fp, "$Cat1\n");
+	$mFlag=1;
+	}
+	if ($Cat==$oCat) {} else {	
+	print "<a target='_blank' href='$Cat1'>$Cat</a> ";
+	}
+	$oCat = $Cat;
+	$oCat1 = $Cat1;
+	}	
+$mbb=$mbb+5000;
+$Query112 = "UPDATE `ore_websites_state` SET a='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+if ($mFlag==0) {
+$Query112 = "UPDATE `ore_websites_state` SET b='done';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+} 
+fclose($fp);
+}
+
+mysql_close ($Link);
+?>

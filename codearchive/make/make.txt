@@ -1,0 +1,57 @@
+<?
+set_time_limit (0);
+$mNum=70000;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mFile = "insert.php";
+$fp = fopen("$mFile", "wt");
+
+fwrite($fp, '<?');
+fwrite($fp, 'set_time_limit (0);');
+fwrite($fp, '$Host = "localhost";');
+fwrite($fp, '$User = "holisti_world";');
+fwrite($fp, '$Password = "turnip";');
+fwrite($fp, '$DBName = "holisti_world";');
+fwrite($fp, '$Tablename = "T1";');
+fwrite($fp, '$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");');
+fwrite($fp, 'mysql_select_db ("$Tablename");');
+
+
+$Query11 = "SELECT * from newsletters_herbage_new9 LIMIT $mNum,10000;";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+$mCount=0;
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	
+	$mCount=0;
+    $Search = $Row11[0];
+	$mFlag=0;
+	$mAA = strpos($Search, ".uk");
+	if ($mAA) {$mFlag=1;}
+	$mAA = strpos($Search, ".se");
+	if ($mAA) {$mFlag=1;}
+	$mAA = strpos($Search, ".us");
+	if ($mAA) {$mFlag=1;}
+	if ($mFlag==1) {} else {
+	print "$Search |<br> ";
+	fwrite($fp, '$Query11 =  "');
+	fwrite($fp, "INSERT INTO `newsletters_subscribe` ( `a` , `b` ) VALUES ('$Search', '');");
+	fwrite($fp, '"; ');
+	fwrite($fp, 'print "');
+	fwrite($fp, "$Search<br>");
+	fwrite($fp, '";'); 
+	fwrite($fp, '$Result11 = mysql_db_query($DBName, $Query11, $Link);');
+	
+	}
+	}
+fwrite($fp, 'mysql_close ($Link);');
+fwrite($fp, '?>');
+fclose($fp);
+mysql_close ($Link);
+?>

@@ -1,0 +1,76 @@
+<?
+
+   header("Content-type: image/gif");
+
+   $imSize        =    256;
+   $clockSize        =    $imSize - 8;
+
+   $today        =    getdate();
+   $hour            =    $today[hours];
+   $minutes        =    $today[minutes];
+   $seconds        =    $today[seconds];
+   if ($hour >= 12)
+   {
+       $hour    -=    12;
+   }
+   $hourDegress    =    $hour * 30;
+   $hourDegress    +=    $minutes / 2;
+   $minDegress    =    $minutes * 6;
+  
+   //*    the cordinate system stars at 3:00
+   $hourDegress    -=    90;
+   if ($hourDegress < 0)
+   {
+       $hourDegress    +=    360;
+   }
+   $minDegress    -=    90;
+   if ($minDegress < 0)
+   {
+       $minDegress    +=    360;
+   }
+  
+   //*    convert to radians
+   $hourRadians    =    $hourDegress / 57.295779513082;
+   $minRadians    =    $minDegress / 57.295779513082;
+  
+   $myImage        =    ImageCreate($imSize, $imSize);
+  
+   $white        =    ImageColorAllocate($myImage, 255, 255, 255);
+   $black        =    ImageColorAllocate($myImage, 0, 0, 0);
+//    $red            =    ImageColorAllocate($myImage, 255, 0, 0);
+//    $green        =    ImageColorAllocate($myImage, 0, 255, 0);
+   $blue            =    ImageColorAllocate($myImage, 0, 0, 255);
+
+   ImageFill($myImage, 0, 0, $blue);
+   Imageinterlace($myImage, 1);
+
+   //*    draw the clock circle
+   Imagearc($myImage, $imSize/2, $imSize/2, $clockSize, $clockSize, 0, 359, $white);
+
+   //*    draw the hour hand
+   $hourHandLen    =    ($clockSize / 2) * 0.6;
+   $x2                =    $imSize/2 + ($hourHandLen * cos($hourRadians));
+   $y2                =    $imSize/2 + ($hourHandLen * sin($hourRadians));
+   ImageLine($myImage, $imSize/2, $imSize/2, $x2, $y2, $white);
+
+   //*    draw the minute hand
+   $minHandLen        =    ($clockSize / 2) * 0.9;
+   $x2                =    $imSize/2 + ($minHandLen * cos($minRadians));
+   $y2                =    $imSize/2 + ($minHandLen * sin($minRadians));
+   ImageLine($myImage, $imSize/2, $imSize/2, $x2, $y2, $white);
+
+
+   if ($minutes < 10)
+   {
+       $minutes    =    "0$minutes";
+   }
+   Imagestring($myImage, 3, 5, $imSize - 15, ($hour . ":" . $minutes), $white);
+
+   Imagegif($myImage);
+
+   Imagedestroy($myImage);
+ 
+?>
+</PRE>
+
+?>

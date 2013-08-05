@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=get_pubmed.php">
+</HEAD>
+<?
+
+
+include('db_connect.php');
+
+$TheFile = "http://toshiba/archipelago1/dump_pubmed.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n=$n+2) {
+		$String = trim($Data[$n]);
+		$String2 = trim($Data[$n+1]);
+		print "$String ";
+		$Query112 = "INSERT INTO `herbage_pubmed` ( `a` , `b` , `c` ) VALUES ('$String', '', '$String2');";
+		$Result112 = mysql_db_query($DBName, $Query112, $Link);
+		}		
+}
+
+mysql_close ($Link);
+?>

@@ -1,0 +1,382 @@
+<?
+set_time_limit(0);
+$Host = "localhost";
+$User = "jbluepac_world";
+$Password = "turnip";
+$DBName = "jbluepac_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query110 = "SELECT * FROM `freetown_unsubscribe`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<freetown_unsubscribe>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "</line>\n";
+	}
+print "</freetown_unsubscribe>\n";
+
+$Query110 = "SELECT * FROM `holisticopia_unsubscribe`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<holisticopia_unsubscribe>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "</line>\n";
+	}
+print "</holisticopia_unsubscribe>\n";
+
+$Query110 = "SELECT * FROM `terracopia_unsubscribe`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<terracopia_unsubscribe>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "</line>\n";
+	}
+print "</terracopia_unsubscribe>\n";
+
+$Query110 = "SELECT * FROM `freetown_subscribe`";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<freetown_subscribe>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "</line>\n";
+	}
+print "</freetown_subscribe>\n";
+
+$Query110 = "SELECT * FROM `holisticopia_subscribe`";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<holisticopia_subscribe>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "</line>\n";
+	}
+print "</holisticopia_subscribe>\n";
+
+$Query110 = "SELECT * FROM `terracopia_subscribe`";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<terracopia_subscribe>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "</line>\n";
+	}
+print "</terracopia_subscribe>\n";
+
+$Query110 = "SELECT * FROM `freetown_ads`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<freetown_ads>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	$m1d = $Row110[3];
+	$m1e = $Row110[4];
+	$m1f = $Row110[5];
+	$m1g = $Row110[6];
+	$m1h = $Row110[7];
+	$m1i = $Row110[8];
+	$m1j = $Row110[9];
+	$m1k = $Row110[10];
+	$m1l = $Row110[11];
+	$m1m = $Row110[12];
+	$m1n = $Row110[13];
+	$m1o = $Row110[14];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "<m1d>$m1d</m1d>\n";
+	print "<m1e>$m1e</m1e>\n";
+	print "<m1f>$m1f</m1f>\n";
+	print "<m1g>$m1g</m1g>\n";
+	print "<m1h>$m1h</m1h>\n";
+	print "<m1i>$m1i</m1i>\n";
+	print "<m1j>$m1j</m1j>\n";
+	print "<m1k>$m1k</m1k>\n";
+	print "<m1l>$m1l</m1l>\n";
+	print "<m1m>$m1m</m1m>\n";
+	print "<m1n>$m1n</m1n>\n";
+	print "<m1o>$m1o</m1o>\n";
+	print "</line>\n";
+	}
+print "</freetown_ads>\n";
+
+
+$Query110 = "SELECT * FROM `freetown_revise`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<freetown_revise>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	$m1d = $Row110[3];
+	$m1e = $Row110[4];
+	$m1f = $Row110[5];
+	$m1g = $Row110[6];
+	$m1h = $Row110[7];
+	$m1i = $Row110[8];
+	$m1j = $Row110[9];
+	$m1k = $Row110[10];
+	$m1l = $Row110[11];
+	$m1m = $Row110[12];
+	$m1n = $Row110[13];
+	$m1o = $Row110[14];
+	$m1p = $Row110[15];
+	$m1q = $Row110[16];
+	$m1r = $Row110[17];
+	$m1s = $Row110[18];
+	$m1t = $Row110[19];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "<m1d>$m1d</m1d>\n";
+	print "<m1e>$m1e</m1e>\n";
+	print "<m1f>$m1f</m1f>\n";
+	print "<m1g>$m1g</m1g>\n";
+	print "<m1h>$m1h</m1h>\n";
+	print "<m1i>$m1i</m1i>\n";
+	print "<m1j>$m1j</m1j>\n";
+	print "<m1k>$m1k</m1k>\n";
+	print "<m1l>$m1l</m1l>\n";
+	print "<m1m>$m1m</m1m>\n";
+	print "<m1n>$m1n</m1n>\n";
+	print "<m1o>$m1o</m1o>\n";
+	print "<m1p>$m1p</m1p>\n";
+	print "<m1q>$m1q</m1q>\n";
+	print "<m1r>$m1r</m1r>\n";
+	print "<m1a>$m1s</m1s>\n";
+	print "<m1t>$m1t</m1t>\n";
+	print "</line>\n";
+	}
+print "</freetown_revise>\n";
+
+
+
+
+
+$Query110 = "SELECT * FROM `holisticopia_ads`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<holisticopia_ads>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	$m1d = $Row110[3];
+	$m1e = $Row110[4];
+	$m1f = $Row110[5];
+	$m1g = $Row110[6];
+	$m1h = $Row110[7];
+	$m1i = $Row110[8];
+	$m1j = $Row110[9];
+	$m1k = $Row110[10];
+	$m1l = $Row110[11];
+	$m1m = $Row110[12];
+	$m1n = $Row110[13];
+	$m1o = $Row110[14];
+
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "<m1d>$m1d</m1d>\n";
+	print "<m1e>$m1e</m1e>\n";
+	print "<m1f>$m1f</m1f>\n";
+	print "<m1g>$m1g</m1g>\n";
+	print "<m1h>$m1h</m1h>\n";
+	print "<m1i>$m1i</m1i>\n";
+	print "<m1j>$m1j</m1j>\n";
+	print "<m1k>$m1k</m1k>\n";
+	print "<m1l>$m1l</m1l>\n";
+	print "<m1m>$m1m</m1m>\n";
+	print "<m1n>$m1n</m1n>\n";
+	print "<m1o>$m1o</m1o>\n";
+	print "</line>\n";
+	}
+print "</holisticopia_ads>\n";
+
+$Query110 = "UPDATE `holisticopia_ads` SET o='1';";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+
+$Query110 = "SELECT * FROM `holisticopia_revise`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<holisticopia_revise>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	$m1d = $Row110[3];
+	$m1e = $Row110[4];
+	$m1f = $Row110[5];
+	$m1g = $Row110[6];
+	$m1h = $Row110[7];
+	$m1i = $Row110[8];
+	$m1j = $Row110[9];
+	$m1k = $Row110[10];
+	$m1l = $Row110[11];
+	$m1m = $Row110[12];
+	$m1n = $Row110[13];
+	$m1o = $Row110[14];
+	$m1p = $Row110[15];
+	$m1q = $Row110[16];
+	$m1r = $Row110[17];
+	$m1s = $Row110[18];
+	$m1t = $Row110[19];
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "<m1d>$m1d</m1d>\n";
+	print "<m1e>$m1e</m1e>\n";
+	print "<m1f>$m1f</m1f>\n";
+	print "<m1g>$m1g</m1g>\n";
+	print "<m1h>$m1h</m1h>\n";
+	print "<m1i>$m1i</m1i>\n";
+	print "<m1j>$m1j</m1j>\n";
+	print "<m1k>$m1k</m1k>\n";
+	print "<m1l>$m1l</m1l>\n";
+	print "<m1m>$m1m</m1m>\n";
+	print "<m1n>$m1n</m1n>\n";
+	print "<m1o>$m1o</m1o>\n";
+	print "<m1p>$m1p</m1p>\n";
+	print "<m1q>$m1q</m1q>\n";
+	print "<m1r>$m1r</m1r>\n";
+	print "<m1a>$m1s</m1s>\n";
+	print "<m1t>$m1t</m1t>\n";
+	print "</line>\n";
+	}
+print "</holisticopia_revise>\n";
+
+
+$Query110 = "SELECT * FROM `terracopia_ads`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<terracopia_ads>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	$m1d = $Row110[3];
+	$m1e = $Row110[4];
+	$m1f = $Row110[5];
+	$m1g = $Row110[6];
+	$m1h = $Row110[7];
+	$m1i = $Row110[8];
+	$m1j = $Row110[9];
+	$m1k = $Row110[10];
+	$m1l = $Row110[11];
+	$m1m = $Row110[12];
+	$m1n = $Row110[13];
+	$m1o = $Row110[14];
+
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "<m1d>$m1d</m1d>\n";
+	print "<m1e>$m1e</m1e>\n";
+	print "<m1f>$m1f</m1f>\n";
+	print "<m1g>$m1g</m1g>\n";
+	print "<m1h>$m1h</m1h>\n";
+	print "<m1i>$m1i</m1i>\n";
+	print "<m1j>$m1j</m1j>\n";
+	print "<m1k>$m1k</m1k>\n";
+	print "<m1l>$m1l</m1l>\n";
+	print "<m1m>$m1m</m1m>\n";
+	print "<m1n>$m1n</m1n>\n";
+	print "<m1o>$m1o</m1o>\n";
+	print "</line>\n";
+	}
+print "</terracopia_ads>\n";
+
+
+$Query110 = "SELECT * FROM `terracopia_revise`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<terracopia_revise>\n";
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	$m1d = $Row110[3];
+	$m1e = $Row110[4];
+	$m1f = $Row110[5];
+	$m1g = $Row110[6];
+	$m1h = $Row110[7];
+	$m1i = $Row110[8];
+	$m1j = $Row110[9];
+	$m1k = $Row110[10];
+	$m1l = $Row110[11];
+	$m1m = $Row110[12];
+	$m1n = $Row110[13];
+	$m1o = $Row110[14];
+	$m1p = $Row110[15];
+	$m1q = $Row110[16];
+	$m1r = $Row110[17];
+	$m1s = $Row110[18];
+	$m1t = $Row110[19];
+
+	print "<line>\n";
+	print "<m1a>$m1a</m1a>\n";
+	print "<m1b>$m1b</m1b>\n";
+	print "<m1c>$m1c</m1c>\n";
+	print "<m1d>$m1d</m1d>\n";
+	print "<m1e>$m1e</m1e>\n";
+	print "<m1f>$m1f</m1f>\n";
+	print "<m1g>$m1g</m1g>\n";
+	print "<m1h>$m1h</m1h>\n";
+	print "<m1i>$m1i</m1i>\n";
+	print "<m1j>$m1j</m1j>\n";
+	print "<m1k>$m1k</m1k>\n";
+	print "<m1l>$m1l</m1l>\n";
+	print "<m1m>$m1m</m1m>\n";
+	print "<m1n>$m1n</m1n>\n";
+	print "<m1o>$m1o</m1o>\n";
+	print "<m1p>$m1p</m1p>\n";
+	print "<m1q>$m1q</m1q>\n";
+	print "<m1r>$m1r</m1r>\n";
+	print "<m1a>$m1s</m1s>\n";
+	print "<m1t>$m1t</m1t>\n";
+	print "</line>\n";
+	}
+print "</terracopia_revise>\n";
+
+
+
+
+mysql_close ($Link);
+?>

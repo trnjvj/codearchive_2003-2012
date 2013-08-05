@@ -1,0 +1,65 @@
+
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query110 = "SELECT * FROM `terracopia_ads`";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m110a = $Row110[0];
+	$m110b = $Row110[1];
+	$m110c = $Row110[2];
+	$m110d = $Row110[3];
+	$m110e = $Row110[4];
+	$m110f = $Row110[5];
+	$m110g = $Row110[6];
+	$m110h = $Row110[7];
+	$m110i = $Row110[8];
+	$m110j = $Row110[9];
+	$m110k = $Row110[10];
+	$m110l = $Row110[11];
+	$m110m = $Row110[12];
+	$m110n = $Row110[13];
+	$m110o = $Row110[14];
+	
+
+	
+	$a = $Row110[4];
+	$b = $Row110[3];
+	$c = $Row110[1];
+	$d = $Row110[2];
+	$e = $Row110[9];
+	$f = $Row110[5];
+	$g = $Row110[0];
+	
+	$a="1";
+	$b="Synch";
+	$c=$Row110[4];
+	$d="";
+	$e=$Row110[3];
+	$f="";
+	$g=$Row110[0];
+	$h="";
+	$i="";
+	$j=$Row110[1];
+	$k=$Row110[2];	
+	$l=$Row110[3];
+	$m=$Row110[9];
+	$n=$Row110[5];
+	$Query111 = "INSERT INTO `terracopia` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j`, `k`, `l`, `m`, `n` ) VALUES ('$a', '$b', '$c', '$d', '$e', '$f', '$g', '$h', '$i', '$j', '$k', '$l', '$m', '$n');";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+		
+	print "a=$a|b=$b|c=$c|d=$d|e=$e|f=$f|g=$g<br>";
+	print "<p>";
+	}
+
+mysql_close ($Link);
+print "<p><b>done.</b>";
+?>

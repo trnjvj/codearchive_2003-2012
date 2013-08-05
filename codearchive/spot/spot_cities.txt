@@ -1,0 +1,28 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=generate_cities.php">
+<?
+set_time_limit (600000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query110 = "SELECT * FROM `holisticopia_cities` WHERE c='' LIMIT 15";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m110a = $Row110[0];
+	$m110b = $Row110[1];
+    $Query120 = "UPDATE `holisticopia_cities` SET `c` = '1' WHERE `a` = '$m110a' and `b` = '$m110b'";
+	$Result120 = mysql_db_query($DBName, $Query120, $Link);
+	$mDir = "city/";
+	$State="$m110a";
+	$City="$m110b";
+	include 'city.php';
+	print "$City, $State<br>";
+	}
+mysql_close ($Link);
+?>

@@ -1,0 +1,69 @@
+<?
+include('db_connect.php');
+print "rssVar=";
+$mBigFlag=0;
+$TheFile = "http://rss.news.yahoo.com/rss/topstories";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode(">", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$Array[$m]=str_replace("<", "[", $Array[$m]);
+			$Array[$m]=str_replace(">", "]", $Array[$m]);
+			
+			
+			print "";
+			
+			
+			if ($Array[$m] == "[title") {
+				$m123 = str_replace("<", "[", $Array[$m+1]);
+				$m123  = str_replace(">", "]", $m123);
+				
+				$mFlag1 = strstr($m123, 'ahoo! News');
+				$mmm1 = strpos($m22, " ");
+				if ($mFlag1) {} else {
+				$m123  = str_replace('&quot;', '"', $m123);
+				$m123  = str_replace("&#039;", "'", $m123);
+				print "~~$m123";
+				$m321=$m123;
+				}
+			}
+			
+			if ($Array[$m] == "[link") {
+				$m123 = str_replace("<", "[", $Array[$m+1]);
+				$m123  = str_replace(">", "]", $m123);
+				if ($mBigFlag<2) {$mBigFlag++;} else {
+					$m123  = str_replace("[/link", "", $m123);
+					print "||$m123";
+					$Query13 = "INSERT INTO `rss_stories` ( `a` , `b` , `c` ) VALUES ('$m321', '$m123', '');";
+					$Result12 = mysql_db_query($DBName, $Query13, $Link);
+					}
+			}
+			/*
+			if ($Array[$m] == "[link") {
+				$m321 = $Array[$m+1];
+				print "|$m321";
+			}
+			
+		
+			
+			
+		$mFlag1 = strstr($String, '<title>');
+			if ($mFlag1) {
+				
+				$mTitle = $Data[$n+1];
+				print "~$mTitle|$mUrl";
+				}
+				
+		
+		$Array = explode("<p>", $String);
+		*/
+		}
+		}
+	}
+
+?>

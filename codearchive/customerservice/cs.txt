@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Blue Pacific Marketing: Customer Service</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<div align="center">
+  <p><img src="images/bluepacific1.jpg" width="513" height="101"> </p>
+  <table width="529" border="0" cellpadding="5">
+    <tr>
+      <td><a href="index.html"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Home</strong></font></a><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"> 
+        Customer Service</font></strong></td>
+    </tr>
+  </table>
+  <br>
+  <table width="100%" border="0" cellpadding="5">
+    <tr>
+      <td><div align="center">
+          <table border="0" cellpadding="5" bgcolor="#CCCCCC">
+            <tr> 
+              <td><table border="0" cellpadding="5">
+                  <tr> 
+                    <td><p align="center"><a href="http://www.holisticopia.com/"><br>
+                        <img src="images/1sm_holisticopia.jpg" width="205" height="32" border="0"></a></p>
+                      <p align="center"><strong><font face="Verdana, Arial, Helvetica, sans-serif">Holisticopia.com</font></strong></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Place 
+                        an Ad</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/holisticopia/advertising.htm">http://www.bluepacificmarketing.com/holisticopia/advertising.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Subscribe 
+                        to the Mailing List</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/holisticopia/subscribe.htm%20">http://www.bluepacificmarketing.com/holisticopia/subscribe.htm</a> 
+                        </font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Unsubscribe 
+                        from the Mailing List</strong><br>
+                        <a href="http://www.holisticopia.com/unsubscribe.htm">http://www.holisticopia.com/unsubscribe.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Suggest 
+                        a Revision</strong><br>
+                        <a href="http://www.holisticopia.com/revise.php">http://www.holisticopia.com/revise.php</a> 
+                        <a href="http://www.holisticopia.com/aboutus.htm"><br>
+                        </a></font></p></td>
+                  </tr>
+                </table></td>
+            </tr>
+          </table>
+        </div></td>
+      <td><div align="center">
+          <table border="0" cellpadding="5" bgcolor="#CCCCCC">
+            <tr> 
+              <td><table border="0" cellpadding="5">
+                  <tr> 
+                    <td><p align="center"><br>
+                        <img src="images/1sm_terracopia.jpg" width="206" height="32"></p>
+                      <p align="center"><strong><font face="Verdana, Arial, Helvetica, sans-serif">Terracopia.net</font></strong></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Place 
+                        an Ad</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/terracopia/advertising.htm" target="_blank">http://www.bluepacificmarketing.com/terracopia/advertising.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Subscribe 
+                        to the Mailing List</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/terracopia/subscribe.htm" target="_blank">http://www.bluepacificmarketing.com/terracopia/subscribe.htm</a> 
+                        </font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Unsubscribe 
+                        from the Mailing List</strong><br>
+                        <a href="http://www.terracopia.net/unsubscribe.htm" target="_blank">http://www.terracopia.net/unsubscribe.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Suggest 
+                        a Revision</strong><br>
+                        <a href="http://www.terracopia.net/revise.php" target="_blank">http://www.terracopia.net/revise.php</a> 
+                        <a href="http://www.holisticopia.com/aboutus.htm"><br>
+                        </a></font></p></td>
+                  </tr>
+                </table></td>
+            </tr>
+          </table>
+        </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+          <table border="0" cellpadding="5" bgcolor="#CCCCCC">
+            <tr> 
+              <td><table border="0" cellpadding="5">
+                  <tr> 
+                    <td><p align="center"><br>
+                        <img src="images/1sm_ecocopia.jpg" width="206" height="32"></p>
+                      <p align="center"><strong><font face="Verdana, Arial, Helvetica, sans-serif">Ecocopia.com</font></strong></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Place 
+                        an Ad</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/ecocopia/advertising.htm" target="_blank">http://www.bluepacificmarketing.com/ecocopia/advertising.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Subscribe 
+                        to the Mailing List</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/ecocopia/subscribe.htm" target="_blank">http://www.bluepacificmarketing.com/ecocopia/subscribe.htm</a> 
+                        </font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Unsubscribe 
+                        from the Mailing List</strong><br>
+                        <a href="http://www.ecocopia.com/unsubscribe.htm" target="_blank">http://www.ecocopia.com/unsubscribe.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Suggest 
+                        a Revision</strong><br>
+                        <a href="http://www.ecocopia.com/revise.php" target="_blank">http://www.ecocopia.com/revise.php</a> 
+                        <a href="http://www.holisticopia.com/aboutus.htm"><br>
+                        </a></font></p></td>
+                  </tr>
+                </table></td>
+            </tr>
+          </table>
+        </div></td>
+      <td><div align="center">
+          <table border="0" cellpadding="5" bgcolor="#CCCCCC">
+            <tr> 
+              <td><table border="0" cellpadding="5">
+                  <tr> 
+                    <td><p align="center"><br>
+                        <img src="images/1sm_grabber.jpg" width="206" height="32"></p>
+                      <p align="center"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif">TheDailyNewsgrabber.com</font></strong></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Place 
+                        an Ad</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/newgrabber/advertising.htm" target="_blank">http://www.bluepacificmarketing.com/newgrabber/advertising.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Subscribe 
+                        to the Mailing List</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/newsgrabber/subscribe.htm" target="_blank">http://www.bluepacificmarketing.com/newsgrabber/subscribe.htm</a> 
+                        </font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Unsubscribe 
+                        from the Mailing List</strong><br>
+                        <a href="http://www.thedailynewsgrabber.com/unsubscribe.htm" target="_blank">http://www.thedailynewsgrabber.com/unsubscribe.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Suggest 
+                        a Revision</strong><br>
+                        <a href="http://www.thedailynewsgrabber.com/revise.php%20" target="_blank">http://www.thedailynewsgrabber.com/revise.php</a> 
+                        <a href="http://www.holisticopia.com/aboutus.htm"><br>
+                        </a></font></p></td>
+                  </tr>
+                </table></td>
+            </tr>
+          </table>
+        </div></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+          <table border="0" cellpadding="5" bgcolor="#CCCCCC">
+            <tr> 
+              <td><table border="0" cellpadding="5">
+                  <tr> 
+                    <td><p align="center"><br>
+                        <img src="images/1sm_freetownrecords.jpg" width="206" height="32"></p>
+                      <p align="center"><strong><font face="Verdana, Arial, Helvetica, sans-serif">FreetownRecords.com</font></strong></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Place 
+                        an Ad</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/freetown/advertising.htm" target="_blank">http://www.bluepacificmarketing.com/freetown/advertising.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Subscribe 
+                        to the Mailing List</strong><br>
+                        <a href="http://www.bluepacificmarketing.com/freetown/subscribe.htm" target="_blank">http://www.bluepacificmarketing.com/freetown/subscribe.htm</a> 
+                        </font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Unsubscribe 
+                        from the Mailing List</strong><br>
+                        <a href="http://www.freetownrecords.com/unsubscribe.htm" target="_blank">http://www.freetownrecords.com/unsubscribe.htm</a></font></p>
+                      <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Suggest 
+                        a Revision</strong><br>
+                        <a href="http://www.freetownrecords.com/revise.php%20" target="_blank">http://www.freetownrecords.com/revise.php</a> 
+                        <a href="http://www.holisticopia.com/aboutus.htm"><br>
+                        </a></font></p></td>
+                  </tr>
+                </table></td>
+            </tr>
+          </table>
+        </div></td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div>
+</body>
+</html>

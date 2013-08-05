@@ -1,0 +1,42 @@
+
+<?
+set_time_limit (0);
+if ($herbage!="xfgh") 
+{
+if ($h1=="x") 
+{
+print "<div align=center><font face=verdana size=2>Your session has expired. Please login again.</font></div><p>";
+}
+include "home.htm";
+}
+else 
+{
+
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print '
+<html>
+<font face=verdana size=1>
+';
+
+$Query215 = "SELECT DISTINCT t FROM `bloggle_blog0` WHERE S='$Username' ORDER BY t;";
+$Result215 = mysql_db_query($DBName, $Query215, $Link);
+	while ($Row215 = mysql_fetch_array ($Result215))
+	{
+	$m215a = $Row215[0];
+	$m215ab = str_replace(" ", "+", $m215a);
+	print "<strong>$m215a</strong> <a target=_blank href=view.php?b=$m215ab>view</a> <a target=_blank href=edit.php?b=$m215ab>edit</a><br>";
+	}
+
+print "</html>";
+
+mysql_close ($Link);
+}
+?>
+

@@ -1,0 +1,59 @@
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "terra_world";
+$Password = "turnip";
+$DBName = "terra_world";
+$Tablename = "terra_world";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query12 = "SELECT b FROM `newsletters` WHERE c='ecocopia' AND d='' LIMIT 1";
+$Result12 = mysql_db_query($DBName, $Query12, $Link);
+$mFlag=0;
+while ($Row12 = mysql_fetch_array ($Result12))
+	{
+	$m1a = $Row12[0];
+	$mFlag=1;
+	$mz1 = strstr($m1a, ".");
+	$mz2 = strstr($m1a, "@");
+	if ($mz1) {
+		if ($mz2) {
+			$mFlag=0;
+		}
+	}	
+	$Query13 = "UPDATE `newsletters` SET d='1' WHERE b='$m1a'";
+	$Result13 = mysql_db_query($DBName, $Query13, $Link);
+	$mFlag=0;
+	$Query14 = "SELECT b FROM `newsletters_filters`";
+	$Result14 = mysql_db_query($DBName, $Query14, $Link);
+	while ($Row14 = mysql_fetch_array ($Result14))
+		{
+		$m1 = $Row14[0];
+		$m1b = " $m1a ";
+		$m2 = strstr($m1b, $m1);
+		if ($m2) {
+			$mFlag=1;
+			}
+		}
+	
+	$Query15 = "SELECT * FROM `newsletters_unsubscribe` WHERE b='$m1a';";
+	$Result15 = mysql_db_query($DBName, $Query15, $Link);
+	while ($Row15 = mysql_fetch_array ($Result15))
+		{
+		$mFlag=1;
+		}
+	
+	$z1 = strlen($m1a);
+	$zy1 = substr($m1a, $z1-3, 1);
+	if ($zy1==".") {$mFlag=1;}
+	
+		if ($mFlag==0) {	
+			print "$m1a";
+			}
+			else
+			{
+			
+			}
+	}
+mysql_close ($Link);
+?>

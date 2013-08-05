@@ -1,0 +1,7 @@
+<?
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+?>

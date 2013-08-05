@@ -1,0 +1,284 @@
+<?php ini_set("memory_limit", "200000000"); // for large images so that we do not get "Allowed memory exhausted"?>
+<?php
+$z1 = $_GET['z1'];
+$z2 = $_GET['z2'];
+$z3 = $_GET['z3'];
+if ($z1) {} else {$z1 = $_POST['z1'];}
+if ($z2) {} else {$z2 = $_POST['z2'];}
+if ($z3) {} else {$z3 = $_POST['z3'];}
+if ($z4) {} else {$z4 = $_POST['z4'];}
+if ($z5) {} else {$z5 = $_POST['z5'];}
+$ip=$_SERVER['REMOTE_ADDR'];
+include('db_connect.php');
+$myemail="";
+$Query7 = "SELECT a FROM `sessions2` WHERE b='$z1' AND c='$z2' AND d='$ip';";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$myemail = $Row7[0];
+	$Query8 = "SELECT username FROM `members` WHERE email='$myemail';";
+	$Result8 = mysql_db_query($DBName, $Query8, $Link);
+	while ($Row8 = mysql_fetch_array ($Result8))
+	{	
+	$myaccount = $Row8[0];
+	}
+	}
+//print "$z1!$z2!$z3!$z4!$z5!$myaccount!$ip";
+
+$Query10 = "SELECT * FROM `image_name` WHERE username='$z1';";
+$Result10 = mysql_db_query($DBName, $Query10, $Link);
+while ($Row10 = mysql_fetch_array ($Result10))
+	{
+	$myimagenum = $Row10[1];
+	$newnum = $myimagenum + 1;
+	//print "$newnum!";
+	$Query11 = "UPDATE `image_name` SET currentimagenum='$newnum' WHERE username='$z1';";
+	$Result11 = mysql_db_query($DBName, $Query11, $Link);
+	}
+$newnum2 = strval($newnum);
+$myfile=trim($z1)."$newnum2";
+
+//$myfile=trim($z1).trim($z2);
+//print "?$myfile";
+// upload the file
+if ((isset($_POST["submitted_form"])) && ($_POST["submitted_form"] == "image_upload_form")) {
+	
+	// file needs to be jpg,gif,bmp,x-png and 4 MB max
+	if (($_FILES["image_upload_box"]["type"] == "image/jpeg" || $_FILES["image_upload_box"]["type"] == "image/pjpeg" || $_FILES["image_upload_box"]["type"] == "image/gif" || $_FILES["image_upload_box"]["type"] == "image/x-png") && ($_FILES["image_upload_box"]["size"] < 4000000))
+	{
+		
+  
+		// some settings
+		$max_upload_width = 2592;
+		$max_upload_height = 1944;
+		  
+		// if user chosed properly then scale down the image according to user preferances
+		if(isset($_REQUEST['max_width_box']) and $_REQUEST['max_width_box']!='' and $_REQUEST['max_width_box']<=$max_upload_width){
+			$max_upload_width = $_REQUEST['max_width_box'];
+		}    
+		if(isset($_REQUEST['max_height_box']) and $_REQUEST['max_height_box']!='' and $_REQUEST['max_height_box']<=$max_upload_height){
+			$max_upload_height = $_REQUEST['max_height_box'];
+		}	
+
+		
+		// if uploaded image was JPG/JPEG
+		if($_FILES["image_upload_box"]["type"] == "image/jpeg" || $_FILES["image_upload_box"]["type"] == "image/pjpeg"){	
+			$image_source = imagecreatefromjpeg($_FILES["image_upload_box"]["tmp_name"]);
+		}		
+		// if uploaded image was GIF
+		if($_FILES["image_upload_box"]["type"] == "image/gif"){	
+			$image_source = imagecreatefromgif($_FILES["image_upload_box"]["tmp_name"]);
+		}	
+		// BMP doesn't seem to be supported so remove it form above image type test (reject bmps)	
+		// if uploaded image was BMP
+		if($_FILES["image_upload_box"]["type"] == "image/bmp"){	
+			$image_source = imagecreatefromwbmp($_FILES["image_upload_box"]["tmp_name"]);
+		}			
+		// if uploaded image was PNG
+		if($_FILES["image_upload_box"]["type"] == "image/x-png"){
+			$image_source = imagecreatefrompng($_FILES["image_upload_box"]["tmp_name"]);
+		}
+		
+		if (strpos($_FILES["image_upload_box"]["name"], ".jpg")) {
+		$remote_file = "image_files/".$myfile.".jpg";
+		}
+		if (strpos($_FILES["image_upload_box"]["name"], ".gif")) {
+		$remote_file = "image_files/".$myfile.".gif";
+		}		
+		if (strpos($_FILES["image_upload_box"]["name"], ".bmp")) {
+		$remote_file = "image_files/".$myfile.".bmp";
+		}
+		if (strpos($_FILES["image_upload_box"]["name"], ".png")) {
+		$remote_file = "image_files/".$myfile.".png";
+		}
+		imagejpeg($image_source,$remote_file,100);
+		chmod($remote_file,0644);
+	
+	
+	
+		$z11 = trim($z1);
+		$z22 = trim($z2);
+		//$ip=$_SERVER['REMOTE_ADDR'];
+		$thismytime1 = time();
+		//$myfile=trim($z1).trim($z2);
+		
+		//print "$z1!$z2!$z3!$z4!$z5!$myaccount!$ip";
+		$mFlag23=0;
+		$Query23 = "SELECT * FROM `images` WHERE username='$z1' AND page_position='$z2';";
+		$Result23 = mysql_db_query($DBName, $Query23, $Link);
+		while ($Row23 = mysql_fetch_array ($Result23))
+			{	
+				$mFlag23=1;
+			}
+		//$myemail = $Row7[0];
+		if ($mFlag23) {
+			$Query5 = "UPDATE `images` SET imagename = '$remote_file', a = '$ip', b = '$thismytime' WHERE username='$z11' AND page_position='$z22';";
+			$Result5 = mysql_db_query($DBName, $Query5, $Link);	
+		} else {
+			$Query5 = "INSERT INTO `images` (`username`, `page_position`, `imagename`, `a`, `b`, `c`, `d`) VALUES ('$z11', '$z22', '$remote_file', '$ip', '$thismytime1', '', '');";
+			$Result5 = mysql_db_query($DBName, $Query5, $Link);
+		}
+			
+
+		// get width and height of original image
+		list($image_width, $image_height) = getimagesize($remote_file);
+	
+		if($image_width>$max_upload_width || $image_height >$max_upload_height){
+			$proportions = $image_width/$image_height;
+			
+			if($image_width>$image_height){
+				$new_width = $max_upload_width;
+				$new_height = round($max_upload_width/$proportions);
+			}		
+			else{
+				$new_height = $max_upload_height;
+				$new_width = round($max_upload_height*$proportions);
+			}		
+			
+			
+			$new_image = imagecreatetruecolor($new_width , $new_height);
+			$image_source = imagecreatefromjpeg($remote_file);
+			
+			imagecopyresampled($new_image, $image_source, 0, 0, 0, 0, $new_width, $new_height, $image_width, $image_height);
+			imagejpeg($new_image,$remote_file,100);
+			
+			imagedestroy($new_image);
+		}
+		
+		imagedestroy($image_source);
+		
+
+		
+		header("Location: submit.php?upload_message=image uploaded&upload_message_type=success&show_image=".$_FILES["image_upload_box"]["name"]);
+		exit;
+	}
+	else{
+		header("Location: submit.php?upload_message=make sure the file is jpg, gif or png and that is smaller than 4MB&upload_message_type=error");
+		exit;
+	}
+	
+}
+$z3 = $_POST['z3'];
+	//print "<br />!!!";
+	//echo $_POST['imageName'];
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Image Upload with resize</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #333333;
+	font-size: 12px;
+}
+
+.upload_message_success {
+	padding:4px;
+	background-color:#009900;
+	border:1px solid #006600;
+	color:#FFFFFF;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.upload_message_error {
+	padding:4px;
+	background-color:#CE0000;
+	border:1px solid #990000;
+	color:#FFFFFF;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+-->
+</style></head>
+
+<body>
+
+<h1 style="margin-bottom: 0px">Submit an image</h1>
+
+
+        <?php if(isset($_REQUEST['upload_message'])){?>
+            <div class="upload_message_<?php echo $_REQUEST['upload_message_type'];?>">
+            <?php echo htmlentities($_REQUEST['upload_message']);?>
+            </div>
+		<?php }?>
+
+<?PHP
+print "$z3";
+?>
+<form action="submit.php" method="post" enctype="multipart/form-data" name="image_upload_form" id="image_upload_form" style="margin-bottom:0px;">
+<label>Image file, maximum 4MB. it can be a .jpg:</label><br />
+          <input name="image_upload_box" type="file" id="image_upload_box" size="40" />
+  <?PHP
+print " <input type='hidden' name='z1' value='$z1' />";   
+print " <input type='hidden' name='z2' value='$z2' />"; 
+print " <input type='hidden' name='z3' value='$z3' />"; 
+print " <input type='hidden' name='z4' value='$z4' />"; 
+print " <input type='hidden' name='z5' value='$z5' />"; 
+/*
+print '
+<input type="hidden" name="imageName" value="
+<?PHP
+print "$z3";
+?>
+" />
+<input type="hidden" name="z1" value="
+<?PHP
+print "$z1";
+?>
+" />
+<input type="hidden" name="z2" value="
+<?PHP
+print "$z2";
+?>
+" />
+<input type="hidden" name="z4" value="
+<?PHP
+print "$myaccount";
+?>
+" />
+<input type="hidden" name="z5" value="
+<?PHP
+print "$z3";
+?>
+" />
+* */?>
+          
+          <input type="submit" name="submit" value="Upload image" />     
+     
+     <br />
+
+      <input name="max_width_box" type="hidden" id="max_width_box" value="512" size="4">
+         
+      
+      <input name="max_height_box" type="hidden" id="max_height_box" value="384" size="4">
+  
+      <br />
+
+
+      
+
+<input name="submitted_form" type="hidden" id="submitted_form" value="image_upload_form" />
+          </form>
+
+
+
+
+<?php if(isset($_REQUEST['show_image']) and $_REQUEST['show_image']!=''){?>
+<p>
+	<img src="image_files/<?php echo $_REQUEST['show_image'];?>" />
+</p>
+<?php }?>
+
+
+
+</body>
+</html>
+<?PHP
+mysql_close ($Link);
+?>

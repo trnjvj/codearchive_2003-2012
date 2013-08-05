@@ -1,0 +1,61 @@
+
+<?
+/*
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=separate.php">
+</HEAD>
+*/
+include('db_connect.php');
+set_time_limit(0);
+
+$mCount=0;
+print "<font face=arial size=2>";
+print "<table cellpadding=5 width=100% border=0>";
+$Query111 = "SELECT * FROM `craigslist2_select_new`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$myA = $Row110[0];
+		$myB = $Row110[1];
+		$myC = $Row110[2];
+		$myD = $Row110[3];
+		$myE = $Row110[4];
+		$myF = $Row110[5];
+		$myG = $Row110[6];
+		$myH = $Row110[7];
+		$myI = $Row110[8];
+		$myJ = $Row110[9];
+		print "<tr>";
+		print "<td>";
+		$mCount++;
+		print "$mCount - ";
+		print "<a target=_blank href=$myA>$myA</a><br>";
+		print "</td><td>";
+		print "$myB<br>";
+		print "</td><td>";
+		print "$myC<br>";
+		print "</td><td>";
+		
+		for ($j=0; $j<256; $j++)
+			{	
+			$myD = str_replace("&#$j;", chr($j), $myD);
+			}
+		print "$myD<br>";
+
+		print "</td><td>";
+		print "$myF<br>";
+		print "</td><td>";
+		print "$myG<br>";
+		print "</td><td>";
+		print "$myH<br>";
+
+		print "</td></tr>";
+		print "<tr><td colspan=9>$myJ<br>";
+		print "</td></tr>";
+		
+		}
+		print "</table>";
+		print "</font>";
+mysql_close ($Link);
+?>

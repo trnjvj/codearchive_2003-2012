@@ -1,0 +1,52 @@
+<?
+$mFound1001=0;
+$mCol501=0;
+$mFirst=1;
+$login=1;
+if ($user=="none") {
+$login=0;
+}
+if ($user=="") {
+$login=0;
+}
+$mUser="$user";
+$mCount2002 = 0;
+
+$TheFile = "http://education.yahoo.com/search/ahd?p=$mSearch";
+$Open = fopen($TheFile, "r");
+$mStart1=0;
+
+if ($Open) {
+
+
+	if ($login==1 or $mCount2002<3) {
+
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$SS1 = strstr($Array[$m], 'entry text -->');
+			if ($SS1) {
+                    $mStart1=1;
+                    print "<div align=center><table width=520>";
+                    }
+            if ($mStart1==1)
+            	{
+                $mLaLa = str_replace("/reference/", "http://education.yahoo.com/reference/", $Array[$m]);
+                $mLaLa = str_replace("<a ", "<a target=_blank ", $mLaLa);
+                $mLaLa = str_replace(">", "><font face=verdana size=1>", $mLaLa);
+                $mLaLa = str_replace("<", "</font><", $mLaLa);
+
+                print "$mLaLa\n";
+
+                $SS2 = strstr($Array[$m], '/table');
+                if ($SS2) {$mStart1=0;}
+                }
+
+                    }
+				}
+			}
+      }
+
+?>

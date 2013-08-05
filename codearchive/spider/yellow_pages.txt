@@ -1,0 +1,51 @@
+<?php
+set_time_limit(0);
+$mCt="Santa+Cruz";
+$mST="California";
+$L1="USA";
+$mSSS = "Liquor";
+$mFlag=0;
+$mCache="";
+print "<font face=verdana size=1>";
+for ($i=0; $i<200; $i=$i+13)
+{
+if ($L1=="USA") {$TheFile = "http://yp.yahoo.com/py/ypResults.py?&&city=$mCt&state=$mST&country=us&stx=$mSSS&offset=$i";}
+if ($L1=="Canada") {$TheFile = "http://yp.yahoo.com/py/ypResults.py?&&city=$mCt&state=$mST&country=ca&stx=$mSSS&offset=$i";}
+$Found = 0;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+$mThis = strpos($String, "/py/ypMap.py");
+if ($mThis) {$mFlag=1;}
+$mThis = strpos($String, "</tr>");
+if ($mThis) {
+$mFlag=0;
+$mCache = str_replace("<", "[", $mCache);
+$mCache = str_replace(">", "]", $mCache);
+$Array = explode("]", $mCache);
+for ($m = 0; $m < count($Array); $m++) {
+	$mHere=$Array[$m];
+	$mT1 = strpos($mHere, "/b");
+	if ($mT1) {$mPhone=str_replace("[/b", "", $mHere);}
+	$mT1 = strpos($mHere, "[br");
+	if ($mT1) {$mStreet=str_replace("[br", "", $mHere);}
+	$mT1 = strpos($mHere, "[/a");
+	if ($mT1) {$mName=str_replace("[/a", "", $mHere);}
+	$mT1 = strpos($mHere, "[/B");
+	if ($mT1) {$mCity=str_replace("[/B", "", $mHere); 
+	if ($mName=="Web Site") {} else {print "$mName | $mStreet | $mCity | $mPhone<br>";}
+	}
+	}
+$mCache="";
+}
+if ($mFlag==1) {
+$mCache=$mCache.$String;
+
+
+}
+}
+}
+}
+?>

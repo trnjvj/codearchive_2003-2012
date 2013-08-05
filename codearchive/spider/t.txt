@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=altavista.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+
+
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+for ($hi=0; $hi<5; $hi++) {
+
+$Cat='';
+$mCount=0;
+
+$Query110 = "SELECT * FROM `ore2` WHERE b='1' LIMIT 1;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];
+	if ($Cat2=='') {$Cat22=0;} else {$Cat22=$Cat2+10;}
+	$Query112 = "UPDATE `ore2` SET `b` = '1', c='$Cat22' WHERE `a` = '$Cat';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	}
+
+if ($Cat=='') {
+	$Query111 = "SELECT * FROM `ore2` WHERE b='' LIMIT 1;";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$Cat = $Row110[0];
+		$Cat1 = $Row110[1];
+		$Cat2 = $Row110[2];
+		$Cat3 = $Row110[3];
+		$Cat4 = $Row110[4];
+		if ($Cat2=='') {$Cat22=0;} else {$Cat22=$Cat2+10;}
+		$Query112 = "UPDATE `ore2` SET `b` = '1', c='$Cat22' WHERE `a` = '$Cat';";
+		$Result112 = mysql_db_query($DBName, $Query112, $Link);
+		}
+	}
+print "<p><b>$Cat $Cat2</b></p>";
+$mSearch=str_replace(' ', '+', $Cat);
+$mSearch2=$Cat;
+$nn=$Cat22;
+
+$TheFile = "http://www.altavista.com/web/results?q=$mSearch&kgs=0&kls=1&avkw=aapt&stq=$nn";
+$Open = fopen($TheFile, "r");
+
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+
+
+
+$S2 = strpos($String, "pan class=ngrn>");
+
+if ($S2) {
+	$String=str_replace('<span class=ngrn>', '', $String);
+	$String=str_replace('<br>', '', $String);
+	$String=str_replace('</span>', '', $String);
+	$String=str_replace('</span>', '', $String);
+	$String="http://$String";
+	print "$String\n\r<br>";
+	$Query111 = "INSERT INTO `ore_new4` ( `a` , `b` , `c` ) VALUES ('$mSearch2', '$String', '');";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	$mCount++;
+	$S=$String;
+	
+
+if ($String==$Cat3) {
+	print "hi";
+
+	$Query112 = "UPDATE `ore2` SET `b` = '2' WHERE `a` = '$Cat';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	$mCC=0;
+	}
+
+
+	}
+}
+
+$Query112 = "UPDATE `ore2` SET `d` = '$S' WHERE `a` = '$Cat';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+fclose($Open);
+}
+
+if ($mCount==0) {
+$Query112 = "UPDATE `ore2` SET `b` = '2' WHERE `a` = '$Cat';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+}
+}
+
+mysql_close ($Link);
+?>

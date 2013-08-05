@@ -1,0 +1,73 @@
+<?
+set_time_limit (600000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mo1 = "";
+$fp = fopen("../freetown/p2/1.htm", "wt");
+$Query11 = "SELECT DISTINCT a,b FROM `freetown_cats23` ORDER by a,b";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$m1 = $Row11[0];
+	$m2 = $Row11[1];
+	print "$m1|$m2<br>";
+	$Search2 = str_replace(" ", "_", $m1);
+	$Lower1 = strtolower($Search2);
+	$Search2 = str_replace(" ", "_", $m2);
+	$Lower2 = strtolower($Search2);
+	
+	if ($m1==$mo1) {} else {
+	
+	fwrite($fp, "</tr></table>");	
+	fwrite($fp, "<div align=center><p>&nbsp;<p><font face=arial size=3><b>&copy; 2003 by <a target=_blank href=http://www.bluepacificmarketing.com>Blue Pacific Marketing</a></b></font>");
+	fwrite($fp, '<p>&nbsp;<p><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1j"> </SCRIPT>');
+	fwrite ($fp, "</div></html>");
+	fclose($fp);
+	
+$fp = fopen("../freetown/p2/a_$Lower1.php", "wt");
+fwrite($fp, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">');
+fwrite($fp, "<html><head>");
+fwrite($fp, "<title>Freetown Records: $m1</title>");
+fwrite($fp, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+fwrite($fp, '<link rel="stylesheet" type="text/css" href="../css/sec.css">');
+fwrite($fp, "</head><body bgcolor=#000000 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF>");
+fwrite($fp, "<div align=center><img src=../images/logo2.jpg>");
+fwrite($fp, "<div class='div2'><table border=0 width=700><tr><td><font face=arial size=3><b><a href=index.html>Home</a> &gt; $m1</td>");
+fwrite($fp, "<td align=right><a href='../subscribe.htm'><font face=arial size=3><b>Subscribe</a> | ");
+fwrite($fp, "<a href=../advertising.php><font face=arial size=3><b>Add a Link</a></td></tr></table>");
+fwrite($fp, '<p><div align=center><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1j"> </SCRIPT></div>');
+fwrite($fp, "<p><table border=0 width=700><tr>");
+$Col=1;
+		}
+	$mo1 = $m1;
+	$mFlag112 = 0;
+	$Query112 = "SELECT * FROM `freetown_artists23` WHERE b='$m2' LIMIT 1;";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	while ($Row112 = mysql_fetch_array ($Result112))
+		{
+		$mFlag112=1;
+		}
+	if ($mFlag112==1) {
+	fwrite($fp, "<td width=33%><font face=arial size=3><b><a href=b_$Lower2.php>$m2</a></td>");
+	$Col++;
+	if ($Col>3) {
+	$Col=1;
+	fwrite($fp, "</tr><tr>");
+	
+	}
+	}	
+	}
+	mysql_close ($Link);
+	fwrite($fp, "</tr></table>");
+	fwrite($fp, "<div align=center><table border=0 width=700><tr><td align=center><font face=arial size=3><b><a href=../addlink.php>Add a Link</a></td></tr></table>");	
+	fwrite($fp, '<p><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1h"> </SCRIPT>');
+	fwrite($fp, "<p><font face=arial size=3><b>&copy; 2003 by Tim Johnson</b></font>");
+	fwrite ($fp, "</div></html>");
+	fclose($fp);
+fclose($fp);
+?>

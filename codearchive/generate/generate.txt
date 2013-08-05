@@ -1,0 +1,32 @@
+<?
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "pages";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query = "SELECT 1a,1b,1c,2a,2b,2c,2d,page from pages";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $A1=str_replace(" ", "_", $Row[0]);
+    $A2=str_replace(" ", "_", $Row[1]);
+    $A3=str_replace(" ", "_", $Row[2]);
+    $A4=str_replace(" ", "_", $Row[3]);
+    $A5=str_replace(" ", "_", $Row[4]);
+    $A6=str_replace(" ", "_", $Row[5]);
+    $A7=str_replace(" ", "_", $Row[6]);
+    $A8=str_replace(" ", "_", $Row[7]);
+
+    $FileName="cache/$A1_$A2_$A3_$A4_$A5_$A6_$A7.htm";
+    $FileName='cache.txt';
+    $FilePointer=fopen($FileName, 'w');
+    fwrite($FilePointer, $A8);
+    fclose($FilePointer);
+    $A1=str_replace(" ", "_", $Row[0]);
+     print "$Row[0] $Row[1] $Row[2] $Row[3]$Row[4]$Row[3]$Row[3]$Row[3]$Row[3]";
+     }
+mysql_close ($Link);
+?>

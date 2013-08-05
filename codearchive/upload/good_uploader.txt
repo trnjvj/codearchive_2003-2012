@@ -1,0 +1,39 @@
+<?php
+
+   error_reporting(E_ALL);
+
+   define('MAX_FILE_SIZE', 5000);
+   define('FILE_TYPE', 'image/gif');
+
+
+   // Get file name from the $_FILES array 
+   $picfile_name = (! empty($_FILES['picfile']['name'])) ?
+                     $_FILES['picfile']['name'] : null;
+
+   // Get file type from the $_FILES array 
+   $picfile_type = (! empty($_FILES['picfile']['type'])) ?
+                     $_FILES['picfile']['name'] : null;
+
+   // Get file size from the $_FILES array 
+   $picfile_size = (! empty($_FILES['picfile']['size'])) ?
+                     $_FILES['picfile']['name'] : null;
+
+   // Get temp file from the $_FILES array 
+   $tmp_picfile =  (! empty($_FILES['picfile']['tmp_name'])) ?
+                      $_FILES['picfile']['tmp_name'] : null;
+
+   echo "File name : $picfile_name <br>";
+   echo "File size : $picfile_size <br>";
+   echo "File type : $picfile_type <br>";
+
+   if ( ($picfile_size < MAX_FILE_SIZE) && 
+        ($picfile_type == FILE_TYPE))
+   {
+       move_uploaded_file($tmp_picfile,
+                          "images/$picfile_name");
+   } else {
+
+       echo "Your file $picfile_name was not uploaded. <br>";
+   }
+
+?>

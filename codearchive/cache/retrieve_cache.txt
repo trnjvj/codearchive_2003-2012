@@ -1,0 +1,28 @@
+<?php
+
+
+$mCache="";
+$mSearch2=str_replace(" ", "+", $mSearch);
+$mLevel = $Level;
+$Host = "localhost";
+$User = "grabber_world";
+$Password = "turnip";
+$DBName = "grabber_world";
+$Tablename = "world";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query = "SELECT DISTINCT b from members_lists where a='$E1' order by b";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+	$m1 = $Row[0];
+	print "$m1<br>";
+	}
+mysql_close ($Link);
+$Subject="Cache Dump";
+if ($mCache) {
+if (mail($E1, $Subject, $mCache, "From: Pandora23 <info@thedailynewsgrabber.com>")) {print "$E1";}
+}
+print "<p>$mCache";
+?>

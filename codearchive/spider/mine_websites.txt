@@ -1,0 +1,72 @@
+<?
+$mSearch2003 = str_replace(" ", "+", $mSearch);
+for ($o = 1; $o < 140; $o=$o+20)
+{
+if ($mSkipit==0) {
+$mSkipit=1;
+$TheFile = "http://search.dmoz.org/cgi-bin/search?search=$mSearch2003&utf8=1&locale=en&start=$o";
+$Start=0;
+$Open = @fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=-1;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++)
+    	{
+		$String = trim($Data[$n]);
+		
+        $VVV = strpos($String,"he Open Directory search is currently under a heavy load. Please try back later.");
+        if ($VVV) {
+		print "HEAVY LOAD";
+		$mSkipit=1;}
+		$V1 = strpos($String, "li>");
+		if ($V1) {
+                $V3 = strpos($String, '"');
+                $V4 = strlen($mString);
+				if ($V3) {
+                	$T1 = substr($String, $V3+1, $V4-$V3-1);
+                    $V5 = strpos($T1, '"');
+                	if ($V5) {
+                		$T2 = substr($T1, 0, $V5);
+                        $V6 = strlen($T1);
+                        $T3 = substr($T1, $V5+2, $V6-$V5-2);
+                        $V7 = strpos($T3, "</a>");
+                        $T4 = substr($T3, 0, $V7);
+                        $T4 = str_replace("<b>", "", $T4);
+                        $T4 = str_replace("</b>", "", $T4);
+                        $T4 = str_replace(";", "", $T4);
+                        $V8 = strlen($T3);
+                        $T5 = substr($T3, $V7+4, $V8-$V7-4);
+                        $T5 = str_replace("<b>", "", $T5);
+                        $T5 = str_replace("</b>", "", $T5);
+                        $T5 = str_replace(" - ", "", $T5);
+                        $V9 = strpos($T5, "<");
+                        $T6 = substr($T5, 0, $V9);
+                        print "";
+                        $mCount2002 = $mCount2002+1;
+                    if ($mFound13==0) {
+                    if ($mFirst321) {$mFirst321=0;}
+                    $mFound=1;
+                    if ($mWebb==1) {} else {
+                    $T6=str_replace("'", "", $T6);
+					if ($T4) {
+					print "$mSearch|$T4|$T2|$T6<br>";
+					$Query23="INSERT INTO `mine_links` ( `a` , `b` , `c` , `d` , `e`, `f` ) VALUES ('$mSearch', '$T4', '$T2', '$T6', '', 'Websites');";
+	                $Result23 = mysql_db_query($DBName, $Query23, $Link);
+					}
+					$mSkipit=0;
+                    }
+}
+}
+}
+}
+}
+}
+}
+}
+
+
+$Query3 = "UPDATE `mine_cat` SET `c` = '1' WHERE `a` = '$mSearch'";
+$Result3 = mysql_db_query($DBName, $Query3, $Link);
+
+?>

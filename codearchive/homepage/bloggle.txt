@@ -1,0 +1,472 @@
+ 	<?
+set_time_limit (0);
+if ($herbage!="xfgh") {
+if ($h1=="x") {
+print "<div align=center><font face=Helvetica size=2>Your session has expired. Please login again.</font></div><p>";
+}
+include "home.htm";
+}
+else {
+
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mlala=0;
+$mState = "";
+$mFirst = 0;
+
+if ($l) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState ."l=$l";}
+if ($m1) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m1=$m1";}
+if ($m2) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m2=$m2";}
+if ($m3) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m3=$m3";}
+if ($m4) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m4=$m4";}
+if ($m5) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m5=$m5";}
+if ($m6) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m6=$m6";}
+if ($m7) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m7=$m7";}
+if ($m8) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m8=$m8";}
+if ($m9) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m9=$m9";}
+if ($m10) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m10=$m10";}
+if ($query) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."query=$query";}
+
+
+if (strlen($mState)>0) {} else {
+
+$Query110 = "SELECT j FROM `bloggle_users` WHERE a='admin';";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$Array = explode("&", $m1a);
+	for ($m = 0; $m < count($Array); $m++) {
+		$m1b = $Array[$m];
+				
+		$m1c = " $m1b";
+		$m1d = strstr($m1c, "l=");if ($m1d) {$l=str_replace("l=", "", $m1b);}
+		$m1d = strstr($m1c, "m1=");if ($m1d) {$m1=str_replace("m1=", "", $m1b);}
+		$m1d = strstr($m1c, "m2=");if ($m1d) {$m2=str_replace("m2=", "", $m1b);}
+		$m1d = strstr($m1c, "m3=");if ($m1d) {$m3=str_replace("m3=", "", $m1b);}
+		$m1d = strstr($m1c, "m4=");if ($m1d) {$m4=str_replace("m4=", "", $m1b);}
+		$m1d = strstr($m1c, "m5=");if ($m1d) {$m5=str_replace("m5=", "", $m1b);}
+		$m1d = strstr($m1c, "m6=");if ($m1d) {$m6=str_replace("m6=", "", $m1b);}
+		$m1d = strstr($m1c, "m7=");if ($m1d) {$m7=str_replace("m7=", "", $m1b);}
+		$m1d = strstr($m1c, "m8=");if ($m1d) {$m8=str_replace("m8=", "", $m1b);}
+		$m1d = strstr($m1c, "m9=");if ($m1d) {$m9=str_replace("m9=", "", $m1b);}
+		$m1d = strstr($m1c, "m10=");if ($m1d) {$m10=str_replace("m10=", "", $m1b);}
+		$m1d = strstr($m1c, "query=");if ($m1d) {$query=str_replace("query=", "", $m1b);}
+		}
+	}
+}
+
+if ($l) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState ."l=$l";}
+if ($m1) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m1=$m1";}
+if ($m2) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m2=$m2";}
+if ($m3) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m3=$m3";}
+if ($m4) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m4=$m4";}
+if ($m5) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m5=$m5";}
+if ($m6) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m6=$m6";}
+if ($m7) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m7=$m7";}
+if ($m8) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m8=$m8";}
+if ($m9) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m9=$m9";}
+if ($m10) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."m10=$m10";}
+if ($query) {if ($mFirst==0) {$mFirst=1;} else {$mState = $mState."&"; $mFirst=1;} $mState = $mState."query=$query";}
+
+
+
+
+
+$Query110 = "UPDATE `bloggle_users` SET j='$mState' WHERE a='$Username';";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+$Query110 = "INSERT INTO `bloggle_log` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$Username', '$mState', '', '', '', '', '', '', '', '');";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+
+if ($l==-1) {$l=0;}
+
+print '
+<html>
+<HTML>
+<HEAD>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+';
+
+print "<table bgcolor=D6D2CF width=100% cellpadding=0 border=0><tr><td>";
+print "<table bgcolor=D6D2CF border=0><tr>";
+print "<td><font face=Helvetica size=2>&nbsp;&nbsp;<a href=file.php>File</a>&nbsp;&nbsp;</font></td>";
+print "<td><font face=Helvetica size=2>&nbsp;&nbsp;View&nbsp;&nbsp;</font></td>";
+print "<td><font face=Helvetica size=2>&nbsp;&nbsp;Go&nbsp;&nbsp;</font></td>";
+print "<td><font face=Helvetica size=2>&nbsp;&nbsp;Bookmarks&nbsp;&nbsp;</font></td>";
+print "<td><font face=Helvetica size=2>&nbsp;&nbsp;Tools&nbsp;&nbsp;</font></td>";
+print "<td><font face=Helvetica size=2>&nbsp;&nbsp;Window&nbsp;&nbsp;</font></td>";
+print "<td><font face=Helvetica size=2>&nbsp;&nbsp;Help&nbsp;&nbsp;</font></td>";
+print "</tr></table></td>";
+print "<td align=right><font face=Helvetica size=2><strong>a r c h i p e l a g o - v 0 . 7</strong>&nbsp;&nbsp;</font></td>";
+print "</tr></table>";
+print '
+<table width=100% cellpadding="0" cellspacing="0" border="0">
+<tr><td><table cellpadding=0 border=0 width=100%>
+<tr> 
+<td align=center valign=middle>
+<font color="black" size="+2" face="Times New Roman, Times, serif">Bloggle.org</font></td>
+<td align=center valign=bottom> 
+<table width="100%" border="0" cellpadding="0">
+<tr>
+<td>
+';
+print '<form method=get action="index.php">';
+print '<table width=100% border="0" cellspacing="0" cellpadding="0">';
+print '<tbody><tr>';
+print '<td> </td>';
+print '<td align="center"><font face="Helvetica" size="1">';
+print "<input maxlength='256' size='15' name='query' value='$query'>";
+print "<input type='submit' value='search' name='search'>";
+print '</font></td><td valign="top" nowrap="nowrap"><font size="-2">&nbsp;</font></td>';
+print "</tr></tbody></table></form><p>";
+print '</td>';
+print "<td valign=top><font face=Helvetica size=2>Signed in as <strong>$Username</strong>&nbsp;&nbsp;&nbsp;</font>";
+print "</td><td valign=top align=right><font face=Helvetica size=2><a href='logout.php'>Log Out</a></font></td>";				 
+print '</tr></table></form></td>
+
+ </tr>
+ </table></td>
+ </tr><tr>
+
+ <td> <table width=100% cellpadding=10 bordercolor=0 border=0>
+ <tr> 
+ <td class="sidebar"> ';
+
+if ($l==0) {
+print "| ";
+$Query110 = "SELECT DISTINCT c FROM `bloggle_cat10` WHERE b='Top' order by c;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1aa = str_replace(" ", "+", $m1a);
+	print "<a href=index.php?l=1&m1=$m1aa>$m1a</a> | ";
+	$mSearch="";
+	}
+}
+
+if ($l==1) {
+print "<a href=index.php?l=-1>Top</a> &gt; <strong>$m1</strong> | ";
+$Query110 = "SELECT DISTINCT d FROM `bloggle_cat10` WHERE b='Top' and c='$m1' order by d;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1b = $m1;
+	$m1bb = str_replace(" ", "+", $m1);
+	$m1a = $Row110[0];
+	$m1aa = str_replace(" ", "+", $m1a);
+	print "<a href=index.php?l=2&m1=$m1bb&m2=$m1aa>$m1a</a> | ";
+	$mSearch=$m1;
+	}
+}
+
+if ($l==2) {
+$m1b = $m1;
+$m1bb = str_replace(" ", "+", $m1);
+$m2b = $m2;
+$m2bb = str_replace(" ", "+", $m2);
+print "<a href=index.php?l=-1>Top</a> &gt; <a href=index.php?l=1&m1=$m1bb>$m1</a> &gt; <strong>$m2</strong> &gt; | ";
+$Query110 = "SELECT DISTINCT e FROM `bloggle_cat10` WHERE b='Top' and c='$m1' and d='$m2' order by e;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1aa = str_replace(" ", "+", $m1a);
+print "<a href=index.php?l=3&m1=$m1bb&m2=$m2bb&m3=$m1aa>$m1a</a> | ";
+$mSearch=$m2;
+}
+}
+
+if ($l==3) {
+$m1b = $m1;
+$m1bb = str_replace(" ", "+", $m1);
+$m2b = $m2;
+$m2bb = str_replace(" ", "+", $m2);
+$m3b = $m3;
+$m3bb = str_replace(" ", "+", $m3);
+print "<a href=index.php?l=-1>Top</a> &gt; <a href=index.php?l=1&m1=$m1bb>$m1</a> &gt; <a href=index.php?l=2&m1=$m1bb&m2=$m2bb>$m2</a> &gt; <strong>$m3</strong> &gt; | ";
+$Query110 = "SELECT DISTINCT f FROM `bloggle_cat10` WHERE b='Top' and c='$m1' and d='$m2' and e='$m3' order by f;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1aa = str_replace(" ", "+", $m1a);
+print "<a href=index.php?l=4&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m1aa>$m1a</a> | ";
+$mSearch=$m3;
+}
+}
+
+if ($l==4) {
+$m1b = $m1;
+$m1bb = str_replace(" ", "+", $m1);
+$m2b = $m2;
+$m2bb = str_replace(" ", "+", $m2);
+$m3b = $m3;
+$m3bb = str_replace(" ", "+", $m3);
+$m4b = $m4;
+$m4bb = str_replace(" ", "+", $m4);
+print "<a href=index.php?l=-1>Top</a> &gt; <a href=index.php?l=1&m1=$m1bb>$m1</a> &gt; <a href=index.php?l=2&m1=$m1bb&m2=$m2bb>$m2</a> &gt; <a href=index.php?l=3&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m1aa>$m3</a> &gt; <strong>$m4</strong> &gt; | ";
+$Query110 = "SELECT DISTINCT g FROM `bloggle_cat10` WHERE b='Top' and c='$m1' and d='$m2' and e='$m3' and f='$m4' order by g;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1aa = str_replace(" ", "+", $m1a);
+print "<a href=index.php?l=5&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m4bb&m5=$m1aa>$m1a</a> | ";
+$mSearch=$m4;
+}
+}
+
+if ($l==5) {
+$m1b = $m1;
+$m1bb = str_replace(" ", "+", $m1);
+$m2b = $m2;
+$m2bb = str_replace(" ", "+", $m2);
+$m3b = $m3;
+$m3bb = str_replace(" ", "+", $m3);
+$m4b = $m4;
+$m4bb = str_replace(" ", "+", $m4);
+$m5b = $m5;
+$m5bb = str_replace(" ", "+", $m5);
+
+print "<a href=index.php?l=-1>Top</a> &gt; <a href=index.php?l=1&m1=$m1bb>$m1</a> &gt; <a href=index.php?l=2&m1=$m1bb&m2=$m2bb>$m2</a> &gt; <a href=index.php?l=3&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m1aa>$m3</a> &gt; <a href=index.php?l=4&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m4bb&m5=$m1aa>$m4</a> &gt; <strong>$m5</strong> &gt; | ";
+$Query110 = "SELECT DISTINCT h FROM `bloggle_cat10` WHERE b='Top' and c='$m1' and d='$m2' and e='$m3' and f='$m4' and g='$m5' order by h;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[0];
+$m1aa = str_replace(" ", "+", $m1a);
+print "<a href=index.php?l=5&m1=$m1bb&m2=$m2bb&m3=$m3bb&m4=$m4bb&m5=$m5bb&m6=$m1aa>$m1a</a> | ";
+$mSearch=$m5;
+}
+}
+print "</td></tr></table></div>";
+print '<div class="main"> ';
+if ($query!='') {$mSearch=$query;}
+if ($query!='' or $l!=0) {
+print "<h1>$mSearch</h1>";
+print '<table width=95% cellpadding=5 valign=top>
+<tr><td valign=top width=50%>
+<img height="1" width="300" src="images/spacer.gif">
+';
+
+if ($z) {} else {$z=1;}
+$zzz=($z-1)*140;
+
+
+
+print '<div class="textflow">';
+if ($query) {
+
+$xxx=$z-1;
+if ($xxx>0) {
+print "<div align='left'><font face=Helvetica size=2>";
+print "<a href='index.php?query=$query&z=$xxx'> &lt; </a> ";
+print "</div><p>&nbsp;</p>";
+}
+}
+
+
+print '<p align="left"><font face=Helvetica size=3>';
+				 
+$mCountit = 0;
+$Query215 = "SELECT * FROM `bloggle_headlines` WHERE b LIKE '%$mSearch%' ORDER BY b LIMIT $zzz,140";
+$Result215 = mysql_db_query($DBName, $Query215, $Link);
+	while ($Row215 = mysql_fetch_array ($Result215))
+	{
+	$mCountit++;
+	if ($mCountit>70) {
+	print "</font></div></td><td valign='top'>";
+	print "<img width='100' height='1' src='images/spacer.gif'>";
+	print "<div class='textflow'>";
+	if ($query) {
+
+$xxx=$z+1;
+print "<div align='right'><font face=Helvetica size=3>";
+print "<a href='index.php?query=$query&z=$xxx'> &gt; </a> ";
+print "</div><p>&nbsp;</p>";
+}
+
+
+
+	print "<p align='left'><font face=Helvetica size=3>";
+	$mCountit=0;
+	}
+	$m215a = $Row215[0];
+	$m215b = " " . $Row215[1];
+
+	$m215b = str_replace("&gt;", "]", $m215b);
+	$m215b = str_replace("&lt;", "[", $m215b);
+	$m215b = str_replace("para", "", $m215b);
+
+	$m215c = $Row215[2];
+	$m215c = str_replace("&gt;", "]", $m215c);
+	$m215c = str_replace("&lt;", "[", $m215c);
+	$m215c = str_replace("&nbsp;", " ", $m215c);
+	$m215c = str_replace("&amp;nbsp;", " ", $m215c);
+	$m215c = str_replace("description=", " ", $m215c);
+	$m215c = str_replace("keywords=", " ", $m215c);
+	$m215c = str_replace("META content=", " ", $m215c);
+	$m215c = str_replace("name=", " ", $m215c);
+	$m215c = str_replace('"', '', $m215c);
+
+
+	$mnb1 = strlen($m215b);
+
+	$mnb2 = "";
+	$mnbf1 = 1;
+
+	for ($mnb3 = 0; $mnb3<$mnb1; $mnb3++)
+		{
+		$mhi = substr($m215b, $mnb3, 1);
+		if (substr($m215b, $mnb3, 1)=="[") {$mnbf1 = 0;}
+		if ($mnbf1==1) {$mnb2 = $mnb2 . substr($m215b, $mnb3, 1);}
+		if (substr($m215b, $mnb3, 1)=="]") {$mnbf1 = 1;}
+		}
+
+	$mnc1 = strlen($m215c);
+	$mnc2 = "";
+	$mncf1 = 1;
+
+	for ($mnc3 = 0; $mnc3<$mnc1; $mnc3++)
+		{
+		$mhi = substr($m215c, $mnc3, 1);
+		if (substr($m215c, $mnc3, 1)=="[") {$mncf1 = 0;}
+		if (substr($m215c, $mnc3, 1)=="(") {$mncf1 = 0;}
+		if ($mncf1==1) 
+		{$mnc2 = $mnc2 . substr($m215c, $mnc3, 1);}
+		if (substr($m215c, $mnc3, 1)=="]") {$mncf1 = 1;}
+		if (substr($m215c, $mnc3, 1)==")") {$mncf1 = 1;}
+		}
+
+if (($mo215b==$m215b)) {} else {
+print "<p><a target='_blank' href='$m215a'>";
+$mnb2 = trim($mnb2);
+if (ctype_upper($mnb2)) {$mnb2= strtolower($mnb2);}
+print "<strong>$mnb2</strong>";
+print "</a> ";
+if (ctype_upper($mnc2)) {$mnc2= strtolower($mnc2);}
+print " $mnc2</p>";
+
+
+
+$mlala++;
+if ($mlala==0) 
+	{
+	print "<p class='pullq'><font color='#000000' size=3 face=Helvetica>$mnb2</font></p>";
+	}
+if ($mlala>10) {$mlala=-1;}
+
+
+}
+$mo215a=$m215a;
+$mo215b=$m215b;
+$mo215c=$m215c;
+
+	}				 
+				 
+print '
+<p class="author">
+copyright 2003 by 
+<a target="_blank" href="http://www.bluepacificmarketing.com/">
+Blue Pacific Marketing</a>.</p></td>
+ </tr>
+ </table>
+ </div></tr>
+ </table>';
+}
+print '</td></tr></table>';
+if ($l==0 and $query=='') {
+
+print "<table cellpadding=5 border=0><tr><td class='mainbar' width=90%><font face=Helvetica size=2>";
+print "<table cellpadding=2 border=0><tr>";
+
+print "<td><font face=Helvetica size=2>";
+
+
+$Query215 = "SELECT b FROM `bloggle_system` LIMIT 1;";
+$Result215 = mysql_db_query($DBName, $Query215, $Link);
+while ($Row215 = mysql_fetch_array ($Result215))
+{
+$m215a = $Row215[0];
+print "$m215a";
+}
+
+print "</td>";
+print "</tr></table></font>";
+print "</td><td valign=top>";
+}
+
+print '</td></tr></table>';
+if ($query) {
+print "<div align='center'>"; 
+if ($z) {
+print "<font face=Helvetica size=5>$z</font><p>";
+}
+print "<font face=Helvetica size=2>";
+for ($xxx=1; $xxx<51; $xxx++) {print "<a href='index.php?query=$query&z=$xxx'>$xxx</a> ";}
+print "</div><p>&nbsp;</p>";
+
+$Query150 = "SELECT * FROM `bloggle_cat10` WHERE a='$query';";
+$Result150 = mysql_db_query($DBName, $Query150, $Link);
+while ($Row150 = mysql_fetch_array ($Result150))
+	{
+	$m1a = $Row150[0];
+	$m1b = $Row150[1];
+	$m1c = $Row150[2];
+	$m1d = $Row150[3];
+	$m1e = $Row150[4];
+	$m1f = $Row150[5];
+	$m1g = $Row150[6];
+	$m1h = $Row150[7];
+	$m1i = $Row150[8];
+	$m1j = $Row150[9];
+	$m1k = $Row150[10];
+
+$m1l = "$m1a$m1b$m1c$m1d$m1e$m1f$m1g$m1h$m1i$m1j$m1k";
+
+	$m2a = str_replace(" ", "+", $m1a);
+	$m2b = str_replace(" ", "+", $m1b); 
+	$m2c = str_replace(" ", "+", $m1c);
+	$m2d = str_replace(" ", "+", $m1d);
+	$m2e = str_replace(" ", "+", $m1e);
+	$m2f = str_replace(" ", "+", $m1f);
+	$m2g = str_replace(" ", "+", $m1g);
+	$m2h = str_replace(" ", "+", $m1h);
+	$m2i = str_replace(" ", "+", $m1i);
+	$m2j = str_replace(" ", "+", $m1j);
+	$m2k = str_replace(" ", "+", $m1k);
+	if ($m2l==$m1l) {} else {
+	print "$m1a ";
+	print "<a href=index.php?l=0>$m1b</a> ";
+	print "<a href=index.php?l=1&m1=$m2c>$m1c</a> ";
+	print "<a href=index.php?l=2&m1=$m2c&m2=$m2d>$m1d</a> ";
+	print "<a href=index.php?l=3&m1=$m2c&m2=$m2d&m3=$m2e>$m1e</a> ";
+	print "<a href=index.php?l=4&m1=$m2c&m2=$m2d&m3=$m2e&m4=$m2f>$m1f</a> ";
+print "<br>";
+}
+
+$m2l = $m1l;
+
+	
+	}
+
+}
+print '</html>';
+
+mysql_close ($Link);
+
+
+}
+?>
+

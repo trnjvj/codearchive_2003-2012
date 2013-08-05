@@ -1,0 +1,16 @@
+<html>
+<body bgcolor=000000>
+	<div align='center'>
+	<?PHP
+$z1 = $_GET['z1'];
+$mLine = "http://www.youtube.com/watch?v=$z1";
+//print "$mLine";
+    $mFlag1 = strstr($mLine, 'ttp://www.youtube.com/watch');
+    if ($mFlag1) {
+        $a1 = str_replace("http://www.youtube.com/watch?v=", "http://www.youtube.com/embed/", $mLine);
+        $a2 = "<iframe style='z-index: -1;' width='800' height='600' src='".$a1."' frameborder='0' allowfullscreen></iframe>";
+	}
+	print "!$a2";
+        ?>
+        </div>
+</body></html>

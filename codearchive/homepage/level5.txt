@@ -1,0 +1,80 @@
+
+<?
+
+$mCache2="";
+
+print "<html><HEAD><TITLE>Holisticopia</TITLE></head><body bgcolor=#FFFFFF text=#000000 link=#000000 vlink=#000000>";
+$mCache2="$mCache2<html><HEAD><TITLE>Holisticopia: $L1 $L2 $L3 $M1</TITLE></head><body bgcolor=#FFFFFF text=#000000 link=#000000 vlink=#000000>";
+
+
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "categories";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "<div align=center><font face=verdana size=3><b>$L4 $L2 $M1</b></font><br><font face=verdana size=1>&copy 2002 by Tim Johnson (<a href=mailto:timjohnson@holisticopia.com>timjohnson@holisticopia.com</a>)<br><a href=http://www.holisticopia.com/>holisticopia.com</a>: A Global Directory of Everything</font><div align=center>";
+$mCache2="$mCache2<div align=center><font face=verdana size=3><b>$L4 $L2 $M1</b></font><br><font face=verdana size=1>&copy 2002 by Tim Johnson (<a href=mailto:timjohnson@holisticopia.com>timjohnson@holisticopia.com</a>)<br><a href=http://www.holisticopia.com/>holisticopia.com</a>: A Global Directory of Everything</font><div align=center><hr width=520>";
+$C1=1;
+
+$Query23 = "SELECT DISTINCT b from categories where a='$M1' order by b";
+$Result23 = mysql_db_query($DBName, $Query23, $Link);
+while ($Row23 = mysql_fetch_array ($Result23))
+	{
+    $mCache2="";
+    $M2=trim($Row23[0]);
+
+$mSearch="$L4 $L2 $M2";
+$mStart6=1;
+print "<hr width=620><font face=verdana size=2><b>$M2</b></font></b><table width=620 cellpadding=2 border=0>";
+$mCache2="$mCache2<hr width=620><font face=verdana size=2><b>$M2</b></font></b><table width=620 cellpadding=2 border=0>";
+
+
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "categories";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+
+
+$mL1 = str_replace(" ", "+", $L1);
+$mL2 = str_replace(" ", "+", $L2);
+$mL3 = str_replace(" ", "+", $L3);
+$mL4 = str_replace(" ", "+", $L4);
+$mM1 = str_replace(" ", "+", $M1);
+$mM2 = str_replace(" ", "+", $M2);
+$mM3 = str_replace(" ", "+", $M3);
+$mM4 = str_replace(" ", "+", $M4);
+$mM5 = str_replace(" ", "+", $M5);
+$mM6 = str_replace(" ", "+", $M6);
+
+$mD1 = str_replace(" ", "+", $D1);
+$mD2 = str_replace(" ", "+", $D2);
+$mD3 = str_replace(" ", "+", $D3);
+$mD4 = str_replace(" ", "+", $D4);
+$mD5 = str_replace(" ", "+", $D5);
+$mD6 = str_replace(" ", "+", $D6);
+$mD7 = str_replace(" ", "+", $D7);
+$mD8 = str_replace(" ", "+", $D8);
+$mLevel = $Level;
+
+include('websites.php');
+include('yellow_pages2000.php');
+$Query2300="INSERT INTO `pages` ( `1a` , `1b` , `1c` , `2a` , `2b` , `2c`, `2d`, `page`) VALUES ('$M1', '$M2', '$M3', '$L1', '$L2', '$L3', '$L4', '$mCache2');";
+$Result2300 = mysql_db_query($DBName, $Query2300, $Link);
+
+
+}
+$Query2300="INSERT INTO `pages` ( `1a` , `1b` , `1c` , `2a` , `2b` , `2c`, `2d`, `page`) VALUES ('$M1', '$M2', '$M3', '$L1', '$L2', '$L3', '$L4', '$mCache2');";
+$Result2300 = mysql_db_query($DBName, $Query2300, $Link);
+
+mysql_close ($Link);
+?>
+</body>
+</html>

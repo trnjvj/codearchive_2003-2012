@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<font face=verdana size=1>
+<?
+set_time_limit(10000);
+
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$TheFile = "bloggle_css.csv";
+$Open = fopen($TheFile, "r");
+
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+$nmn++;
+if ($nmn>1000) {
+print "$String |  ";
+$mnm=0;
+}
+
+$String2 = str_replace('"', '', $String);
+$pieces = explode(";", $String2);
+
+$Query111 = "INSERT INTO `bloggle_css` ( `a` , `b` , `c` , `d` , `e`) VALUES ('$pieces[0]', '$pieces[1]', '$pieces[2]', '$pieces[3]', '$pieces[4]');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+}
+}
+
+fclose($Open);
+
+mysql_close ($Link);
+?>

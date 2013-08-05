@@ -1,0 +1,32 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=spot_geo.php">
+<?
+set_time_limit (0);
+$mLandFound=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query110 = "SELECT DISTINCT a,e FROM `terracopia_spot` WHERE o!='4' LIMIT 10";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$City = $Row110[0];
+	$State = $Row110[1];
+	print "$City, $State<br>";
+	$mDir = "geo/";
+	include 'geo.php';
+	$mDir = "spot/geo/";
+	include 'geo.php';
+	$mCatFound=1;
+	$Query113 = "UPDATE `terracopia_spot` SET o='4' WHERE a='$City' and e='$State'";
+	$Result113 = mysql_db_query($DBName, $Query113, $Link);
+	}
+
+mysql_close ($Link);
+print "<p><b>done.</b>";
+?>

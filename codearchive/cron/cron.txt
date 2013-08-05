@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=cron.php">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<TITLE>Cron</TITLE>
+</HEAD>
+<?
+include 'db_connect.php';
+
+$today = getdate();
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$now = "$hours:$minutes:$seconds";
+$abstime = ($hours * 60 * 60) + ($minutes * 60) + $seconds;
+
+$today = getdate();
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$now = "$hours:$minutes:$seconds";
+$abstime2 = ($hours * 60 * 60) + ($minutes * 60) + $seconds;
+$abstime3 = ($abstime2-$abstime);
+print "$abstime3";
+include 'cron_urls.php';
+
+$today = getdate();
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$now = "$hours:$minutes:$seconds";
+$abstime2 = ($hours * 60 * 60) + ($minutes * 60) + $seconds;
+$abstime3 = ($abstime2-$abstime);
+print "$abstime3";
+include 'cron_books.php';
+
+
+
+$today = getdate();
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$now = "$hours:$minutes:$seconds";
+$abstime2 = ($hours * 60 * 60) + ($minutes * 60) + $seconds;
+$abstime3 = ($abstime2-$abstime);
+print "$abstime3";
+
+include 'cron_dvds.php';
+$today = getdate();
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$now = "$hours:$minutes:$seconds";
+$abstime2 = ($hours * 60 * 60) + ($minutes * 60) + $seconds;
+$abstime3 = ($abstime2-$abstime);
+print "$abstime3";
+
+include 'cron_cds.php';
+$today = getdate();
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$now = "$hours:$minutes:$seconds";
+$abstime2 = ($hours * 60 * 60) + ($minutes * 60) + $seconds;
+$abstime3 = ($abstime2-$abstime);
+print "$abstime3";
+
+
+?>

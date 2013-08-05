@@ -1,0 +1,188 @@
+<?
+$mSearch321=str_replace("+", " ", $mSearch);
+$mSearch321=trim($mSearch321);
+$mSettings2="?";
+if ($LevelB) {
+$mSettings2 = "?LevelB=$LevelB";
+}
+if ($Level) {
+$mSettings2 = "$mSettings2&Level=$Level";
+}
+if ($L1) {
+$mSettings2 = "$mSettings2&L1=$mL1";
+}
+if ($L2) {
+$mSettings2 = "$mSettings2&L2=$mL2";
+}
+if ($L3) {
+$mSettings2 = "$mSettings2&L3=$mL3";
+}
+if ($L4) {
+$mSettings2 = "$mSettings2&L4=$mL4";
+}
+if ($M1) {
+$mSettings2 = "$mSettings2&M1=$mM1";
+}
+if ($M2) {
+$mSettings2 = "$mSettings2&M2=$mM2";
+}
+if ($M3) {
+$mSettings2 = "$mSettings2&M3=$mM3";
+}
+if ($M4) {
+$mSettings2 = "$mSettings2&M4=$mM4";
+}
+if ($M5) {
+$mSettings2 = "$mSettings2&M5=$mM5";
+}
+if ($M6) {
+$mSettings2 = "$mSettings2&M6=$mM6";
+}
+if ($mSettings2=="?") {$mSettings2="";}
+
+
+
+$login=1;
+if ($user=="none") {
+$login=0;
+}
+if ($user=="") {
+$login=0;
+}
+$mUser="$user";
+$mCount2002 = 0;
+
+$mFirst321=1;
+
+$Cache="$Cache<hr width=520><font face=verdana size=2><b>Websites</b></font><p>";
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "world";
+$Tablename = "websites";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mCached=0;
+$Query = "SELECT DISTINCT a,c,d,h,i from websites where a='$mSearch321' order by h DESC, g DESC, a,c,d,h";
+    $Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+
+	if ($Row[0]) {
+    if ($mFirst321) {print "<div align=center><hr width=520></div>";$mFirst321=0;}
+    if ($Row[1]) {
+    	print "<div align=center><table width=520><tr><td><font face=verdana size=1><li><b>$Row[1]</b> <a target=_blank href=$Row[2]>$Row[2]</a> $Row[4]</font></td></tr></table></div>\n";
+		$mCached=1;
+    }
+    }
+	}
+if ($mCached==0) {
+
+
+
+$Cache="";
+
+print "<div align=center>";
+$Cache="$Cache<div align=center>";
+
+
+$mSearch2003=str_replace(" ", "+", $mSearch);
+
+for ($o = 2; $o < 100; $o = $o + 20) {
+$TheFile = "http://search.dmoz.org/cgi-bin/search?search=$mSearch2003&utf8=1&locale=en&start=$o";
+$Start=0;
+$Open = @fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=-1;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++)
+    	{
+		$String = trim($Data[$n]);
+
+		$V1 = strpos($String, "li>");
+		if ($V1) {
+                $V3 = strpos($String, '"');
+                $V4 = strlen($mString);
+				if ($V3) {
+                	$T1 = substr($String, $V3+1, $V4-$V3-1);
+                    $V5 = strpos($T1, '"');
+                	if ($V5) {
+                		$T2 = substr($T1, 0, $V5);
+                        $V6 = strlen($T1);
+                        $T3 = substr($T1, $V5+2, $V6-$V5-2);
+                        $V7 = strpos($T3, "</a>");
+                        $T4 = substr($T3, 0, $V7);
+                        $T4 = str_replace("<b>", "", $T4);
+                        $T4 = str_replace("</b>", "", $T4);
+                        $T4 = str_replace(";", "", $T4);
+                        $V8 = strlen($T3);
+                        $T5 = substr($T3, $V7+4, $V8-$V7-4);
+                        $T5 = str_replace("<b>", "", $T5);
+                        $T5 = str_replace("</b>", "", $T5);
+                        $T5 = str_replace(" - ", "", $T5);
+                        $V9 = strpos($T5, "<");
+                        $T6 = substr($T5, 0, $V9);
+                        print "";
+
+                        $mCount2002 = $mCount2002+1;
+
+                    $Query13 = "SELECT * from websites where d='$T2'";
+					$Result13 = mysql_db_query($DBName, $Query13, $Link);
+                    $mFound13=0;
+                    while ($Row13 = mysql_fetch_array ($Result13))
+						{
+						$mFound13=1;
+						}
+                    if ($mFound13==0) {
+                    if ($mFirst321) {print "<div align=center><hr width=520><font face=verdana size=2><b>Websites</b></font></div><p>";$mFirst321=0;}
+
+                    print "<table width=520><tr><td><font face=verdana size=1><li>$T4 <a target=_blank href=$T2>$T2</a> $T6</font></td></tr></table>\n";
+                    $Cache="$Cache<table width=520><tr><td><font face=verdana size=1><li>$T4 <a target=_blank href=$T2>$T2</a> $T6</font></td></tr></table>\n";
+
+                    if ($mWebb==1) {} else {
+                    $Query12="INSERT INTO `websites` ( `a` , `b` , `c` , `d` , `e` , `f`, `g`, `h`, `i`) VALUES ('$mSearch321', '$login', '$T4', '$T2', '1', '$mSettings2', '', '', '$T6');";
+					$Result12 = mysql_db_query($DBName, $Query12, $Link);
+                    }
+                    }
+
+
+                    print "";
+
+if ($V10) {
+
+$TheFile2 = "$T2";
+$Start2=0;
+$Open2 = fopen($T2, "r");
+if ($Open2) {
+	$First=1;
+	$TFound=-1;
+	$Data2 = file($T2);
+	for ($n2 = 0; $n2 < count($Data2); $n2++)
+    	{
+		$String2 = trim($Data2[$n2]);
+        $U1 = strpos($String2, "mailto:");
+        if ($U1) {
+        	$U2 = strlen($String2);
+	        $X1 = substr($String2, $U1, $U2-$U1);
+	        $U3 = strpos($X1, '>');
+	        $X2="none";
+	        if ($U3)
+		         {$X2 = substr($X1, 0, $U3);$X2=str_replace('"','',$X2);$X2=str_replace('mailto:','',$X2);}
+
+            }
+
+        }
+    }
+}
+}
+}
+}
+}
+}
+}
+
+}
+?>

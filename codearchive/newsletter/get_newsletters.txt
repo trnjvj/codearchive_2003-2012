@@ -1,0 +1,51 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=get_newsletters.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query110 = "SELECT * FROM `xml_state` WHERE 1;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$ma = $Row110[0];
+	$mb = $Row110[1];
+	$mc = $Row110[2];
+	$md = $Row110[3];
+	$me = $Row110[4];
+	}
+
+$TheFile = "http://66.227.84.26/xml/a.php?t=$ma&f=$mb&l=$mc";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("|", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$mA1 = $Array[$m];
+			if ($m==1) {
+			$nmn++;
+			if ($nmn>20) {
+			print "$m=$mA1 ";$nmn=0;}}
+			}
+$Query111 = "INSERT INTO `newsletters` ( `a` , `b` , `c` , `d` ) VALUES ('$Array[0]', '$Array[1]', '$Array[2]', '$Array[3]');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+}
+}
+$mb=$mb+1000;
+$Query112 = "UPDATE `xml_state` SET b='$mb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+print "$Query112";
+
+mysql_close ($Link);
+?>

@@ -1,0 +1,43 @@
+<?
+$C1=1;
+
+$mL1 = str_replace(" ", "+", $L1);
+$mL2 = str_replace(" ", "+", $L2);
+$mL3 = str_replace(" ", "+", $L3);
+$mLevel = $Level;
+
+
+$Host = "localhost";
+$User = "grabber_world";
+$Password = "turnip";
+$DBName = "grabber_world";
+$Tablename = "world";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query10 = "SELECT DISTINCT a,b,c from world order by a,b,c";
+$Result10 = mysql_db_query($DBName, $Query10, $Link);
+$mStart10=0;
+while ($Row10 = mysql_fetch_array ($Result10))
+	{
+    $L1 = str_replace(" ", "+", $Row10[0]);
+	$L2 = str_replace(" ", "+", $Row10[1]);
+	$L3 = str_replace(" ", "+", $Row10[2]);
+    $mL1 = str_replace(" ", "+", $L1);
+$mL2 = str_replace(" ", "+", $L2);
+$mL3 = str_replace(" ", "+", $L3);
+	$mLevel = 3;
+    $Level = 3;
+	$mSearch=$mL3;
+    if ($L3=="Thmar+Puok") {$mStart10=1;}
+    if ($mStart10==1) {
+	include('websites_feed.php');}
+	}
+mysql_close ($Link);
+print "<hr width=520><div align=center><font face=verdana size=1>© 2002 by Tim Johnson</font></div>";
+$C1=1;
+if ($C1==1) {
+
+}
+?>
+</body>
+</html>

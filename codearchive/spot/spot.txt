@@ -1,0 +1,79 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="111111, URL=spot.php">
+<?
+set_time_limit (0);
+$mLandFound=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query110 = "SELECT e FROM `terracopia_spot`";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$Land = $Row110[0];
+	$mDir = "land/";
+	include 'land.php';
+	$mDir = "spot/land/";
+	include 'land.php';
+	print "$Land<br>";
+	$mLandFound=1;
+	$Query113 = "UPDATE `terracopia_spot` SET o='1' WHERE e='$Land'";
+	$Result113 = mysql_db_query($DBName, $Query113, $Link);
+	}
+
+$Query110 = "SELECT DISTINCT a FROM `terracopia_spot` order by a";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$Cat = $Row110[0];
+	$mDir = "cat/";
+	include 'cat.php';
+	$mDir = "spot/cat/";
+	include 'cat.php';
+	print "$Cat<br>";
+	$mCatFound=1;
+	$Query113 = "UPDATE `terracopia_spot` SET o='2' WHERE a='$Cat'";
+	$Result113 = mysql_db_query($DBName, $Query113, $Link);
+	}
+	
+$Query110 = "SELECT DISTINCT d,e FROM `terracopia_spot`";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$City = $Row110[0];
+	$State = $Row110[1];
+	print "$City, $State<br>";
+	$mDir = "city/";
+	include 'city.php';
+	$mDir = "spot/city/";
+	include 'city.php';
+	$mCatFound=1;
+	$Query113 = "UPDATE `terracopia_spot` SET o='3' WHERE d='$City' and e='$State'";
+	$Result113 = mysql_db_query($DBName, $Query113, $Link);
+	}
+
+$Query110 = "SELECT DISTINCT a,e FROM `terracopia_spot`";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$City = $Row110[0];
+	$State = $Row110[1];
+	print "$City, $State<br>";
+	$mDir = "geo/";
+	include 'geo.php';
+	$mDir = "spot/geo/";
+	include 'geo.php';
+	$mCatFound=1;
+	$Query113 = "UPDATE `terracopia_spot` SET o='4' WHERE a='$City' and e='$State'";
+	$Result113 = mysql_db_query($DBName, $Query113, $Link);
+	}
+
+
+mysql_close ($Link);
+print "<p><b>done.</b>";
+?>

@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=dump_email.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Dump Email</TITLE>
+<?
+set_time_limit(0);
+
+print "<font face=verdana size=4>";
+print "Archipelago 0.9.0<br>";
+print "Dump Email - Copyright 2004 by Tim Johnson<br>";
+print "All Rights Reserved</font><font face=verdana size=1><p>";
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Cat='';
+$mCount=0;
+
+$Query120 = "SELECT a,b FROM `archipelago_websites_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	
+	$mbb = $Row120[0];
+	$mcc = $Row120[1];
+	}
+print "$mbb<br>";
+if ($mcc=='done') {
+print "done.<p>";
+print "<a href='dump_urls_continue.php'>continue</a> - <a href='dump_urls_reset.php'>reset</a>";
+} else {
+$mFlag=0;
+
+$mFile = "email/e$mbb.txt";
+
+$fp = fopen("$mFile", "wt");
+
+$Query110 = "SELECT * FROM `herbage_email_list3` WHERE c='$mbb';";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$Cat = $Row110[0];
+	fwrite($fp, "$Cat\r");
+	print "$Cat ";
+	}	
+$mbb=$mbb+1;
+$Query112 = "UPDATE `archipelago_websites_state` SET a='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+fclose($fp);
+}
+
+mysql_close ($Link);
+?>

@@ -1,0 +1,45 @@
+<?
+set_time_limit(0);
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "websites";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$TheFile2 = "$T2";
+$Start2=0;
+$Query2 = "Select * from http where b=''";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+while ($Row2 = mysql_fetch_array ($Result2))
+	{
+    	$T2 = $Row2[0];
+	$Query17 = "UPDATE `http` SET `b` = '1' WHERE `a` = '$T2';";
+	$Result17 = mysql_db_query($DBName, $Query17, $Link);
+
+	    $Open2 = fopen($T2, "r");
+	    if ($Open2) {
+			$First=1;
+			$TFound=-1;
+			$Data2 = file($T2);
+			for ($n2 = 0; $n2 < count($Data2); $n2++)
+			    	{
+				$String2 = trim($Data2[$n2]);
+		        	$UU1 = strpos($String2, "mailto:");
+		        	if ($UU1) {
+		        		$UU2 = substr($String2, $UU1, 100);
+					$UU3 = strpos($UU2, '"');
+			            	$String3=substr($UU2, 0, $UU3);
+					$String4 = str_replace('"', '', $String3);
+					$String5 = str_replace("mailto:", "", $String4);
+					$String5 = strtolower($String5);
+					print "$String5<br>";
+					$Query18 = "INSERT INTO `newblast_botany` ( `email` , `state` )  VALUES ('$String5', '');";
+					$Result18 = mysql_db_query($DBName, $Query18, $Link);
+					}
+				}
+			}	                    
+		}			
+
+?>

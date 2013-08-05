@@ -1,0 +1,31 @@
+<HTML><HEAD><META HTTP-EQUIV="Refresh" Content="1; URL=misc.php"></HEAD>
+<?
+set_time_limit(0);
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+print "<font face=verdana size=1>";
+$Query110 = "SELECT * FROM `bloggle_categories1` WHERE c='' LIMIT 10;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];	
+	print "$m1a $m1b $m1c<br>\n";
+	$m11a = str_replace("_", " ", $m1a);
+	$Array = explode("/", $m11a);
+	$mm1 = $Array[0];
+	$mmb = explode(":", $mm1);	
+		$Query120 = "INSERT INTO `bloggle_cat10` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` ) VALUES ('$mmb[0]', '$mmb[1]', '$Array[1]', '$Array[2]', '$Array[3]', '$Array[4]', '$Array[5]', '$Array[6]', '$Array[7]', '$Array[8]', '$Array[9]');";
+		$Result120 = mysql_db_query($DBName, $Query120, $Link);
+		$Query130 = "UPDATE `bloggle_categories1` SET `c` = '1' WHERE `a` = '$m1a' AND `b` = '' AND `c` = '' LIMIT 1 ;";
+		$Result130 = mysql_db_query($DBName, $Query130, $Link);
+	}
+mysql_close ($Link);
+print "</font>";
+?>

@@ -1,0 +1,1428 @@
+<?
+$session_accountname = $_COOKIE["mm_accountname"];
+$session_username = $_COOKIE["mm_username"];
+$session_email = $_COOKIE["mm_email"];
+$session_country = $_COOKIE["mm_country"];
+$session_account = $_COOKIE["mm_account"];
+$session_groups = $_COOKIE["mm_groups"];
+$session_pclevel = $_COOKIE["mm_pclevel"];
+$session_validate1 = $_COOKIE["D7e5Abfd"];
+$session_validate2 = $_COOKIE["D7e5Abfe"];
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Tim Johnson</title>
+<body>
+
+<?
+//print "!!!!!!!!!!!!!!!!!!!!!!!!!!! $session_account";
+
+$a = $_GET['a'];
+$b = $_GET['b'];
+$c = $_GET['c'];
+$d = $_GET['d'];
+$e = $_GET['e'];
+$f = $_GET['f'];
+$g = $_GET['g'];
+$aaa = $a;
+$h = "";
+if ($a) {$h="$a";}
+if ($b) {$h="$h|$b";}
+if ($c) {$h="$h|$c";}
+if ($d) {$h="$h|$d";}
+if ($e) {$h="$h|$e";}
+if ($f) {$h="$h|$f";}
+if ($g) {$h="$h|$g";}
+
+$a=$h;
+$aa = str_replace("|", " &gt; ", $a);
+print "<div align=center><font face=arial size=3>$aa</font></div><br />";
+
+$t_a = $_GET['t_a'];
+$t_b = $_GET['t_b'];
+$t_c = $_GET['t_c'];
+$t_d = $_GET['t_d'];
+$t_e = $_GET['t_e'];
+$t_f = $_GET['t_f'];
+
+$a_a = $_GET['a_a'];
+$a_b = $_GET['a_b'];
+$a_c = $_GET['a_c'];
+$a_d = $_GET['a_d'];
+$a_e = $_GET['a_e'];
+$a_f = $_GET['a_f'];
+$a_g = $_GET['a_g'];
+$a_h = $_GET['a_h'];
+$a_i = $_GET['a_i'];
+$a_j = $_GET['a_j'];
+
+$v_a = $_GET['v_a'];
+$v_b = $_GET['v_b'];
+$v_c = $_GET['v_c'];
+$vote = $_GET['vote'];
+
+$mySection = $_GET['section'];
+
+$menu = $_GET['menu'];
+
+print '
+<div align="center">
+<span class="style1">
+<div class="a">
+
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+			id="brainform" width="988" height="216"
+			codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+			<param name="movie" value="brainform.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#EEEEEE" />
+			<param name="flashvars" value="';
+			print "a=$aaa&b=$b&c=$c&d=$d&e=$e&f=$f&g=$g";
+			print '">
+			<param name="allowScriptAccess" value="sameDomain" />
+			<embed src="brainform.swf" quality="high" bgcolor="#EEEEEE"
+				width="988" height="216" name="brainform" align="middle"
+				play="true"
+				loop="false"
+				quality="high"
+				flashvars="';
+				print "a=$aaa&b=$b&c=$c&d=$d&e=$e&f=$f&g=$g";
+				print '"
+				allowScriptAccess="sameDomain"
+				type="application/x-shockwave-flash"
+				pluginspage="http://www.adobe.com/go/getflashplayer">
+			</embed>
+	</object></div></span></div>';
+	
+include('db_connect.php');
+
+//print "debug is <b>on</b>.";
+
+if ($vote) {
+/*
+print "vote<br /><br />";
+print "a=$a&vote=$vote&menu=$menu&v_a=$v_a&v_b=$v_b&v_c=$v_c";
+*/
+$Query3 = "SELECT * FROM `addendum` WHERE category='$a' AND catname='$menu' AND title='$v_a' AND catname='$v_b' AND username='$v_c';";
+$Result3 = mysql_db_query($DBName, $Query3, $Link);
+while ($Row3 = mysql_fetch_array ($Result3))
+	{
+	$my0 = $Row3[0];
+	$my1 = $Row3[1];
+	$my2 = $Row3[2];
+	$my3 = $Row3[3];
+	$my4 = $Row3[4];
+	$my5 = $Row3[5];
+	$my6 = $Row3[6];
+	$my7 = $Row3[7];
+	$my8 = $Row3[8];
+	$my9 = $Row3[9];
+	$my10 = $Row3[10];
+	$my11 = $Row3[11];
+	$my12 = $Row3[12];
+	$my13 = $Row3[13];
+	$my14 = $Row3[14];
+	$my15 = $Row3[15];
+	$my16 = $Row3[16];
+	$my17 = $Row3[17];
+	
+	//print "<br /><br />$my5 | $my6 | $my7 | $my8 ||| $my15 | $my16 | $my17";
+	//print "----------------";
+	$thisformula = round(((floatval($my5) * floatval($my15)) + floatval($vote)) / (floatval($my15) + 1),1);
+	
+	//print "<br />$thisformula";
+	$thisotherformula = floatval($my15) + 1;
+	//print "<br />$thisotherformula";
+	}
+	
+$Query4 = "UPDATE `addendum` SET averagescore='$thisformula', a='$thisotherformula' WHERE category='$a' AND catname='$menu' AND title='$v_a' AND catname='$v_b' AND username='$v_c';";
+$Result4 = mysql_db_query($DBName, $Query4, $Link);
+	
+}
+
+$Array = explode("|", $a);
+$page_thesis = $Array[count($Array)-1];
+
+$String = "";
+$TheFile = "style.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String2 = trim($Data[$n]);
+		$String = "$String$String2";
+		}}
+print "$String";
+
+
+print '</head>
+<body>
+<div align="center">';
+
+if ($session_accountname) {
+print "<font face=verdana size=2>logged in as: $session_accountname ($session_account)</font><br /><br />";
+}
+
+print '
+<table bgcolor="#FFFFFF" border=0 width=985><tr><td>';
+
+/*
+print "$session_accountname | $session_username | $session_email | $session_country | $session_account | $session_groups | $session_pclevel | $session_validate1 | $session_validate2<br />";
+print "$a<br />";
+*/
+	
+print '<table width="95%" border="0" cellpadding="15">
+    <tr>
+      <td>';
+ 
+$Query1 = "SELECT h FROM `transcripts` WHERE category='$a' LIMIT 1;";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$myFile = $Row1[0];
+	  print "TRANSCRIPT<br /><br />";
+$String="";
+$TheFile = "uploads/$myFile";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String2 = trim($Data[$n]);
+		$String = "$String $String2";
+		}
+	}
+
+$StringLength = strlen($String);
+for ($l=0; $l<$StringLength+1; $l++) {
+$thisChar = ord($String[$l]);
+if ($thisChar==146 || $thisChar==147 || $thisChar==148|| $thisChar==133) {$String[$l] = "'";}
+print "$String[$l]";	
+}
+}			
+
+$String = "";
+$TheFile = "nav1.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String2 = trim($Data[$n]);
+		$String = "$String$String2";
+		}}
+$menuNav1=$a;
+$menuNav2="y";		
+$String = str_replace("[menu_nav1]", $menuNav1, $String);
+$String = str_replace("[menu_nav2]", $menuNav2, $String);
+print "$String";
+
+
+
+$mFoundAny=0;
+$Query1 = "SELECT description FROM `transcripts` WHERE category='$a' LIMIT 1;";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$myDescription = $Row1[0];
+	$myDescription=str_replace("[br]", "<br>", $myDescription);
+
+$String = "";
+$TheFile = "transcript.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String2 = trim($Data[$n]);
+		$String = "$String$String2";
+		}}
+$transcriptTitle=$page_thesis;
+$transcriptTranscript=$myDescription;
+$String = str_replace("[transcriptTitle]", $transcriptTitle, $String);
+$String = str_replace("[transcriptTranscript]", $transcriptTranscript, $String);
+print "$String";
+$mFoundAny=1;
+
+}
+
+
+if ($mySection=="submit_thesis") {
+
+
+
+
+
+
+
+$Query1 = " TRUNCATE TABLE `count`;";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+
+$Array = explode("|", $a);
+for ($m = count($Array); $m > -1; $m--) {
+
+
+	
+	if ($m==0) {
+		$Query110 = "SELECT * FROM `tree2` where a='$Array[$m]' AND b='';";
+		$Result110 = mysql_db_query($DBName, $Query110, $Link);
+		$mFlag=0;
+		while ($Row110 = mysql_fetch_array ($Result110))
+			{
+			$m1a = $Row110[0];
+			$m1b = $Row110[1];
+			$m1c = $Row110[2];
+			$m1d = $Row110[3];
+			$m1e = $Row110[4];
+			$m1f = $Row110[5];
+			$m1g = $Row110[6];
+			$m1h = $Row110[7];
+			$m1i = $Row110[8];
+			$m1j = $Row110[9];
+$Query1 = "INSERT INTO `count` (`id` , `mycount` , `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+			}
+		
+		}
+	
+	
+	if ($m==1 && $Array[$m]!="") {
+		$Query110 = "SELECT * FROM `tree2` where b='$Array[$m]' AND c='';";
+		$Result110 = mysql_db_query($DBName, $Query110, $Link);
+		$mFlag=0;
+		while ($Row110 = mysql_fetch_array ($Result110))
+			{
+			$m1a = $Row110[0];
+			$m1b = $Row110[1];
+			$m1c = $Row110[2];
+			$m1d = $Row110[3];
+			$m1e = $Row110[4];
+			$m1f = $Row110[5];
+			$m1g = $Row110[6];
+			$m1h = $Row110[7];
+			$m1i = $Row110[8];
+			$m1j = $Row110[9];
+$Query1 = "INSERT INTO `count` (`id` , `mycount` , `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+			}
+		
+		}	
+		
+	
+	
+	if ($m==2 && $Array[$m]!="") {
+		$Query110 = "SELECT * FROM `tree2` where c='$Array[$m]' AND d='';";
+		$Result110 = mysql_db_query($DBName, $Query110, $Link);
+		$mFlag=0;
+		while ($Row110 = mysql_fetch_array ($Result110))
+			{
+			$m1a = $Row110[0];
+			$m1b = $Row110[1];
+			$m1c = $Row110[2];
+			$m1d = $Row110[3];
+			$m1e = $Row110[4];
+			$m1f = $Row110[5];
+			$m1g = $Row110[6];
+			$m1h = $Row110[7];
+			$m1i = $Row110[8];
+			$m1j = $Row110[9];
+$Query1 = "INSERT INTO `count` (`id` , `mycount` , `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+			}
+		}
+		
+	
+	
+		if ($m==3 && $Array[$m]!="") {
+		$Query110 = "SELECT * FROM `tree2` where d='$Array[$m]' AND e='';";
+		$Result110 = mysql_db_query($DBName, $Query110, $Link);
+		$mFlag=0;
+		while ($Row110 = mysql_fetch_array ($Result110))
+			{
+			$m1a = $Row110[0];
+			$m1b = $Row110[1];
+			$m1c = $Row110[2];
+			$m1d = $Row110[3];
+			$m1e = $Row110[4];
+			$m1f = $Row110[5];
+			$m1g = $Row110[6];
+			$m1h = $Row110[7];
+			$m1i = $Row110[8];
+			$m1j = $Row110[9];
+$Query1 = "INSERT INTO `count` (`id` , `mycount` , `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+			}
+		}
+
+
+	if ($m==4 && $Array[$m]!="") {
+		$Query110 = "SELECT * FROM `tree2` where e='$Array[$m]' AND f='';";
+		$Result110 = mysql_db_query($DBName, $Query110, $Link);
+		$mFlag=0;
+		while ($Row110 = mysql_fetch_array ($Result110))
+			{
+			$m1a = $Row110[0];
+			$m1b = $Row110[1];
+			$m1c = $Row110[2];
+			$m1d = $Row110[3];
+			$m1e = $Row110[4];
+			$m1f = $Row110[5];
+			$m1g = $Row110[6];
+			$m1h = $Row110[7];
+			$m1i = $Row110[8];
+			$m1j = $Row110[9];
+$Query1 = "INSERT INTO `count` (`id` , `mycount` , `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+			}
+		}
+
+	if ($m==5 && $Array[$m]!="") {
+		$Query110 = "SELECT * FROM `tree2` where f='$Array[$m]' AND g='';";
+		$Result110 = mysql_db_query($DBName, $Query110, $Link);
+		$mFlag=0;
+		while ($Row110 = mysql_fetch_array ($Result110))
+			{
+			$m1a = $Row110[0];
+			$m1b = $Row110[1];
+			$m1c = $Row110[2];
+			$m1d = $Row110[3];
+			$m1e = $Row110[4];
+			$m1f = $Row110[5];
+			$m1g = $Row110[6];
+			$m1h = $Row110[7];
+			$m1i = $Row110[8];
+			$m1j = $Row110[9];
+$Query1 = "INSERT INTO `count` (`id` , `mycount` , `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+			}
+		}
+
+	if ($m==6 && $Array[$m]!="") {
+		$Query110 = "SELECT * FROM `tree2` where g='$Array[$m]' AND h='';";
+		$Result110 = mysql_db_query($DBName, $Query110, $Link);
+		$mFlag=0;
+		while ($Row110 = mysql_fetch_array ($Result110))
+			{
+			$m1a = $Row110[0];
+			$m1b = $Row110[1];
+			$m1c = $Row110[2];
+			$m1d = $Row110[3];
+			$m1e = $Row110[4];
+			$m1f = $Row110[5];
+			$m1g = $Row110[6];
+			$m1h = $Row110[7];
+			$m1i = $Row110[8];
+			$m1j = $Row110[9];
+$Query1 = "INSERT INTO `count` (`id` , `mycount` , `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+			}
+		}
+	
+
+	if ($m==7 && $Array[$m]!="") {
+		$Query110 = "SELECT * FROM `tree2` where h='$Array[$m]';";
+		$Result110 = mysql_db_query($DBName, $Query110, $Link);
+		$mFlag=0;
+		while ($Row110 = mysql_fetch_array ($Result110))
+			{
+			$m1a = $Row110[0];
+			$m1b = $Row110[1];
+			$m1c = $Row110[2];
+			$m1d = $Row110[3];
+			$m1e = $Row110[4];
+			$m1f = $Row110[5];
+			$m1g = $Row110[6];
+			$m1h = $Row110[7];
+			$m1i = $Row110[8];
+			$m1j = $Row110[9];
+$Query1 = "INSERT INTO `count` (`id` , `mycount` , `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+			}
+		}
+	
+	
+		
+	}
+
+$Query110 = "SELECT * FROM `count`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+$mFlag=0;
+	while ($Row110 = mysql_fetch_array ($Result110))
+		{
+		$m1a = $Row110[0];
+		$m1b = $Row110[1];
+		$m1c = $m1b + 1;
+		//print "$m1a $m1b $m1c<br />";
+		$Query2 = "UPDATE `tree2` SET mycount='$m1c' WHERE id='$m1a';";
+		$Result2 = mysql_db_query($DBName, $Query2, $Link);
+		}	
+
+//$Query1 = " TRUNCATE TABLE `count`;";
+//$Result1 = mysql_db_query($DBName, $Query1, $Link);
+
+/*
+$t_a = str_replace("&", "&amp;", $t_a);
+$t_a = str_replace("'", "&#39;", $t_a);
+$t_a = str_replace("–", "&ndash;", $t_a);
+$t_a = str_replace("—", "&mdash;", $t_a);
+$t_a = str_replace("¡", "&iexcl;", $t_a);
+$t_a = str_replace("¿", "&iquest;", $t_a);
+$t_a = str_replace('"', '&quot;', $t_a);
+$t_a = str_replace('“', '&ldquo;', $t_a);
+$t_a = str_replace('”', '&rdquo;', $t_a);
+$t_a = str_replace("‘", "&lsquo;", $t_a);
+$t_a = str_replace("’", "&rsquo;", $t_a);
+$t_a = str_replace("«", "&laquo;", $t_a);
+$t_a = str_replace("»", "&raquo;", $t_a);
+$t_a = str_replace("¢", "&cent;", $t_a);
+$t_a = str_replace("©", "&copy;", $t_a);
+$t_a = str_replace("÷", "&divide;", $t_a);
+$t_a = str_replace(">", "&gt;", $t_a);
+$t_a = str_replace("<", "&lt;", $t_a);
+$t_a = str_replace("µ", "&micro;", $t_a);
+$t_a = str_replace("·", "&middot;", $t_a);
+$t_a = str_replace("¶", "&para;", $t_a);
+$t_a = str_replace("±", "&plusmn;", $t_a);
+$t_a = str_replace("€", "&euro;", $t_a);
+$t_a = str_replace("£", "&pound;", $t_a);
+$t_a = str_replace("®", "&reg;", $t_a);
+$t_a = str_replace("§", "&sect;", $t_a);
+$t_a = str_replace("™", "&trade;", $t_a);
+$t_a = str_replace("¥", "&yen;", $t_a);
+$t_a = str_replace("á", "&aacute;", $t_a);
+$t_a = str_replace("Á", "&Aacute;", $t_a);
+$t_a = str_replace("à", "&agrave; ", $t_a);
+$t_a = str_replace("À", "&Agrave;", $t_a);
+$t_a = str_replace("â", "&acirc;", $t_a);
+$t_a = str_replace("Â", "&Acirc;", $t_a);
+$t_a = str_replace("å", "&aring;", $t_a);
+$t_a = str_replace("Å", "&Aring;", $t_a);
+$t_a = str_replace("ã", "&atilde;", $t_a);
+$t_a = str_replace("Ã", "&Atilde;", $t_a);
+$t_a = str_replace("ä ", "&auml; ", $t_a);
+$t_a = str_replace("Ä", "&Auml;", $t_a);
+$t_a = str_replace("æ", "&aelig;", $t_a);
+$t_a = str_replace("Æ", "&AElig;", $t_a);
+$t_a = str_replace("ç", "&ccedil;", $t_a);
+$t_a = str_replace("Ç", "&Ccedil;", $t_a);
+$t_a = str_replace("é", "&eacute;", $t_a);
+$t_a = str_replace("É", "&Eacute;", $t_a);
+$t_a = str_replace("è", "&egrave; ", $t_a);
+$t_a = str_replace("È", "&Egrave;", $t_a);
+$t_a = str_replace("ê", "&ecirc; ", $t_a);
+$t_a = str_replace("Ê", "&Ecirc;", $t_a);
+$t_a = str_replace("ë", "&euml;", $t_a);
+$t_a = str_replace("Ë", "&Euml;", $t_a);
+$t_a = str_replace("í", "&iacute;", $t_a);
+$t_a = str_replace("Í", "&Iacute;", $t_a);
+$t_a = str_replace("ì", "&igrave;", $t_a);
+$t_a = str_replace("Ì", "&Igrave;", $t_a);
+$t_a = str_replace("î", "&icirc; ", $t_a);
+$t_a = str_replace("Î", "&Icirc;", $t_a);
+$t_a = str_replace("ï", "&iuml;", $t_a);
+$t_a = str_replace("Ï", "&Iuml;", $t_a);
+$t_a = str_replace("ñ", "&ntilde;", $t_a);
+$t_a = str_replace("Ñ", "&Ntilde;", $t_a);
+$t_a = str_replace("ó", "&oacute;", $t_a);
+$t_a = str_replace("Ó", "&Oacute;", $t_a);
+$t_a = str_replace("ò", "&ograve;", $t_a);
+$t_a = str_replace("Ò", "&Ograve;", $t_a);
+$t_a = str_replace("ô", "&ocirc;", $t_a);
+$t_a = str_replace("Ô", "&Ocirc;", $t_a);
+$t_a = str_replace("ø", "&oslash;", $t_a);
+$t_a = str_replace("Ø", "&Oslash;", $t_a);
+$t_a = str_replace("õ", "&otilde;", $t_a);
+$t_a = str_replace("Õ", "&Otilde;", $t_a);
+$t_a = str_replace("ö", "&ouml;", $t_a);
+$t_a = str_replace("Ö", "&Ouml;", $t_a);
+$t_a = str_replace("ß", "&szlig;", $t_a);
+$t_a = str_replace("ú", "&uacute;", $t_a);
+$t_a = str_replace("Ú", "&Uacute;", $t_a);
+$t_a = str_replace("ù", "&ugrave;", $t_a);
+$t_a = str_replace("Ù", "&Ugrave;", $t_a);
+$t_a = str_replace("û", "&ucirc; ", $t_a);
+$t_a = str_replace("Û", "&Ucirc;", $t_a);
+$t_a = str_replace("ü", "&uuml;", $t_a);
+$t_a = str_replace("Ü", "&Uuml;", $t_a);
+$t_a = str_replace("ÿ", "&yuml;", $t_a);
+$t_a = str_replace("´", "&#180;", $t_a);
+$t_a = str_replace("`", "&#96;", $t_a);
+$t_a = str_replace(chr(10), "[br]", $t_a);
+$t_a = str_replace(chr(11), "[br]", $t_a);
+$t_a = str_replace(chr(12), "[br]", $t_a);
+$t_a = str_replace(chr(13), "[br]", $t_a);
+*/
+$t_b = str_replace("&", "&amp;", $t_b);
+$t_b = str_replace("'", "&#39;", $t_b);
+$t_b = str_replace('"', '&quot;', $t_b);
+$t_b = str_replace('“', '&ldquo;', $t_b);
+$t_b = str_replace('”', '&rdquo;', $t_b);
+$t_b = str_replace("‘", "&lsquo;", $t_b);
+$t_b = str_replace("’", "&rsquo;", $t_b);
+/*
+$t_b = str_replace("–", "&ndash;", $t_b);
+$t_b = str_replace("—", "&mdash;", $t_b);
+$t_b = str_replace("¡", "&iexcl;", $t_b);
+$t_b = str_replace("¿", "&iquest;", $t_b);
+
+$t_b = str_replace("«", "&laquo;", $t_b);
+$t_b = str_replace("»", "&raquo;", $t_b);
+$t_b = str_replace("¢", "&cent;", $t_b);
+$t_b = str_replace("©", "&copy;", $t_b);
+$t_b = str_replace("÷", "&divide;", $t_b);
+$t_b = str_replace(">", "&gt;", $t_b);
+$t_b = str_replace("<", "&lt;", $t_b);
+$t_b = str_replace("µ", "&micro;", $t_b);
+$t_b = str_replace("·", "&middot;", $t_b);
+$t_b = str_replace("¶", "&para;", $t_b);
+$t_b = str_replace("±", "&plusmn;", $t_b);
+$t_b = str_replace("€", "&euro;", $t_b);
+$t_b = str_replace("£", "&pound;", $t_b);
+$t_b = str_replace("®", "&reg;", $t_b);
+$t_b = str_replace("§", "&sect;", $t_b);
+$t_b = str_replace("™", "&trade;", $t_b);
+$t_b = str_replace("¥", "&yen;", $t_b);
+$t_b = str_replace("á", "&aacute;", $t_b);
+$t_b = str_replace("Á", "&Aacute;", $t_b);
+$t_b = str_replace("à", "&agrave; ", $t_b);
+$t_b = str_replace("À", "&Agrave;", $t_b);
+$t_b = str_replace("â", "&acirc;", $t_b);
+$t_b = str_replace("Â", "&Acirc;", $t_b);
+$t_b = str_replace("å", "&aring;", $t_b);
+$t_b = str_replace("Å", "&Aring;", $t_b);
+$t_b = str_replace("ã", "&atilde;", $t_b);
+$t_b = str_replace("Ã", "&Atilde;", $t_b);
+$t_b = str_replace("ä ", "&auml; ", $t_b);
+$t_b = str_replace("Ä", "&Auml;", $t_b);
+$t_b = str_replace("æ", "&aelig;", $t_b);
+$t_b = str_replace("Æ", "&AElig;", $t_b);
+$t_b = str_replace("ç", "&ccedil;", $t_b);
+$t_b = str_replace("Ç", "&Ccedil;", $t_b);
+$t_b = str_replace("é", "&eacute;", $t_b);
+$t_b = str_replace("É", "&Eacute;", $t_b);
+$t_b = str_replace("è", "&egrave; ", $t_b);
+$t_b = str_replace("È", "&Egrave;", $t_b);
+$t_b = str_replace("ê", "&ecirc; ", $t_b);
+$t_b = str_replace("Ê", "&Ecirc;", $t_b);
+$t_b = str_replace("ë", "&euml;", $t_b);
+$t_b = str_replace("Ë", "&Euml;", $t_b);
+$t_b = str_replace("í", "&iacute;", $t_b);
+$t_b = str_replace("Í", "&Iacute;", $t_b);
+$t_b = str_replace("ì", "&igrave;", $t_b);
+$t_b = str_replace("Ì", "&Igrave;", $t_b);
+$t_b = str_replace("î", "&icirc; ", $t_b);
+$t_b = str_replace("Î", "&Icirc;", $t_b);
+$t_b = str_replace("ï", "&iuml;", $t_b);
+$t_b = str_replace("Ï", "&Iuml;", $t_b);
+$t_b = str_replace("ñ", "&ntilde;", $t_b);
+$t_b = str_replace("Ñ", "&Ntilde;", $t_b);
+$t_b = str_replace("ó", "&oacute;", $t_b);
+$t_b = str_replace("Ó", "&Oacute;", $t_b);
+$t_b = str_replace("ò", "&ograve;", $t_b);
+$t_b = str_replace("Ò", "&Ograve;", $t_b);
+$t_b = str_replace("ô", "&ocirc;", $t_b);
+$t_b = str_replace("Ô", "&Ocirc;", $t_b);
+$t_b = str_replace("ø", "&oslash;", $t_b);
+$t_b = str_replace("Ø", "&Oslash;", $t_b);
+$t_b = str_replace("õ", "&otilde;", $t_b);
+$t_b = str_replace("Õ", "&Otilde;", $t_b);
+$t_b = str_replace("ö", "&ouml;", $t_b);
+$t_b = str_replace("Ö", "&Ouml;", $t_b);
+$t_b = str_replace("ß", "&szlig;", $t_b);
+$t_b = str_replace("ú", "&uacute;", $t_b);
+$t_b = str_replace("Ú", "&Uacute;", $t_b);
+$t_b = str_replace("ù", "&ugrave;", $t_b);
+$t_b = str_replace("Ù", "&Ugrave;", $t_b);
+$t_b = str_replace("û", "&ucirc; ", $t_b);
+$t_b = str_replace("Û", "&Ucirc;", $t_b);
+$t_b = str_replace("ü", "&uuml;", $t_b);
+$t_b = str_replace("Ü", "&Uuml;", $t_b);
+$t_b = str_replace("ÿ", "&yuml;", $t_b);
+$t_b = str_replace("´", "&#180;", $t_b);
+$t_b = str_replace("`", "&#96;", $t_b);
+*/
+$t_b = str_replace(chr(10), "[br]", $t_b);
+$t_b = str_replace(chr(11), "[br]", $t_b);
+$t_b = str_replace(chr(12), "[br]", $t_b);
+$t_b = str_replace(chr(13), "[br]", $t_b);
+
+$Query1 = "INSERT INTO `transcripts` (`a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `category` , `video` , `websites` , `author` , `submittedby` , `transcribedby` , `description`) VALUES ('$Array[0]', '$Array[1]', '$Array[2]', '$Array[3]', '$Array[4]', '$Array[5]', '$Array[6]', '$Array[7]', '$a', '$t_e', '$t_c', '$t_a', '$t_d', '$t_a', '$t_b');";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+
+
+
+
+
+
+
+
+
+
+
+print "<div align='center'>";
+print "Your new transcript has been added to the database.";
+print "</div>";
+
+
+
+
+
+
+
+} else {
+//if ($mFoundAny==0 && strlen($a)>0 && $session_account=="Editor") {
+if ($session_account=="Editor") {
+//print "!!!!!!!!!!!!!!!!!!!!!!!!!!! $session_account";
+
+print '
+<div align="center">
+<span class="style1">
+<div class="a">';
+/*
+print '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+			id="brainform" width="988" height="216"
+			codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+			<param name="movie" value="brainform.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#EEEEEE" />
+			<param name="flashvars" value="';
+			print "a=$aaa&b=$b&c=$c&d=$d&e=$e&f=$f&g=$g";
+			print '">
+			<param name="allowScriptAccess" value="sameDomain" />
+			<embed src="brainform.swf" quality="high" bgcolor="#EEEEEE"
+				width="988" height="216" name="brainform" align="middle"
+				play="true"
+				loop="false"
+				quality="high"
+				flashvars="';
+				print "a=$aaa&b=$b&c=$c&d=$d&e=$e&f=$f&g=$g";
+				print '"
+				allowScriptAccess="sameDomain"
+				type="application/x-shockwave-flash"
+				pluginspage="http://www.adobe.com/go/getflashplayer">
+			</embed>
+	</object>';
+*/
+
+/*
+print '<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="history/history.css" />
+<title></title>
+<script src="AC_OETags.js" language="javascript"></script>
+<script src="history/history.js" language="javascript"></script>
+<style>
+body { margin: 0px; overflow:hidden }
+</style>
+<script language="JavaScript" type="text/javascript">
+var requiredMajorVersion = 9;
+var requiredMinorVersion = 0;
+var requiredRevision = 28;
+</script>
+</head>
+
+<body scroll="no">
+<script language="JavaScript" type="text/javascript">
+var hasProductInstall = DetectFlashVer(6, 0, 65);
+var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+
+if ( hasProductInstall && !hasRequestedVersion ) {
+	var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";
+	var MMredirectURL = window.location;
+    document.title = document.title.slice(0, 47) + " - Flash Player Installation";
+    var MMdoctitle = document.title;
+
+	AC_FL_RunContent(
+		"src", "playerProductInstall",
+		"FlashVars", "MMredirectURL="+MMredirectURL+';
+		print "'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle+";
+		print '"",
+		"width", "988",
+		"height", "216",
+		"align", "middle",
+		"id", "brainform",
+		"quality", "high",
+		"bgcolor", "#869ca7",
+		"name", "brainform",
+		"flashvars",';
+		print "'a=hello2&b=hello2&c=hello2&d=hello2&e=hello2&f=hello2&g=hello2'";
+		print ',
+		"allowScriptAccess","sameDomain",
+		"type", "application/x-shockwave-flash",
+		"pluginspage", "http://www.adobe.com/go/getflashplayer"
+	);
+} else if (hasRequestedVersion) {
+	AC_FL_RunContent(
+			"src", "brainform",
+			"width", "988",
+			"height", "216",
+			"align", "middle",
+			"id", "brainform",
+			"quality", "high",
+			"bgcolor", "#869ca7",
+			"name", "brainform",
+			"flashvars",';
+			print "'a=hello3&b=hello3&c=hello3&d=hello&e=hello&f=hello&g=hello'";
+			print ',
+			"allowScriptAccess","sameDomain",
+			"type", "application/x-shockwave-flash",
+			"pluginspage", "http://www.adobe.com/go/getflashplayer"
+	);
+  } else {  
+    var alternateContent = ';
+	print "'Alternate HTML content should be placed here. '";
+	print "	+ 'This content requires the Adobe Flash Player. '";
+	print "	+ '<a href=http://www.adobe.com/go/getflash/>Get Flash</a>';";
+	print ' document.write(alternateContent);  // insert non-flash content
+  }
+// -->
+</script>
+<noscript>
+  	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+			id="brainform" width="988" height="216"
+			codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+			<param name="movie" value="brainform.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#869ca7" />
+			<param name="allowScriptAccess" value="sameDomain" />
+			<embed src="brainform.swf" quality="high" bgcolor="#869ca7"
+				width="988" height="216" name="brainform" align="middle"
+				play="true"
+				loop="false"
+				quality="high"
+				allowScriptAccess="sameDomain"
+				type="application/x-shockwave-flash"
+				pluginspage="http://www.adobe.com/go/getflashplayer">
+			</embed>
+	</object>
+</noscript>
+</body>
+</html>';
+*/
+
+/*
+print '
+
+<table cellpadding=5 border=0><tr><td valign=top>
+<table cellpadding=5 border=0 width=750>
+          <tr> 
+            <td> <form method=get action="bottom.php">
+                <div align="center"><div class="a"><b>New Thesis</b></div><hr>
+                  <table width=100% border=0 cellpadding=3>
+                    <tr> 
+                      <td align=right> <div class="a">Author:</b></font></div></td>
+                      <td align=left> <input type="text" name="t_a" size="56"> 
+                      </td>
+                    </tr>
+					<tr> 
+                      <td align=right> <div class="a">
+                          Description:</div></td>
+                      <td align=left> 
+					  <TEXTAREA NAME="t_b" COLS=40 ROWS=6></TEXTAREA>
+                      </td>
+                    </tr>
+					<tr> 
+                      <td align=right> <div class="a">
+                          Web Sites:</div></td>
+                      <td align=left> <input type="text" name="t_c" size="56"> 
+                      </td>
+                    </tr>
+					<tr> 
+                      <td align=right> <div class="a">Video submitted by:</div></td>
+                      <td align=left> <input type="text" name="t_d" size="56"> 
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td align=right> <div class="a">Video Code:<br /><i>ex. "ATWrMlIKRBk":</div></td>
+                      <td align=left> <input type="text" name="t_e" size="56"> 
+                      </td>
+                    </tr>
+					<tr> 
+                      <td align=right> <div class="a">
+                          Transcription by:</div></td>
+                      <td align=left> <input type="text" name="t_f" size="56"> 
+                      </td>
+                    </tr>
+                  </table>
+                  <hr> <br>
+				  <input type="hidden" name="section" value="submit_thesis">
+				  <input type="hidden" name="a" value="';
+				  print "$a";
+				  print '">
+                    <input type="submit" name="Submit" value="Submit">
+                </div>
+              </form></td>
+          </tr>
+        </table></div>
+		<p>
+		</td></tr></table>
+		<p>
+		';
+		
+		print '
+</div>
+</div>
+</p></div>
+</div>
+</span>
+';
+*/
+}
+}
+
+$addendumCount=0;		
+$Query1 = "SELECT * FROM `addendum` WHERE category='$a' AND a='addendum';";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	
+	$String = "";
+	$TheFile = "addendum.php";
+	$Open = fopen($TheFile, "r");
+	if ($Open) {
+		$Data = file($TheFile);
+		for ($n = 0; $n < count($Data); $n++) {
+			$String2 = trim($Data[$n]);
+			$String = "$String$String2";
+		}}
+
+	$my2 = $Row1[2];
+	$my3 = $Row1[3];
+	$my4 = $Row1[4];
+	$my5 = $Row1[5];
+	$my6 = $Row1[6];
+	$my7 = $Row1[7];
+	$my8 = $Row1[8];
+	$my9 = $Row1[9];
+	$my10 = $Row1[10];
+	$my11 = $Row1[11];
+	$my12 = $Row1[12];
+	$my13 = $Row1[13];
+	$my14 = $Row1[14];
+	$addendumCount=1;
+	
+
+$addendumTitle=$my2;
+$addendumVideo=$my3;
+$addendumCategory=$my4;
+
+$addendumAverageScore=$my5;
+$addendumMembers=$my6;
+$addendumStudents=$my7;
+$addendumEditors=$my8;
+
+$addendumUserPic=$my9;
+$addendumUserOnline=$my10;
+$addendumUserName=$my11;
+$addendumUserType=$my12;
+$addendumUserLocation=$my13;
+$addendumTranscript=$my14;
+
+$addendumVote = "a";
+
+$String = str_replace("[addendumTitle]", $addendumTitle, $String);
+$String = str_replace("[addendumVideo]", $addendumVideo, $String);
+$String = str_replace("[addendumCategory]", $addendumCategory, $String);
+
+$String = str_replace("[addendumAverageScore]", $addendumAverageScore, $String);
+$String = str_replace("[addendumMembers]", $addendumMembers, $String);
+$String = str_replace("[addendumStudents]", $addendumStudents, $String);
+$String = str_replace("[addendumEditors]", $addendumEditors, $String);
+
+$String = str_replace("[addendumUserPic]", $addendumUserPic, $String);
+$String = str_replace("[addendumUserOnline]", $addendumUserOnline, $String);
+$String = str_replace("[addendumUserName]", $addendumUserName, $String);
+$String = str_replace("[addendumUserType]", $addendumUserType, $String);
+$String = str_replace("[addendumUserLocation]", $addendumUserLocation, $String);
+
+$String = str_replace("[addendumTranscript]", $addendumTranscript, $String);
+$String = str_replace("[addendumVote]", $addendumVote, $String);
+
+
+print "$String";
+
+}
+
+
+
+
+$String = "";
+$TheFile = "menu.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String2 = trim($Data[$n]);
+		$String = "$String$String2";
+		}}
+$menuNav1="Volume 3: Living in This Physical Reality &lt; Part 7: What Should We Do? &lt; Subject 2: Work With Others &lt; Issue 3: Build a Better Life";
+$menuNav2="&lt; Topic 1: The Search for Zero Point Energy";
+$menuThesis=$page_thesis;
+$menuPageNum="1";
+$menuPageMax="33";
+$menuPostBy="admin";
+$menuPostDate="Fri Apr 17, 2009 4:34pm";
+
+if ($menu) {} else {$menu="details";}
+
+$myDetailsCount=0;
+$myExamplesCount=0;
+$myCommentsCount=0;
+$myChallengesCount=0;
+$myQandACount=0;
+$myTotalCount=0;
+
+$Query1 = "SELECT catname FROM `addendum` WHERE category='$a' AND a!='addendum';";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$my0 = $Row1[0];
+	if ($my0=="Details") {$myDetailsCount++; $myTotalCount++;}
+	if ($my0=="Examples") {$myExamplesCount++; $myTotalCount++;}
+	if ($my0=="Comments") {$myCommentsCount++; $myTotalCount++;}
+	if ($my0=="Challenges") {$myChallengesCount++; $myTotalCount++;}
+	if ($my0=="Q & A") {$myQandACount++; $myTotalCount++;}
+	}
+
+
+
+if ($menu=="details") {
+$menuMenu1='<tr>
+              <td><img src="Untitled-32.jpg" width="34" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=details&a=';
+			  $menuMenu1 = $menuMenu1."$a";
+			  $menuMenu1 = $menuMenu1.'">Details [';
+			  $menuMenu1 = $menuMenu1."$myDetailsCount";
+			  $menuMenu1 = $menuMenu1.']</a> </span></td>
+            </tr>';
+			
+			$Query1 = "SELECT username, title FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Details';";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$my0 = $Row1[0];
+	$my1 = $Row1[1];
+            $menuMenu1 = $menuMenu1.'<tr>
+              <td>&nbsp;</td>
+              <td><table width="100%" border="0" cellpadding="0">
+                <tr>
+                  <td width="1%"><img src="Untitled-31.jpg" width="11" height="11" /></td>
+                  <td width="26%"><span class="style9"><span class="style5">Author:</span> ';
+				  $menuMenu1 = $menuMenu1."$my0";
+				  $menuMenu1 = $menuMenu1.'</span></td>
+                  <td width="73%"><span class="style9"><span class="style5">Subject:</span> ';
+				  
+				  $menuMenu1 = $menuMenu1."<a href='#$my1'>$my1</a>";
+				  $menuMenu1 = $menuMenu1.'</span></td>
+                </tr>
+              </table></td>
+            </tr>';
+			}
+	} else {
+$menuMenu1='<tr>
+              <td width="5%"><img src="Untitled-30.jpg" width="31" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=details&a=';
+			  $menuMenu1 = $menuMenu1."$a";
+			  $menuMenu1 = $menuMenu1.'">Details [';
+			  $menuMenu1 = $menuMenu1."$myDetailsCount";
+			  $menuMenu1 = $menuMenu1.']</a> </span></td>
+            </tr>';
+}
+
+
+if ($menu=="examples") {
+$menuMenu2='<tr>
+              <td><img src="Untitled-32.jpg" width="34" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=examples&a=';
+			  $menuMenu2 = $menuMenu2."$a";
+			  $menuMenu2 = $menuMenu2.'">Examples [';
+			  $menuMenu2 = $menuMenu2."$myExamplesCount";
+			  $menuMenu2 = $menuMenu2.']</a> </span></td>
+            </tr>';
+			
+			$Query1 = "SELECT username, title FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Examples';";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$my0 = $Row1[0];
+	$my1 = $Row1[1];
+            $menuMenu2 = $menuMenu2.'<tr>
+              <td>&nbsp;</td>
+              <td><table width="100%" border="0" cellpadding="0">
+                <tr>
+                  <td width="1%"><img src="Untitled-31.jpg" width="11" height="11" /></td>
+                  <td width="26%"><span class="style9"><span class="style5">Author:</span> ';
+				  $menuMenu2 = $menuMenu2."$my0";
+				  $menuMenu2 = $menuMenu2.'</span></td>
+                  <td width="73%"><span class="style9"><span class="style5">Subject:</span> ';
+				  
+				  $menuMenu2 = $menuMenu2."<a href='#$my1'>$my1</a>";
+				  $menuMenu2 = $menuMenu2.'</span></td>
+                </tr>
+              </table></td>
+            </tr>';
+			}
+	} else {
+$menuMenu2='<tr>
+              <td width="5%"><img src="Untitled-30.jpg" width="31" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=examples&a=';
+			  $menuMenu2 = $menuMenu2."$a";
+			  $menuMenu2 = $menuMenu2.'">Examples [';
+			  $menuMenu2 = $menuMenu2."$myExamplesCount";
+			  $menuMenu2 = $menuMenu2.']</a> </span></td>
+            </tr>';
+}
+
+
+if ($menu=="comments") {
+$menuMenu3='<tr>
+              <td><img src="Untitled-32.jpg" width="34" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=comments&a=';
+			  $menuMenu3 = $menuMenu3."$a";
+			  $menuMenu3 = $menuMenu3.'">Comments [';
+			  $menuMenu3 = $menuMenu3."$myCommentsCount";
+			  $menuMenu3 = $menuMenu3.']</a> </span></td>
+            </tr>';
+			
+			$Query1 = "SELECT username, title FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Comments';";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$my0 = $Row1[0];
+	$my1 = $Row1[1];
+            $menuMenu3 = $menuMenu3.'<tr>
+              <td>&nbsp;</td>
+              <td><table width="100%" border="0" cellpadding="0">
+                <tr>
+                  <td width="1%"><img src="Untitled-31.jpg" width="11" height="11" /></td>
+                  <td width="26%"><span class="style9"><span class="style5">Author:</span> ';
+				  $menuMenu3 = $menuMenu3."$my0";
+				  $menuMenu3 = $menuMenu3.'</span></td>
+                  <td width="73%"><span class="style9"><span class="style5">Subject:</span> ';
+				  
+				  $menuMenu3 = $menuMenu3."<a href='#$my1'>$my1</a>";
+				  $menuMenu3 = $menuMenu3.'</span></td>
+                </tr>
+              </table></td>
+            </tr>';
+			}
+	} else {
+$menuMenu3='<tr>
+              <td width="5%"><img src="Untitled-30.jpg" width="31" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=comments&a=';
+			  $menuMenu3 = $menuMenu3."$a";
+			  $menuMenu3 = $menuMenu3.'">Comments [';
+			  $menuMenu3 = $menuMenu3."$myCommentsCount";
+			  $menuMenu3 = $menuMenu3.']</a> </span></td>
+            </tr>';
+}
+
+
+
+
+if ($menu=="challenges") {
+$menuMenu4='<tr>
+              <td><img src="Untitled-32.jpg" width="34" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=challenges&a=';
+			  $menuMenu4 = $menuMenu4."$a";
+			  $menuMenu4 = $menuMenu4.'">Challenges [';
+			  $menuMenu4 = $menuMenu4."$myChallengesCount";
+			  $menuMenu4 = $menuMenu4.']</a> </span></td>
+            </tr>';
+			
+$Query1 = "SELECT username, title FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Challenges';";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$my0 = $Row1[0];
+	$my1 = $Row1[1];
+            $menuMenu4 = $menuMenu4.'<tr>
+              <td>&nbsp;</td>
+              <td><table width="100%" border="0" cellpadding="0">
+                <tr>
+                  <td width="1%"><img src="Untitled-31.jpg" width="11" height="11" /></td>
+                  <td width="26%"><span class="style9"><span class="style5">Author:</span> ';
+				  $menuMenu4 = $menuMenu4."$my0";
+				  $menuMenu4 = $menuMenu4.'</span></td>
+                  <td width="73%"><span class="style9"><span class="style5">Subject:</span> ';
+				  
+				  $menuMenu4 = $menuMenu4."<a href='#$my1'>$my1</a>";
+				  $menuMenu4 = $menuMenu4.'</span></td>
+                </tr>
+              </table></td>
+            </tr>';
+			}
+	} else {
+$menuMenu4='<tr>
+              <td width="5%"><img src="Untitled-30.jpg" width="31" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=challenges&a=';
+			  $menuMenu4 = $menuMenu4."$a";
+			  $menuMenu4 = $menuMenu4.'">Challenges [';
+			  $menuMenu4 = $menuMenu4."$myChallengesCount";
+			  $menuMenu4 = $menuMenu4.']</a> </span></td>
+            </tr>';
+}
+
+
+
+
+if ($menu=="qanda") {
+$menuMenu5='<tr>
+              <td><img src="Untitled-32.jpg" width="34" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=qanda&a=';
+			  $menuMenu5 = $menuMenu5."$a";
+			  $menuMenu5 = $menuMenu5.'">Q & A [';
+			  $menuMenu5 = $menuMenu5."$myQandACount";
+			  $menuMenu5 = $menuMenu5.']</a> </span></td>
+            </tr>';
+			
+$Query1 = "SELECT username, title FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Q & A';";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$my0 = $Row1[0];
+	$my1 = $Row1[1];
+            $menuMenu5 = $menuMenu5.'<tr>
+              <td>&nbsp;</td>
+              <td><table width="100%" border="0" cellpadding="0">
+                <tr>
+                  <td width="1%"><img src="Untitled-31.jpg" width="11" height="11" /></td>
+                  <td width="26%"><span class="style9"><span class="style5">Author:</span> ';
+				  $menuMenu5 = $menuMenu5."$my0";
+				  $menuMenu5 = $menuMenu5.'</span></td>
+                  <td width="73%"><span class="style9"><span class="style5">Subject:</span> ';
+				  
+				  $menuMenu5 = $menuMenu5."<a href='#$my1'>$my1</a>";
+				  $menuMenu5 = $menuMenu5.'</span></td>
+                </tr>
+              </table></td>
+            </tr>';
+			}
+	} else {
+$menuMenu5='<tr>
+              <td width="5%"><img src="Untitled-30.jpg" width="31" height="17" /></td>
+              <td><span class="style11"><a href="bottom.php?menu=qanda&a=';
+			  $menuMenu5 = $menuMenu5."$a";
+			  $menuMenu5 = $menuMenu5.'">Q & A [';
+			  $menuMenu5 = $menuMenu5."$myQandACount";
+			  $menuMenu5 = $menuMenu5.']</a> </span></td>
+            </tr>';
+}
+
+
+$String = str_replace("[menuNav1]", $menuNav1, $String);
+$String = str_replace("[menuNav2]", $menuNav2, $String);
+$String = str_replace("[menuThesis]", $menuThesis, $String);
+$String = str_replace("[menuPageNum]", $menuPageNum, $String);
+$String = str_replace("[menuPageMax]", $menuPageMax, $String);
+$String = str_replace("[menuPostBy]", $menuPostBy, $String);
+$String = str_replace("[menuPostDate]", $menuPostDate, $String);
+
+$String = str_replace("[menuMenu1]", $menuMenu1, $String);
+$String = str_replace("[menuMenu2]", $menuMenu2, $String);
+$String = str_replace("[menuMenu3]", $menuMenu3, $String);
+$String = str_replace("[menuMenu4]", $menuMenu4, $String);
+$String = str_replace("[menuMenu5]", $menuMenu5, $String);
+
+if ($myTotalCount>0) {print "$String";}
+
+
+
+if ($menu=="details") {$Query1 = "SELECT * FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Details';";}
+if ($menu=="examples") {$Query1 = "SELECT * FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Examples';";}
+if ($menu=="comments") {$Query1 = "SELECT * FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Comments';";}
+if ($menu=="challenges") {$Query1 = "SELECT * FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Challenges';";}
+if ($menu=="qanda") {$Query1 = "SELECT * FROM `addendum` WHERE category='$a' AND a!='addendum' AND catname='Q & A';";}
+
+$myTranscriptNum=0;
+
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{
+	$myTranscriptNum++;
+	
+	print "<a name='#transcript$myTranscriptNum'>transcript$myTranscriptNum</a>";
+	
+$String = "";
+$TheFile = "addendum.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String2 = trim($Data[$n]);
+		$String = "$String$String2";
+		}}
+		
+
+
+	$my2 = $Row1[2];
+	$my3 = $Row1[3];
+	$my4 = $Row1[4];
+	$my5 = $Row1[5];
+	$my6 = $Row1[6];
+	$my7 = $Row1[7];
+	$my8 = $Row1[8];
+	$my9 = $Row1[9];
+	$my10 = $Row1[10];
+	$my11 = $Row1[11];
+	$my12 = $Row1[12];
+	$my13 = $Row1[13];
+	$my14 = $Row1[14];
+	
+
+$addendumTitle=$my2;
+$addendumVideo=$my3;
+$addendumCategory=$my4;
+
+$addendumAverageScore=$my5;
+$addendumMembers=$my6;
+$addendumStudents=$my7;
+$addendumEditors=$my8;
+
+$addendumUserPic=$my9;
+$addendumUserOnline=$my10;
+$addendumUserName=$my11;
+$addendumUserType=$my12;
+$addendumUserLocation=$my13;
+
+$addendumTranscript=$my14;
+
+//$addendumVote = "a=$a&menu=$menu&v_a=$addendumTitle&v_b=$addendumCategory&v_c=$addendumUserName";
+$addendumVote = "a=$aaa&b=$b&c=$c&d=$d&e=$e&f=$f&g=$g&menu=$menu&v_a=$addendumTitle&v_b=$addendumCategory&v_c=$addendumUserName#transcript$myTranscriptNum";
+
+$String = str_replace("[addendumTitle]", $addendumTitle, $String);
+$String = str_replace("[addendumVideo]", $addendumVideo, $String);
+$String = str_replace("[addendumCategory]", $addendumCategory, $String);
+
+$String = str_replace("[addendumAverageScore]", $addendumAverageScore, $String);
+$String = str_replace("[addendumMembers]", $addendumMembers, $String);
+$String = str_replace("[addendumStudents]", $addendumStudents, $String);
+$String = str_replace("[addendumEditors]", $addendumEditors, $String);
+
+$String = str_replace("[addendumUserPic]", $addendumUserPic, $String);
+$String = str_replace("[addendumUserOnline]", $addendumUserOnline, $String);
+$String = str_replace("[addendumUserName]", $addendumUserName, $String);
+$String = str_replace("[addendumUserType]", $addendumUserType, $String);
+$String = str_replace("[addendumUserLocation]", $addendumUserLocation, $String);
+
+$String = str_replace("[addendumTranscript]", $addendumTranscript, $String);
+$String = str_replace("[addendumVote]", $addendumVote, $String);
+
+print "$String";
+
+}
+
+if ($mFoundAny>0 && $session_account!="" && $session_account!="Visitor") {
+print "<div align='center'>";
+print "<hr width=50%>";
+print 'Post a Response<br /><br />
+<form method=get action="bottom.php">
+<input type="hidden" name="a" value="';
+print "$aaa";
+print '"><input type="hidden" name="b" value="';
+print "$b";
+print '"><input type="hidden" name="c" value="';
+print "$c";
+print '"><input type="hidden" name="d" value="';
+print "$d";
+print '"><input type="hidden" name="e" value="';
+print "$e";
+print '"><input type="hidden" name="f" value="';
+print "$f";
+print '"><input type="hidden" name="g" value="';
+print "$g";
+print '">
+<input type="hidden" name="a_e" value="add">
+<table border=0 width=100%>
+<tr><td width=20% align=right><div class="a">Category:</div></td> 
+<td><select name="a_a">
+<option value="Details">Details
+<option value="Examples">Examples
+<option value="Comments">Comments
+<option value="Challenges">Challenges
+<option value="Q & A">Q & A
+</select></td></tr>
+<tr><td width=50% align=right><div class="a">Title:</div></td> 
+<td><input type="text" name="a_c" size="20"></td></tr>
+<tr><td width=50% align=right><div class="a">Youtube URL:<br />(example: "http://www.youtube.com/watch?v=Fx-7omECQRs")</div></td> 
+<td><TEXTAREA NAME="a_b" COLS=40 ROWS=6></TEXTAREA>
+</td></tr>
+
+<tr><td width=50% align=right><div class="a">Transcript:</div></td> 
+<td><TEXTAREA NAME="a_d" COLS=40 ROWS=6></TEXTAREA>
+</td></tr>
+<tr><td colspan=2><div align="center"><hr width=50%>
+<input type="submit" name="Submit" value="Post Response">
+</div></td>
+</tr></td></tr>
+</table></div>';
+}
+//print "$session_accountname | $session_username | $session_email | $session_country | $session_groups | $session_pclevel | $session_validate1 | $session_validate2<br />";
+
+if ($a_e) {
+
+$mFoundPost = 0;
+
+$Query2 = "SELECT * FROM `addendum` WHERE category='$a' AND title='$a_c' AND username='$session_username' AND catname='$a_a';";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+while ($Row2 = mysql_fetch_array ($Result2))
+	{
+	$mFoundPost = 1;
+	}
+
+if ($mFoundPost==0) {
+
+
+$TheFile = $a_b;
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$mFlag1 = strstr($String, '<input id="embed_code" name="embed_code" type="text" value="');
+		if ($mFlag1) {
+			$Array = explode('"', $String);
+			$this1 = $Array[7];
+			
+					$this1 = str_replace("&lt;", "<", $this1);
+					$this1 = str_replace("&gt;", ">", $this1);
+					$this1 = str_replace('&quot;', '"', $this1);
+					$this1 = str_replace("&amp;", "&", $this1);
+			
+			//print "$this1";
+			$a_b = $this1;
+		}
+	}
+}
+
+$Query1 = "INSERT INTO `addendum` (`id` , `category` , `title` , `video` , `catname` , `averagescore` , `members` , `students` , `editors` , `userpic` , `useronline` , `username` , `usertype` , `userlocation` , `transcript` , `a` , `b` , `c` , `d` , `f` , `g` , `h` , `i` ) VALUES (NULL , '$a', '$a_c', '$a_b', '$a_a', '', '', '', '', '', '', '$session_username', '$session_pclevel', '$session_country', '$a_d', '', '', '', '', '', '', '', '');";
+
+//print "$Query1";
+
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+
+print "<div align='center'>Thank you for your response.</div>";
+}
+}
+if ($session_account=="Editor") {
+print "<div align='center'>";
+print "<br /><br />";
+print '<span class="style1">';
+print "<a target='_blank' href='admin.php'>Admin</a>";
+print '</span>';
+print "</div>";
+}
+
+
+
+mysql_close ($Link);
+?> 		  
+          
+</td></tr></table>
+</td></tr></table>
+</div>
+</body>
+</html>

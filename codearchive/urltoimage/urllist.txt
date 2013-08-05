@@ -1,0 +1,1 @@
+./wkhtmltoimage-i386 http://www.trnjvj.com/ screens/www-trnjvj-com.jpg

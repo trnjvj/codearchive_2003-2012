@@ -1,0 +1,20 @@
+<?PHP
+$z1 = $_GET['z1'];
+$z2 = $_GET['z2'];
+if ($z1) {} else {$z1 = $_POST['z1'];}
+if ($z2) {} else {$z2 = $_POST['z2'];}
+$ip=$_SERVER['REMOTE_ADDR'];
+include('db_connect.php');
+$myemail="";
+$Query7 = "SELECT a FROM `sessions2` WHERE b='$z1' AND c='$z2' AND d='$ip';";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$myemail = $Row7[0];
+	}
+if ($myemail) {
+	print "<b>Account</b><br />&nbsp;<br />";
+	print "your email: $myemail";
+}
+mysql_close ($Link);
+?>

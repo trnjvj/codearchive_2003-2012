@@ -1,0 +1,38 @@
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mFlag=1;
+$TheFile = "fine.txt";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$m2 = strpos($String, "(");
+		if ($m2) {
+		$m3 = substr($String, 0, $m2);
+		$m4 = str_replace($m3, "", $String);
+		$m4 = str_replace("(", "", $m4);
+		$m4 = str_replace(")", "", $m4);
+		$m4 = str_replace("'", "|", $m4);
+		$m3 = str_replace("'", "|", $m3);
+		$m4 = strtoupper($m4);
+		print "$m3|Common Name|$m4<br>";
+		$Query112 = "INSERT INTO `herbage_new` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$m3', 'Common Name', '$m4', '', '');";
+		$Result112 = mysql_db_query($DBName, $Query112, $Link);
+		}
+		}
+	}
+fclose($Open);
+mysql_close ($Link);
+print ".";
+?>

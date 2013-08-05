@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>Color Name Samples</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.table {  font-family: courier; font-size: smaller; font-weight: bold}
+.tablewhite { font-family: courier; font-size: smaller; font-weight: bold ; color: #FFFFFF}
+-->
+</style></head>
+
+<body link="#770000" vlink="#003399" bgcolor="#FFFFFF">
+<div align="center">
+<p>
+
+
+<table background=black border=0 cellpadding=1 width=100%><tr><td>
+
+<table width=100% cellpadding=5 bgcolor="aliceblue"><tr><td><font size=1 face=verdana color=black>aliceblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="antiquewhite"><tr><td><font size=1 face=verdana color=black>antiquewhite</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="aqua"><tr><td><font size=1 face=verdana color=black>aqua</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="aquamarine"><tr><td><font size=1 face=verdana color=black>aquamarine</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="azure"><tr><td><font size=1 face=verdana color=black>azure</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="beige"><tr><td><font size=1 face=verdana color=black>beige</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="bisque"><tr><td><font size=1 face=verdana color=black>bisque</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="black"><tr><td><font size=1 face=verdana color=white>black</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="blanchedalmond"><tr><td><font size=1 face=verdana color=black>blanchedalmond</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="blue"><tr><td><font size=1 face=verdana color=white>blue</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="blueviolet"><tr><td><font size=1 face=verdana color=white>blueviolet</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="brown"><tr><td><font size=1 face=verdana color=black>brown</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="burlywood"><tr><td><font size=1 face=verdana color=black>burlywood</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="cadetblue"><tr><td><font size=1 face=verdana color=black>cadetblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="chartreuse"><tr><td><font size=1 face=verdana color=black>chartreuse</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="choclate"><tr><td><font size=1 face=verdana color=black>choclate</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="coral"><tr><td><font size=1 face=verdana color=black>coral</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="cornflowerblue"><tr><td><font size=1 face=verdana color=black>cornflowerblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="cornsilk"><tr><td><font size=1 face=verdana color=black>cornsilk</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="crimson"><tr><td><font size=1 face=verdana color=black>crimson</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="cyan"><tr><td><font size=1 face=verdana color=black>cyan</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkblue"><tr><td><font size=1 face=verdana color=white>darkblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkcyan"><tr><td><font size=1 face=verdana color=white>darkcyan</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkgoldenrod"><tr><td><font size=1 face=verdana color=black>darkgoldenrod</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkgray"><tr><td><font size=1 face=verdana color=black>darkgray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkgreen"><tr><td><font size=1 face=verdana color=white>darkgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkkhaki"><tr><td><font size=1 face=verdana color=black>darkkhaki</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkmagenta"><tr><td><font size=1 face=verdana color=white>darkmagenta</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkolivegreen"><tr><td><font size=1 face=verdana color=white>darkolivegreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkorange"><tr><td><font size=1 face=verdana color=black>darkorange</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="darkorchid"><tr><td><font size=1 face=verdana color=white>darkorchid</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkred"><tr><td><font size=1 face=verdana color=white>darkred</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darksalmon"><tr><td><font size=1 face=verdana color=black>darksalmon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkseagreen"><tr><td><font size=1 face=verdana color=black>darkseagreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkslateblue"><tr><td><font size=1 face=verdana color=white>darkslateblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkslategray"><tr><td><font size=1 face=verdana color=white>darkslategray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="dakrturquoise"><tr><td><font size=1 face=verdana color=black>dakrturquoise</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkviolet"><tr><td><font size=1 face=verdana color=white>darkviolet</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="deeppink"><tr><td><font size=1 face=verdana color=white>deeppink</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="deepskyblue"><tr><td><font size=1 face=verdana color=black>deepskyblue</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="dimgray"><tr><td><font size=1 face=verdana color=white>dimgray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="dodgerblue"><tr><td><font size=1 face=verdana color=black>dodgerblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="firebrick"><tr><td><font size=1 face=verdana color=white>firebrick</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="floralwhite"><tr><td><font size=1 face=verdana color=black>floralwhite</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="forestgreen"><tr><td><font size=1 face=verdana color=white>forestgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="fuchsia"><tr><td><font size=1 face=verdana color=black>fuchsia</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="gainsboro"><tr><td><font size=1 face=verdana color=black>gainsboro</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="ghostwhite"><tr><td><font size=1 face=verdana color=black>ghostwhite</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="gold"><tr><td><font size=1 face=verdana color=black>gold</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="goldenrod"><tr><td><font size=1 face=verdana color=black>goldenrod</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="gray"><tr><td><font size=1 face=verdana color=black>gray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="green"><tr><td><font size=1 face=verdana color=white>green</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="greenyellow"><tr><td><font size=1 face=verdana color=black>greenyellow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="honeydew"><tr><td><font size=1 face=verdana color=black>honeydew</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="hotpink"><tr><td><font size=1 face=verdana color=black>hotpink</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="indianred"><tr><td><font size=1 face=verdana color=black>indianred</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="indigo"><tr><td><font size=1 face=verdana color=white>indigo</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="ivory"><tr><td><font size=1 face=verdana color=black>ivory</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="khaki"><tr><td><font size=1 face=verdana color=black>khaki</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lavender"><tr><td><font size=1 face=verdana color=black>lavender</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="lavenderblush"><tr><td><font size=1 face=verdana color=black>lavenderblush</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lawngreen"><tr><td><font size=1 face=verdana color=black>lawngreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lemonchiffon"><tr><td><font size=1 face=verdana color=black>lemonchiffon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightblue"><tr><td><font size=1 face=verdana color=black>lightblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightcoral"><tr><td><font size=1 face=verdana color=black>lightcoral</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightcyan"><tr><td><font size=1 face=verdana color=black>lightcyan</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightgoldenrodyellow"><tr><td><font size=1 face=verdana color=black>lightgoldenrodyellow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightgreen"><tr><td><font size=1 face=verdana color=black>lightgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightgrey"><tr><td><font size=1 face=verdana color=black>lightgrey</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightpink"><tr><td><font size=1 face=verdana color=black>lightpink</td></tr></table>
+</td>
+
+<td>
+<table width=100% cellpadding=5 bgcolor="lightsalmon"><tr><td><font size=1 face=verdana color=black>lightsalmon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightseagreen"><tr><td><font size=1 face=verdana color=black>lightseagreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightskyblue"><tr><td><font size=1 face=verdana color=black>lightskyblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightslategray"><tr><td><font size=1 face=verdana color=black>lightslategray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightsteelblue"><tr><td><font size=1 face=verdana color=black>lightsteelblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightyellow"><tr><td><font size=1 face=verdana color=black>lightyellow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lime"><tr><td><font size=1 face=verdana color=black>lime</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="limegreen"><tr><td><font size=1 face=verdana color=black>limegreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="linen"><tr><td><font size=1 face=verdana color=black>linen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="magenta"><tr><td><font size=1 face=verdana color=white>magenta</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="maroon"><tr><td><font size=1 face=verdana color=white>maroon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumaquamarine"><tr><td><font size=1 face=verdana color=black>mediumaquamarine</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumblue"><tr><td><font size=1 face=verdana color=white>mediumblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumorchid"><tr><td><font size=1 face=verdana color=black>mediumorchid</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumpurple"><tr><td><font size=1 face=verdana color=black>mediumpurple</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumseagreen"><tr><td><font size=1 face=verdana color=black>mediumseagreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumslateblue"><tr><td><font size=1 face=verdana color=black>mediumslateblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumspringgreen"><tr><td><font size=1 face=verdana color=black>mediumspringgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumturquoise"><tr><td><font size=1 face=verdana color=black>mediumturquoise</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumvioletred"><tr><td><font size=1 face=verdana color=white>mediumvioletred</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="midnightblue"><tr><td><font size=1 face=verdana color=white>midnightblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mintcream"><tr><td><font size=1 face=verdana color=black>mintcream</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mistyrose"><tr><td><font size=1 face=verdana color=black>mistyrose</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="moccasin"><tr><td><font size=1 face=verdana color=black>moccasin</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="navajowhite"><tr><td><font size=1 face=verdana color=black>navajowhite</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="navy"><tr><td><font size=1 face=verdana color=white>navy</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="oldlace"><tr><td><font size=1 face=verdana color=black>oldlace</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="olive"><tr><td><font size=1 face=verdana color=white>olive</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="olivedrab"><tr><td><font size=1 face=verdana color=white>olivedrab</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="orange"><tr><td><font size=1 face=verdana color=black>orange</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="orangered"><tr><td><font size=1 face=verdana color=white>orangered</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="orchid"><tr><td><font size=1 face=verdana color=black>orchid</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="palegoldenrod"><tr><td><font size=1 face=verdana color=black>palegoldenrod</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="palegreen"><tr><td><font size=1 face=verdana color=black>palegreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="paleturquoise"><tr><td><font size=1 face=verdana color=black>paleturquoise</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="palevioletred"><tr><td><font size=1 face=verdana color=black>palevioletred</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="papayawhip"><tr><td><font size=1 face=verdana color=black>papayawhip</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="peachpuff"><tr><td><font size=1 face=verdana color=black>peachpuff</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="peru"><tr><td><font size=1 face=verdana color=black>peru</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="pink"><tr><td><font size=1 face=verdana color=black>pink</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="plum"><tr><td><font size=1 face=verdana color=black>plum</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="powerblue"><tr><td><font size=1 face=verdana color=black>powerblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="purple"><tr><td><font size=1 face=verdana color=white>purple</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="red"><tr><td><font size=1 face=verdana color=black>red</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="rosybrown"><tr><td><font size=1 face=verdana color=black>rosybrown</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="royalblue"><tr><td><font size=1 face=verdana color=white>royalblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="saddlebrown"><tr><td><font size=1 face=verdana color=white>saddlebrown</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="salmon"><tr><td><font size=1 face=verdana color=black>salmon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="sandybrown"><tr><td><font size=1 face=verdana color=black>sandybrown</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="seagreen"><tr><td><font size=1 face=verdana color=white>seagreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="seashell"><tr><td><font size=1 face=verdana color=black>seashell</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="sienna"><tr><td><font size=1 face=verdana color=white>sienna</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="silver"><tr><td><font size=1 face=verdana color=black>silver</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="skyblue"><tr><td><font size=1 face=verdana color=black>skyblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="slateblue"><tr><td><font size=1 face=verdana color=white>slateblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="slategray"><tr><td><font size=1 face=verdana color=white>slategray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="snow"><tr><td><font size=1 face=verdana color=black>snow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="springgreen"><tr><td><font size=1 face=verdana color=black>springgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="steelblue"><tr><td><font size=1 face=verdana color=black>steelblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="tan"><tr><td><font size=1 face=verdana color=black>tan</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="teal"><tr><td><font size=1 face=verdana color=white>teal</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="thistle"><tr><td><font size=1 face=verdana color=black>thistle</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="tomato"><tr><td><font size=1 face=verdana color=white>tomato</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="turquoise"><tr><td><font size=1 face=verdana color=black>turquoise</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="violet"><tr><td><font size=1 face=verdana color=black>violet</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="wheat"><tr><td><font size=1 face=verdana color=black>wheat</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="white"><tr><td><font size=1 face=verdana color=black>white</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="whitesmoke"><tr><td><font size=1 face=verdana color=black>whitesmoke</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="yellow"><tr><td><font size=1 face=verdana color=black>yellow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="yellowgreen"><tr><td><font size=1 face=verdana color=black>yellowgreen</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "holisti_world";
+$Password = "turnip";
+$DBName = "holisti_world";
+$Tablename = "world";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
+print '<html><head><title>Holisticopia</title>';
+print '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">';
+print '<link rel="stylesheet" type="text/css" href="index.css">';
+print '<body bgcolor=#006633 background=images/backgrd_holistic_tile.gif text=#DDFFDD link=#DDFFDD vlink=#DDFFDD alink=#DDFFDD>';
+print '</head>';
+
+print "<HTML><HEAD>";
+print "<body bgcolor=#006633 background=images/backgrd_holistic_tile.gif text=#DDFFDD link=#DDFFDD vlink=#DDFFDD alink=#DDFFDD>";
+print "</HEAD>";
+print "<div class='div1'><div align=center>";
+print "<img src=images/logo.jpg>";
+print "<table cellpadding=10 border=0 width=700><tr><td>";
+
+if ($l) {} else {$l=0;}
+
+if ($l==0) {
+print "<table width=100% border=0><tr>";
+$mRow = 1;
+$Query2 = "SELECT DISTINCT a from holisticopia_ads_sept ORDER BY a;";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+while ($Row2 = mysql_fetch_array ($Result2))
+	{
+    $m1 = $Row2[0];
+	$m1b = str_replace(" ", "+", $m1);
+	$m1b = str_replace("|", "&", $m1b);
+	print "<td width=33%><font face=arial size=3><b><a href=index.php?l=1&s=$m1b>$m1</a></b></font></td> ";
+	$mRow++;
+	if ($mRow>3) {print "</tr><tr>"; $mRow=1;}
+	}
+	print "</tr></table>";
+}
+
+if ($l==1) {
+
+print "<b><font face=arial size=3><a href=index.php>Home</a> &gt; $s</font></b><p><font face=arial size=3>";
+
+$Query = "SELECT * from holisticopia_ads_sept WHERE a='$s' AND h='yes' ORDER BY b;";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $m1 = $Row[0];
+	$m2 = $Row[1];
+	$m3 = $Row[2];
+	$m4 = $Row[3];
+	$m5 = $Row[4];
+	$m6 = $Row[5];
+	$m7 = $Row[6];
+	$m8 = $Row[7];
+	$m9 = $Row[8];
+	$m10 = $Row[9];
+	$m11 = $Row[10];
+	$m12 = $Row[11];
+	print "<table background=images/backgrd_holistic_tile_dark.gif cellpadding=5 width=100%><tr><td><font face=arial size=3>";
+	if ($m6) {
+	print "<a target=_blank href=$m6><b>$m2</b></a> $m3 $m4 $m5 $m10 $m9<p>";
+	} else {
+	print "<b>$m2</b> $m3 $m4 $m5 $m10 $m9 <p>";
+	}
+	print "</td></tr></table><p>";
+	}
+	
+	
+	$Query = "SELECT * from holisticopia_ads_sept WHERE a='$s' AND g='yes' ORDER BY b;";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $m1 = $Row[0];
+	$m2 = $Row[1];
+	$m3 = $Row[2];
+	$m4 = $Row[3];
+	$m5 = $Row[4];
+	$m6 = $Row[5];
+	$m7 = $Row[6];
+	$m8 = $Row[7];
+	$m9 = $Row[8];
+	$m10 = $Row[9];
+	$m11 = $Row[10];
+	$m12 = $Row[11];
+	if ($m6) {
+	print "<a target=_blank href=$m6><b>$m2</b></a> $m3 $m4 $m5 $m10<br>$m9<p>";
+	} else {
+	print "<b>$m2</b> $m3 $m4 $m5 $m10<br>$m9 <p>";
+	}
+	}
+	
+	
+	print "</font>";
+}
+	
+print "</td></tr></table>";
+print "<div align=center><font face=arial size=2><p>&copy 2004 by Tim Johnson</font><p>";
+print "<font face=arial size=1>Contact <a href=mailto:timjohnson@holisticopia.com>Tim Johnson</a> for information<br>about the Holisticopia archive.</font></div></div>";
+mysql_close ($Link);
+?>

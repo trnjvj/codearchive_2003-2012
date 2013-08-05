@@ -1,0 +1,58 @@
+<?php
+
+$Host = "localhost";
+$User = "grabber_world";
+$Password = "turnip";
+$DBName = "grabber_world";
+$Tablename = "world";
+$Tablename = "websites";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query27 = "SELECT * from mine_usa where c='' LIMIT 1";
+$Result27 = mysql_db_query($DBName, $Query27, $Link);
+while ($Row27 = mysql_fetch_array ($Result27))
+	{
+	$a=$Row27[0];
+	$b=$Row27[1];
+	$Query28 = "UPDATE mine_usa SET c='1' where a='$a' and b='$b'";
+	$Result28 = mysql_db_query($DBName, $Query28, $Link);
+
+$M1="Media";
+$M2="$b";
+$L1="USA";
+$L2="$a";
+$Level=3;
+$LevelB=2;
+
+$LLevel=3;
+$LL1="USA";
+$LL2="$a";
+$LL3=$L3;
+$LLevelB=2;
+$MM1="Media";
+$MM2="$b";
+$MM3=$M3;
+
+
+print "<div align=center>";
+
+$Query26 = "SELECT DISTINCT d from world where a='$L1' and b='$L2' order by d LIMIT 40";
+$Result26 = mysql_db_query($DBName, $Query26, $Link);
+while ($Row26 = mysql_fetch_array ($Result26))
+	{
+
+$L1=$LL1;
+$L2=$LL2;
+$L3=$LL3;
+$LevelB=$LLevelB;
+$M1=$MM1;
+$M2=$MM2;
+$M3=$MM3;
+$Level=4;
+$L4=$Row26[0];
+include ("main.php");
+}
+}
+
+?>

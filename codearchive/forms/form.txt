@@ -1,0 +1,14 @@
+<?
+if(isset($submit))
+{
+echo "thanks for the submission";
+} else {
+?>
+<form name=myform method=post action=<?=$PHP_SELF?>>
+<input type=text name=first_name> first name<br>
+<input type=text name=last_name> last name<br>
+<input type=submit name=submit value=submit>
+</form>
+<?
+}
+?>

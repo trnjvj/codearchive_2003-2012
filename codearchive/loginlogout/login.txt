@@ -1,0 +1,34 @@
+<?PHP
+$mF = rand(1000000000000, 9999999999999999);
+$ip=$_SERVER['REMOTE_ADDR'];
+print '
+<div align="center">
+
+<table border="0"><tr><td align="center">
+<img src="ewc.png">
+<br />&nbsp;<br />
+<form method="post" action="index.php" name="logform">
+<table cellpadding="4" border="0"><tr><td valign="top">
+Email: <br /><input name="d" size="20" maxlength="125" value="" type="text">';
+/*
+print '<br />
+<input type="checkbox" name="keeploggedin" value="Yes">Keep me logged in';
+*/
+print '
+</td><td valign="top">Password:<br />
+<input name="e" size="20" maxlength="125" value="" type="password">';
+/*
+<br />
+<a href="?pass=forgot">Forgot your password?</a>';
+*/
+print " <a class='window_forgot_password' href='forgotpassword.php?z1=$z1&z2=$z2'>Forgot Password?</a><br />";
+print '</td><td>
+<input name="f" size="25" maxlength="125" value="';
+print "$mF";
+print '" type="hidden">
+<input name="Submit" value="Log In" type="submit">
+</td>
+</tr></table>
+</td>
+</tr></table>';
+?>

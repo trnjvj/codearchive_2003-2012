@@ -1,0 +1,90 @@
+
+<?
+/*
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=separate.php">
+</HEAD>
+*/
+include('db_connect.php');
+set_time_limit(0);
+
+$mCount=0;
+print "<font face=arial size=2>";
+
+
+$Query111 = "SELECT * FROM `craigslist2_result_new`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$myA = $Row110[0];
+		$myB = $Row110[1];
+		$myC = $Row110[2];
+		$myD = $Row110[3];
+		$myE = $Row110[4];
+		$myF = $Row110[5];
+		$myG = $Row110[6];
+		$myH = $Row110[7];
+		$myI = $Row110[8];
+		$myJ = $Row110[9];
+		
+		for ($j=0; $j<256; $j++)
+			{	
+			$myD = str_replace("&#$j;", chr($j), $myD);
+			}
+			
+
+		
+		
+		
+		$mFound=0;
+		$Query112 = "SELECT * FROM `world`.`craigslist2_sent_mail` WHERE b='$myD';";
+			$Result112 = mysql_db_query($DBName, $Query112, $Link);
+			while ($Row112 = mysql_fetch_array ($Result112))
+				{	
+				$Cat = $Row112[0];
+				$Cat1 = $Row112[1];
+				$mFound=1;
+				}
+		if ($mFound==1) {} else {
+		$this1 = strpos($myD, "@");
+		if ($this1) {
+		$mCount++;
+		print "$mCount - ";
+		print "<a target='_blank' href='local_sendmail.php?a=trnjvj@gmail.com&b=$myD&c=$myB&d=Tim%20Johnson'>bid</a> ";
+
+		print "$myD";
+		print " - to be sent - $myB - $myC - $myF - $myG<br>";
+		//print "$myJ<br><br>";
+		}
+		}	
+		/*
+		print "<a target=_blank href=flag.php?a=$myA>$myA</a><br>";
+		print "</td><td>";
+		
+		
+		
+		print "</td><td>";
+		print "$myB<br>";
+		print "</td><td>";
+		print "$myC<br>";
+		
+
+		print "</td><td>";
+		print "$myF<br>";
+		print "</td><td>";
+		print "$myG<br>";
+		print "</td><td>";
+		print "$myH<br>";
+
+		print "</td></tr>";
+		print "<tr><td colspan=9>$myJ<br>";
+		*/
+		
+		
+		
+		}
+	
+		print "</font>";
+mysql_close ($Link);
+?>

@@ -1,0 +1,184 @@
+<?
+
+fwrite($fp, '<div align="center">');
+fwrite($fp, "<table width=100% bgcolor=D1E5ED bordercolor=D1E5ED border=0 cellpadding=0>");
+fwrite($fp, "<tr><td width='190' align='center' valign='top'>");
+fwrite($fp, "<table bgcolor=#F0F7F9 border=0 cellpadding=0 width=100%>");
+fwrite($fp, '<table width="100%" border="0" cellpadding="0" cellspacing="0">');
+fwrite($fp, '<tr> ');
+fwrite($fp, '<td width="190" valign="top">');
+fwrite($fp, "<div align='center'>");
+fwrite($fp, "<table bgcolor=#F0F7F9 border=0 cellpadding=0 width=100%>");
+
+if ($l==0) {
+fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;<a href='home.htm'>Home</a></div></td></tr>");
+	$Query11 = "SELECT DISTINCT a,b FROM `holisticopia_menu` order by a,b";
+	$Result11 = mysql_db_query($DBName, $Query11, $Link);
+	while ($Row11 = mysql_fetch_array ($Result11))
+		{
+		$a = $Row11[0];	
+		$b = $Row11[1];
+		$bb = str_replace(" ", "+", $b);	
+		fwrite($fp, "<a href='$bb.htm'>$b</a><br>");
+		}
+	}
+
+
+
+
+
+if ($l==1) {
+fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;<a href='home.htm'>Home</a></div></td></tr>");
+	$Query11 = "SELECT DISTINCT a,b FROM `holisticopia_menu` order by a,b";
+	$Result11 = mysql_db_query($DBName, $Query11, $Link);
+	while ($Row11 = mysql_fetch_array ($Result11))
+		{
+		$a = $Row11[0];	
+		$b = $Row11[1];
+		$bb = str_replace(" ", "+", $b);	
+		
+		
+		if ($b==$bbb) {
+		fwrite($fp, "<tr><td><div class='menu5'>&nbsp;&nbsp;&nbsp;$b</div></td></tr>");
+			$Query12 = "SELECT DISTINCT b,c FROM `holisticopia_menu` WHERE b='$bbb' order by b,c";
+			$Result12 = mysql_db_query($DBName, $Query12, $Link);
+			while ($Row12 = mysql_fetch_array ($Result12))
+				{
+				$b = $Row12[0];
+				$c = $Row12[1];
+				$bb = str_replace(" ", "+", $b);
+				$cc = str_replace(" ", "+", $c);
+				fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='../2/$cc.htm'>$c</a></div></td></tr>");			  
+				}
+			}
+		else {fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;<a href='$bb.htm'>$b</a></div></td></tr>");}
+		}
+	}
+
+
+
+
+if ($l==2) {
+fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;<a href='../../home.htm'>Home</a></div></td></tr>");		
+	$Query11 = "SELECT DISTINCT a,b FROM `holisticopia_menu` order by a,b";
+	$Result11 = mysql_db_query($DBName, $Query11, $Link);
+	while ($Row11 = mysql_fetch_array ($Result11))
+		{
+		$a = $Row11[0];	
+		$b = $Row11[1];
+		$bb = str_replace(" ", "+", $b);	
+		
+		if ($b==$bbb) {
+			fwrite($fp, "<tr><td><div class='menu5'>&nbsp;&nbsp;&nbsp;$b</div></td></tr>");
+			}
+		else {
+			fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;<a href='../1/$bb.htm'>$b</a></div></td></tr>");
+			}	
+		if ($b==$bbb) {			
+			$Query12 = "SELECT DISTINCT b,c FROM `holisticopia_menu` WHERE b='$bbb' order by b,c";
+			$Result12 = mysql_db_query($DBName, $Query12, $Link);
+			while ($Row12 = mysql_fetch_array ($Result12))
+				{
+				$b = $Row12[0];
+				$c = $Row12[1];
+				$bb = str_replace(" ", "+", $b);
+				$cc = str_replace(" ", "+", $c);
+				if ($c==$ccc) {
+					fwrite($fp, "<tr><td><div class='menu5'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$c</div></td></tr>");	  
+					} else {
+					fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='$cc.htm'>$c</a></div></td></tr>");	  
+					}
+				if ($c==$ccc) {
+					$Query13 = "SELECT DISTINCT b,c,d FROM `holisticopia_menu` WHERE b='$bbb' and c='$ccc' order by b,c,d";
+					$Result13 = mysql_db_query($DBName, $Query13, $Link);
+					while ($Row13 = mysql_fetch_array ($Result13))
+						{
+						$b = $Row13[0];
+						$c = $Row13[1];
+						$d = $Row13[2];
+						$bb = str_replace(" ", "+", $b);
+						$cc = str_replace(" ", "+", $c);
+						$dd = str_replace(" ", "+", $d);
+						
+						if ($b=='Regional') {
+						fwrite($fp, "<tr><td><div class='menu3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=../../land/$dd.htm>$d</a></div></td></tr>");	  
+						}
+						if ($b=='Modalities') {
+						fwrite($fp, "<tr><td><div class='menu3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=../../cat/$dd.htm>$d</a></div></td></tr>");	  
+						}
+						
+						
+						}
+					}
+				}
+			}
+		}
+	}
+
+if ($l==3) {
+fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;<a href='../home.htm'>Home</a></div></td></tr>");		
+	$Query11 = "SELECT DISTINCT a,b FROM `holisticopia_menu` order by a,b";
+	$Result11 = mysql_db_query($DBName, $Query11, $Link);
+	while ($Row11 = mysql_fetch_array ($Result11))
+		{
+		$a = $Row11[0];	
+		$b = $Row11[1];
+		$bb = str_replace(" ", "+", $b);	
+		
+		if ($b==$bbb) {
+			fwrite($fp, "<tr><td><div class='menu5'>&nbsp;&nbsp;&nbsp;$b</div></td></tr>");
+			}
+		else {
+			fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;<a href='../menu/1/$bb.htm'>$b</a></div></td></tr>");
+			}	
+		if ($b==$bbb) {			
+			$Query12 = "SELECT DISTINCT b,c FROM `holisticopia_menu` WHERE b='$bbb' order by b,c";
+			$Result12 = mysql_db_query($DBName, $Query12, $Link);
+			while ($Row12 = mysql_fetch_array ($Result12))
+				{
+				$b = $Row12[0];
+				$c = $Row12[1];
+				$bb = str_replace(" ", "+", $b);
+				$cc = str_replace(" ", "+", $c);
+				if ($c==$ccc) {
+					fwrite($fp, "<tr><td><div class='menu5'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$c</div></td></tr>");	  
+					} else {
+					fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='../menu/2/$cc.htm'>$c</a></div></td></tr>");	  
+					}
+				if ($c==$ccc) {
+					$Query13 = "SELECT DISTINCT b,c,d FROM `holisticopia_menu` WHERE b='$bbb' and c='$ccc' order by b,c,d";
+					$Result13 = mysql_db_query($DBName, $Query13, $Link);
+					while ($Row13 = mysql_fetch_array ($Result13))
+						{
+						$b = $Row13[0];
+						$c = $Row13[1];
+						$d = $Row13[2];
+						$bb = str_replace(" ", "+", $b);
+						$cc = str_replace(" ", "+", $c);
+						$dd = str_replace(" ", "+", $d);
+						if ($d==$ddd) {
+					fwrite($fp, "<tr><td><div class='menu5'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$d</div></td></tr>");	  
+					} else {
+					fwrite($fp, "<tr><td><div class='menu2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=../land/$dd.htm>$d</a></div></td></tr>");	  
+						}
+						
+						}
+					}
+				}
+			}
+		}
+	}
+
+fwrite($fp, "<tr><td><div class='menu2'>&nbsp;</div></div></td></tr>");	  
+fwrite($fp, '</table></div></td><td bgcolor="#FFFFFF" valign="top">');
+fwrite($fp, '<table bgcolor="#FFFFFF" width="100%" border="0" cellpadding="5"><tr><td valign=top>');
+
+
+fwrite($fp, "<table width=100%>");
+fwrite($fp, "<tr>");
+fwrite($fp, "<td valign=top align=left><div class='content_tableheader'>");
+fwrite($fp, "");
+fwrite($fp, "<a href=../land/$State2.htm>$State</a> &gt; $City");
+fwrite($fp, "</div></div></td></tr></table><p>");
+
+?>

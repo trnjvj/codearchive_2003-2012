@@ -1,0 +1,88 @@
+<?php
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "jbluepac_world";
+$Password = "turnip";
+$DBName = "jbluepac_world";
+$Tablename = "world";
+$Tablename = "yellow_pages";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "<font face=verdana size=1>";
+
+$Query24 = "SELECT a,d from count where e=''";
+$Result = mysql_db_query($DBName, $Query24, $Link);
+
+while ($Row = mysql_fetch_array ($Result))
+	{
+		$catee=str_replace(" ", "+", $Row[0]);
+		$cat=$Row[0];
+		$type=$Row[1];
+		print "$type";
+		if ($type=="land") {
+		$Query25 = "SELECT DISTINCT i FROM `listings` WHERE b = '$cat' ORDER BY i";
+		}
+		if ($type=="cat") {
+		$Query25 = "SELECT DISTINCT i FROM `listings` WHERE f = '$cat' ORDER By i";
+		}
+		print "<hr>$Query25<p>";
+		$Result25 = mysql_db_query($DBName, $Query25, $Link);
+		$count25=0;
+		while ($Row25 = mysql_fetch_array ($Result25))
+	{
+		print "|";
+		$count25=$count25+1;
+		}
+$Query26 = "UPDATE `count` SET e='$count25' WHERE a = '$cat'";
+$Result26 = mysql_db_query($DBName, $Query26, $Link);
+	}
+
+
+mysql_close ($Link);
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

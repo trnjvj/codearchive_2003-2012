@@ -1,0 +1,16 @@
+<?php
+
+$TheFile = "http://www.radio-locator.com/cgi-bin/finder?state=CA&country=u&count=100&s=T&sr=1&is_lic=Y&is_cp=Y&is_unl=Y&is_ful=Y&is_lp=Y&scope=all&prev=200";
+
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+	        print "$Array[$m]";
+
+}
+}
+}

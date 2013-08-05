@@ -1,0 +1,184 @@
+<?
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "websites";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$TheFile2 = "$T2";
+$Start2=0;
+$Query2 = "Select * from websites where h=''";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+while ($Row2 = mysql_fetch_array ($Result2))
+	{
+    $mAB = strpos("M1", $Row2[5]);
+    if (mAB) {
+    $T2=$Row2[3];
+
+    $Query17 = "UPDATE `websites` SET `h` = '1' WHERE `d` = '$T2' LIMIT 1;";
+	$Result17 = mysql_db_query($DBName, $Query17, $Link);
+
+    $mLa1 = strpos($T2, ".gif");
+    $mLa2 = strpos($T2, ".jpg");
+	$Open2 = fopen($T2, "r");
+    $Found2002=0;
+	if ($Open2) {
+
+		$First=1;
+		$TFound=-1;
+		$Data2 = file($T2);
+		for ($n2 = 0; $n2 < count($Data2); $n2++)
+	    	{
+
+
+
+			$String2 = trim($Data2[$n2]);
+	        $UU1 = strpos($String2, "@");
+	        if ($UU1) {
+
+	        	$UU2 = substr($String2, $UU1-20, 140);
+	            $String2=$UU2;
+	            }
+	        $U1 = strpos($String2, "mailto:");
+	        if ($U1) {
+
+		        $U2 = strlen($String2);
+		        $X1 = substr($String2, $U1, $U2-$U1);
+		        $U3 = strpos($X1, '>');
+		        $X2="none";
+		        if ($U3) {
+		        	$X2 = substr($X1, 0, $U3);
+		            $X2=str_replace('"','',$X2);
+		            $X2=str_replace('mailto:','',$X2);
+		            }
+				$X5 = strlen($X2);
+				$X6 = substr($X2, $X4+1, $X5-1);
+				$X7 = strpos($T2,$X6);
+				$UU3 = strpos($X2, '?');
+				if ($UU3) {$X2 = substr($X2, 0, $UU3);}
+	            $X4=strpos($X2, "%");
+	            if ($X4) {
+	                $X5= substr($X2,$X4-1);
+	                $X2 = $X5;
+	            	}
+	            $X4=strpos($X2, "'");
+	            if ($X4) {
+	                $X5= substr($X2,$X4-1);
+	                $X2 = $X5;
+	            	}
+	            $X4=strpos($X2, '"');
+	            if ($X4) {
+	                $X5= substr($X2,$X4-1);
+	                $X2 = $X5;
+	            	}
+
+				$XXX = strpos($X2, "@")+1;
+                $XXY = strlen($X2);
+                $XXZ = substr($X2, $XXX, $XXY-$XXX);
+
+                $XYX = strpos($Row2[3], $XXZ);
+                $mFoundX=0;
+                $Query21 = "Select * from websites where g='$X2' LIMIT 1";
+				$Result21 = mysql_db_query($DBName, $Query21, $Link);
+				while ($Row21 = mysql_fetch_array ($Result21))
+					{
+                    $mFoundX=1;
+                    }
+
+				if ($XYX and $Found2002==0 and $mFoundX==0) {
+                            $mPage = trim($Row2[0]);
+                			                			$Found2002=1;
+                        	$Query16 = "UPDATE `websites` SET `g` = '$X2' WHERE `d` = '$T2' LIMIT 1;";
+                            $Result16 = mysql_db_query($DBName, $Query16, $Link);
+							$MailTo = "sent@holisticopia.com";
+							$mSearch3003 = str_replace("+", " ", $mSearch);
+$Subject = "$Row2[2]";
+
+$Body="To: $X2\n\nWe have added a link to your website on our $mPage page.\n\n$Row2[2]\n$Row2[3]\n$Row2[8]\n\nThe link is on this page:\n\nhttp://www.holisticopia.com/main.php$Row2[5]\n\nPlease update the information if any of it is incorrect, or if you would like the link removed.\n\nUpdate page: http://www.holisticopia.com/update.php\nemail: $X2\npassword: IgNkFc\n\nSincerely,\nTim Johnson, Webmaster\nHolisticopia\nA World Directory of Everything";
+
+$mSpanish=0;
+$mSp=strpos(".ve", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".cu", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".ni", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".mx", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".py", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".cl", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".sv", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".cr", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".co", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".ec", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".gt", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".do", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".bo", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".py", $X2);
+if ($mSp) {$mSpanish=1;}
+$mSp=strpos(".ar", $X2);
+if ($mSp) {$mSpanish=1;}
+if ($mSpanish==1) {$Body="A: $X2\n\nHemos agregado un acoplamiento a su website en nuestra $mPage página.\n\n$Row2[2]\n$Row2[3]\n$Row2[8]\n\nEl acoplamiento está en esta página:\n\nhttp://www.holisticopia.com/main.php$Row2[5]\n\nPonga al día por favor la información si cualquiera de él es incorrecto, o si usted quisiera el acoplamiento quitado.\n\nPágina de la actualización: http://www.holisticopia.com/update.php\nemail: $X2\npassword: IgNkFc\n\nSinceramente,\nTim Johnson, Webmaster\nHolisticopia";}
+
+$mFrench=0;
+$mFr=strpos(".fr", $X2);
+if ($mFr) {$mFrench=1;}
+$mFr=strpos(".qc.ca", $X2);
+if ($mFr) {$mFrench=1;}
+$mFr=strpos(".be", $X2);
+if ($mFr) {$mFrench=1;}
+if ($mFrench==1) {$Body="À: $X2\n\nNous avons ajouté un lien à votre website à notre $mPage page.\n\n$Row2[2]\n$Row2[3]\n$Row2[8]\n\nLe lien est à cette page:\n\nhttp://www.holisticopia.com/main.php$Row2[5]\n\nVeuillez mettre à jour l'information si un quelconque de lui est incorrect, ou si vous voudriez le lien enlevé.\n\nPage de mise à jour: http://www.holisticopia.com/update.php\nemail: $X2\npassword: IgNkFc\n\nSincèrement,\nTim Johnson, Webmaster\nHolisticopia";}
+
+$mGerman=0;
+$mDe=strpos(".de", $X2);
+if ($mDe) {$mGerman=1;}
+$mDe=strpos(".ch", $X2);
+if ($mDe) {$mGerman=1;}
+$mDe=strpos(".lu", $X2);
+if ($mDe) {$mGerman=1;}
+$mDe=strpos(".at", $X2);
+if ($mDe) {$mGerman=1;}
+$mDe=strpos(".li", $X2);
+if ($mDe) {$mGerman=1;}
+$mDe=strpos(".cz", $X2);
+if ($mDe) {$mGerman=1;}
+if ($mGerman==1) {$Body="Zu: $X2\n\nWir haben eine Verbindung Ihrem website auf unserer Seite $mPage hinzugefügt. \n\n$Row2[2]\n$Row2[3]\n$Row2[8]\n\nDie Verbindung ist auf dieser Seite:\n\nhttp://www.holisticopia.com/main.php$Row2[5]\n\nAktualisieren Sie bitte die Informationen, wenn irgendein von ihm falsch ist oder wenn Sie die Verbindung entfernt möchten.\n\nUpdateseite: http://www.holisticopia.com/update.php\nemail: $X2\npassword: IgNkFc\n\nHerzlichst, \nTim Johnson, Webmaster\nHolisticopia";}
+
+$mItalian=strpos(".it", $X2);
+if ($mItalian) {$Body="A: $X2\n\nAbbiamo aggiunto un collegamento al vostro website alla nostra $mPage pagina.\n\n$Row2[2]\n$Row2[3]\n$Row2[8]\n\nIl collegamento è a questa pagina:\n\nhttp://www.holisticopia.com/main.php$Row2[5]\n\nAggiorni prego le informazioni se c'è ne di esso è errato, o se gradiste il collegamento rimosso.\n\nPagina dell'aggiornamento: http://www.holisticopia.com/update.php\nemail: $X2\npassword: IgNkFc\n\nFrancamente,\nTim Johnson, Webmaster\nHolisticopia";}
+
+$mPortugese=0;
+$mPt=strpos(".pt", $X2);
+if ($mPt) {$mPortugese=1;}
+$mPt=strpos(".br", $X2);
+if ($mPt) {$mPortugese=1;}
+if ($mPortugese) {$Body="A: $X2\n\nNós adicionamos uma ligação a seu website em nossa $mPage página.\n\n$Row2[2]\n$Row2[3]\n$Row2[8]\n\nA ligação está nesta página:\n\nhttp://www.holisticopia.com/main.php$Row2[5]\n\nAtualize por favor a informação se algum dele estiver incorreto, ou se você gostar da ligação removida. \n\nUpdate page: http://www.holisticopia.com/update.php\nemail: $X2\npassword: IgNkFc\n\nSincerely,\nTim Johnson, Webmaster\nHolisticopia";}
+
+$mNorwegian=strpos(".no", $X2);
+if ($mNorwegian) {$Body="Til: $X2\n\nWe et ledd til Deres website på vår $mPage side.\n\n$Row2[2]\n$Row2[3]\n$Row2[8]\n\nLeddet er på denne siden:\n\nhttp://www.holisticopia.com/main.php$Row2[5]\n\nPlease informasjonen om noe av det er ukorrekt, eller om De liker fjernet leddet.\n\nOppdater side: http://www.holisticopia.com/update.php\nemail: $X2\npassord: IgNkFc\n\nSincerely,\nTim Johnson, Webmaster\nHolisticopia";}
+
+if (mail($X2, $Subject, $Body, "From: Tim Johnson <timjohnson@holisticopia.com>")) {print "<font face=arial size=1></font>";}
+
+if (mail($MailTo, $Subject, $Body, "From: Tim Johnson <timjohnson@holisticopia.com>")) {print "<font face=arial size=1></font>";}
+$mFound51=1;
+}
+}
+}
+}
+}
+}
+
+?>
+

@@ -1,0 +1,39 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="11111115, URL=get_5a.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mSearch="Herbal+Medicine";
+
+for ($nn = 10; $nn < 100000; $nn=$nn+10) {
+
+$TheFile = "http://www.altavista.com/web/results?q=$mSearch&kgs=0&kls=1&avkw=aapt&stq=$nn";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+$S2 = strpos($String, "pan class=ngrn>");
+if ($S2) {
+print "$String\n\r<br>";
+
+$Query111 = "INSERT INTO `ore` ( `a` , `b` , `c` ) VALUES ('$mSearch', '$String', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+}
+}
+}
+fclose($Open);
+}
+
+mysql_close ($Link);
+?>

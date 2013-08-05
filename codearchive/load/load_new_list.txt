@@ -1,0 +1,43 @@
+<?
+
+set_time_limit (0);
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "<font face=verdana size=1>";
+$TheFile = "1mlist.txt";
+
+
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+
+$Open2 = fopen($String, "r");
+if ($Open2) {
+	$Data2 = file($String);
+	for ($n2 = 0; $n2 < count($Data2); $n2++) {
+		$String2 = trim($Data2[$n2]);
+		$Query110 = "INSERT INTO `newsletters_herbage1209` ( `a` , `b` , `c` ) VALUES ('$String2', '', '');";
+		$Result110 = mysql_db_query($DBName, $Query110, $Link);
+		print "$String2 ";
+		}
+	}
+
+fclose($Open2);
+
+}
+	}
+
+fclose($Open);
+
+mysql_close ($Link);
+
+?>

@@ -1,0 +1,16 @@
+<?
+set_time_limit (600000);
+$mSearch="Boston";
+$TheFile = "http://www.amazon.com/exec/obidos/external-search?tag=stardigger&mode=Music&keyword=Johnny+Cash&pg=1";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode(">", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			
+			$m2 = strpos($Array[$m], "ASIN");
+			if ($m2) {print "$Array[$m]\r";}
+			}}}
+?>

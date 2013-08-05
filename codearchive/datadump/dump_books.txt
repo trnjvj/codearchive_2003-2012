@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=dump_books.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Dump URLs</TITLE>
+<?
+
+
+print "<font face=verdana size=4>";
+print "Archipelago 0.9.0<br>";
+print "Dump Books - Copyright 2004 by Tim Johnson<br>";
+print "All Rights Reserved</font><font face=verdana size=1><p>";
+
+$nmn=0;
+include('db_connect.php');
+
+$Cat='';
+$mCount=0;
+
+$Query120 = "SELECT a,b FROM `archipelago_websites_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	
+	$mbb = $Row120[0];
+	$mcc = $Row120[1];
+	}
+print "$mbb<br>";
+if ($mcc=='done') {
+print "done.<p>";
+print "<a href='dump_books_continue.php'>continue</a> - <a href='dump_books_reset.php'>reset</a>";
+} else {
+$mFlag=0;
+
+$mFile = "dump/books$mbb.txt";
+
+$fp = fopen("$mFile", "wt");
+
+$Query110 = "SELECT * FROM `archipelago_books` LIMIT $mbb,5000;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];
+	$Cat5 = $Row110[5];
+	$Cat6 = $Row110[6];
+	fwrite($fp, "\n\r");
+	fwrite($fp, "\n\r|book|");
+	fwrite($fp, "\n\r|category|$Cat|-category|");
+	fwrite($fp, "\n\r|title|$Cat2|-title|");
+	fwrite($fp, "\n\r|author|$Cat3|-author|");
+	fwrite($fp, "\n\r|link|$Cat4|-link|");
+	fwrite($fp, "\n\r|image|$Cat5|-image|");
+	fwrite($fp, "\n\r|-book|");
+	$mFlag=1;
+	}	
+$mbb=$mbb+5000;
+$Query112 = "UPDATE `archipelago_websites_state` SET a='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+if ($mFlag==0) {
+$mdd=0;
+if($mbb>4999) {$mdd=5000;}
+if($mbb>9999) {$mdd=10000;}
+if ($mbb>10000) {$mdd=$mbb-10000;}
+$Query112 = "UPDATE `archipelago_websites_state` SET a='$mdd', b='done';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+} 
+fclose($fp);
+}
+
+mysql_close ($Link);
+?>

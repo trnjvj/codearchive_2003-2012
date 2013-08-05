@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=parsejobs.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Multitopic URL Obtainer</TITLE>
+<?
+set_time_limit(0);
+
+print "<font face=verdana size=1>";
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+for ($mmm1=0; $mmm1<20; $mmm1++)
+{
+
+	$Query111 = "SELECT * FROM `jobspider_websites2` WHERE i='' LIMIT 1;";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$Cat = $Row110[0];
+		$Cat1 = $Row110[1];
+		$Cat2 = $Row110[2];
+		$Cat3 = $Row110[3];
+		$Cat4 = $Row110[4];
+		$Cat5 = $Row110[5];
+		$Cat6 = $Row110[6];
+		$Cat7 = $Row110[7];
+		$Cat8 = $Row110[8];
+		$Cat9 = $Row110[9];
+		$Query122 = "UPDATE `jobspider_websites2` SET i='1' where c='$Cat2';";
+		$Result122 = mysql_db_query($DBName, $Query122, $Link);
+		}
+$Flag=0;
+$Cat10="";
+$n1 = strlen($Cat9);
+for ($n2=0; $n2<$n1; $n2++)
+{
+if ($Cat9[$n2]=="<") {$Flag=0;}
+if ($Cat9[$n2]==">") {$Flag=1;}
+if ($Flag==1) {
+$Cat10=$Cat10.$Cat9[$n2];
+}
+
+}
+
+$Cat10=str_replace(">", " ", $Cat10);
+$Cat10=str_replace("please  flag  with care :&nbsp;&nbsp;[ miscategorized ]&nbsp;&nbsp;&nbsp;[ prohibited ]&nbsp;&nbsp;&nbsp;[ spam ]&nbsp;&nbsp;&nbsp;[ discussion ]&nbsp;&nbsp;&nbsp;[ best of ]     email this posting to a friend", " ", $Cat10);
+$Cat10=str_replace("Copyright &copy; 2004 craigslist&nbsp;&nbsp;&nbsp;&nbsp; terms of use &nbsp;&nbsp;&nbsp;&nbsp; privacy policy &nbsp;&nbsp;&nbsp;&nbsp; feedback forum", " ", $Cat10);
+$Cat10=str_replace("  ", "~", $Cat10);
+for ($nn2=0; $nn2<10; $nn2++) {
+$Cat10=str_replace("~~", "~", $Cat10);
+}
+$Cat10=str_replace("~", " ~ ", $Cat10);
+$Query112 = "INSERT INTO `jobspider_websites3` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$Cat', '$Cat1', '$Cat2', '$Cat3', '$Cat4', '$Cat5', '$Cat6', '$Cat7', '', '$Cat10');";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+print "$Cat2 $Cat3<br> ";
+
+}
+mysql_close ($Link);
+?>

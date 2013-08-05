@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=fix_comments.php">
+<TITLE>Import URLs</TITLE>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mPageNum=0;
+
+$Query1201 = "SELECT * FROM `herbage_comments` WHERE b='' LIMIT 1;";
+$Result1201 = mysql_db_query($DBName, $Query1201, $Link);
+while ($Row1201 = mysql_fetch_array ($Result1201))
+	{	
+	$mPage = $Row1201[0];
+	$Query2201 = "SELECT * FROM `herbage_plant_index` WHERE a='$mPage';";
+	$Result2201 = mysql_db_query($DBName, $Query2201, $Link);
+	while ($Row2201 = mysql_fetch_array ($Result2201))
+		{	
+		$mPage2 = $Row2201[1];
+		$m1 = strpos($mPage2, "#");
+		$m2 = substr($mPage2, 0, $m1);
+		}
+	
+	$mFile2 = "files2/$m2";
+	$fp2 = fopen("$mFile2", "wt");
+	
+	$TheFile = "files/$m2";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$String2 = str_replace("|", "'", $String);
+		print "$String2";
+		fwrite($fp2, "$String2");
+		}}
+	}
+fclose($fp2);
+
+$Query112 = "UPDATE `herbage_comments` SET b='1' WHERE a='$mPage';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+mysql_close ($Link);
+
+?>

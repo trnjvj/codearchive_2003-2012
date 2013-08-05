@@ -1,0 +1,213 @@
+<?
+include('db_connect.php');
+
+foreach ($_REQUEST as $k => $v) {
+      //print "   $k = $v\n";
+	 
+	  $Query111 = "INSERT INTO `brainform` (`a` , `b` , `c` , `d` , `e` , `f`) VALUES ('$k', '$v', '', '', '', '');";
+	  $Result111 = mysql_db_query($DBName, $Query111, $Link);
+	  
+	  if ($k=="tb_searchfor") {$tb_searchfor=$v;}
+	  if ($k=="cboPhase") {$cboPhase=$v;}
+}
+print '<?xml version="1.0" encoding="utf-8"?>
+<log>';
+$Query111 = "SELECT * FROM `brainform3`;";
+
+if ($tb_searchfor) {$Query111 = "SELECT * FROM `brainform3` WHERE g LIKE '%$tb_searchfor%';";}
+
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$mCount=0;
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+$this0 = $Row110[0];
+$this1 = $Row110[1];
+$this2 = $Row110[2];
+$this3 = $Row110[3];
+$this4 = $Row110[4];
+$this5 = $Row110[5];
+$this6 = $Row110[6];
+$this7 = $Row110[7];
+$this8 = $Row110[8];
+$this9 = $Row110[9];
+$this10 = $Row110[10];
+$this11 = $Row110[11];
+$this12 = $Row110[12];
+$this13 = $Row110[13];
+$this14 = $Row110[14];
+$this15 = $Row110[15];
+$this16 = $Row110[16];
+$this17 = $Row110[17];
+$this18 = $Row110[18];
+$this19 = $Row110[19];
+$this20 = $Row110[20];
+$this21 = $Row110[21];
+$this22 = $Row110[22];
+$this23 = $Row110[23];
+$this24 = $Row110[24];
+$this25 = $Row110[25];
+$this26 = $Row110[26];
+$this27 = $Row110[27];
+$this28 = $Row110[28];
+$this29 = $Row110[29];
+$this30 = $Row110[30];
+$this31 = $Row110[31];
+$this32 = $Row110[32];
+$this33 = $Row110[33];
+$this34 = $Row110[34];
+$this35 = $Row110[35];
+$this36 = $Row110[36];
+$this37 = $Row110[37];
+$this38 = $Row110[38];
+$this39 = $Row110[39];
+$this40 = $Row110[40];
+$this41 = $Row110[41];
+$this42 = $Row110[42];
+$this43 = $Row110[43];
+$this44 = $Row110[44];
+$this45 = $Row110[45];
+$this46 = $Row110[46];
+$this47 = $Row110[47];
+$this48 = $Row110[48];
+$this49 = $Row110[49];
+$this50 = $Row110[50];
+$this51 = $Row110[51];
+$this52 = $Row110[52];
+	$mCount++;
+	$thisR = rand(0,1);
+if ($thisR==0) {print '<active count="';}
+if ($thisR==1) {print '<inactive count="';}
+print "$mCount";
+
+$Array = explode(" ", $this6);
+$newthis1 = $Array[0];
+$newthis2 = $Array[1];
+$newthis3 = $Array[2];
+print '" firstname="';
+print "$newthis1";
+print '" lastname="';
+print "$newthis2 $newthis3";
+
+	$thisR = rand(0,1);
+if ($thisR==0) {print '" rb_convicted_yes="';
+print "false";
+print '" rb_convicted_no="';
+print "true";}
+if ($thisR==1) {print '" rb_convicted_yes="';
+print "true";
+print '" rb_convicted_no="';
+print "false";}
+
+print '" ta_explain_conviction="';
+if ($thisR==1) {print "I was framed.";}
+print '" dt_email="';
+$thisR1 = rand(0,1172937192);
+$thisR2 = rand(0,1172937192);
+$thisR3 = rand(0,1172937192);
+print "$thisR1@$thisR2.com";
+print '" dt_email2="';
+print "$thisR1@$thisR2.com";
+print '" dt_password="';
+print "$thisR3";
+print '" dt_full_name="';
+print "$this6";
+print '" cb_country="';
+print "USA";
+print '" cb_residence_status="';
+$thisR1 = rand(0,1);
+if ($thisR1==0) {print "US Citizen";}
+if ($thisR1==1) {print "International";}
+print '" dt_street_address="';
+print "$this9";
+print '" dt_city="';
+print "$this10";
+print '" dt_zip_code="';
+print "$this11";
+print '" cb_state="';
+print "$this12";
+print '" dt_alt_street_address="';
+print "$this9";
+print '" dt_alt_city="';
+print "$this10";
+print '" dt_alt_zip_code="';
+print "$this11";
+print '" cb_alt_state="';
+print "$this16";
+print '" dt_alt_telephone="';
+print "$this17";
+print '" cb_phone_type="';
+print "$this18";
+print '" dt_dob_mm="';
+print "$this19";
+print '" dt_dob_dd="';
+print "$this20";
+print '" dt_dob_yyyy="';
+print "$this21";
+print '" dt_emergency_contact="';
+print "$this22";
+print '" dt_contacts_relation="';
+print "$this23";
+print '" dt_contacts_phone_number="';
+print "$this24";
+print '" rb_international_student_yes="';
+print "$this25";
+print '" rb_international_student_no="';
+print "$this26";
+print '" rb_position_ft="';
+print "$this27";
+print '" rb_position_pt="';
+print "$this28";
+print '" dt_references_name="';
+print "$this29";
+print '" dt_references_email="';
+print "$this30";
+print '" dt_funds_completion="';
+print "$this31";
+print '" dt_previous_institution="';
+print "$this32";
+print '" dt_diploma_or_degree="';
+
+print "$this33";
+print '" dt_graduation_year="';
+print "$this34";
+print '" dt_previous_institution2="';
+print "$this35";
+print '" dt_diploma_or_degree2="';
+print "$this36";
+print '" dt_graduation_year2="';
+print "$this37";
+print '" dt_gpa="';
+print "$this38";
+print '" dt_type_of_scholarship="';
+print "$this39";
+print '" dt_ref2_name="';
+print "$this40";
+print '" dt_ref3_name="';
+print "$this41";
+print '" dt_ref3_phone="';
+print "$this42";
+print '" dt_ref1_email="';
+print "$this43";
+print '" dt_ref2_email="';
+print "$this44";
+print '" dt_ref3_email="';
+print "$this45";
+print '" dt_ref3_institution="';
+print "$this46";
+print '" dt_ref2_phone="';
+print "$this47";
+print '" dt_ref2_institution="';
+print "$this48";
+print '" dt_ref1_institution="';
+print "$this49";
+print '" dt_ref1_name="';
+print "$this50";
+print '" dt_ref1_phone="';
+print "$this51";
+print '" dt_i="';
+print "$this52";
+print '"/>';
+	}
+ print '</log>';
+mysql_close ($Link);
+?>

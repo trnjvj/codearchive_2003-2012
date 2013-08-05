@@ -1,0 +1,443 @@
+<html><title>The Daily Newsgrabber: Advertising</title>
+<body bgcolor=#CCCC99 text=#663333 link=#663333 vlink=#663333 alink=#663333 background='images/bottom_second.jpg'>
+<div align="center"><img src="images/logo.jpg" width="579" height="87"><br>
+  <table width=582 border=0>
+    <tr> 
+      <td valign=top align=left><font face=verdana size=2><b><a href=http://www.thedailynewsgrabber.com/index.html>Home</a> 
+        > Advertise on The Daily Newsgrabber</b></font></td>
+    </tr>
+  </table>
+  
+</div>
+<form method=post action='view.php'>
+  <div align="center">
+    <table width="620" border="1" cellpadding="5">
+      <tr>
+        <td>
+          <div align="center"><font face="Verdana, Arial, Helvetica, sans-serif"><b>Advertising 
+            Form</b></font></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table width=100% border=0 cellpadding="3">
+            <tr> 
+              <td width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Category:</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> 
+                <select name="Category">
+<option value='Amateur Radio'>Amateur Radio
+<option value='College Newspapers'>College Newspapers
+<option value='College Radio Stations'>College Radio Stations
+<option value='Magazines'>Magazines
+<option value='News'>News
+<option value='Newspapers'>Newspapers
+<option value='Radio Stations'>Radio Stations
+<option value='Television Stations'>Television Stations
+                </select>
+              </td>
+            </tr>
+            <tr> 
+              <td width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Business 
+                  Name:</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> 
+                <input type="text" name="Name" size="50">
+              </td>
+            </tr>
+            <tr> 
+              <td width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Street 
+                  Address:</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> 
+                <input type="text" name="Street" size="50">
+              </td>
+            </tr>
+            <tr> 
+              <td width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>City:</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> 
+                <input type="text" name="City" size="50">
+              </td>
+            </tr>
+            <tr> 
+              <td width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>State 
+                  or Province:</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> 
+                <select name="State">
+                  <option value='Alabama'>Alabama 
+                  <option value='Alaska'>Alaska 
+                  <option value='Albania'>Albania 
+                  <option value='Alberta'>Alberta 
+                  <option value='Algeria'>Algeria 
+                  <option value='American Samoa'>American Samoa 
+                  <option value='Amsterdam Island'>Amsterdam Island 
+                  <option value='Andorra'>Andorra 
+                  <option value='Angola'>Angola 
+                  <option value='Anguilla'>Anguilla 
+                  <option value='Antarctica'>Antarctica 
+                  <option value='Antigua and Barbuda'>Antigua and Barbuda 
+                  <option value='Argentina'>Argentina 
+                  <option value='Arizona'>Arizona 
+                  <option value='Arkansas'>Arkansas 
+                  <option value='Armenia'>Armenia 
+                  <option value='Aruba'>Aruba 
+                  <option value='Australia'>Australia 
+                  <option value='Austria'>Austria 
+                  <option value='Azerbaijan'>Azerbaijan 
+                  <option value='Azores'>Azores 
+                  <option value='Bahamas'>Bahamas 
+                  <option value='Bahrain'>Bahrain 
+                  <option value='Bangladesh'>Bangladesh 
+                  <option value='Barbados'>Barbados 
+                  <option value='Belarus'>Belarus 
+                  <option value='Belgium'>Belgium 
+                  <option value='Belize'>Belize 
+                  <option value='Benin'>Benin 
+                  <option value='Bermuda'>Bermuda 
+                  <option value='Bhutan'>Bhutan 
+                  <option value='Bolivia'>Bolivia 
+                  <option value='Bonaire'>Bonaire 
+                  <option value='Bosnia And Herzegovina'>Bosnia And Herzegovina 
+                  <option value='Botswana'>Botswana 
+                  <option value='Brazil'>Brazil 
+                  <option value='British Columbia'>British Columbia 
+                  <option value='British Virgin Islands'>British Virgin Islands 
+                  <option value='Brunei'>Brunei 
+                  <option value='Bulgaria'>Bulgaria 
+                  <option value='Burkina Faso'>Burkina Faso 
+                  <option value='Burundi'>Burundi 
+                  <option value='California'>California 
+                  <option value='Cambodia'>Cambodia 
+                  <option value='Cameroon'>Cameroon 
+                  <option value='Cape Verde'>Cape Verde 
+                  <option value='Cayman Islands'>Cayman Islands 
+                  <option value='Central African Republic'>Central African Republic 
+                  <option value='Chad'>Chad 
+                  <option value='Channel Islands'>Channel Islands 
+                  <option value='Chile'>Chile 
+                  <option value='China'>China 
+                  <option value='Christmas Island'>Christmas Island 
+                  <option value='Clipperton Island'>Clipperton Island 
+                  <option value='Cocos Island'>Cocos Island 
+                  <option value='Colombia'>Colombia 
+                  <option value='Colorado'>Colorado 
+                  <option value='Comoros'>Comoros 
+                  <option value='Congo'>Congo 
+                  <option value='Connecticut'>Connecticut 
+                  <option value='Cook Islands'>Cook Islands 
+                  <option value='Costa Rica'>Costa Rica 
+                  <option value='Croatia'>Croatia 
+                  <option value='Cuba'>Cuba 
+                  <option value='Curacao'>Curacao 
+                  <option value='Cyprus'>Cyprus 
+                  <option value='Czech Republic'>Czech Republic 
+                  <option value='Delaware'>Delaware 
+                  <option value='Denmark'>Denmark 
+                  <option value='Diego Garcia'>Diego Garcia 
+                  <option value='District of Columbia'>District of Columbia 
+                  <option value='Djibouti'>Djibouti 
+                  <option value='Dominica'>Dominica 
+                  <option value='Dominican Republic'>Dominican Republic 
+                  <option value='East Timor'>East Timor 
+                  <option value='Ecuador'>Ecuador 
+                  <option value='Egypt'>Egypt 
+                  <option value='El Salvador'>El Salvador 
+                  <option value='England'>England 
+                  <option value='Equatorial Guinea'>Equatorial Guinea 
+                  <option value='Eritrea'>Eritrea 
+                  <option value='Estonia'>Estonia 
+                  <option value='Ethiopia'>Ethiopia 
+                  <option value='Faeroe Islands'>Faeroe Islands 
+                  <option value='Falkland Islands'>Falkland Islands 
+                  <option value='Fiji'>Fiji 
+                  <option value='Finland'>Finland 
+                  <option value='Florida'>Florida 
+                  <option value='France'>France 
+                  <option value='French Guiana'>French Guiana 
+                  <option value='French Polynesia'>French Polynesia 
+                  <option value='Gabon'>Gabon 
+                  <option value='Gambia'>Gambia 
+                  <option value='Georgia'>Georgia 
+                  <option value='Republic of Georgia'>Republic of Georgia 
+                  <option value='Germany'>Germany 
+                  <option value='Ghana'>Ghana 
+                  <option value='Gibraltar'>Gibraltar 
+                  <option value='Greece'>Greece 
+                  <option value='Greenland'>Greenland 
+                  <option value='Grenada'>Grenada 
+                  <option value='Guadeloupe'>Guadeloupe 
+                  <option value='Guam'>Guam 
+                  <option value='Guatemala'>Guatemala 
+                  <option value='Guinea Bissau'>Guinea Bissau 
+                  <option value='Guinea'>Guinea 
+                  <option value='Guyana'>Guyana 
+                  <option value='Haiti'>Haiti 
+                  <option value='Hawaii'>Hawaii 
+                  <option value='Honduras'>Honduras 
+                  <option value='Hungary'>Hungary 
+                  <option value='Iceland'>Iceland 
+                  <option value='Idaho'>Idaho 
+                  <option value='Illinois'>Illinois 
+                  <option value='India'>India 
+                  <option value='Indiana'>Indiana 
+                  <option value='Indonesia'>Indonesia 
+                  <option value='Iowa'>Iowa 
+                  <option value='Iran'>Iran 
+                  <option value='Iraq'>Iraq 
+                  <option value='Ireland'>Ireland 
+                  <option value='Isle of Man'>Isle of Man 
+                  <option value='Israel'>Israel 
+                  <option value='Italy'>Italy 
+                  <option value='Ivory Coast'>Ivory Coast 
+                  <option value='Jamaica'>Jamaica 
+                  <option value='Japan'>Japan 
+                  <option value='Jordan'>Jordan 
+                  <option value='Kansas'>Kansas 
+                  <option value='Kazakhstan'>Kazakhstan 
+                  <option value='Kentucky'>Kentucky 
+                  <option value='Kenya'>Kenya 
+                  <option value='Kuwait'>Kuwait 
+                  <option value='Kyrgyzstan'>Kyrgyzstan 
+                  <option value='Laos'>Laos 
+                  <option value='Latvia'>Latvia 
+                  <option value='Lebanon'>Lebanon 
+                  <option value='Lesotho'>Lesotho 
+                  <option value='Liberia'>Liberia 
+                  <option value='Libya'>Libya 
+                  <option value='Liechtenstein'>Liechtenstein 
+                  <option value='Lithuania'>Lithuania 
+                  <option value='Louisiana'>Louisiana 
+                  <option value='Luxembourg'>Luxembourg 
+                  <option value='Macao'>Macao 
+                  <option value='Macedonia'>Macedonia 
+                  <option value='Madagascar'>Madagascar 
+                  <option value='Madeira'>Madeira 
+                  <option value='Maine'>Maine 
+                  <option value='Malawi'>Malawi 
+                  <option value='Malaysia'>Malaysia 
+                  <option value='Maldives'>Maldives 
+                  <option value='Mali'>Mali 
+                  <option value='Malta'>Malta 
+                  <option value='Manitoba'>Manitoba 
+                  <option value='Marshall Islands'>Marshall Islands 
+                  <option value='Martinique'>Martinique 
+                  <option value='Maryland'>Maryland 
+                  <option value='Massachusetts'>Massachusetts 
+                  <option value='Mauritania'>Mauritania 
+                  <option value='Mauritius'>Mauritius 
+                  <option value='Mayotte'>Mayotte 
+                  <option value='Mexico'>Mexico 
+                  <option value='Michigan'>Michigan 
+                  <option value='Micronesia'>Micronesia 
+                  <option value='Minnesota'>Minnesota 
+                  <option value='Mississippi'>Mississippi 
+                  <option value='Missouri'>Missouri 
+                  <option value='Moldova'>Moldova 
+                  <option value='Monaco'>Monaco 
+                  <option value='Mongolia'>Mongolia 
+                  <option value='Montana'>Montana 
+                  <option value='Montserrat'>Montserrat 
+                  <option value='Morocco'>Morocco 
+                  <option value='Mozambique'>Mozambique 
+                  <option value='Myanmar'>Myanmar 
+                  <option value='Namibia'>Namibia 
+                  <option value='Nauru'>Nauru 
+                  <option value='Nebraska'>Nebraska 
+                  <option value='Nepal'>Nepal 
+                  <option value='Netherlands Antilles'>Netherlands Antilles 
+                  <option value='Netherlands'>Netherlands 
+                  <option value='Nevada'>Nevada 
+                  <option value='New Brunswick'>New Brunswick 
+                  <option value='New Calendonia'>New Calendonia 
+                  <option value='New Hampshire'>New Hampshire 
+                  <option value='New Jersey'>New Jersey 
+                  <option value='New Mexico'>New Mexico 
+                  <option value='New York'>New York 
+                  <option value='New Zealand'>New Zealand 
+                  <option value='Newfoundland'>Newfoundland 
+                  <option value='Nicaragua'>Nicaragua 
+                  <option value='Niger'>Niger 
+                  <option value='Nigeria'>Nigeria 
+                  <option value='Niue'>Niue 
+                  <option value='North Carolina'>North Carolina 
+                  <option value='North Dakota'>North Dakota 
+                  <option value='North Korea'>North Korea 
+                  <option value='Northern Ireland'>Northern Ireland 
+                  <option value='Northern Mariana Islands'>Northern Mariana Islands 
+                  <option value='Northwest Territories'>Northwest Territories 
+                  <option value='Norway'>Norway 
+                  <option value='Nova Scotia'>Nova Scotia 
+                  <option value='Nunavut'>Nunavut 
+                  <option value='Ohio'>Ohio 
+                  <option value='Oklahoma'>Oklahoma 
+                  <option value='Oman'>Oman 
+                  <option value='Ontario'>Ontario 
+                  <option value='Oregon'>Oregon 
+                  <option value='Pakistan'>Pakistan 
+                  <option value='Palau'>Palau 
+                  <option value='Palestine'>Palestine 
+                  <option value='Panama'>Panama 
+                  <option value='Papua New Guinea'>Papua New Guinea 
+                  <option value='Paraguay'>Paraguay 
+                  <option value='Pennsylvania'>Pennsylvania 
+                  <option value='Peru'>Peru 
+                  <option value='Philippines'>Philippines 
+                  <option value='Pitcairn Islands'>Pitcairn Islands 
+                  <option value='Poland'>Poland 
+                  <option value='Portugal'>Portugal 
+                  <option value='Prince Edward Island'>Prince Edward Island 
+                  <option value='Puerto Rico'>Puerto Rico 
+                  <option value='Qatar'>Qatar 
+                  <option value='Québec'>Québec 
+                  <option value='Réunion'>Réunion 
+                  <option value='Rhode Island'>Rhode Island 
+                  <option value='Romania'>Romania 
+                  <option value='Russia'>Russia 
+                  <option value='Rwanda'>Rwanda 
+                  <option value='Saint Helena'>Saint Helena 
+                  <option value='Saint Kitts and Nevis'>Saint Kitts and Nevis 
+                  <option value='Saint Lucia'>Saint Lucia 
+                  <option value='Saint Martin'>Saint Martin 
+                  <option value='Saint Pierre and Miquelon'>Saint Pierre and Miquelon 
+                  <option value='Saint-Paul Island'>Saint-Paul Island 
+                  <option value='Samoa'>Samoa 
+                  <option value='San Marino'>San Marino 
+                  <option value='Sao Tome and Principe'>Sao Tome and Principe 
+                  <option value='Saskatchewan'>Saskatchewan 
+                  <option value='Saudi Arabia'>Saudi Arabia 
+                  <option value='Scotland'>Scotland 
+                  <option value='Senegal'>Senegal 
+                  <option value='Seychelles'>Seychelles 
+                  <option value='Sierra Leone'>Sierra Leone 
+                  <option value='Singapore'>Singapore 
+                  <option value='Slovakia'>Slovakia 
+                  <option value='Slovenia'>Slovenia 
+                  <option value='Solomon Islands'>Solomon Islands 
+                  <option value='Somalia'>Somalia 
+                  <option value='South Africa'>South Africa 
+                  <option value='South Carolina'>South Carolina 
+                  <option value='South Dakota'>South Dakota 
+                  <option value='South Korea'>South Korea 
+                  <option value='Spain'>Spain 
+                  <option value='Sri Lanka'>Sri Lanka 
+                  <option value='Sudan'>Sudan 
+                  <option value='Suriname'>Suriname 
+                  <option value='Svalbard'>Svalbard 
+                  <option value='Swaziland'>Swaziland 
+                  <option value='Sweden'>Sweden 
+                  <option value='Switzerland'>Switzerland 
+                  <option value='Syria'>Syria 
+                  <option value='Taiwan'>Taiwan 
+                  <option value='Tajikistan'>Tajikistan 
+                  <option value='Tanzania'>Tanzania 
+                  <option value='Tennessee'>Tennessee 
+                  <option value='Texas'>Texas 
+                  <option value='Thailand'>Thailand 
+                  <option value='Togo'>Togo 
+                  <option value='Tonga'>Tonga 
+                  <option value='Trinidad and Tobago'>Trinidad and Tobago 
+                  <option value='Tunisia'>Tunisia 
+                  <option value='Turkey'>Turkey 
+                  <option value='Turkmenistan'>Turkmenistan 
+                  <option value='Turks and Caicos Island'>Turks and Caicos Island 
+                  <option value='Tuvalu'>Tuvalu 
+                  <option value='Uganda'>Uganda 
+                  <option value='Ukraine'>Ukraine 
+                  <option value='United Arab Emirates'>United Arab Emirates 
+                  <option value='Uruguay'>Uruguay 
+                  <option value='US Virgin Islands'>US Virgin Islands 
+                  <option value='Utah'>Utah 
+                  <option value='Uzbekistan'>Uzbekistan 
+                  <option value='Vanuatu'>Vanuatu 
+                  <option value='Vatican City'>Vatican City 
+                  <option value='Venezuela'>Venezuela 
+                  <option value='Vermont'>Vermont 
+                  <option value='Vietnam'>Vietnam 
+                  <option value='Virginia'>Virginia 
+                  <option value='Wales'>Wales 
+                  <option value='Washington'>Washington 
+                  <option value='West Virginia'>West Virginia 
+                  <option value='Western Sahara'>Western Sahara 
+                  <option value='Wisconsin'>Wisconsin 
+                  <option value='Wyoming'>Wyoming 
+                  <option value='Yemen'>Yemen 
+                  <option value='Yugoslavia'>Yugoslavia 
+                  <option value='Yukon'>Yukon 
+                  <option value='Zambia'>Zambia 
+                  <option value='Zimbabwe'>Zimbabwe 
+                </select>
+              </td>
+            </tr>
+            <tr> 
+              <td width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Phone 
+                  Number:</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> 
+                <input type="text" name="Phone" size="50">
+              </td>
+            </tr>
+            <tr> 
+              <td width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Website 
+                  Address (URL):</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> 
+                <input type="text" name="URL" size="50">
+              </td>
+            </tr>
+            <tr> 
+              <td width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Email:</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> 
+                <input type="text" name="Email" size="50">
+              </td>
+            </tr>
+            <tr> 
+              <td valign="top" width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Type 
+                  of Listing:</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> <font face="Verdana, Arial, Helvetica, sans-serif"> 
+                <font size="2"> 
+                <input type="checkbox" name="checkbox" value="yes">
+                $35.00 </font><font size="2">per month for a regular directory 
+                listing.<br>
+                <input type="checkbox" name="checkbox2" value="yes">
+                $125.00 per month for a premium listing, which appears at the 
+                top of the page, and includes a description.</font></font></td>
+            </tr>
+            <tr> 
+              <td width="201"> 
+                <div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Description:<br>
+                  (Premium listings only)</b></font></div>
+              </td>
+              <td valign=top align=left width="477"> 
+                <input type="text" name="Description" maxlength="255" size="50">
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <input type="submit" name="Submit" value="View This Advertisement">
+
+</div>
+</form>
+<div align="center"><font face=verdana size=1>&copy; 2003 by Tim Johnson</font> 
+</div>
+<p align="center"> </p>
+</body>
+</html>
+
+
+

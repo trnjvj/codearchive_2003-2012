@@ -1,0 +1,27 @@
+<?
+set_time_limit (600000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query11 = "SELECT * FROM `holisticopia_sitemap2` order by a,b";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$a = $Row11[0];
+	$b = $Row11[1];
+	$c = $Row11[2];
+	$d = $Row11[3];
+	$e = $Row11[4];
+	$f = $Row11[5];
+	print "$c ";
+    	$Query12 = "INSERT INTO `holisticopia_sitemap` ( `a` , `b` , `c` , `d` , `e` , `f` ) VALUES ('$a', '$b', '$c', '$d', '$e', '$f');";
+	$Result12 = mysql_db_query($DBName, $Query12, $Link);
+	}
+
+mysql_close ($Link);
+?>

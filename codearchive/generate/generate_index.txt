@@ -1,0 +1,93 @@
+<?
+
+$mFile = "website/index.html";
+$fp = fopen("$mFile", "wt");
+print '<HTML>';
+fwrite($fp, '<HTML>');
+print '<HEAD>';
+print '<META HTTP-EQUIV="Refresh" Content="1, URL=generate_index2.php">';
+fwrite($fp, '<HEAD>');
+print '<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">';
+fwrite($fp, '<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">');
+print '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">';
+fwrite($fp, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+print '<link rel="stylesheet" type="text/css" href="index.css">';
+fwrite($fp, '<link rel="stylesheet" type="text/css" href="css/index.css">');
+print '<TITLE>Generate Index</TITLE>';
+fwrite($fp, '<TITLE>Generate Index</TITLE>');
+print "</HEAD><div align='center'>";
+fwrite($fp, "</HEAD><div align='center'>");
+print "<img src=logo.jpg><br>";
+fwrite($fp, '<img src=images/logo.jpg><br>');
+print "<table border=0 width=600><tr><td><div class='div1'>";
+fwrite($fp, "<table border=0 width=600><tr><td><div class='div1'>");
+
+$nmn=0;
+include('db_connect.php');
+$Query121 = "DELETE from `archipelago_menu`;";
+$Result121 = mysql_db_query($DBName, $Query121, $Link);
+	
+$Query120 = "SELECT DISTINCT a FROM `archipelago_websites` ORDER BY a;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];
+	$Query121 = "INSERT INTO `archipelago_menu` ( `a` , `b` , `c` , `d` , `e` , `f` ) VALUES ('$mbb', '', '', '', '', '');";
+	$Result121 = mysql_db_query($DBName, $Query121, $Link);
+	}
+$Query120 = "SELECT DISTINCT a FROM `archipelago_books` ORDER BY a;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];	
+	$Query121 = "INSERT INTO `archipelago_menu` ( `a` , `b` , `c` , `d` , `e` , `f` ) VALUES ('$mbb', '', '', '', '', '');";
+	$Result121 = mysql_db_query($DBName, $Query121, $Link);
+	}
+$Query120 = "SELECT DISTINCT a FROM `archipelago_cds` ORDER BY a;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];	
+	$Query121 = "INSERT INTO `archipelago_menu` ( `a` , `b` , `c` , `d` , `e` , `f` ) VALUES ('$mbb', '', '', '', '', '');";
+	$Result121 = mysql_db_query($DBName, $Query121, $Link);
+	}
+$Query120 = "SELECT DISTINCT a FROM `archipelago_dvds` ORDER BY a;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];	
+	$Query121 = "INSERT INTO `archipelago_menu` ( `a` , `b` , `c` , `d` , `e` , `f` ) VALUES ('$mbb', '', '', '', '', '');";
+	$Result121 = mysql_db_query($DBName, $Query121, $Link);
+	}
+$i=0;
+$Query120 = "SELECT DISTINCT a FROM `archipelago_menu` ORDER BY a;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	$mbb = $Row120[0];
+	$i++; 
+	$m1[$i]=$Row120[0];	
+	}
+$mCol=1;
+print "<table width=100% border=0><tr>";
+fwrite($fp, '<table width=100% border=0><tr>');
+$Query120 = "DELETE FROM `archipelago_menu`;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+for ($mcc=1; $mcc<$i+1; $mcc++) {
+$mLink = str_replace(" ", "+", $m1[$mcc]);
+
+print "<td width=50%><a href=index/$mLink.htm><b>$m1[$mcc]</b></a></td>";
+fwrite($fp, "<td width=50%><a href=index/$mLink.htm><b>$m1[$mcc]</b></a></td>");
+$mCol++;
+if ($mCol==3) {$mCol=1; print "</tr><tr>"; fwrite($fp, '</tr><tr>');}
+$Query121 = "INSERT INTO `archipelago_menu` ( `a` , `b` , `c` , `d` , `e` , `f` ) VALUES ('$m1[$mcc]', '', '', '', '', '');";
+$Result121 = mysql_db_query($DBName, $Query121, $Link);
+}
+print "</td></tr></table>";
+fwrite($fp, '</td></tr></table>');
+mysql_close ($Link);
+print "</td></tr></table></div></html>";
+fwrite($fp, '</td></tr></table></div></html>');
+fclose($fp);
+
+?>

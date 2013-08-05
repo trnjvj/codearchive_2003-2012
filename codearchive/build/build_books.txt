@@ -1,0 +1,43 @@
+<?
+for ($mbb=0; $mbb<1001; $mbb++) {
+$mcc = $mbb*5000;
+$mFile = "view/books$mbb.php";
+$fp = fopen("$mFile", "wt");
+fwrite($fp, '<HTML>');
+fwrite($fp, '<?');
+fwrite($fp, 'set_time_limit(0);');
+fwrite($fp, '$nmn=0;');
+fwrite($fp, '$Host = "localhost";');
+fwrite($fp, '$User = "root";');
+fwrite($fp, '$Password = "";');
+fwrite($fp, '$DBName = "world";');
+fwrite($fp, '$Tablename = "T1";');
+fwrite($fp, '$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");');
+fwrite($fp, 'mysql_select_db ("$Tablename");');
+fwrite($fp, '');
+fwrite($fp, '$Query110 = "SELECT * FROM `archipelago_books` ');
+fwrite($fp, " LIMIT $mcc,5000");
+fwrite($fp, ';";');
+fwrite($fp, '$Result110 = mysql_db_query($DBName, $Query110, $Link);');
+fwrite($fp, 'while ($Row110 = mysql_fetch_array ($Result110))');
+fwrite($fp, '	{	');
+fwrite($fp, '	$Cat = $Row110[0];');
+fwrite($fp, '	$Cat1 = $Row110[1];');
+fwrite($fp, '	$Cat2 = $Row110[2];');
+fwrite($fp, '	$Cat3 = $Row110[3];');
+fwrite($fp, '	$Cat4 = $Row110[4];');
+fwrite($fp, '	$Cat5 = $Row110[5];');
+fwrite($fp, '	$Cat6 = $Row110[6];');
+fwrite($fp, '	print "<p>|book|";');
+fwrite($fp, '	print "<br>|category|$Cat|-category|";');
+fwrite($fp, '	print "<br>|title|$Cat2|-title|";');
+fwrite($fp, '	print "<br>|author|$Cat3|-author|";');
+fwrite($fp, '	print "<br>|link|$Cat4|-link|";');
+fwrite($fp, '	print "<br>|image|$Cat5|-image|";');
+fwrite($fp, '	print "<br>|-book|";');
+fwrite($fp, '	print "";');
+fwrite($fp, '	}	');
+fwrite($fp, 'mysql_close ($Link);');
+fwrite($fp, '?>');
+}
+?>

@@ -1,0 +1,543 @@
+<head>
+<style>
+table, th, td
+{
+font-size: 14;
+font-face: verdana;
+}
+</style>
+</head>
+<BODY BGCOLOR="#c7d6e3" BORDER='0'>
+<font face="Verdana">
+<form method=post action='denise.php' name='dform'>
+<?PHP
+include('db_connect.php');
+
+$mItemNum=0;
+$username = $_POST['username'];
+$password = $_POST['password'];
+$pagenum = $_POST['pagenum'];
+$perpage = $_POST['perpage'];
+$sortby = $_POST['sortby'];
+$fontsize = $_POST['sortby'];
+
+if ($pagenum) {} else {$pagenum=1;}
+if ($perpage) {} else {$perpage=12;}
+
+$a1 = $_POST['a1'];
+$a2 = $_POST['a2'];
+$a3 = $_POST['a3'];
+$a4 = $_POST['a4'];
+$a5 = $_POST['a5'];
+$a6 = $_POST['a6'];
+$a7 = $_POST['a7'];
+$a8 = $_POST['a8'];
+$a9 = $_POST['a9'];
+$a10 = $_POST['a10'];
+$a11 = $_POST['a11'];
+$a12 = $_POST['a12'];
+$a13 = $_POST['a13'];
+$a14 = $_POST['a14'];
+$a15 = $_POST['a15'];
+$a16 = $_POST['a16'];
+$a17 = $_POST['a17'];
+$a18 = $_POST['a18'];
+$a19 = $_POST['a19'];
+$a20 = $_POST['a20'];
+$a21 = $_POST['a21'];
+$a22 = $_POST['a22'];
+$a23 = $_POST['a23'];
+$a24 = $_POST['a24'];
+$a25 = $_POST['a25'];
+$a26 = $_POST['a26'];
+$a27 = $_POST['a27'];
+$a28 = $_POST['a28'];
+$a29 = $_POST['a29'];
+$a30 = $_POST['a30'];
+$a31 = $_POST['a31'];
+$a32 = $_POST['a32'];
+$a33 = $_POST['a33'];
+$a34 = $_POST['a34'];
+$a35 = $_POST['a35'];
+$a36 = $_POST['a36'];
+$a37 = $_POST['a37'];
+$a38 = $_POST['a38'];
+$a39 = $_POST['a39'];
+$a40 = $_POST['a40'];
+$a41 = $_POST['a41'];
+$a42 = $_POST['a42'];
+$a43 = $_POST['a43'];
+$a44 = $_POST['a44'];
+$a45 = $_POST['a45'];
+$a46 = $_POST['a46'];
+$a47 = $_POST['a47'];
+$a48 = $_POST['a48'];
+$a49 = $_POST['a49'];
+$a50 = $_POST['a50'];
+$a51 = $_POST['a51'];
+$a52 = $_POST['a52'];
+$a53 = $_POST['a53'];
+$a54 = $_POST['a54'];
+$a55 = $_POST['a55'];
+$a56 = $_POST['a56'];
+$a57 = $_POST['a57'];
+$a58 = $_POST['a58'];
+$a59 = $_POST['a59'];
+$a60 = $_POST['a60'];
+$a61 = $_POST['a61'];
+$a62 = $_POST['a62'];
+$a63 = $_POST['a63'];
+$a64 = $_POST['a64'];
+$a65 = $_POST['a65'];
+$a66 = $_POST['a66'];
+$a67 = $_POST['a67'];
+$a68 = $_POST['a68'];
+$a69 = $_POST['a69'];
+$a70 = $_POST['a70'];
+$a71 = $_POST['a71'];
+$a72 = $_POST['a72'];
+$a73 = $_POST['a73'];
+$a74 = $_POST['a74'];
+$a75 = $_POST['a75'];
+$a76 = $_POST['a76'];
+$a77 = $_POST['a77'];
+$a78 = $_POST['a78'];
+$a79 = $_POST['a79'];
+$a80 = $_POST['a80'];
+$a81 = $_POST['a81'];
+$a82 = $_POST['a82'];
+$a83 = $_POST['a83'];
+$a84 = $_POST['a84'];
+$a85 = $_POST['a85'];
+$a86 = $_POST['a86'];
+$a87 = $_POST['a87'];
+$a88 = $_POST['a88'];
+$a89 = $_POST['a89'];
+$a90 = $_POST['a90'];
+$a91 = $_POST['a91'];
+$a92 = $_POST['a92'];
+$a93 = $_POST['a93'];
+$a94 = $_POST['a94'];
+$a95 = $_POST['a95'];
+$a96 = $_POST['a96'];
+$a97 = $_POST['a97'];
+$a98 = $_POST['a98'];
+$a99 = $_POST['a99'];
+$a100 = $_POST['a100'];
+
+$b1 = $_POST['b1'];
+$b2 = $_POST['b2'];
+$b3 = $_POST['b3'];
+$b4 = $_POST['b4'];
+$b5 = $_POST['b5'];
+$b6 = $_POST['b6'];
+$b7 = $_POST['b7'];
+$b8 = $_POST['b8'];
+$b9 = $_POST['b9'];
+$b10 = $_POST['b10'];
+$b11 = $_POST['b11'];
+$b12 = $_POST['b12'];
+$b13 = $_POST['b13'];
+$b14 = $_POST['b14'];
+$b15 = $_POST['b15'];
+$b16 = $_POST['b16'];
+$b17 = $_POST['b17'];
+$b18 = $_POST['b18'];
+$b19 = $_POST['b19'];
+$b20 = $_POST['b20'];
+$b21 = $_POST['b21'];
+$b22 = $_POST['b22'];
+$b23 = $_POST['b23'];
+$b24 = $_POST['b24'];
+$b25 = $_POST['b25'];
+$b26 = $_POST['b26'];
+$b27 = $_POST['b27'];
+$b28 = $_POST['b28'];
+$b29 = $_POST['b29'];
+$b30 = $_POST['b30'];
+$b31 = $_POST['b31'];
+$b32 = $_POST['b32'];
+$b33 = $_POST['b33'];
+$b34 = $_POST['b34'];
+$b35 = $_POST['b35'];
+$b36 = $_POST['b36'];
+$b37 = $_POST['b37'];
+$b38 = $_POST['b38'];
+$b39 = $_POST['b39'];
+$b40 = $_POST['b40'];
+$b41 = $_POST['b41'];
+$b42 = $_POST['b42'];
+$b43 = $_POST['b43'];
+$b44 = $_POST['b44'];
+$b45 = $_POST['b45'];
+$b46 = $_POST['b46'];
+$b47 = $_POST['b47'];
+$b48 = $_POST['b48'];
+$b49 = $_POST['b49'];
+$b50 = $_POST['b50'];
+$b51 = $_POST['b51'];
+$b52 = $_POST['b52'];
+$b53 = $_POST['b53'];
+$b54 = $_POST['b54'];
+$b55 = $_POST['b55'];
+$b56 = $_POST['b56'];
+$b57 = $_POST['b57'];
+$b58 = $_POST['b58'];
+$b59 = $_POST['b59'];
+$b60 = $_POST['b60'];
+$b61 = $_POST['b61'];
+$b62 = $_POST['b62'];
+$b63 = $_POST['b63'];
+$b64 = $_POST['b64'];
+$b65 = $_POST['b65'];
+$b66 = $_POST['b66'];
+$b67 = $_POST['b67'];
+$b68 = $_POST['b68'];
+$b69 = $_POST['b69'];
+$b70 = $_POST['b70'];
+$b71 = $_POST['b71'];
+$b72 = $_POST['b72'];
+$b73 = $_POST['b73'];
+$b74 = $_POST['b74'];
+$b75 = $_POST['b75'];
+$b76 = $_POST['b76'];
+$b77 = $_POST['b77'];
+$b78 = $_POST['b78'];
+$b79 = $_POST['b79'];
+$b80 = $_POST['b80'];
+$b81 = $_POST['b81'];
+$b82 = $_POST['b82'];
+$b83 = $_POST['b83'];
+$b84 = $_POST['b84'];
+$b85 = $_POST['b85'];
+$b86 = $_POST['b86'];
+$b87 = $_POST['b87'];
+$b88 = $_POST['b88'];
+$b89 = $_POST['b89'];
+$b90 = $_POST['b90'];
+$b91 = $_POST['b91'];
+$b92 = $_POST['b92'];
+$b93 = $_POST['b93'];
+$b94 = $_POST['b94'];
+$b95 = $_POST['b95'];
+$b96 = $_POST['b96'];
+$b97 = $_POST['b97'];
+$b98 = $_POST['b98'];
+$b99 = $_POST['b99'];
+$b100 = $_POST['b100'];
+
+$ip=$_SERVER['REMOTE_ADDR'];
+
+$myA = "$a1|$a2|$a3|$a4|$a5|$a6|$a7|$a8|$a9|$a10|$a11|$a12|$a13|$a14|$a15|$a16|$a17|$a18|$a19|$a20|$a21|$a22|$a23|$a24|$a25|$a26|$a27|$a28|$a29|$a30|$a31|$a32|$a33|$a34|$a35|$a36|$a37|$a38|$a39|$a40$a41|$a42|$a43|$a44|$a45|$a46|$a47|$a48|$a49|$a50|$a51|$a52|$a53|$a54|$a55|$a56|$a57|$a58|$a59|$a60$a61|$a62|$a63|$a64|$a65|$a66|$a67|$a68|$a69|$a70|$a71|$a72|$a73|$a74|$a75|$a76|$a77|$a78|$a79|$a80|$a81|$a82|$a83|$a84|$a85|$a86|$a87|$a88|$a89|$a90|$a91|$a92|$a93|$a94|$a95|$a96|$a97|$a98|$a99|$a100";
+
+$myB = "$b1|$b2|$b3|$b4|$b5|$b6|$b7|$b8|$b9|$b10|$b11|$b12|$b13|$b14|$b15|$b16|$b17|$b18|$b19|$b20|$b21|$b22|$b23|$b24|$b25|$b26|$b27|$b28|$b29|$b30|$b31|$b32|$b33|$b34|$b35|$b36|$b37|$b38|$b39|$b40$b41|$b42|$b43|$b44|$b45|$b46|$b47|$b48|$b49|$b50|$b51|$b52|$b53|$b54|$b55|$b56|$b57|$b58|$b59|$b60$b61|$b62|$b63|$b64|$b65|$b66|$b67|$b68|$b69|$b70|$b71|$b72|$b73|$b74|$b75|$b76|$b77|$b78|$b79|$b80|$b81|$b82|$b83|$b84|$b85|$b86|$b87|$b88|$b89|$b90|$b91|$b92|$b93|$b94|$b95|$b96|$b97|$b98|$b99|$b100";
+
+//print "$myA";
+
+$Array = explode("|", $myA);
+for ($m = 0; $m < count($Array); $m++) {
+	$mThisEmail = $Array[$m];
+	if($mThisEmail) {
+		$mFoundEmail=0;
+		$Query3 = "SELECT * FROM `tim_suspended_accounts` WHERE email='$mThisEmail';";
+		$Result3 = mysql_db_query($DBName, $Query3, $Link);
+		while ($Row3 = mysql_fetch_array ($Result3))
+			{	
+			$mFoundEmail=1;
+			}
+		if ($mFoundEmail==0) {
+			$Query2 = "INSERT INTO `tim_suspended_accounts` (`id`, `email`, `date`, `time`, `status`) VALUES (NULL, '$mThisEmail', '', '', '');";
+			$Result2 = mysql_db_query($DBName, $Query2, $Link);
+			
+			
+			/*----------*/
+			
+			$mSubscriptionIDs="";
+			
+			$Query7 = "SELECT subscription_id FROM `aw_sarp_flat_subscriptions2` WHERE customer_email='$mThisEmail';";
+			$Result7 = mysql_db_query($DBName, $Query7, $Link);
+			while ($Row7 = mysql_fetch_array ($Result7))
+				{	
+				$myCustomerID = $Row7[0];
+				//print "2-$myCustomerID|";
+				$mSubscriptionIDs = $mSubscriptionIDs.",".$myCustomerID;
+				}
+			
+			$Query7 = "SELECT subscription_id FROM `aw_sarp_flat_subscriptions3` WHERE customer_email='$mThisEmail';";
+			$Result7 = mysql_db_query($DBName, $Query7, $Link);
+			while ($Row7 = mysql_fetch_array ($Result7))
+				{	
+				$myCustomerID = $Row7[0];
+				//print "3-$myCustomerID|";
+				$mSubscriptionIDs = $mSubscriptionIDs.",".$myCustomerID;
+				}
+
+			$Query7 = "SELECT subscription_id FROM `aw_sarp_flat_subscriptions4` WHERE customer_email='$mThisEmail';";
+			$Result7 = mysql_db_query($DBName, $Query7, $Link);
+			while ($Row7 = mysql_fetch_array ($Result7))
+				{	
+				$myCustomerID = $Row7[0];
+				//print "4-$myCustomerID|";
+				$mSubscriptionIDs = $mSubscriptionIDs.",".$myCustomerID;
+				}
+				
+			$Query7 = "SELECT subscription_id FROM `aw_sarp_flat_subscriptions5` WHERE customer_email='$mThisEmail';";
+			$Result7 = mysql_db_query($DBName, $Query7, $Link);
+			while ($Row7 = mysql_fetch_array ($Result7))
+				{	
+				$myCustomerID = $Row7[0];
+				//print "5-$myCustomerID|";
+				$mSubscriptionIDs = $mSubscriptionIDs.",".$myCustomerID;
+				}			
+			
+			print "<br />mSubscriptionIDs=$mSubscriptionIDs<br />";
+			
+			$mOrderIDs="";
+			$Array = explode(",", $mSubscriptionIDs);
+			for ($m = 0; $m < count($Array); $m++) {
+				$mSubId = trim($Array[$m]);
+				print "$mSubId ! ";
+				
+				$Query7 = "SELECT order_id FROM `aw_sarp_sequence` WHERE subscription_id='$mSubId';";
+				$Result7 = mysql_db_query($DBName, $Query7, $Link);
+				while ($Row7 = mysql_fetch_array ($Result7))
+					{	
+					$myOrderID = $Row7[0];
+					print "$myOrderID ? ";
+					if ($myOrderID!=0) {
+					$mOrderIDs = $mOrderIDs.",".$myOrderID;
+				}
+					}
+			}
+			print "<br />mOrderIDs=$mOrderIDs<br />";
+			
+			$Array2 = explode(",", $mOrderIDs);
+			for ($m = 0; $m < count($Array2); $m++) {
+				$mOrderId = trim($Array2[$m]);
+				
+				print "mOrderId = $mOrderId<br />";
+				
+				$Query7 = "SELECT status FROM `aw_sarp_subscriptions` WHERE customer_id='$mOrderId';";
+				$Result7 = mysql_db_query($DBName, $Query7, $Link);
+				while ($Row7 = mysql_fetch_array ($Result7))
+					{	
+					$myStatus = $Row7[0];
+					print "status=$myStatus";
+					}
+				
+				$Query7 = "UPDATE `aw_sarp_subscriptions` SET status='2' WHERE customer_id='$mOrderId';";
+				$Result7 = mysql_db_query($DBName, $Query7, $Link);
+			}
+			
+			/*----------*/
+			$Query7 = "SELECT subscription_id FROM `aw_sarp_flat_subscription` WHERE customer_email='$mThisEmail';";
+			$Result7 = mysql_db_query($DBName, $Query7, $Link);
+			while ($Row7 = mysql_fetch_array ($Result7))
+				{	
+				$myCustomerID = $Row7[0];
+				}
+			print "myCustomerID=$myCustomerID";
+			$Query8 = "SELECT status FROM `aw_sarp_subscriptions` WHERE customer_id='$myCustomerID';";
+			$Result8 = mysql_db_query($DBName, $Query8, $Link);
+			while ($Row8 = mysql_fetch_array ($Result1))
+				{	
+				$myStatus = $Row8[0];
+				}
+			print "mystatus=$myStatus";
+				
+			//print "! $mThisEmail ";
+			}
+		}
+}
+
+$Array = explode("|", $myB);
+for ($m = 0; $m < count($Array); $m++) {
+	$mThisEmail = $Array[$m];
+	$Query5 = "DELETE FROM `tim_suspended_accounts` WHERE email='$mThisEmail';";
+	$Result5 = mysql_db_query($DBName, $Query5, $Link);
+}
+
+$Query4 = "SELECT * FROM `tim_suspended_accounts` WHERE email='$mThisEmail';";
+$Result4 = mysql_db_query($DBName, $Query4, $Link);
+while ($Row4 = mysql_fetch_array ($Result4))
+	{	
+	$mFoundEmail=1;
+	}
+
+if ($username) {} else {
+	$username = $_GET['username'];
+	$password = $_GET['password'];
+	$pagenum = $_GET['pagenum'];
+	$perpage = $_GET['perpage'];
+	$sortby = $_GET['sortby'];
+}
+
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+
+if ($username=='admin' && $password='secretpword1') {
+
+$mSuspendedAccounts="";
+$Query5 = "SELECT * FROM `tim_suspended_accounts`;";
+$Result5 = mysql_db_query($DBName, $Query5, $Link);
+while ($Row5 = mysql_fetch_array ($Result5))
+	{	
+	$mSuspendedAccounts=$mSuspendedAccounts."|".$Row5[1];
+	}	
+//print "$mSuspendedAccounts<br />";
+print "<div align='center'>";
+print "<table cellpadding='3' border='0'><tr><td valign='top'> ";
+print "<table border='0'>";
+print "<tr bgcolor=FFFFFF><td><b>suspend?</td><td><b>transaction id</td><td><b>status</td><td><b>date</td><td><b>first name</td><td><b>last name</td><td><b>cc#</td><td><b>date</td><td><b>amount</td><td><b>cur</td><td><b>email</td></tr>";
+$mFlip=1;
+$Query1 = "SELECT a,b,h,y,z,q,h,f,g,i1 FROM `tim_authnet`";
+if ($sortby == "transaction id") {$Query1 = $Query1." ORDER BY a";}
+if ($sortby == "status") {$Query1 = $Query1." ORDER BY b";}
+if ($sortby == "date") {$Query1 = $Query1." ORDER BY e";}
+if ($sortby == "first name") {$Query1 = $Query1." ORDER BY y";}
+if ($sortby == "last name") {$Query1 = $Query1." ORDER BY z";}
+if ($sortby == "cc num") {$Query1 = $Query1." ORDER BY q";}
+if ($sortby == "amount") {$Query1 = $Query1." ORDER BY c";}
+if ($sortby == "currency") {$Query1 = $Query1." ORDER BY d";}
+if ($sortby == "email") {$Query1 = $Query1." ORDER BY i1";}
+$thisnum=$pagenum*$perpage;
+$Query1 = $Query1." LIMIT $thisnum,$perpage;";
+$Result1 = mysql_db_query($DBName, $Query1, $Link);
+while ($Row1 = mysql_fetch_array ($Result1))
+	{	
+	$myA = $Row1[0];
+	$myB = $Row1[1];
+	$myC = $Row1[2];
+	$myD = $Row1[3];
+	$myE = $Row1[4];
+	$myF = $Row1[5];
+	$myG = $Row1[6];
+	$myH = $Row1[7];
+	$myI = $Row1[8];
+	$myJ = $Row1[9];
+	
+	$myJJ = trim($myJ);
+	
+	$Query2 = "SELECT entity_id,group_id FROM `customer_entity` WHERE email='$myJJ' LIMIT 1;";
+	$Result2 = mysql_db_query($DBName, $Query2, $Link);
+	while ($Row2 = mysql_fetch_array ($Result2))
+		{	
+		$myK = $Row2[0];
+		$myL = $Row2[1];
+		}
+
+$mIsSuspended = strpos($mSuspendedAccounts, $myJ);
+if ($mIsSuspended) {
+	print "\n<tr bgcolor=red>";
+} else {
+$mFlip=$mFlip*-1;
+if ($mFlip==1) {print "\n<tr bgcolor=EEEEEE>";}
+if ($mFlip==-1) {print "\n<tr bgcolor=DDDDDD>";}
+}
+print "<td>";
+$mItemNum++;
+if ($mIsSuspended) {
+print "<input type='checkbox' name='b$mItemNum' value='$myJ' />";
+} else {
+print "<input type='checkbox' name='a$mItemNum' value='$myJ' />";	
+}
+print "</td><td>$myA</td><td>$myB</td><td>$myC</td><td>$myD</td><td>$myE</td><td>$myF</td><td>$myG</td><td>$myH</td><td>$myI</td><td>$myJ</td></tr>";
+	}
+print "</table>";
+print "</td><td align='center' valign='top'>";
+
+print "sort by:<br />";
+print "<select name='sortby'>";
+if ($sortby == "transaction id") {print "<option value='transaction id' selected>transaction id</option>";}
+else {print "<option value='transaction id'>transaction id</option>";}
+if ($sortby == "status") {print "<option value='status' selected>status</option>";}
+else {print "<option value='status'>status</option>";}
+if ($sortby == "date") {print "<option value='date' selected>date</option>";}
+else {print "<option value='date'>date</option>";}
+if ($sortby == "first name") {print "<option value='first name' selected>first name</option>";}
+else {print "<option value='first name'>first name</option>";}
+if ($sortby == "last name") {print "<option value='last name' selected>last name</option>";}
+else {print "<option value='last name'>last name</option>";}
+if ($sortby == "cc num") {print "<option value='cc num' selected>cc num</option>";}
+else {print "<option value='cc num'>cc num</option>";}
+if ($sortby == "amount") {print "<option value='amount' selected>amount</option>";}
+else {print "<option value='amount'>amount</option>";}
+if ($sortby == "currency") {print "<option value='currency' selected>currency</option>";}
+else {print "<option value='currency'>currency</option>";}
+if ($sortby == "email") {print "<option value='email' selected>email</option>";}
+else {print "<option value='email'>email</option>";}
+
+print "</select>";
+print "<br /><br />";
+print "# per page: <br /><select name='perpage'>";
+for ($mPerPage=1; $mPerPage<101; $mPerPage++) {
+	if ($perpage == $mPerPage) {print "<option value='$mPerPage' selected>$mPerPage</option>";}
+else {print "<option value='$mPerPage'>$mPerPage</option>";}
+
+}
+print "</select>";
+print "<br /><br />";
+print "page: <br /><select name='pagenum'>";
+for ($mPage=1; $mPage<101; $mPage++) {
+if ($pagenum == $mPage) {print "<option value='$mPage' selected>$mPage</option>";}
+else {print "<option value='$mPage'>$mPage</option>";}
+}
+print "</select>";
+print "</div>";
+
+print "\n<br /><br />\n<input type='submit' name='submit' value='submit'>\n<br /><br />";
+print "</form>";
+
+print '<table border="0"><tr><td>
+<form method=post action="denise.php" name="dform">';
+$pageprev=$pagenum-1;
+print "<input type='hidden' name='pagenum' value='$pageprev'>";
+print "<input type='hidden' name='perpage' value='$perpage'>";
+print "<input type='hidden' name='sortby' value='$sortby'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print '
+<input type="submit" name="prev" value="<">
+</form>
+</td><td>
+<form method=post action="denise.php" name="dform">';
+$pagenext=$pagenum+1;
+print "<input type='hidden' name='pagenum' value='$pagenext'>";
+print "<input type='hidden' name='perpage' value='$perpage'>";
+print "<input type='hidden' name='sortby' value='$sortby'>";
+print "<input type='hidden' name='username' value='$username'>";
+print "<input type='hidden' name='password' value='$password'>";
+print '
+<input type="submit" name="next" value=">">
+</form>
+</td></tr></table>
+';
+
+print '
+<form method=post action="denise.php" name="dform">
+<input type="submit" name="logout" value="logout">
+</form>
+';
+
+print "</td></tr></table>";
+mysql_close ($Link);
+} else {
+print '
+<div align="center"><p>&nbsp;</p><p>&nbsp;</p><p>';
+echo "Your IP: <b>$ip</b><br />";
+print '
+&nbsp;</p><form method="post" action="authnet.php" name="logform">
+<table border=0><tr><td>
+username:</td><td> <input name="username" size="25" maxlength="125" value="" type="text"></td></tr>
+<tr><td>password:</td><td><input name="password" size="25" maxlength="125" value="" type="password"></td></tr>
+</table>
+&nbsp;<br />
+<input name="Submit" value="log in" type="submit">
+</form>';
+print '</div>';
+print "</form>";
+}
+
+?>
+</font>
+</body>

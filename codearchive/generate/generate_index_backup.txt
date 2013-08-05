@@ -1,0 +1,100 @@
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "<html>";
+print "<title>Herbage 4 CD-ROM</title>";
+print "<body bgcolor=#006633 text=#CCFF66 link=#CCCC66 vlink=#CCCC66 alink=#CCCC66><div align=center><table border=0 width=780><tr><td>";
+print "<div align=center><a href=../index.html><img src='files/images/header_herbage2.jpg' border=0 width='600' height='125' alt='Herbage 4 CD-ROM'></a></b></div></div>";
+print "<hr><table border=0 width=100%><tr><td width=100% align=right><font face=arial size=2><a href=H2.htm>next page</a></td></tr></table>";
+$Cat='';
+$mCount=0;
+
+$Query120 = "SELECT a,b FROM `herbage_state` WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+while ($Row120 = mysql_fetch_array ($Result120))
+	{
+	
+	$mbb = $Row120[0];
+	$mcc = $Row120[1];
+	}
+
+
+
+$Query121 = "SELECT * FROM `herbage_count` LIMIT $mbb,20;";
+$Result121 = mysql_db_query($DBName, $Query121, $Link);
+while ($Row121 = mysql_fetch_array ($Result121))
+	{
+	$mType = $Row121[0];
+	$mProperty = $Row121[1];
+	
+	$mIdxLink=str_replace(" ", "_", $mType);
+	$mC1 = substr($mProperty, 0, 1);
+	$mC2 = strtoupper($mC1);
+	$mI1 = $mIdxLink."_".$mC2.".htm";
+	
+	print "<a name='14001'><hr></a><font face=arial size=4><b><a href=$mI1>$mProperty</a></b></font><p>";
+	print "<font face=arial size=2>";
+	$Query122 = "SELECT * FROM `herbage3` WHERE b='$mType' and c='$mProperty';";
+	$Result122 = mysql_db_query($DBName, $Query122, $Link);
+	$mFlag=0;
+	while ($Row122 = mysql_fetch_array ($Result122))
+		{
+		$mPlant = $Row122[0];
+		print "";
+		
+		$Query123 = "SELECT * FROM `herbage_names` WHERE a='$mPlant';";
+		$Result123 = mysql_db_query($DBName, $Query123, $Link);
+		$mFound=0;
+		while ($Row123 = mysql_fetch_array ($Result123))
+		{
+		$mPlant2 = $Row123[2];
+		$mPlant3 = str_replace("|", "'", $mPlant2);
+		
+		$Query1231 = "SELECT * FROM `herbage_plant_index` WHERE a='$mPlant';";
+		$Result1231 = mysql_db_query($DBName, $Query1231, $Link);
+		while ($Row1231 = mysql_fetch_array ($Result1231))
+		{
+		$mInLink = $Row1231[1];
+		}
+		
+		if ($mFlag==1) {print ", <a href=$mInLink>$mPlant: $mPlant3</a>"; $mFlag=1;}
+		if ($mFlag==0) {print "<a href=$mInLink>$mPlant: $mPlant3</a>"; $mFlag=1;}
+		$mFound=1;
+		}
+		if ($mFound==0) {
+		if ($mFlag==1) {print ", <a href=$mInLink>$mPlant</a>"; $mFlag=1;}
+		if ($mFlag==0) {print "<a href=$mInLink>$mPlant</a>"; $mFlag=1;}
+		}
+		}
+	}
+	
+print "<hr><table border=0 width=100%><tr><td width=50% align=left><font face=arial size=2><a href=H1.htm>previous page</a></td><td width=50% align=right><font face=arial size=2><a href=H3.htm>next page</a></td></tr></table>";
+print "<hr><div align=center><font face=arial size=1>&copy; 2004 by Tim Johnson<br>All Rights Reserved</font></div>";
+print "<p>&nbsp;<p>";
+
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "<p>&nbsp;<p>";
+print "</font>";
+print "</td></tr></table></html>";
+	
+
+$mbb=$mbb+20;
+$Query112 = "UPDATE `herbage_state` SET a='$mbb';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+mysql_close ($Link);
+?>

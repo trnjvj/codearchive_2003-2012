@@ -1,0 +1,61 @@
+<?
+$Search="Country Music";
+set_time_limit (6000);
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "<table width=100% border=1>";
+
+$Query = "SELECT * from freetown where g='$Search' order by c,l,j";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $m1 = $Row[0];
+	$m2 = $Row[1];
+	$m3 = $Row[2];
+	$m4 = $Row[3];
+	$m5 = $Row[4];
+	$m6 = $Row[5];
+	$m7 = $Row[6];
+	$m8 = $Row[7];
+	$m9 = $Row[8];
+	$m10 = $Row[9];
+	$m11 = $Row[10];
+	$m12 = $Row[11];
+	$m13 = $Row[12];
+	$m14 = $Row[13];
+	
+	print "<tr>";
+	print "<td>$m3&nbsp;</td>";
+	print "<td>$m12&nbsp;</td>";
+	print "<td>$m10&nbsp;</td>";
+	print "<td>$m11&nbsp;</td>";
+	print "<td>$m13&nbsp;</td>";
+	print "<td>$m14&nbsp;</td>";
+	print "</tr>";
+	
+	$mo1 = $m1;
+	$mo2 = $m2;
+	$mo3 = $m3;
+	$mo4 = $m4;
+	$mo5 = $m5;
+	$mo6 = $m6;
+	$mo7 = $m7;
+	$mo8 = $m8;
+	$mo9 = $m9;
+	$mo10 = $m10;
+	$mo11 = $m11;
+	$mo12 = $m12;
+	$mo13 = $m13;
+	$mo14 = $m14;
+	$mo0 = "";
+	}
+print "</table>";
+mysql_close ($Link);
+?>

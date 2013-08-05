@@ -1,0 +1,32 @@
+<?
+print "myImages=";
+
+$dir = "files/";
+$dh  = opendir($dir); while (false !== ($filename = readdir($dh))) {$files[] = $filename;}
+sort($files);
+srand((float) microtime() * 10000000);
+$rand_keys = array_rand($files, count($files));
+$mFirst = 0;
+
+for ($m = 0; $m < count($files); $m++) {
+/*
+$this1 = $files[$rand_keys];
+
+$this1 = $files[$rand_keys[$m]];
+*/
+$this1 = $files[$m];
+$mFlag=0;
+if ($this1=="..") {$mFlag=1;}
+if ($this1==".") {$mFlag=1;}
+if ($this1=="Thumbs.db") {$mFlag=1;}
+if ($mFlag==0) {
+if ($mFirst==0) {$mFirst=1;} else {print "";}
+$mz1 = strpos($this1, ".jpg");
+if ($mz1) {
+$this2 = str_replace(" ", "+", $this1);
+$this1 = str_replace(".jpg", "", $this1);
+$mzz1 = strpos($this1, "- Track");
+if ($mzz1) {} else {
+print "$this1~";  
+}}}}
+?>

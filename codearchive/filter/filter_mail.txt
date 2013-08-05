@@ -1,0 +1,35 @@
+<?
+set_time_limit (60000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query = "SELECT * FROM `email_filter_holisticopia`;";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $mSearch = $Row[0];
+	print "$mSearch<p>";
+		print "$mSearch<p>";
+			print "$mSearch<p>";
+				print "$mSearch<p>";
+					print "$mSearch<p>";
+						print "$mSearch<p>";
+							print "$mSearch<p>";
+								print "$mSearch<p>";
+									print "$mSearch<p>";
+										print "$mSearch<p>";
+											print "$mSearch<p>";
+												print "$mSearch<p>";
+													print "$mSearch<p>";
+														print "$mSearch<p>";
+	
+		$Query2 = "DELETE FROM `email_addresses` WHERE b LIKE '%$mSearch%';";
+	$Result2 = mysql_db_query($DBName, $Query2, $Link);
+	
+	}
+mysql_close ($Link);
+?>

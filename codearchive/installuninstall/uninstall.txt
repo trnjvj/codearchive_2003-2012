@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>Uninstall</TITLE>
+</HEAD>
+<?
+set_time_limit(0);
+print "<div align=center>";
+print "<img src=logo.jpg><p>";
+
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query111 = "DROP TABLE `archipelago_books`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "DROP TABLE `archipelago_dvds`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "DROP TABLE `archipelago_searchterms`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "DROP TABLE `archipelago_websites`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "DROP TABLE `archipelago_websites_state`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "DROP TABLE `archipelago_menu`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "DROP TABLE `archipelago_color`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "DROP TABLE `archipelago_cds`;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+print "<div class='div1'>Uninstalled.</div><p>";
+mysql_close ($Link);
+?>

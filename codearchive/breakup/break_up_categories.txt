@@ -1,0 +1,38 @@
+<?
+set_time_limit(0);
+include('db_connect.php');
+$TheFile = "media_categories.sql";
+$Open = fopen($TheFile, "r");
+
+$ma=1;
+$macount=1;
+
+$mFile = "media_categories$ma.sql";
+$fp = fopen("$mFile", "wt");
+
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$macount++;
+		if ($macount==5000) {
+            $ma++;
+            $macount=1;
+            fclose($fp);
+            $mFile = "media_categories$ma.sql";
+            $fp = fopen("$mFile", "wt");
+            }
+		$m1 = strpos($String, "NSERT INTO");
+		if ($m1) {
+print "$String <br />";
+fwrite($fp, "\n\r$String");
+	
+            }
+		}
+}
+fclose($fp);
+
+mysql_close ($Link);
+?>

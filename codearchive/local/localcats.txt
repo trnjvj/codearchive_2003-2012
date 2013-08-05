@@ -1,0 +1,69 @@
+<html>
+<HEAD>
+<TITLE>Holisticopia</TITLE>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF">
+<?
+
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "categories";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+
+$C1=1;
+
+$Query23 = "SELECT DISTINCT b from categories where a='$M1' order by b";
+$Result23 = mysql_db_query($DBName, $Query23, $Link);
+while ($Row23 = mysql_fetch_array ($Result23))
+	{
+    $M2=trim($Row23[0]);
+
+$mSearch="$L4 $L2 $M2";
+print "<font face=verdana size=4>$M2<p></font>";
+
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "categories";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+
+
+$mL1 = str_replace(" ", "+", $L1);
+$mL2 = str_replace(" ", "+", $L2);
+$mL3 = str_replace(" ", "+", $L3);
+$mL4 = str_replace(" ", "+", $L4);
+$mM1 = str_replace(" ", "+", $M1);
+$mM2 = str_replace(" ", "+", $M2);
+$mM3 = str_replace(" ", "+", $M3);
+$mM4 = str_replace(" ", "+", $M4);
+$mM5 = str_replace(" ", "+", $M5);
+$mM6 = str_replace(" ", "+", $M6);
+
+$mD1 = str_replace(" ", "+", $D1);
+$mD2 = str_replace(" ", "+", $D2);
+$mD3 = str_replace(" ", "+", $D3);
+$mD4 = str_replace(" ", "+", $D4);
+$mD5 = str_replace(" ", "+", $D5);
+$mD6 = str_replace(" ", "+", $D6);
+$mD7 = str_replace(" ", "+", $D7);
+$mD8 = str_replace(" ", "+", $D8);
+$mLevel = $Level;
+
+include('websites.php');
+include('yellow_pages.php');
+}
+
+mysql_close ($Link);
+?>
+</body>
+</html>

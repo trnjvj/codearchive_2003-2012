@@ -1,0 +1,550 @@
+<html><title>Ecocopia</title>
+<body bgcolor=#336666 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF alink=#FFFFFF><div align=center> 
+<div align="center">
+  <table width=700 cellpadding=0>
+    <tr> 
+      <td width=20% align=center><font size=2 face=verdana><a href=http://www.thedailynewsgrabber.com/>newsgrabber</a></td>
+      <td width=20% align=center><font size=2 face=verdana><a href=http://www.holisticopia.com/>holisticopia</a></td>
+      <td width=20% align=center><font size=2 face=verdana><a href=http://www.terracopia.net/>terracopia</a></td>
+      <td width=20% align=center><font size=2 face=verdana><a href=http://www.ecocopia.com/>ecocopia</a></td>
+      <td width=20% align=center><font size=2 face=verdana><a href=http://www.freetownrecords.com/>freetown</a></td>
+    </tr>
+  </table>
+  <br>
+  <a href=index.html><img border=0 src=images/logo.jpg></a><br>
+  <table width=700 border=0 cellpadding=0>
+    <tr>
+      <td width=335><a href=aboutus.htm><font face='Verdana, Arial, Helvetica, sans-serif' size=2><b>What 
+        is Ecocopia?</b></font></a></td>
+      <td width=33%><div align=center><font face='Verdana, Arial, Helvetica, sans-serif' size=2><a href='subscribe.htm'><b>Subscribe</b></a></font></div></td>
+      <td width=33%><div align=right><a href=advertising.htm><font face='Verdana, Arial, Helvetica, sans-serif' size=2><b>Advertising</b></font></a></div></td>
+    </tr>
+  </table>
+</div>
+<p align="center"><div align=center>
+<div align="center"> 
+  <table cellpadding=0 border=0 width=700>
+    <tr> 
+      <td width=33%> <font face=verdana size=2><a href=cat/Air+Purification.htm>Air 
+        Purification</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Animal+Ecology.htm>Animal 
+        Ecology</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Aquatic+Ecology.htm>Aquatic 
+        Ecology</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Arts+and+Crafts.htm>Arts 
+        and Crafts</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Behavioral+Ecology.htm>Behavioral 
+        Ecology</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Biodiesel.htm>Biodiesel</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Biodiversity.htm>Biodiversity</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Biomass.htm>Biomass</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Candles.htm>Candles</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Chemical+Ecology.htm>Chemical 
+        Ecology</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Cohousing.htm>Cohousing</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Composting.htm>Composting</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Conservation.htm>Conservation</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Cooperatives.htm>Cooperatives</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Credit+Unions.htm>Credit 
+        Unions</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Cycling.htm>Cycling</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Ecology+Organizations.htm>Ecology 
+        Organizations</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Ecotourism.htm>Ecotourism</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Electric+Vehicles.htm>Electric 
+        Vehicles</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Environmental+Consulting.htm>Environmental 
+        Consulting</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Environmental+Diagnostics.htm>Environmental 
+        Diagnostics</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Essential+Oils.htm>Essential 
+        Oils</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Fire+Ecology.htm>Fire 
+        Ecology</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Geothermal.htm>Geothermal</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Global+Change.htm>Global 
+        Change</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Hemp.htm>Hemp</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Human+Ecology.htm>Human 
+        Ecology</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Human+Rights.htm>Human 
+        Rights</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Hybrid+Electric.htm>Hybrid 
+        Electric</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Hydropower.htm>Hydropower</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Landscape+Ecology.htm>Landscape 
+        Ecology</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Mass+Transit.htm>Mass 
+        Transit</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Organic+Clothing.htm>Organic 
+        Clothing</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Organic+Farms.htm>Organic 
+        Farms</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Organic+Markets.htm>Organic 
+        Markets</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Peace+Organizations.htm>Peace 
+        Organizations</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Photovoltaic.htm>Photovoltaic</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Plant+Ecology.htm>Plant 
+        Ecology</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Pollution.htm>Pollution</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Recycling.htm>Recycling</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Renewal+Energy.htm>Renewal 
+        Energy</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Restoration+Ecology.htm>Restoration 
+        Ecology</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Solar+Power.htm>Solar 
+        Power</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Spirituality.htm>Spirituality</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Sustainable+Development.htm>Sustainable 
+        Development</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Tropical+Ecology.htm>Tropical 
+        Ecology</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Urban+Ecology.htm>Urban 
+        Ecology</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Vegan.htm>Vegan</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Vegetarian.htm>Vegetarian</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Water+Conservation.htm>Water 
+        Conservation</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Water+Purification.htm>Water 
+        Purification</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=cat/Wildlife+Management.htm>Wildlife 
+        Management</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=cat/Wind+Power.htm>Wind 
+        Power</a> </td>
+      <td width=33%> 
+  </table>
+  <br>
+  <table width="580" border="0" cellpadding="2" dwcopytype="CopyTableRow">
+    <tbody>
+      <tr> 
+        <td align="center" valign="middle"> <img usemap="#worl_mapMapMap" border="0" height="276" src="maps/geo-worl.gif" width="529"> 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <map name="worl_mapMapMap">
+    <area shape="POLY" coords="37,49,87,108,105,117,128,95,177,64,211,28,226,26,239,3,111,2,67,22,37,49" href="http://www.ecocopia.com/maps/geo-noam.html" onmouseover="window.status=this.href+' [North America]';return true" onmouseout="window.status='';return true">
+    <area shape="POLY" coords="239,3,225,26,209,28,228,78,255,73,258,79,279,80,277,71,282,63,309,69,301,53,311,54,310,2,239,3,239,3" href="http://www.ecocopia.com/maps/geo-euro.html" onmouseover="window.status=this.href+' [Europe]';return true" onmouseout="window.status='';return true">
+    <area shape="POLY" coords="5,97,30,97,67,157,65,206,23,214,0,169,0,112,5,97,5,97" href="http://www.ecocopia.com/maps/geo_ocea.html" onmouseover="window.status=this.href+' [Oceania]';return true" onmouseout="window.status='';return true">
+    <area shape="POLY" coords="105,117,121,97,133,93,199,96,198,120,133,119,124,131,105,117,105,117" href="http://www.ecocopia.com/maps/geo-ceam.html" onmouseover="window.status=this.href+' [Central America / Carribean]';return true" onmouseout="window.status='';return true">
+    <area shape="POLY" coords="109,139,110,153,150,242,176,235,201,143,161,118,132,119,109,139,109,139" href="http://www.ecocopia.com/maps/geo-soam.html" onmouseover="window.status=this.href+' [South America]';return true" onmouseout="window.status='';return true">
+    <area shape="POLY" coords="81,261,177,236,404,237,441,259,398,274,108,274,81,261,81,261" href="http://www.ecocopia.com/land/Antarctica.htm" onmouseover="window.status=this.href+' [Antarctica]';return true" onmouseout="window.status='';return true">
+    <area shape="POLY" coords="228,79,203,99,203,120,266,201,280,201,320,183,320,114,304,115,288,83,257,79,254,73,228,79,228,79" href="http://www.ecocopia.com/maps/geo-afri.html" onmouseover="window.status=this.href+' [Africa]';return true" onmouseout="window.status='';return true">
+    <area shape="POLY" coords="282,64,275,72,279,81,288,84,306,118,332,112,330,89,324,76,311,72,309,69,282,64,282,64" href="http://www.ecocopia.com/maps/geo-mide.html" onmouseover="window.status=this.href+' [Middle East]';return true" onmouseout="window.status='';return true">
+    <area shape="POLY" coords="310,4,310,52,300,53,312,73,320,74,326,78,331,112,411,159,448,154,449,142,423,102,445,77,458,28,426,12,394,2,310,4,310,4" href="http://www.ecocopia.com/maps/geo-asia.html" onmouseover="window.status=this.href+' [Asia]';return true" onmouseout="window.status='';return true">
+    <area shape="POLY" coords="518,87,435,87,422,103,448,142,450,155,409,159,397,176,397,199,482,229,510,202,527,162,527,115,518,87,518,87" href="http://www.ecocopia.com/maps/geo-ocea.html" onmouseover="window.status=this.href+' [Oceania]';return true" onmouseout="window.status='';return true">
+  </map>
+</div>
+<div align="center">
+  <table border=0 width=700>
+    <tr> 
+      <td width=33%> <font face=verdana size=2><a href=land/Alabama.htm>Alabama</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Alaska.htm>Alaska</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Albania.htm>Albania</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Alberta.htm>Alberta</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Algeria.htm>Algeria</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Arizona.htm>Arizona</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Arkansas.htm>Arkansas</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Australia.htm>Australia</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Austria.htm>Austria</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Belgium.htm>Belgium</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Botswana.htm>Botswana</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Brazil.htm>Brazil</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/British+Columbia.htm>British 
+        Columbia</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/California.htm>California</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Cambodia.htm>Cambodia</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Cameroon.htm>Cameroon</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Cape+Verde.htm>Cape 
+        Verde</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Chile.htm>Chile</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/China.htm>China</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Colombia.htm>Colombia</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Colorado.htm>Colorado</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Connecticut.htm>Connecticut</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Cote+Divoire.htm>Cote 
+        Divoire</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Czech+Republic.htm>Czech 
+        Republic</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Delaware.htm>Delaware</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Denmark.htm>Denmark</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/District+of+Columbia.htm>District 
+        of Columbia</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Dominican+Republic.htm>Dominican 
+        Republic</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Ecuador.htm>Ecuador</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Egypt.htm>Egypt</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/El+Salvador.htm>El 
+        Salvador</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/England.htm>England</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Ethiopia.htm>Ethiopia</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Finland.htm>Finland</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Florida.htm>Florida</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/France.htm>France</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Georgia.htm>Georgia</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Germany.htm>Germany</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Ghana.htm>Ghana</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Greece.htm>Greece</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Guam.htm>Guam</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Hawaii.htm>Hawaii</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Hungary.htm>Hungary</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Idaho.htm>Idaho</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Illinois.htm>Illinois</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/India.htm>India</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Indiana.htm>Indiana</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Indonesia.htm>Indonesia</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Iowa.htm>Iowa</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Ireland.htm>Ireland</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Israel+and+Palestine.htm>Israel 
+        and Palestine</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Italy.htm>Italy</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Jamaica.htm>Jamaica</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Japan.htm>Japan</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Kansas.htm>Kansas</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Kentucky.htm>Kentucky</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Kenya.htm>Kenya</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Laos.htm>Laos</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Lebanon.htm>Lebanon</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Louisiana.htm>Louisiana</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Maine.htm>Maine</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Malaysia.htm>Malaysia</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Mali.htm>Mali</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Manitoba.htm>Manitoba</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Maryland.htm>Maryland</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Massachusetts.htm>Massachusetts</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Mexico.htm>Mexico</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Michigan.htm>Michigan</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Minnesota.htm>Minnesota</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Mississippi.htm>Mississippi</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Missouri.htm>Missouri</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Montana.htm>Montana</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Namibia.htm>Namibia</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Nebraska.htm>Nebraska</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Nepal.htm>Nepal</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Netherlands.htm>Netherlands</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Nevada.htm>Nevada</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/New+Brunswick.htm>New 
+        Brunswick</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/New+Hampshire.htm>New 
+        Hampshire</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/New+Jersey.htm>New 
+        Jersey</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/New+Mexico.htm>New 
+        Mexico</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/New+York.htm>New York</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/New+Zealand.htm>New 
+        Zealand</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Newfoundland.htm>Newfoundland</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/North+Carolina.htm>North 
+        Carolina</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/North+Dakota.htm>North 
+        Dakota</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Northwest+Territories.htm>Northwest 
+        Territories</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Nova+Scotia.htm>Nova 
+        Scotia</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Ohio.htm>Ohio</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Oklahoma.htm>Oklahoma</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Ontario.htm>Ontario</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Oregon.htm>Oregon</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Panama.htm>Panama</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Pennsylvania.htm>Pennsylvania</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Peru.htm>Peru</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Philippines.htm>Philippines</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Portugal.htm>Portugal</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Prince+Edward+Island.htm>Prince 
+        Edward Island</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Puerto+Rico.htm>Puerto 
+        Rico</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Québec.htm>Québec</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Rhode+Island.htm>Rhode 
+        Island</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Saskatchewan.htm>Saskatchewan</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Scotland.htm>Scotland</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Singapore.htm>Singapore</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Slovakia.htm>Slovakia</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/South+Africa.htm>South 
+        Africa</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/South+Carolina.htm>South 
+        Carolina</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/South+Dakota.htm>South 
+        Dakota</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/South+Korea.htm>South 
+        Korea</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Spain.htm>Spain</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Swaziland.htm>Swaziland</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Sweden.htm>Sweden</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Switzerland.htm>Switzerland</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Tanzania.htm>Tanzania</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Tennessee.htm>Tennessee</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Texas.htm>Texas</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Thailand.htm>Thailand</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Trinidad+And+Tobago.htm>Trinidad 
+        And Tobago</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Turkey.htm>Turkey</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/US+Virgin+Islands.htm>US 
+        Virgin Islands</a> </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Utah.htm>Utah</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Vermont.htm>Vermont</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Vietnam.htm>Vietnam</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Virgin+Islands.htm>Virgin 
+        Islands</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Virginia.htm>Virginia</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Wales.htm>Wales</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Washington.htm>Washington</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/West+Virginia.htm>West 
+        Virginia</a> </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Wisconsin.htm>Wisconsin</a> 
+      </td>
+    </tr>
+    <tr>
+      <td width=33%> <font face=verdana size=2><a href=land/Wyoming.htm>Wyoming</a> 
+      </td>
+      <td width=33%> <font face=verdana size=2><a href=land/Zimbabwe.htm>Zimbabwe</a> 
+      </td>
+      <td width=33%> 
+  </table>
+</div>
+<p align="center">&nbsp;
+<p align="center"> <font size="2" face="verdana">&copy; 2003 by Tim Johnson
+
+  </font> 
+<p>&nbsp; </p>

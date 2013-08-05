@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=getjobdetail.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Multitopic URL Obtainer</TITLE>
+<?
+set_time_limit(0);
+
+print "<font face=verdana size=1><p>";
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+	$Query111 = "SELECT * FROM `jobspider_websites` WHERE i='' LIMIT 1;";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$Cat = $Row110[0];
+		$Cat1 = $Row110[1];
+		$Cat2 = $Row110[2];
+		$Cat3 = $Row110[3];
+		$Cat4 = $Row110[4];
+		$Cat5 = $Row110[5];
+		$Cat6 = $Row110[6];
+		$Cat7 = $Row110[7];
+
+		$Query122 = "UPDATE `jobspider_websites` SET i='1' where c='$Cat2';";
+		$Result122 = mysql_db_query($DBName, $Query122, $Link);
+		}
+
+
+
+
+$TheFile = $Cat2;
+$Open = fopen($TheFile, "r");
+
+if ($Open) {
+$Data = file($TheFile);
+$String3="";
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+$String2 = str_replace("'", "|", $String);
+$String3 = "$String3$String2";
+
+}
+$Query112 = "INSERT INTO `jobspider_websites2` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$Cat', '$Cat1', '$Cat2', '$Cat3', '$Cat4', '$Cat5', '$Cat6', '$Cat7', '', '$String3');";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+print "$String3 ";
+}
+
+mysql_close ($Link);
+?>

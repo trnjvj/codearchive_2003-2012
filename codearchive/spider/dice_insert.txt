@@ -1,0 +1,70 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=dice_parse.php">
+<font face=verdana size=1>
+<?
+set_time_limit(10000);
+
+
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mStart=0;
+
+$TheFile = "dice.txt";
+$Open = fopen($TheFile, "r");
+
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+
+
+$m0 = strlen($String);
+if ($mStart==1 and $m0>1) {$ma = "$String"; print "$ma | "; $mStart=2;}
+
+$m1 = strpos ($String, "eywords: non");
+if ($m1) {$mStart=1;}
+
+if ($mStart==2) {
+$m1 = strpos ($String, "ompany:");
+if ($m1) {$String = trim(str_replace('Company:', '', $String)); $mb="$String";}
+$m1 = strpos ($String, "kills required:");
+if ($m1) {$String = trim(str_replace('Skills required:', '', $String)); $mc="$String";}
+$m1 = strpos ($String, "ocation:");
+if ($m1) {$String = trim(str_replace('Location:', '', $String)); $md="$String";}
+$m1 = strpos ($String, "rea code:");
+if ($m1) {$String = trim(str_replace('Area code:', '', $String)); $me="$String";}
+$m1 = strpos ($String, "ay rate:");
+if ($m1) {$String = trim(str_replace('Pay rate:', '', $String)); $mf="$String";}
+$m1 = strpos ($String, "mployment type:");
+if ($m1) {$String = trim(str_replace('Employment type:', '', $String)); $mg="$String";}
+$m1 = strpos ($String, "ength:");
+if ($m1) {$String = trim(str_replace('Length:', '', $String)); $mh="$String";}
+
+if ($m1) {
+$mh="$String";
+$nmn++;
+$Query111 = "INSERT INTO `dice` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$nmn', '$ma', '$mb', '$mc', '$md', '$me', '$mf', '$mg', '$mh', '');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$mStart=1;
+}
+
+
+}
+
+$String2 = str_replace('"', '', $String);
+
+}
+}
+
+fclose($Open);
+
+mysql_close ($Link);
+?>

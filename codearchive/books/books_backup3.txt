@@ -1,0 +1,306 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=books.php">
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<TITLE>Book Spider</TITLE>
+<?
+set_time_limit(0);
+print "<div align=center><font face=verdana size=1>";
+print "<img src=logo.jpg><p>";
+print "<font size=2>Book Spider</font><p>";
+print "<p>";
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query111 = "SELECT * FROM `archipelago_searchterms` WHERE d='' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];
+	if ($Cat2=='') {$Cat22=0;} else {$Cat22=$Cat2+10;}
+	$Query122 = "UPDATE `archipelago_searchterms` SET d='2', e='$Cat22' where a='$Cat';";
+	$Result122 = mysql_db_query($DBName, $Query122, $Link);
+	}
+$mSearch=str_replace(' ', '+', $Cat);
+$OIK="";
+$user="";
+$mCached=0;
+$Image="";
+$CacheImage="";
+$oImage="";
+$mSearch5 = str_replace("+", " ", $mSearch);
+print "<b>$mSearch5</b>";
+$login=1;
+$mUser="$user";
+$mCount2002 = 0;
+$mCount5000=0;
+if ($mCached==0) {
+$Cache="";
+print "<div align=left>";
+$Cache="$Cache<div align=center>";
+$mFirst=1;
+$login=1;
+$mUser="$user";
+$mCount2002 = 0;
+$PFound=1;
+for ($m1 = 1; $m1 < 50; $m1++) {
+if ($PFound==0) {} else {
+$PFound=0;
+$TheFile = "http://www.amazon.com/exec/obidos/external-search?tag=stardigger&mode=Books&keyword=$mSearch&pg=$m1";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$mFlag1 = strstr($Array[$m], 'v=glance&s=books');
+			if ($mFlag1) {
+				$mLine = $Array[$m];
+				}
+			$mFlag2 = strstr($Array[$m], 'size=-1>by ');
+			if ($mFlag2) {
+				$mLine2 = $Array[$m];
+				$mSearchb=$mSearch;
+				$Imageb=str_replace("<a target=_blank href=", "", $Image);
+				$mLineb=str_replace("<b><a href=", "", $mLine);
+				$mLineb="http://www.amazon.com/$mLineb";
+				$mLine2b=str_replace("<br><font face=verdana,arial,helvetica size=-1>", "", $mLine2);
+				$PFound=1;
+				$mLine2 = str_replace("<br><font face=verdana,arial,helvetica size=-1>by ", "", $mLine2);
+				$mLine2 = str_replace("<br></font>", "", $mLine2);
+				$mLine2 = str_replace("</font>", "", $mLine2);
+				$mLine2 = str_replace("<font face=verdana,arial,helvetica size=-1>by ", "", $mLine2);
+				$mSearchb = str_replace("+", " ", $mSearchb);
+				$m21 = "";
+				$m22 = "";
+				$mmm1 = strpos($Imageb, ">");
+				if ($mmm1) {
+				$pieces = explode(">", $Imageb);
+				$ii = count($pieces);
+				$m21 = $pieces[0];
+				$m22 = $pieces[1];
+				for($i=0;$i<$ii;$i++){
+					$thispiece = str_replace("<", "[", $pieces[$i]);
+					}
+				}
+				$m23 = "";
+								
+				$mmm1 = strpos($m22, " ");
+				if ($mmm1) {
+				$pieces = explode(" ", $m22);
+				$ii = count($pieces);
+				
+				for($i=0;$i<$ii;$i++){
+					$mnb1 = strpos($pieces[$i], "http");
+					if ($mnb1) {
+						$m23 = str_replace("<", "[", $pieces[$i]);
+						$m23 = str_replace("src=", "", $m23);
+						$m23 = str_replace('"', '', $m23);
+						}
+					}
+				}
+				
+				$mmm1 = strpos($mLineb, ">", 2);
+				if ($mmm1) {
+				
+				$m24 = substr($mLineb, $mmm1);
+				$m24 = str_replace("<", "", $m24);
+				$m24 = str_replace(">", "", $m24);
+				$m24 = str_replace("/b", "", $m24);
+				$m24 = str_replace("/a", "", $m24);
+				}
+				
+				
+				
+				if ($m21) {if ($m23) {
+				$m30 = strpos($m24, '"small"');
+				
+				if ($m30) {
+					$m31 = substr($m24, 0, $m30);
+					$m32 = str_replace($m31, "", $m24);
+					$m32 = str_replace('"small"', '', $m32);
+					
+					$m24 = $m32;
+					
+					}
+				
+				
+				$mGood="<table width=100% border=1><tr><td width=15%>$mSearchb</td><td width=62><a target='_blank' href='$m21'><img height='100' width='60' src='$m23'></a></td><td width=60%>$m24</td><td>$mLine2</td></tr></table>";
+				
+				print "$mGood";
+				$Query112 = "INSERT INTO `archipelago_books` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` ) VALUES ('$mSearchb', '$Imageb', '$mLineb', '$mLine2', '', '', '', '', '', '', '', '', '', '', '');";
+				$Result112 = mysql_db_query($DBName, $Query112, $Link);
+				}}
+				
+				}
+			$S1 = strstr($Array[$m], '<a href=/exec/obidos/tg/detail/-/');
+			if ($S1) {
+					$S2 = strpos($Array[$m], "-");
+					$S3 = strpos($Array[$m], "/", $S2+2);
+					$S4 = substr($Array[$m], $S2+2, $S3-$S2-2);
+					$T0 = strpos($Array[$m], "<img");
+					if ($T0) {
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T3b = strpos($Array[$m], "<", $T3+1);
+						$T4 = substr($Array[$m], $T2+1, $T3b-$T2-1);
+						$T5 = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20>$T4</a>";
+						$oImage = $T4;
+						$Image=$T5;
+
+						$Image = str_replace("align=left ", "", $Image);
+						$T6 = strpos($Image, "books-no-image.gif");
+						if ($T6) {
+							$Image = "";
+							}
+						} else {
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T4 = substr($Array[$m], $T2+1, $T3-$T2-1);
+						$Story = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20>$T4</a>";
+						if ($First==0) {
+							$Display=1;
+
+							$W1 = strpos($Story, "Paperback");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Hardcover");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Textbook Binding");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Unknown Binding");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Library Binding");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Audio CD");
+							if ($W1) {
+								$Display=0;
+								}
+							$W1 = strpos($Story, "Audio Cassette");
+							if ($W1) {
+								$Display=0;
+								}
+							if ($oImage) {
+							$W1 = strpos($Image, $oImage);
+							}
+							if ($T4=="") {
+								$Display=0;
+								}
+							if ($T4=="Digital") {
+								$Display=0;
+								}
+							if ($Story=="") {
+								$Display=0;
+								}
+							if ($Display==1) {
+								$ZZZ1 = strlen($Image);
+								if ($ZZZ1 > 0) {
+                                if ($mFirst==1) {
+                                
+                                $Cache="$Cache<hr width=520>";
+                                $mFirst=0;
+                                }
+
+                                $TImage=$Image;
+                                $Image = str_replace("THUMB", "LZZZZ", $Image);
+								$Image = str_replace("width=50 height=49 ", "", $Image);
+								$Image = str_replace("width=39 height=60 ", "", $Image);
+								$Image = str_replace("width=", "alt=", $Image);
+								$Image = str_replace("height=", "alt=", $Image);
+								$Image = str_replace("src=", "height=240 width=160 src=", $Image);
+								$Image = str_replace("align=left ", "", $Image);
+                                $II=str_replace("<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/", "", $Image);
+                                $IJ=strpos($II, "/");
+                                $IK=substr($II, 0, $IJ);
+				
+				
+                                if ($IK==$OIK) {} else {
+                                	$mCount2002 = $mCount2002+1;
+                    				if ($login==1) {
+										$mFlagABC=0;
+										$nn12 = strpos($mLine, "uy New");
+										if ($nn12) {$mFlagABC=1;} 
+										$nn12 = strpos($mLine, "uy new");
+										if ($nn12) {$mFlagABC=1;} 
+										if ($mFlagABC==0) {
+                    					
+										}
+										
+										
+                                        $Cache="$CacheImage\n";
+                                    	$mCount5000=$mCount5000+1;
+                                    	if ($mCount5000>2) {
+                    						$mCount5000=0;
+                        					
+                                            $Cache="$Cache<br>";
+                                       		}
+                                        }
+                    					else
+                    					{
+                    					if ($mCount2002>3) {} else {
+                    					    print "$Image\n";
+                                            $Cache="$Cache$Image\n";
+                                    		$mCount5000=$mCount5000+1;
+                                    		if ($mCount5000>2) {
+                    							$mCount5000=0;
+                        						
+                                                $Cache="$Cache<br>";
+                                        		}
+                                            }
+                                    }                                   }
+                                    $OIK=$IK;
+									
+									}
+								}
+							$TFound=1;
+							}
+							else {
+							$First=0;
+							}
+						}
+					$Sound = $S4;
+					$Found=1;
+
+						$mStory = str_replace("<a href=/exec/", "<a href=http://www.amazon.com/exec/", $Array[$m]);
+					$mStory = str_replace(" align=left", "", $mStory);
+					$S5 = strstr($mStory, "<img");
+ 				}
+			}
+		}
+	}
+}
+}
+if ($login==0 and $mCount2002>3) {
+print "<br><table width=520><tr><td><font face=verdana size=1><a href=login.php>Sign in</a> or <a href=signup/index.html>Subscribe</a> to see more books.</font></td></tr></table></td></tr></table></div>";
+$Cache="$Cache<br><table width=520><tr><td><font face=verdana size=1><a href=login.php>Sign in</a> or <a href=signup/index.html>Subscribe</a> to see more books.</font></td></tr></table></td></tr></table></div>";
+}
+print "<p><div align=center>&copy; 2004 by <a href=mailto:timjohnson@holisticopia.com>Tim Johnson</a></div>";
+print "</div></div>";
+$Cache="$Cache</div>";
+}
+
+
+mysql_close ($Link);
+?>

@@ -1,0 +1,236 @@
+<?
+$a = $_GET['a'];
+include('db_connect.php');
+set_time_limit(0);
+
+$b=$a+1;
+print '<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=getrentals_detail.php">
+</HEAD>
+';
+
+$Query7 = "SELECT * FROM `craigslist_rentals` WHERE a='' LIMIT 1;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{
+	$mID = $Row7[0];
+	$mDate = $Row7[1];	
+	$TheFile = $Row7[2];
+	$mRent = $Row7[3];
+	$mTitle = $Row7[4];
+	$mLocation = $Row7[5];
+	}
+//print "$TheFile<br>";
+
+$Query77 = "UPDATE `craigslist_rentals` SET a='1' WHERE mUrl='$TheFile';";
+$Result77 = mysql_db_query($DBName, $Query77, $Link);
+
+//$TheFile = "http://losangeles.craigslist.org/search/apa?query=sun+valley&catAbbreviation=apa&minAsk=min&maxAsk=max&bedrooms=2";
+
+$i=$a;
+
+print "$TheFile<br>";
+$ImgNum = 0;
+$myImages = "";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$mFlag1 = strstr($String, "<img src=");
+		if ($mFlag1) {
+			$Array = explode('"', $String);
+			$myImage = $Array[3];
+			$mFlag23 = strstr($myImage, "jpg");
+			if ($mFlag23) {
+				
+				if ($ImgNum==0) {$myImages = $myImage;}
+				if ($ImgNum>0) {$myImages = "$myImages,$myImage";}
+				$ImgNum++;
+				}
+		}
+		$mFlag2 = strstr($String, ">google map</a>");
+		if ($mFlag2) {
+			$myGMap = $String;
+			
+		}
+		$mFlag3 = strstr($String, ">yahoo map</a>");
+		if ($mFlag3) {
+			$myYMap = $String;
+			
+		}
+		//print "$String";
+		}
+	}
+
+
+	/*	
+		$mFlag1 = strpos($String, '$');
+		if ($mFlag1) {
+			$Array = explode(">", $String);
+			for ($m = 0; $m < count($Array); $m++) {
+				$mThis = $Array[$m];
+				$mThis = str_replace("<", "[", $mThis);
+				
+				$mFlag2 = strpos($mThis, "[a href=");
+				//print "!!!";
+				if ($mFlag2) {
+				//print "!!!!!!!!1111";
+					$Array2 = explode('- [a href="', $mThis);
+					$mDate = trim($Array2[0]);
+					$mUrl = str_replace('"', '', $Array2[1]);
+					$mUrl = "http://www.craigslist.org$mUrl";
+					
+				}
+				
+				$mFlag3 = strpos($mThis, "br - ");
+				//print "!!!";
+				if ($mFlag3) {
+				//print "!!!!!!!!1111";
+					$Array3 = explode(' / ', $mThis);
+					$mRent = trim($Array3[0]);
+					$mRent = str_replace("$", "", $mRent);
+					$mRemainder = $Array3[1];
+					$Array4 = explode('br - ', $mRemainder);
+					$mTitle = trim($Array4[1]);
+					$mTitle = str_replace("-[/a", "", $mTitle);
+					
+				}
+				
+				$mFlag4 = strpos($mThis, ")[/font");
+				//print "!!!";
+				if ($mFlag4) {
+					$mLocation = str_replace(")[/font", "", $mThis);
+					$mLocation = str_replace("(", "", $mLocation);
+					$mLocation = trim($mLocation);
+					print "<br>DATE=$mDate | ";
+					print "URL=$mUrl | ";
+					print "RENT=$mRent | ";
+					print "TITLE=$mTitle | ";
+					print "LOCATION=$mLocation";
+					
+$Query7 = "INSERT INTO `craigslist_rentals` (`id` , `mDate` , `mUrl` , `mRent` , `mTitle` , `mLocation` , `a`) VALUES (NULL , '$mDate', '$mUrl', '$mRent', '$mTitle', '$mLocation', '');";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+			
+				}
+				//print "<br>$mThis";
+				print '
+				';
+				}
+			//$Array[1] = str_replace('<a href="', '', $Array[1]);
+			//print "$String";
+			}
+			/*
+			$mCount=1;
+			
+			$mFlag2 = strstr($String, 'Flash'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Actionscript'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'AS2'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'AS3'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Video'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Cairngorm'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Flex'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Website'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'PHP'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'MySqL'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'E-commerce'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Joomla'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Drupal'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'LAMP'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Programmer'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'decompiler'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'XML'); if ($mFlag2) {$mCount++;}
+			
+			$mFlag2 = strstr($String, 'Map API'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Google Map'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Yahoo Map'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'google map'); if ($mFlag2) {$mCount++;}
+			
+			$mFlag2 = strstr($String, 'Wordpress'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Word Press'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'WORD PRESS'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'WORDPRESS'); if ($mFlag2) {$mCount++;}
+			
+			
+			$mFlag2 = strstr($String, 'PhpBB'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'PHPBB'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'PHP BB'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Php BB'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Magento'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'magento'); if ($mFlag2) {$mCount++;}
+			$mFlag2 = strstr($String, 'Linux'); if ($mFlag2) {$mCount++;}
+			
+			
+			if ($mCount>1) {print "<b>";
+			$wank2 = str_replace("cpg/", "", $wank);
+			$String = str_replace("href=\"", "href=\"$wank2", $String); 
+			print "$String";
+			$Array = explode(">", $String);
+			$Array[1] = str_replace('<a href="', '', $Array[1]);
+			$Array[1] = str_replace('"', '', $Array[1]);
+			$Array[2] = str_replace(' -</a', '', $Array[2]);
+			$Array[4] = str_replace('</font', '', $Array[4]);
+			
+			$mFound=0;
+			//$Query111 = "SELECT * FROM `craigslist_get` WHERE a='$Array[1]' LIMIT 1;";
+			$Query111 = "SELECT * FROM `craigslist_get` LIMIT 1;";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			while ($Row110 = mysql_fetch_array ($Result111))
+				{	
+				$Cat = $Row110[0];
+				$Cat1 = $Row110[1];
+				$mFound=1;
+				}
+			$mFound=0;
+			if ($mFound==0) {
+			
+			$Query111 = "INSERT INTO `craigslist_get` (`a` ,`b` ,`c` ,`d` ,`e` ,`f` ,`g`) VALUES ('$Array[1]', '$Array[2]', '$Array[4]', '', '', '', '');";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			
+			$Query111 = "INSERT INTO `craigslist_new` (`a` ,`b` ,`c` ,`d` ,`e` ,`f` ,`g`) VALUES ('$Array[1]', '$Array[2]', '$Array[4]', '', '', '', '');";
+			$Result111 = mysql_db_query($DBName, $Query111, $Link);
+			}
+			print "</b>";}
+			}
+			
+		}
+}*/
+	
+print "<br>ID=$mID";
+print "<br>DATE=$mDate";
+print "<br>URL=$TheFile";
+print "<br>RENT=$mRent";
+print "<br>TITLE=$mTitle";
+print "<br>LOCATION=$mLocation";
+print "<BR>IMAGES=$myImages";	
+print "<BR>GMAP=$myGMap";
+print "<BR>YMAP=$myYMap";
+if ($myYMap) {
+$this1 = str_replace("<", "[", $myYMap);
+$this1 = str_replace(">", "]", $this1);
+$this1 = str_replace("?", "&", $this1);
+$this1 = str_replace('"]', '&', $this1);
+$Array = explode('&', $this1);
+$myAddr = $Array[1];
+$myAddr = str_replace("addr=", "", $myAddr);
+$myAddr = str_replace("%3", "", $myAddr);
+$myAddr = str_replace("%2E", "", $myAddr);
+$myAddr = str_replace("+", " ", $myAddr);
+$myAddr = trim($myAddr);
+$myCsz = $Array[2];
+$myCsz = str_replace("amp;csz=", "", $myCsz);
+$myCsz = str_replace("+", " ", $myCsz);
+$myCountry = $Array[3];
+$myCountry = str_replace("amp;country=", "", $myCountry);
+print "<BR>ADDR=$myAddr";	
+print "<BR>CSZ=$myCsz";
+print "<BR>COUNTRY=$myCountry";
+print "<br>$this1";
+
+$Query7 = "INSERT INTO `369631_world`.`craigslist_rentals2` (`mID` , `mDATE` , `mURL` , `mRENT` , `mTITLE` , `mLOCATION` , `mIMAGES` , `mGMAP` , `mYMAP` , `mADDR` , `mCSZ` , `mCOUNTRY` , `a`) VALUES ('$mID', '$mDate', '$TheFile', '$mRent', '$mTitle', '$mLocation', '$myImages', '$myGMap', '$myYMap', '$myAddr', '$myCsz', '$myCountry', '');";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+
+}
+mysql_close ($Link);
+?>

@@ -1,0 +1,54 @@
+<?
+include 'config.php';
+
+$TheFile = "http://www.holisticopia.com/herbage/gateway.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);	
+		print "$String";
+}}
+$mFlag=0;
+$mThis = strpos($String, "@");
+if ($mThis) {$mFlag++;}
+$mThis = strpos($String, ".");
+if ($mThis) {$mFlag++;}
+
+if ($mFlag==2) {
+
+$Body= 'Herbage Fourth Edition
+';
+$Body=$Body."http://www.$ThisServer/";
+$Body=$Body.'
+
+Herbage Fourth Edition, is a nexus of useful plant information. It provides hyperlinked access to the data underlying the use of plants worldwide . It is an information resource, both for researchers and general public. Many universities, botanists, chemists, and other professionals involved in the study of plants, herbal medicine and natural products use Herbage for educational and informational purposes. Herbage is currently in use all over the world.
+
+Herbage Fourth Edition contains 30,523 Plant Species, 18,200 Common Names, and 312,079 links to current internet resources, including 9,341 links to scientific abstracts on PubMed. All of the internet resources, which are new in this edition, were compiled in April of 2004. Herbage was first initiated in 1992.
+
+Herbage is available for a free online preview, this month on ';
+$Body=$Body."$ThisServer";
+$Body=$Body.'.
+
+To unsubscribe from this mailing list - click here.
+http://www.';
+$Body=$Body."$ThisServer/unsubscribe.htm";
+$Body=$Body.'
+
+Tim Johnson
+309 Cedar Street, #33
+Santa Cruz, CA 95060
+USA
+(831) 419-0427';
+
+$headers .= "From: Tim Johnson <timjohnson@$ThisServer>\r\n"; 
+$headers .= "Content-type: text/plain; charset=iso-XXXX-XX\r\n"; 
+$Subject = "Herbage 4 Released";
+$m1 = $String; 
+$m1 = "trnjvj@yahoo.com";
+if (mail($m1, $Subject, $Body, $headers)) {print "...";}   
+
+}
+?>

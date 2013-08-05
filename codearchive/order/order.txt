@@ -1,0 +1,148 @@
+<?
+include 'config.php';
+$ThisServer2 = strtoupper($ThisServer);
+print "<html>";
+print "<head><title>$ThisServer</title>";
+?>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body background=images/700x1200_background_herbage.gif bgcolor=#000000 text=#FFFFCC link=#FFFFCC vlink=#FFFFCC alink=#FFFFCC>
+<div align="center"> 
+  <table width="700" border="0" cellpadding="5">
+    <tr> 
+      
+  <td> <div align=center> <div align="center"><font face="Arial, Helvetica, sans-serif" size="4"><a href=index.php><img border=0 src="images/700x220_index.jpg" width="700" height="220" alt="Herbage Ethnobotany Database CD-ROM"></a></font></div>
+    <div align="center">
+      <table width="700" border="0" cellpadding="15">
+        <tr> 
+          <td valign="top"> <div align="center"> 
+              </div>
+            <div align="center">
+              <table width="100%" border="0" cellpadding="15">
+                <tr> 
+                  <td valign="top"><p align="center"><font size="3" face="Arial, Helvetica, sans-serif"><strong>Order Herbage Fourth Edition </strong></font></p>
+                    <p><font size="2" face="Arial, Helvetica, sans-serif">Herbage Fourth Edition comes on a single CD-ROM. It may be run directly from the CD-ROM drive. It may also be loaded onto a hard drive, which requires 200 MB of space. It is web-browser based, compatable with any Windows, Macintosh, or Unix computer. Please read the <a href="singleuser.php">single-user license</a>, and/or the <a href="sitelicense.php">site license</a> information, before ordering.</font></p>
+                    <p><font size="2" face="Arial, Helvetica, sans-serif">Shipping cost is included in the price. Please allow for up to two weeks for shipping. Payments are made via the Verisign secure server. To qualify for the upgrade, you must have a copy of either the First, Second, or Third Edition of Herbage. </font></p>
+                    <table width="100%"  border="1" cellpadding="5" bgcolor="#003300">
+                      <tr>
+                        <td><div align="left"><font size="2" face="Arial, Helvetica, sans-serif"><strong>Item</strong></font></div></td>
+                        <td><div align="left"><strong><font size="2" face="Arial, Helvetica, sans-serif">Quantity</font></strong></div></td>
+                        <td><div align="left"><strong><font size="2" face="Arial, Helvetica, sans-serif">Cost</font></strong></div></td>
+                        <td><div align="left"><strong><font size="2" face="Arial, Helvetica, sans-serif">Payment </font></strong></div></td>
+                        <td><div align="left"><strong><font size="2" face="Arial, Helvetica, sans-serif">Order Online </font></strong></div></td>
+                      </tr>
+                      <tr>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">Herbage Fourth Edition on CD-ROM<br>
+                        Single-User License</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">1 copy </font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">$130.00</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">Credit Card</font> </td>
+                        <td><form method="POST" action="https://payflowlink.verisign.com/payflowlink.cfm">
+<div align="center"> <font color="000000" size="2" face="Arial"> 
+<input type="hidden" name="LOGIN" value="holisticopia">
+<input type="hidden" name="PARTNER" value="Verisign">
+<!-- The transaction AMOUNT must be at least 1.00 (one dollar) -->
+<input type="hidden" name="AMOUNT" value="130.00">
+<input type="hidden" name="TYPE" value="S">
+<input type="submit" value="Order" name="submit">
+</font></div>
+</form></td>
+                      </tr>
+                      <tr>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">Herbage Fourth Edition on CD-ROM<br>
+Site License</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">1 copy</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">$500.00</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">Credit Card</font> </td>
+                        <td><form method="POST" action="https://payflowlink.verisign.com/payflowlink.cfm">
+<div align="center"> <font color="000000" size="2" face="Arial"> 
+<input type="hidden" name="LOGIN" value="holisticopia">
+<input type="hidden" name="PARTNER" value="Verisign">
+<!-- The transaction AMOUNT must be at least 1.00 (one dollar) -->
+<input type="hidden" name="AMOUNT" value="500.00">
+<input type="hidden" name="TYPE" value="S">
+<input type="submit" value="Order" name="submit">
+</font></div>
+</form></td>
+                      </tr>
+                      <tr>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">Herbage Fourth Edition on CD-ROM<br>
+                            Upgrade from Herbage 1, 2, or 3 <br>
+Single-User License</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">1 copy</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">$65.00</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">Credit Card</font></td>
+                        <td><form method="POST" action="https://payflowlink.verisign.com/payflowlink.cfm">
+<div align="center"> <font color="000000" size="2" face="Arial"> 
+<input type="hidden" name="LOGIN" value="holisticopia">
+<input type="hidden" name="PARTNER" value="Verisign">
+<!-- The transaction AMOUNT must be at least 1.00 (one dollar) -->
+<input type="hidden" name="AMOUNT" value="65.00">
+<input type="hidden" name="TYPE" value="S">
+<input type="submit" value="Order" name="submit">
+</font></div>
+</form></td>
+                      </tr>
+                      <tr>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">Herbage Fourth Edition on CD-ROM<br>
+Upgrade from Herbage 1, 2, or 3 <br>
+Site License</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">1 copy</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">$250.00</font></td>
+                        <td><font size="2" face="Arial, Helvetica, sans-serif">Credit Card</font></td>
+                        <td><form method="POST" action="https://payflowlink.verisign.com/payflowlink.cfm">
+<div align="center"> <font color="000000" size="2" face="Arial"> 
+<input type="hidden" name="LOGIN" value="holisticopia">
+<input type="hidden" name="PARTNER" value="Verisign">
+<!-- The transaction AMOUNT must be at least 1.00 (one dollar) -->
+<input type="hidden" name="AMOUNT" value="250.00">
+<input type="hidden" name="TYPE" value="S">
+<input type="submit" value="Order" name="submit">
+</font></div>
+</form></td>
+                      </tr>
+                    </table>                    
+                    <p><font size="2" face="Arial, Helvetica, sans-serif">If you would like to order multiple copies, please compute the dollar amount, and enter the total here: </font>
+                    <form method="POST" action="https://payflowlink.verisign.com/payflowlink.cfm">
+<div align="center"> <font color="000000" size="2" face="Arial"> 
+<input type="hidden" name="LOGIN" value="holisticopia">
+<input type="hidden" name="PARTNER" value="Verisign">
+<!-- The transaction AMOUNT must be at least 1.00 (one dollar) -->
+<input type="text" name="AMOUNT">
+<input type="hidden" name="TYPE" value="S">
+<input type="submit" value="Order" name="submit">
+</font></div>
+</form>
+                    <div align="center"><font size="2" face="Arial, Helvetica, sans-serif">
+</font><font size="2" face="Arial, Helvetica, sans-serif"></font></div>
+<font size="2" face="Arial, Helvetica, sans-serif">
+  If you have an order request that requires special handling, please contact 
+  <?
+print "<a href=mailto:timjohnson@$ThisServer>Tim Johnson</a> via email, or call us at (831) 419-0427.";
+?>
+</p>
+<font size="2" face="Arial, Helvetica, sans-serif">
+You may also order Herbage Fourth Edition by sending a check, payable in US dollars to:<br>
+<br>
+</font>
+<div align="center">
+  <table width="30%"  border="0">
+      <tr>
+        <td><font size="2" face="Arial, Helvetica, sans-serif">Tim Johnson<br>
+    309 Cedar Street #33<br>
+    Santa Cruz, CA 95060</font></td>
+      </tr>
+  </table></div>
+
+ </font></td>               </tr>
+              </table>
+					
+              <br>
+            </div></td>
+        </tr>
+      </table>
+    </div>
+    <p>
+
+</p>
+</html>

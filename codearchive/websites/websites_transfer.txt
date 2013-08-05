@@ -1,0 +1,61 @@
+<html>
+<?
+set_time_limit (600000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query2 = "SELECT DISTINCT * FROM `freetown_links_new` order by a,b,c;";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+print "<font face=arial size=1>";
+while ($Row2 = mysql_fetch_array ($Result2))
+	{
+    $m1 = $Row2[0];
+	$m1a = strtolower($m1);
+	$m2 = $Row2[1];
+	$m2a = strtolower($m2);
+	$m3 = $Row2[2];
+	$m3a = strtolower($m3);
+	$m4 = $Row2[3];
+	$m4a = strtolower($m4);
+	$m5 = $Row2[4];
+	$m5a = strtolower($m5);
+	
+	$mFlag=0;
+	if (strstr($m2, $m1)) {$mFlag=1;}
+	if (strstr($m3, $m1)) {$mFlag=1;}
+	if (strstr($m4, $m1)) {$mFlag=1;}
+	if (strstr($m5, $m1)) {$mFlag=1;}
+	
+	$mFlag2=0;
+	$Query3="SELECT a FROM `freetown_links_flags`;";
+	$Result3 = mysql_db_query($DBName, $Query3, $Link);
+	while ($Row3 = mysql_fetch_array ($Result3))
+	{
+	$mS = $Row3[0];
+	if (strstr($m2a, $mS)) {$mFlag2=1;}
+	
+	if (strstr($m4a, $mS)) {$mFlag2=1;}
+	if (strstr($m5a, $mS)) {$mFlag2=1;}
+	}
+
+	if ($mFlag==1) {
+	if ($mFlag2==1) {
+	print "$m1|$m2|$m3|$m4|$m5<br>";
+	
+	$Query3 = "INSERT INTO `freetown_links_new2` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$m1', '$m2', '$m3', '$m4', '$m5');";
+	$Result3 = mysql_db_query($DBName, $Query3, $Link);
+	
+	}
+	}
+	
+		}
+mysql_close ($Link);
+?>
+
+
+
+

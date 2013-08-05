@@ -1,0 +1,349 @@
+<html>
+<HEAD>
+<TITLE>Holisticopia</title>
+</head>
+<body bgcolor=#FFFFFF text=#000000 link=#000000 vlink=#000000 alink=#000000>
+
+<?
+$C1=1;
+if ($Level==-1) {$Level=0;}
+
+$mL1 = str_replace(" ", "+", $L1);
+$mL2 = str_replace(" ", "+", $L2);
+$mL3 = str_replace(" ", "+", $L3);
+$mL4 = str_replace(" ", "+", $L4);
+$mM1 = str_replace(" ", "+", $M1);
+$mM2 = str_replace(" ", "+", $M2);
+$mM3 = str_replace(" ", "+", $M3);
+$mM4 = str_replace(" ", "+", $M4);
+$mM5 = str_replace(" ", "+", $M5);
+$mM6 = str_replace(" ", "+", $M6);
+
+$mD1 = str_replace(" ", "+", $D1);
+$mD2 = str_replace(" ", "+", $D2);
+$mD3 = str_replace(" ", "+", $D3);
+$mD4 = str_replace(" ", "+", $D4);
+$mD5 = str_replace(" ", "+", $D5);
+$mD6 = str_replace(" ", "+", $D6);
+$mD7 = str_replace(" ", "+", $D7);
+$mD8 = str_replace(" ", "+", $D8);
+$mLevel = $Level;
+
+if ($mD1=="") {$mD1=1;$D1=1;}
+if ($mD2=="") {$mD2=1;$D2=1;}
+if ($mD3=="") {$mD3=1;$D3=1;}
+if ($mD4=="") {$mD4=0;$D4=0;}
+if ($mD5=="") {$mD5=0;$D5=0;}
+if ($mD6=="") {$mD6=0;$D6=0;}
+if ($mD7=="") {$mD7=0;$D7=0;}
+if ($mD8=="") {$mD8=1;$D8=1;}
+
+
+$mSettings = "LevelB=$LevelB&M1=$mM1&M2=$mM2&M3=$mM3&M4=$mM4&M5=$mM5&M6=$mM6&Level=$Level&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&D1=$mD1&D2=$mD2&D3=$mD3&D4=$mD4&D5=$mD5&D6=$mD6&D7=$mD7&D8=$mD8";
+$mMainLink = "directory.php?LevelB=$LevelB&M1=$mM1&M2=$mM2&M3=$mM3&M4=$mM4&M5=$mM5&M6=$mM6&Level=$Level&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&D1=$mD1&D2=$mD2&D3=$mD3&D4=$mD4&D5=$mD5&D6=$mD6&D7=$mD7&D8=$mD8";
+$mDS="D1=$mD1&D2=$mD2&D3=$mD3&D4=$mD4&D5=$mD5&D6=$mD6&D7=$mD7&D8=$mD8";
+
+$mBaseLink = "directory.php?LevelB=$LevelB&M1=$mM1&M2=$mM2&M3=$mM3&M4=$mM4&M5=$mM5&M6=$mM6&D1=$mD1&D2=$mD2&D3=$mD3&D4=$mD4&D5=$mD5&D6=$mD6&D7=$mD7&D8=$mD8";
+
+$mLink2 = "directory.php?Level=$Level&LevelB=$LevelB&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&M1=$mM1&M2=$mM2&M3=$mM3&D1=$mD1&D2=$mD2&D3=$mD3&D4=$mD4&D5=$mD5&D6=$mD6&D7=$mD7&D8=$mD8";
+
+$mContinent = str_replace(" ", "_", $L1);
+$mSearch = str_replace(" ", "+", $Search);
+$mGenre = str_replace(" ", "+", $Genre);
+$mGenre2 = str_replace("+", "_", $mGenre);
+$mReturn = str_replace(" ", "+", $Return);
+$mReturn2 = str_replace(" ", "_", $L2);
+$mReturn2 = str_replace(":", "_", $mReturn2);
+$mCountry = str_replace("_", " ", $L2);
+$mCountry = str_replace(".php", "", $mCountry);
+$mSearch = str_replace(" ", "+", $Search);
+$mSearch1="";
+$mSearch2="";
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "world";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mLink = str_replace(" ", "+", $Search);
+
+
+
+
+
+
+print "<div align=center>";
+
+if ($L1) {$mLLL=1;}
+if ($L2) {$mLLL=1;}
+if ($L3) {$mLLL=1;}
+if ($L4) {$mLLL=1;}
+if ($M1) {$mMMM=1;}
+if ($M2) {$mMMM=1;}
+if ($M3) {$mMMM=1;}
+if ($M4) {$mMMM=1;}
+if ($M5) {$mMMM=1;}
+if ($M6) {$mMMM=1;}
+
+$today = getdate();
+$month = $today['month'];
+$mday = $today['mday'];
+$year = $today['year'];
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$weekday = $today['weekday'];
+
+print "<div align=center><img border=0 src=images/HCA5.jpg><br>";
+
+
+
+
+
+
+print "<table width=579 border=0><tr><td valign=top align=left>";
+
+if ($mLevel==1) {
+print "<table border=0 width=100%><tr><td valign=top><font face=verdana size=2><b><a href=index.html>Home</a>";
+$mSearch2 = str_replace("+", " ", $mL1);
+
+$mMM2 = str_replace(" ", "_", $M2);
+
+print " > <a href=holistic/$mMM2.htm>$M2</a> ";
+
+print " > $L1 > ";
+print "</td><td valign=top align=right><font face=verdana size=2>";
+$mLink = str_replace(" ", "+", $Search);
+$Query = "SELECT DISTINCT a,b from world where a='$L1' order by b";
+$Result = mysql_db_query($DBName, $Query, $Link);
+print "<form method=post action='$mBaseLink&Level=2&L1=$mL1'>";
+print '<select name="L2">';
+while ($Row = mysql_fetch_array ($Result))
+	{
+	$mLink = str_replace(" ", "+", $Row[1]);
+	if ($Row[1]) {print "<option value='$Row[1]'>$Row[1]\n";}
+	}
+print "</select>\n";
+print "<input name='u' type=submit value=' > '>";
+print "</td></tr></table></form>\n";
+$mSearch1=$mL1;
+}
+
+if ($mLevel==2) {
+print "<table border=0 width=100%><tr><td valign=top><font face=verdana size=2><b><a href=index.html>Home</a>";
+$mSearch2 = str_replace("+", " ", $mSearch);
+
+$mMM2 = str_replace(" ", "_", $M2);
+
+print " > <a href=holistic/$mMM2.htm>$M2</a> > ";
+if ($L1=="USA") {} else {
+print "<a href=$mBaseLink&Level=1&L1=$mL1>$L1</a> > ";
+}
+print "$L2 > ";
+print "</td><td nowrap valign=top align=right><font face=verdana size=2>";
+$mLink = str_replace(" ", "+", $Search);
+$Query = "SELECT DISTINCT a,b,c from world where b='$L2' order by c";
+$Result = mysql_db_query($DBName, $Query, $Link);
+print "<form method=post action='$mBaseLink&Level=3&L1=$mL1&L2=$mL2'>";
+print "<input type=hidden name='b' value='ahsgdjas'>";
+print '<select name="L3">';
+while ($Row = mysql_fetch_array ($Result))
+	{
+	$mLink = str_replace(" ", "+", $Row[2]);
+	if ($Row[1]) {print "<option value='$Row[2]'>$Row[2]\n";}
+	}
+print "</select>\n";
+print "<input name='u' type=submit value=' > '>";
+print "</td></tr></table></form>\n";
+$mSearch1="$mL2+$mL1";
+}
+
+if ($mLevel==3) {
+print "<table border=0 width=100%><tr><td valign=top><font face=verdana size=2><b><a href=index.html>Home</a>";
+$mSearch2 = str_replace("+", " ", $mSearch);
+$mMM2 = str_replace(" ", "_", $M2);
+
+print " > <a href=holistic/$mMM2.htm>$M2</a> > ";
+print "<a href=$mBaseLink&Level=2&L1=$mL1&L2=$mL2>$L2</a> > $L3 > </a></b>";
+
+print "</td><td nowrap valign=top align=right><font face=verdana size=2>";
+$mLink = str_replace(" ", "+", $Search);
+$Query = "SELECT DISTINCT a,b,c,d from world where c='$L3' order by d";
+$Result = mysql_db_query($DBName, $Query, $Link);
+print "<form method=post action='$mBaseLink&Level=4&L1=$mL1&L2=$mL2&L3=$mL3'>";
+print '<select name="L4">';
+while ($Row = mysql_fetch_array ($Result))
+	{
+	$mLink = str_replace(" ", "+", $Row[3]);
+	if ($Row[2]) {print "<option value='$Row[3]'>$Row[3]\n";}
+	}
+print "</select>\n";
+print "<input name='u' type=submit value=' > '>";
+print "</td></tr></table></form>\n";
+$mSearch1="$mL3+$mL2";
+}
+
+if ($mLevel==4) {
+print "<table border=0 width=100%><tr><td valign=top><font face=verdana size=2><b><a href=index.html>Home</a>";
+$mSearch2 = str_replace("+", " ", $mSearch);
+$mMM2 = str_replace(" ", "_", $M2);
+
+print " > <a href=holistic/$mMM2.htm>$M2</a> > ";
+
+print "<a href=$mBaseLink&Level=2&L1=$mL1&L2=$mL2>$L2</a> > <a href=$mBaseLink&Level=3&L1=$mL1&L2=$mL2&L3=$mL3>$L3</a> > $L4</b>";
+
+print "</td></tr></table></form>\n";
+$mSearch1="$mL4+$mL2";
+}
+
+
+
+print "</td><td valign=top align=left>";
+
+$mLink2 = "directory.php?Level=$Level&LevelB=$LevelB&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&M1=$mM1&M2=$mM2&M3=$mM3&D1=$mD1&D2=$mD2&D3=$mD3&D4=$mD4";
+
+if ($LevelB==0) {
+$mLink2 = "directory.php?Level=$Level&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&M1=$mM1&M2=$mM2&M3=$mM3&D1=$mD1&D2=$mD2&D3=$mD3&D4=$mD4";
+print "<table width=100% border=0><tr><td align=right><font face=verdana size=2>";
+$mLink = str_replace(" ", "+", $Search);
+$Query = "SELECT DISTINCT a from categories order by a";
+$Result = mysql_db_query($DBName, $Query, $Link);
+print "<form method=post action='$mLink2&LevelB=1'>";
+print '<select name="M1">';
+while ($Row = mysql_fetch_array ($Result))
+	{
+	if ($Row[0]) {print "<option value='$Row[0]'>$Row[0]\n";}
+	}
+print "</select>\n";
+print "<input name='u' type=submit value=' > '>";
+print "</td></tr></table></form>\n";
+$mSearch2="";
+}
+
+$LevelB=2;
+
+if ($LevelB==2) {
+
+$mM1 = str_replace(" ", "+", $M1);
+$mLink0 = "directory.php?Level=$Level&$mDS&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&LevelB=0";
+
+$mLink1 = "directory.php?Level=$Level&$mDS&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&LevelB=1&M1=$mM1";
+
+$mLink2 = "directory.php?Level=$Level&$mDS&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&LevelB=2&M1=$mM1&M2=$mM2";
+
+$mLink = str_replace(" ", "+", $Search);
+$Query = "SELECT DISTINCT a,b,c from categories where a='$M1' and b='$M2' order by c";
+$Result = mysql_db_query($DBName, $Query, $Link);
+$mLink2 = "directory.php?Level=$Level&$mDS&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&LevelB=3&M1=$mM1&M2=$mM2";
+
+$mSearch2="$mM2";
+}
+
+
+
+print "</td></tr><TR><td valign=top align=right>";
+
+
+
+
+$mSearch="";
+if ($mSearch1) {$mSearch="$mSearch1";}
+if ($mSearch2) {$mSearch="$mSearch+$mSearch2";}
+$mSearch = str_replace("USA:+", "", $mSearch);
+$mMonth = substr($month, 0, 3);
+$mMonth = "$mMonth.";
+if ($mSearch=="") {$mSearch="World";}
+$mSearch2000=trim($mSearch);
+$mSearch2001=str_replace("+", " ", $mSearch);
+
+
+
+
+
+$mCol = 1;
+$mFlags=0;
+$mBabelLink = "directory.php?Level=$Level&LevelB=$LevelB&L1=$mL1&L2=$mL2&L3=$mL3&L4=$mL4&M1=$mM1&M2=$mM2&M3=$mM3&D1=$mD1&D2=$mD2&D3=$mD3&D4=$mD4&D5=$mD5&D6=$mD6&D7=$mD7&D8=$mD8";
+
+
+
+$mSearch2002=str_replace(" ", "+", trim($mSearch2001));
+
+
+
+$mSupplant=0;
+
+
+
+
+
+
+
+if ($mSupplant==0) {
+	$mLocal=0;
+	if ($mSearch1) {if ($mSearch2) {$mLocal=1;}}
+	$D9=0;
+	$D1=0;
+	$D2=0;
+	$D8=0;
+	if ($D9==1 and $mLocal==0) {include('definitions.php');}
+	if ($D1==1 and $mLocal==0) {if ($Search=="Stars") {include('yahoo_photos.php');} else  {include('yahoo_photos.php');}}
+	if ($D2==1 and $mLocal==0) {if ($Search=="Stars") {include('yahoo_headlines.php');} else  {include('yahoo_headlines.php');}}
+	$mSearch=$mSearch2000;
+	if ($D3==1) {include('websites.php');}
+	if ($D4==1 and $mLocal==0) {include('amazon_books.php');}
+	if ($D5==1 and $mLocal==0) {include('amazon_cds.php');}
+	if ($D6==1 and $mLocal==0) {include('amazon_vhs.php');}
+	if ($D7==1 and $mLocal==0) {include('mp3s.php');}
+	if ($D8==1 and $mLocal==0) {include('maps.php');}
+	$D10=0;
+	if ($D10==1 and $mLocal==0) {include('background.php');}
+	$D11=0;
+	if ($D11==1 and $mLocal==0) {include('photo_archive.php');}
+	$D12=0;
+	if ($L1=="USA" or $L1=="Canada" and $L3) {$D12=1;}
+	if ($D12==1) {include('yellow_pages.php');}
+	print "</td></tr></table>";
+
+}
+
+print "<p align=center><font face=Verdana size=1>© 2003 by Holisticopia (<a href=mailto:webmaster@holisticopia.com>webmaster@holisticopia.com</a>)<br>";
+
+$C1=0;
+if ($C1==1) {
+include('blaster.php');
+}
+mysql_close ($Link);
+
+
+?>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

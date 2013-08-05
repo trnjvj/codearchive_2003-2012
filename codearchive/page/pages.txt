@@ -1,0 +1,27 @@
+<?
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "pages";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query = "SELECT distinct 1a,2a,2b,2c,2d from pages order by 1a,2a,2b,2c,2d";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $A1=str_replace(" ", "+", $Row[0]);
+    $A3=str_replace(" ", "+", $Row[2]);
+    $A5=str_replace(" ", "+", $Row[3]);
+    $A6=str_replace(" ", "+", $Row[4]);
+    $A7=str_replace(" ", "+", $Row[5]);
+    $AA1=$Row[0];
+    $AA3=$Row[2];
+    $AA5=$Row[3];
+    $AA6=$Row[4];
+    $AA7=$Row[5];
+    print "<li><font face=verdana size=1><b><a href=page.php?A1=$A1&A2=$A2&A3=$A3&A4=$A4&A5=$A5&A6=$A6&A7=$A7> $AA3 $AA4 $AA5 $AA6 $AA7 $AA1 $AA2</a></b></font>";
+    }
+mysql_close ($Link);
+?>

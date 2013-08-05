@@ -1,0 +1,80 @@
+<?
+set_time_limit (600000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mo1 = "";
+$fp = fopen("../freetown/ft/1.htm", "wt");
+$Query11 = "SELECT DISTINCT a,b,c FROM `freetown_artists23` ORDER BY b,c";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$m0 = $Row11[0];
+	$m1 = $Row11[1];
+	$m2 = $Row11[2];
+	print "$m1|$m2<br>";
+	$Search2 = str_replace(" ", "_", $m0);
+	$Lower0 = strtolower($Search2);
+	$Search2 = str_replace(" ", "_", $m1);
+	$Lower1 = strtolower($Search2);
+	$Search2 = str_replace(" ", "_", $m2);
+	$Search2 = str_replace("/", "_", $Search2);
+	$Search2 = str_replace("+", "_", $Search2);
+	$Lower2 = strtolower($Search2);
+	$Lower2 = strtolower($Search2);
+	if ($m1==$mo1) {} else {
+		fwrite($fp, "</tr></table>");
+		fwrite($fp, '<div align=center><p>&nbsp;<p><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1j"> </SCRIPT></div>');
+
+		fwrite($fp, "<div class='div2'><table width=100%>");
+		$Query12 = "SELECT DISTINCT a,b,c,d FROM `freetown_links23` where a='$mo1' order by a,b,c,d;";
+		$Result12 = mysql_db_query($DBName, $Query12, $Link);
+		while ($Row12 = mysql_fetch_array ($Result12))
+			{
+			$m2a = $Row12[1];
+			$m2b = $Row12[2];
+			$m2c = $Row12[3];
+			fwrite($fp, "<tr><td><li><a href=$m2b><b>$m2a</b></a> $m2c</td></tr>");
+			}			
+fwrite($fp, "</table>");
+
+	fwrite($fp, "<div align=center><table border=0 width=700><tr><td align=center><font face=arial size=3><b><a href=../addlink.php>Add a Link</a></td></tr></table>");	
+	fwrite($fp, '<p><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1h"> </SCRIPT>');
+	fwrite($fp, "<p><font face=arial size=3><b>&copy; 2003 by <a target=_blank href=http://www.bluepacificmarketing.com>Blue Pacific Marketing</a></b></font>");
+	fwrite ($fp, "</div></html>");
+fclose($fp);
+$fp = fopen("../freetown/p2/b_$Lower1.php", "wt");
+fwrite($fp, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">');
+fwrite($fp, "<html><head>");
+fwrite($fp, "<title>Freetown Records: $m1</title>");
+fwrite($fp, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+fwrite($fp, '<link rel="stylesheet" type="text/css" href="../css/sec.css">');
+fwrite($fp, "</head><body bgcolor=#000000 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF>");
+fwrite($fp, "<div align=center><img src=../images/logo2.jpg>");
+fwrite($fp, "<div class='div2'><table border=0 width=700><tr><td><font face=arial size=3><b><a href=index.html>Home</a> &gt; <a href=a_$Lower0.php>$m0</a> &gt; $m1</td>");
+fwrite($fp, "<td align=right><a href='../subscribe.htm'><font face=arial size=3><b>Subscribe</a> | ");
+fwrite($fp, "<a href=../advertising.php><font face=arial size=3><b>Add a Link</a></td></tr></table>");
+fwrite($fp, '<div align=center><p>&nbsp;<p><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1i"> </SCRIPT></div>');
+fwrite($fp, "<p><table border=0 width=700><tr>");
+$Col=1;
+	}
+	$mo1 = $m1;
+	fwrite($fp, "<td width=33%><font face=arial size=3><b><a href=c_$Lower2.php>$m2</a></b></td>");
+	$Col++;
+	if ($Col>3) {
+	$Col=1;
+	fwrite($fp, "</tr><tr>");	
+	}
+	}
+	mysql_close ($Link);
+	fwrite($fp, "</tr></table>");	
+	fwrite($fp, "<div align=center><p>&nbsp;<p><font face=arial size=3><b>&copy; 2003 by <a target=_blank href=http://www.bluepacificmarketing.com>Blue Pacific Marketing</a></b></font>");
+	fwrite($fp, '<div align=center><p>&nbsp;<p><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1j"> </SCRIPT></div>');
+	fwrite($fp, "</div></html>");
+	fclose($fp);
+fclose($fp);
+?>

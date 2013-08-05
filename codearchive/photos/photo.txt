@@ -1,0 +1,80 @@
+<html>
+<?
+$mL1 = str_replace(" ", "+", $L1);
+$mL2 = str_replace(" ", "+", $L2);
+$mL3 = str_replace(" ", "+", $L3);
+$mM1 = str_replace(" ", "+", $M1);
+$mM2 = str_replace(" ", "+", $M2);
+$mM3 = str_replace(" ", "+", $M3);
+$mM4 = str_replace(" ", "+", $M4);
+$mM5 = str_replace(" ", "+", $M5);
+$mM6 = str_replace(" ", "+", $M6);
+$mD1 = str_replace(" ", "+", $D1);
+$mD2 = str_replace(" ", "+", $D2);
+$mD3 = str_replace(" ", "+", $D3);
+$mD4 = str_replace(" ", "+", $D4);
+$mLevel = $Level;
+$mLevelB = $LevelB;
+$mSettings = "LevelB=$LevelB&M1=$mM1&M2=$mM2&M3=$mM3&M4=$mM4&M5=$mM5&M6=$mM6&Level=$Level&L1=$mL1&L2=$mL2&D1=$mD1&D2=$mD2&D3=$mD3&D4=$mD4";
+
+$mSearch = str_replace(" ", "+", $Search);
+$mReturn = str_replace(" ", "_", $Return);
+$mReturn = str_replace(":", "_", $mReturn);
+$mCountry = str_replace("_", " ", $Return);
+$mCountry = str_replace(".php", "", $mCountry);
+
+print "<html>";
+print "<title>Holisticopia: $Search</title>";
+print "<body bgcolor=#000000 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF>";
+
+print "<div align=center><p>";
+
+
+$TheFile = "http://search.news.yahoo.com/search/news?a=1&n=100&o=a&p=%22$mSearch%22&c=news_photos";
+print "<div align=center>";
+
+
+
+print "<p>$Z3<p>";
+$mPhoto = $Photo;
+$Z3 = "http://story.news.yahoo.com/news?tmpl=story&u=/$mPhoto.html";
+$Z4 = strpos($Z3, ".htm");
+					if ($Z4==0) {} else {
+					$Open2 = fopen($Z3, "r");
+					if ($Open2) {
+						$Data2 = file($Z3);
+						for ($n2 = 0; $n2 < count($Data2); $n2++) {
+							$String2 = trim($Data2[$n2]);
+							$Array2 = explode("<p>", $String2);
+							for ($m2 = 0; $m2 < count($Array2); $m2++) {
+
+								$ZZ1 = strstr($Array2[$m2], "Mail to Friend");
+								if ($ZZ1) {
+									$Start2=0;
+									print "</TD></TR></TABLE>";
+									}
+								if ($Start2==1) {
+                                $SS1 = strstr($Array2[$m2], '<img');
+                                if ($SS1) {print "<a href=main.php?$mSettings>$Array2[$m2]</a>";} else {print "$Array2[$m2]";}
+					}
+$ZZ1 = strpos($Array2[$m2], "Next");
+								if ($ZZ1) {$Start2=1;}
+}}}
+print "</TD></TR></TABLE>";
+
+					}
+
+			$S1 = strstr($Array[$m], '<img border=1 src=http://us.news1.yimg.com');
+
+			if ($S1) {
+					$Found=1;
+					$mStory = str_replace("</TD>", "", $Array[$m]);
+					$mStory = str_replace("<img ", "<img ", $mStory);
+
+
+				}
+
+
+print "</div>";
+
+?>

@@ -1,0 +1,688 @@
+
+<?
+
+$a = $_GET['a'];
+$b = $_GET['b'];
+$c = $_GET['c'];
+$d = $_GET['d'];
+$e = $_GET['e'];
+$f = $_GET['f'];
+$g = $_GET['g'];
+$h = $_GET['h'];
+$i = $_GET['i'];
+$j1 = $_GET['j1']; $k1 = $_GET['k1']; $l1 = $_GET['l1'];
+$j2 = $_GET['j2']; $k2 = $_GET['k2']; $l2 = $_GET['l2'];
+$j3 = $_GET['j3']; $k3 = $_GET['k3']; $l3 = $_GET['l3'];
+$j4 = $_GET['j4']; $k4 = $_GET['k4']; $l4 = $_GET['l4'];
+$j5 = $_GET['j5']; $k5 = $_GET['k5']; $l5 = $_GET['l5'];
+$j6 = $_GET['j6']; $k6 = $_GET['k6']; $l6 = $_GET['l6'];
+$j7 = $_GET['j7']; $k7 = $_GET['k7']; $l7 = $_GET['l7'];
+$j8 = $_GET['j8']; $k8 = $_GET['k8']; $l8 = $_GET['l8'];
+$j9 = $_GET['j9']; $k9 = $_GET['k9']; $l9 = $_GET['l9'];
+$j10 = $_GET['j10']; $k10 = $_GET['k10']; $l10 = $_GET['l10'];
+$j11 = $_GET['j11']; $k11 = $_GET['k11']; $l11 = $_GET['l11'];
+$j12 = $_GET['j12']; $k12 = $_GET['k12']; $l12 = $_GET['l12'];
+$j13 = $_GET['j13']; $k13 = $_GET['k13']; $l13 = $_GET['l13'];
+$j14 = $_GET['j14']; $k14 = $_GET['k14']; $l14 = $_GET['l14'];
+$j15 = $_GET['j15']; $k15 = $_GET['k15']; $l15 = $_GET['l15'];
+$j16 = $_GET['j16']; $k16 = $_GET['k16']; $l16 = $_GET['l16'];
+$j17 = $_GET['j17']; $k17 = $_GET['k17']; $l17 = $_GET['l17'];
+$j18 = $_GET['j18']; $k18 = $_GET['k18']; $l18 = $_GET['l18'];
+$j19 = $_GET['j19']; $k19 = $_GET['k19']; $l19 = $_GET['l19'];
+$j20 = $_GET['j20']; $k20 = $_GET['k20']; $l20 = $_GET['l20'];
+$j21 = $_GET['j21']; $k21 = $_GET['k21']; $l21 = $_GET['l21'];
+$j22 = $_GET['j22']; $k22 = $_GET['k22']; $l22 = $_GET['l22'];
+$j23 = $_GET['j23']; $k23 = $_GET['k23']; $l23 = $_GET['l23'];
+$j24 = $_GET['j24']; $k24 = $_GET['k24']; $l24 = $_GET['l24'];
+$j25 = $_GET['j25']; $k25 = $_GET['k25']; $l25 = $_GET['l25'];
+$j26 = $_GET['j26']; $k26 = $_GET['k26']; $l26 = $_GET['l26'];
+$j27 = $_GET['j27']; $k27 = $_GET['k27']; $l27 = $_GET['l27'];
+$j28 = $_GET['j28']; $k28 = $_GET['k28']; $l28 = $_GET['l28'];
+$j29 = $_GET['j29']; $k29 = $_GET['k29']; $l29 = $_GET['l29'];
+$j30 = $_GET['j30']; $k30 = $_GET['k30']; $l30 = $_GET['l30'];
+$j31 = $_GET['j31']; $k31 = $_GET['k31']; $l31 = $_GET['l31'];
+$j32 = $_GET['j32']; $k32 = $_GET['k32']; $l32 = $_GET['l32'];
+$j33 = $_GET['j33']; $k33 = $_GET['k33']; $l33 = $_GET['l33'];
+$j34 = $_GET['j34']; $k34 = $_GET['k34']; $l34 = $_GET['l34'];
+$j35 = $_GET['j35']; $k35 = $_GET['k35']; $l35 = $_GET['l35'];
+$j36 = $_GET['j36']; $k36 = $_GET['k36']; $l36 = $_GET['l36'];
+$j37 = $_GET['j37']; $k37 = $_GET['k37']; $l37 = $_GET['l37'];
+$j38 = $_GET['j38']; $k38 = $_GET['k38']; $l38 = $_GET['l38'];
+$j39 = $_GET['j39']; $k39 = $_GET['k39']; $l39 = $_GET['l39'];
+$j40 = $_GET['j40']; $k40 = $_GET['k40']; $l40 = $_GET['l40'];
+$j41 = $_GET['j41']; $k41 = $_GET['k41']; $l41 = $_GET['l41'];
+$j42 = $_GET['j42']; $k42 = $_GET['k42']; $l42 = $_GET['l42'];
+$j43 = $_GET['j43']; $k43 = $_GET['k43']; $l43 = $_GET['l43'];
+$j44 = $_GET['j44']; $k44 = $_GET['k44']; $l44 = $_GET['l44'];
+$j45 = $_GET['j45']; $k45 = $_GET['k45']; $l45 = $_GET['l45'];
+$j46 = $_GET['j46']; $k46 = $_GET['k46']; $l46 = $_GET['l46'];
+$j47 = $_GET['j47']; $k47 = $_GET['k47']; $l47 = $_GET['l47'];
+$j48 = $_GET['j48']; $k48 = $_GET['k48']; $l48 = $_GET['l48'];
+$j49 = $_GET['j49']; $k49 = $_GET['k49']; $l49 = $_GET['l49'];
+$j50 = $_GET['j50']; $k50 = $_GET['k50']; $l50 = $_GET['l50'];
+$m = $_GET['m'];
+$n = $_GET['n'];
+$o = $_GET['o'];
+$p = $_GET['p'];
+$q = $_GET['q'];
+$r = $_GET['r'];
+$s = $_GET['s'];
+$t = $_GET['t'];
+$u = $_GET['u'];
+$v = $_GET['v'];
+$w = $_GET['w'];
+$x = $_GET['x'];
+$y = $_GET['y'];
+$z = $_GET['z'];
+$a2 = $_GET['a2'];
+$b2 = $_GET['b2'];
+$c2 = $_GET['c2'];
+$d2 = $_GET['d2'];
+$e2 = $_GET['e2'];
+$f2 = $_GET['f2'];
+$g2 = $_GET['g2'];
+$h2 = $_GET['h2'];
+$save = $_GET['save'];
+$masterindex=0;
+
+$objnum = 0;
+include('db_connect.php');
+include('state.php');
+$wholestr = $mThisPrefix;
+$wholestr = $wholestr."media";
+
+$mFlagz=0;
+
+$Query13 = "SELECT * FROM `$wholestr";
+$Query13 = $Query13."_settings` LIMIT 1;";
+
+$Result12 = mysql_db_query($DBName, $Query13, $Link);
+while ($Row12 = mysql_fetch_array ($Result12))
+	{
+	$mFlagz=1;
+	$za = $Row12[1];
+	$zb = $Row12[2];
+	$zc = $Row12[3];
+	$zd = $Row12[4];
+	$ze = $Row12[5];
+	$zf = $Row12[6];
+	$zg = $Row12[7];
+	$zh = $Row12[8];
+	$zi = $Row12[9];
+	$zj = $Row12[10];
+	$zk = $Row12[11];
+	$zl = $Row12[12];
+	$zm = $Row12[13];
+	$zn = $Row12[14];
+	$zo = $Row12[15];
+	$zp = $Row12[16];
+	$zq = $Row12[17];
+	$zr = $Row12[18];
+	$zs = $Row12[19];
+	$zt = $Row12[20];
+	$zu = $Row12[21];
+	$zv = $Row12[22];
+	$zw = $Row12[23];
+	$zx = $Row12[24];
+	$zy = $Row12[25];
+	$zz = $Row12[26];
+	$za2 = $Row12[27];
+	$zb2 = $Row12[28];
+	$zc2 = $Row12[29];
+	$zd2 = $Row12[30];
+	$ze2 = $Row12[31];
+	$zf2 = $Row12[32];
+	$zg2 = $Row12[33];
+	$zh2 = $Row12[34];
+	}
+	
+if ($mFlagz==1) {
+if (!$a) {$a=$za;}
+if (!$b) {$b=$zb;}
+if (!$c) {$c=$zc;}
+if (!$d) {$d=$zd;}
+if (!$e) {$e=$ze;}
+if (!$f) {$f=$zf;}
+if (!$g) {$g=$zg;}
+if (!$h) {$h=$zh;}
+if (!$i) {$i=$zi;}
+if (!$j) {$j=$zj;}
+if (!$k) {$k=$zk;}
+if (!$l) {$l=$zl;}
+if (!$m) {$m=$zm;}
+if (!$n) {$n=$zn;}
+if (!$o) {$o=$zo;}
+if (!$p) {$p=$zp;}
+if (!$q) {$q=$zq;}
+if (!$r) {$r=$zr;}
+if (!$s) {$s=$zs;}
+if (!$t) {$t=$zt;}
+if (!$u) {$u=$zu;}
+if (!$v) {$v=$zv;}
+if (!$w) {$w=$zw;}
+if (!$x) {$x=$zx;}
+if (!$y) {$y=$zy;}
+if (!$z) {$z=$zz;}
+if (!$a2) {$a2=$za2;}
+if (!$b2) {$b2=$zb2;}
+if (!$c2) {$b2=$zc2;}
+if (!$d2) {$b2=$zd2;}
+if (!$e2) {$b2=$ze2;}
+if (!$f2) {$b2=$zf2;}
+if (!$g2) {$b2=$zg2;}
+if (!$h2) {$b2=$zh2;}
+} else {
+if (!$c) {$c=-12;}
+if (!$g) {$g=1;}
+if (!$m) {$m=6;}
+if (!$n) {$n=40;}
+if (!$o) {$o=216;}
+if (!$p) {$p="black";}
+if (!$q) {$q="black";}
+if (!$r) {$r="black";}
+if (!$s) {$s="white";}
+if (!$t) {$t="black";}
+if (!$u) {$u="verdana";}
+if (!$v) {$v="10";}
+if (!$w) {$w="skyblue";}
+if (!$a2) {$a2="1";}
+if (!$b2) {$b2="yes";}
+}
+
+$aa = str_replace(" ", "+", $a);
+$bb = str_replace(" ", "+", $b);
+$cc = str_replace(" ", "+", $c);
+$dd = str_replace(" ", "+", $d);
+$ee = str_replace(" ", "+", $e);
+$ff = str_replace(" ", "+", $f);
+$gg = str_replace(" ", "+", $g);
+$hh = str_replace(" ", "+", $h);
+$ii = str_replace(" ", "+", $i);
+$mm = str_replace(" ", "+", $m);
+$nn = str_replace(" ", "+", $n);
+$oo = str_replace(" ", "+", $o);
+$pp = str_replace(" ", "+", $p);
+$qq = str_replace(" ", "+", $q);
+$rr = str_replace(" ", "+", $r);
+$ss = str_replace(" ", "+", $s);
+$tt = str_replace(" ", "+", $t);
+$uu = str_replace(" ", "+", $u);
+$vv = str_replace(" ", "+", $v);
+$ww = str_replace(" ", "+", $w);
+$xx = str_replace(" ", "+", $x);
+$yy = str_replace(" ", "+", $y);
+$zz = str_replace(" ", "+", $z);
+$a2a2 = str_replace(" ", "+", $a2);
+$b2b2 = str_replace(" ", "+", $b2);
+$c2c2 = str_replace(" ", "+", $c2);
+$d2d2 = str_replace(" ", "+", $d2);
+$e2e2 = str_replace(" ", "+", $e2);
+$f2f2 = str_replace(" ", "+", $f2);
+$g2g2 = str_replace(" ", "+", $g2);
+$h2h2 = str_replace(" ", "+", $h2);
+
+if ($k1!=$l1) {$Query110 = "UPDATE `$wholestr` SET active='$k1' WHERE filename='$j1'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k2!=$l2) {$Query110 = "UPDATE `$wholestr` SET active='$k2' WHERE filename='$j2'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k3!=$l3) {$Query110 = "UPDATE `$wholestr` SET active='$k3' WHERE filename='$j3'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k4!=$l4) {$Query110 = "UPDATE `$wholestr` SET active='$k4' WHERE filename='$j4'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k5!=$l5) {$Query110 = "UPDATE `$wholestr` SET active='$k5' WHERE filename='$j5'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k6!=$l6) {$Query110 = "UPDATE `$wholestr` SET active='$k6' WHERE filename='$j6'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k7!=$l7) {$Query110 = "UPDATE `$wholestr` SET active='$k7' WHERE filename='$j7'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k8!=$l8) {$Query110 = "UPDATE `$wholestr` SET active='$k8' WHERE filename='$j8'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k9!=$l9) {$Query110 = "UPDATE `$wholestr` SET active='$k9' WHERE filename='$j9'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k10!=$l10) {$Query110 = "UPDATE `$wholestr` SET active='$k10' WHERE filename='$j10'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k11!=$l11) {$Query110 = "UPDATE `$wholestr` SET active='$k11' WHERE filename='$j11'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k12!=$l12) {$Query110 = "UPDATE `$wholestr` SET active='$k12' WHERE filename='$j12'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k13!=$l13) {$Query110 = "UPDATE `$wholestr` SET active='$k13' WHERE filename='$j13'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k14!=$l14) {$Query110 = "UPDATE `$wholestr` SET active='$k14' WHERE filename='$j14'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k15!=$l15) {$Query110 = "UPDATE `$wholestr` SET active='$k15' WHERE filename='$j15'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k16!=$l16) {$Query110 = "UPDATE `$wholestr` SET active='$k16' WHERE filename='$j16'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k17!=$l17) {$Query110 = "UPDATE `$wholestr` SET active='$k17' WHERE filename='$j17'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k18!=$l18) {$Query110 = "UPDATE `$wholestr` SET active='$k18' WHERE filename='$j18'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k19!=$l19) {$Query110 = "UPDATE `$wholestr` SET active='$k19' WHERE filename='$j19'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k20!=$l20) {$Query110 = "UPDATE `$wholestr` SET active='$k20' WHERE filename='$j20'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k21!=$l21) {$Query110 = "UPDATE `$wholestr` SET active='$k21' WHERE filename='$j21'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k22!=$l22) {$Query110 = "UPDATE `$wholestr` SET active='$k22' WHERE filename='$j22'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k23!=$l23) {$Query110 = "UPDATE `$wholestr` SET active='$k23' WHERE filename='$j23'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k24!=$l24) {$Query110 = "UPDATE `$wholestr` SET active='$k24' WHERE filename='$j24'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k25!=$l25) {$Query110 = "UPDATE `$wholestr` SET active='$k25' WHERE filename='$j25'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k26!=$l26) {$Query110 = "UPDATE `$wholestr` SET active='$k26' WHERE filename='$j26'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k27!=$l27) {$Query110 = "UPDATE `$wholestr` SET active='$k27' WHERE filename='$j27'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k28!=$l28) {$Query110 = "UPDATE `$wholestr` SET active='$k28' WHERE filename='$j28'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k29!=$l29) {$Query110 = "UPDATE `$wholestr` SET active='$k29' WHERE filename='$j29'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k30!=$l30) {$Query110 = "UPDATE `$wholestr` SET active='$k30' WHERE filename='$j30'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k31!=$l31) {$Query110 = "UPDATE `$wholestr` SET active='$k31' WHERE filename='$j31'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k32!=$l32) {$Query110 = "UPDATE `$wholestr` SET active='$k32' WHERE filename='$j32'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k33!=$l33) {$Query110 = "UPDATE `$wholestr` SET active='$k33' WHERE filename='$j33'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k34!=$l34) {$Query110 = "UPDATE `$wholestr` SET active='$k34' WHERE filename='$j34'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k35!=$l35) {$Query110 = "UPDATE `$wholestr` SET active='$k35' WHERE filename='$j35'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k36!=$l36) {$Query110 = "UPDATE `$wholestr` SET active='$k36' WHERE filename='$j36'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k37!=$l37) {$Query110 = "UPDATE `$wholestr` SET active='$k37' WHERE filename='$j37'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k38!=$l38) {$Query110 = "UPDATE `$wholestr` SET active='$k38' WHERE filename='$j38'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k39!=$l39) {$Query110 = "UPDATE `$wholestr` SET active='$k39' WHERE filename='$j39'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k40!=$l40) {$Query110 = "UPDATE `$wholestr` SET active='$k40' WHERE filename='$j40'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k41!=$l41) {$Query110 = "UPDATE `$wholestr` SET active='$k41' WHERE filename='$j41'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k42!=$l42) {$Query110 = "UPDATE `$wholestr` SET active='$k42' WHERE filename='$j42'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k43!=$l43) {$Query110 = "UPDATE `$wholestr` SET active='$k43' WHERE filename='$j43'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k44!=$l44) {$Query110 = "UPDATE `$wholestr` SET active='$k44' WHERE filename='$j44'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k45!=$l45) {$Query110 = "UPDATE `$wholestr` SET active='$k45' WHERE filename='$j45'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k46!=$l46) {$Query110 = "UPDATE `$wholestr` SET active='$k46' WHERE filename='$j46'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k47!=$l47) {$Query110 = "UPDATE `$wholestr` SET active='$k47' WHERE filename='$j47'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k48!=$l48) {$Query110 = "UPDATE `$wholestr` SET active='$k48' WHERE filename='$j48'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k49!=$l49) {$Query110 = "UPDATE `$wholestr` SET active='$k49' WHERE filename='$j49'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+if ($k50!=$l50) {$Query110 = "UPDATE `$wholestr` SET active='$k50' WHERE filename='$j50'"; $Result110 = mysql_db_query($DBName, $Query110, $Link);}
+
+$mRowsPerPage=$m;
+$mFlag2000=1;
+
+$Query12= "SELECT * FROM `$wholestr`";
+if ($e) {$Query12 = "SELECT * FROM `$wholestr` WHERE filename='$e'";}
+if ($f) {$Query12 = "SELECT * FROM `$wholestr` WHERE category1='$f'";}
+if ($i) {$Query12 = "SELECT * FROM `$wholestr` WHERE category2='$i'";}
+if ($j) {$Query12 = "SELECT * FROM `$wholestr` WHERE category3='$j'";}
+if ($h) {$Query12 = "SELECT * FROM `$wholestr` WHERE filename LIKE '$h%' or filename LIKE '%$h%' or filename LIKE '%$h' or category1 LIKE '$h%' or category1 LIKE '%$h%' or category1 LIKE '%$h' or category2 LIKE '$h%' or category2 LIKE '%$h%' or category2 LIKE '%$h' or comments LIKE '$h%' or comments LIKE '%$h%' or comments LIKE '%$h' or notes LIKE '$h%' or notes LIKE '%$h%' or notes LIKE '%$h'";}
+if ($c2) {$Query12 = "SELECT * FROM `$wholestr` WHERE category1='$c2'";}
+if ($d2) {$Query12 = "SELECT * FROM `$wholestr` WHERE category1='$c2' and category2='$d2'";}
+if ($e2) {$Query12 = "SELECT * FROM `$wholestr` WHERE category1='$c2' and category2='$d2'  and category3='$e2'";}
+/*
+print "<div class='a'>$Query12</div>";
+*/
+if ($c==1) {$Query12 = $Query12." ORDER BY `category1` ASC";}
+if ($c==-1) {$Query12 = $Query12." ORDER BY `category1` DESC";}
+if ($c==2) {$Query12 = $Query12." ORDER BY `category2` ASC";}
+if ($c==-2) {$Query12 = $Query12." ORDER BY `category2` DESC";}
+if ($c==3) {$Query12 = $Query12." ORDER BY `category2` ASC";}
+if ($c==-3) {$Query12 = $Query12." ORDER BY `category2` DESC";}
+if ($c==4) {$Query12 = $Query12." ORDER BY `category3` ASC";}
+if ($c==-4) {$Query12 = $Query12." ORDER BY `category3` DESC";}
+if ($c==5) {$Query12 = $Query12." ORDER BY `filename` ASC";}
+if ($c==-5) {$Query12 = $Query12." ORDER BY `filename` DESC";}
+if ($c==6) {$Query12 = $Query12." ORDER BY `comments` ASC";}
+if ($c==-6) {$Query12 = $Query12." ORDER BY `comments` DESC";}
+if ($c==7) {$Query12 = $Query12." ORDER BY `notes` ASC";}
+if ($c==-7) {$Query12 = $Query12." ORDER BY `notes` DESC";}
+if ($c==8) {$Query12 = $Query12." ORDER BY `$wholestr_type` ASC";}
+if ($c==-8) {$Query12 = $Query12." ORDER BY `$wholestr_type` DESC";}
+if ($c==9) {$Query12 = $Query12." ORDER BY `num_items` ASC";}
+if ($c==-9) {$Query12 = $Query12." ORDER BY `num_items` DESC";}
+if ($c==10) {$Query12 = $Query12." ORDER BY `date_created_year`, `date_created_month`, `date_created_date`, `time_created_hour`, `time_created_minute`, `time_created_second`";}
+if ($c==-10) {$Query12 = $Query12." ORDER BY `date_created_year` DESC, `date_created_month` DESC, `date_created_date` DESC, `time_created_hour` DESC, `time_created_minute` DESC, `time_created_second` DESC";}
+if ($c==11) {$Query12 = $Query12." ORDER BY `created_by` ASC";}
+if ($c==-11) {$Query12 = $Query12." ORDER BY `created_by` DESC";}
+if ($c==12) {$Query12 = $Query12." ORDER BY `date_modified_year`, `date_modified_month`, `date_modified_date`, `time_modified_hour`, `time_modified_minute`, `time_modified_second`";}
+if ($c==-12) {$Query12 = $Query12." ORDER BY `date_modified_year` DESC, `date_modified_month` DESC, `date_modified_date` DESC, `time_modified_hour` DESC, `time_modified_minute` DESC, `time_modified_second` DESC";}
+if ($c==13) {$Query12 = $Query12." ORDER BY `active` ASC";}
+if ($c==-13) {$Query12 = $Query12." ORDER BY `active` DESC";}
+$ghj = ($g-1)*$mRowsPerPage;
+
+$Query13 = $Query12." LIMIT $ghj,$mRowsPerPage";
+$Result12 = mysql_db_query($DBName, $Query12, $Link);
+$mQueryCount=0;
+while ($Row12 = mysql_fetch_array ($Result12))
+	{
+	$mQueryCount++;
+	$masterindex++;
+	$array[$masterindex][c1] = $Row12[1];
+	$array[$masterindex][c2] = $Row12[2];
+	$array[$masterindex][c3] = $Row12[3];
+	$array[$masterindex][file] = $Row12[4];
+	$array[$masterindex][comments] = $Row12[6];
+	$array[$masterindex][notes] = $Row12[7];
+	$mItemList="";
+	$Query113 = "SELECT * FROM `$wholestr";
+	$Query113 = $Query113."_detail` WHERE filename='$Row12[4]' order by item_num;";
+	$Result112 = mysql_db_query($DBName, $Query113, $Link);
+	while ($Row112 = mysql_fetch_array ($Result112))
+		{
+		$mmmm1 = $Row112[1];
+		$mmmm2 = $Row112[2];
+		$mmmm3 = $Row112[3];
+		$mItemList = $mItemList."$mmmm2: $mmmm3<br>";
+		}
+	$array[$masterindex][items] = $mItemList;
+	$array[$masterindex][updated] = $Row12[20]."/".$Row12[21]."/".$Row12[22]." ".$Row12[23].":".$Row12[24].":".$Row12[25];
+	$array[$masterindex][active] = $Row12[26];
+	}
+	
+	
+if ($h) {
+	$Query1212 = "SELECT * FROM `$wholestr_detail` WHERE item LIKE '$h%' or item LIKE '%$h%' or item LIKE '%$h';";
+	$Result1212 = mysql_db_query($DBName, $Query1212, $Link);
+	while ($Row1212 = mysql_fetch_array ($Result1212))
+		{
+		$mlkj = $Row1212[1];
+		$Query1214 = "SELECT * FROM `$wholestr` WHERE filename='$mlkj';";
+		$Result1214 = mysql_db_query($DBName, $Query1214, $Link);
+		$mQueryCount=0;
+		while ($Row1214 = mysql_fetch_array ($Result1214))
+			{
+			$myui_flag=0;
+			for ($myui=0; $myui<$masterindex+1; $myui++) {
+				if ($array[$myui][file]==$Row1214[4]) {$myui_flag=1;}
+			}
+			
+			if ($myui_flag==0) {
+			$mQueryCount++;
+			$masterindex++;
+			$array[$masterindex][c1] = $Row1214[1];
+			$array[$masterindex][c2] = $Row1214[2];
+			$array[$masterindex][c3] = $Row1214[3];
+			$array[$masterindex][file] = $Row1214[4];
+			$array[$masterindex][comments] = $Row1214[6];
+			$array[$masterindex][notes] = $Row1214[7];
+			$mItemList="";
+			$Query1215 = "SELECT * FROM `$wholestr_detail` WHERE filename='$Row1214[4]' order by item_num;";
+			$Result1215 = mysql_db_query($DBName, $Query1215, $Link);
+			while ($Row1215 = mysql_fetch_array ($Result1215))
+				{
+				$mmmm1 = $Row1215[1];
+				$mmmm2 = $Row1215[2];
+				$mmmm3 = $Row1215[3];
+				$mItemList = $mItemList."$mmmm2: $mmmm3<br>";
+				}
+			$array[$masterindex][items] = $mItemList;
+			$array[$masterindex][updated] = $Row1214[20]."/".$Row1214[21]."/".$Row1214[22]." ".$Row1214[23].":".$Row1214[24].":".$Row1214[25];
+			$array[$masterindex][active] = $Row1214[26];
+			}
+		}
+		}
+	}
+	
+print "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>";
+print "<html>";
+print "<head>";
+print "<title>$mPageTitle</title>";
+print "<style type='text/css'>";
+print '
+div.a {font-family: ';
+print "$u,Arial";
+print '; font-size: ';
+print "$v";
+print 'px; color: ';
+print "$s";
+print '; border: 0;}
+.a a {color: ';
+print "$s";
+print ';}
+.a a:hover {color: ';
+print "$t";
+print '; background-color: ';
+print "$w";
+print ';}
+.a a:hover.current {background-color: transparent;}
+
+submit {font-family:  Arial, Verdana, sans-serif;}
+select {font-family: Arial, Verdana, sans-serif; font-size: 10px;}
+input,select,textarea {
+	background-color:';
+	print "$p";
+	print ';
+	color: ';
+	print "$s";
+	print ';
+	font-size: 10px;
+	border-top-color: ';
+	print "$s";
+	print ';
+	border-right-color: ';
+	print "$s";
+	print ';
+	border-bottom-color: ';
+	print "$s";
+	print ';
+	border-left-color: ';
+	print "$s";
+	print ';
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	}
+input[type=image] {border: 0px;}
+';
+
+$ex[1]=1; $ey[1]=1; $ez[1]=1; $efontfamily[1]=$u; $efontsize[1]=$v; $efontcolor[1]=$s; $ehovercolor[1]=$t; $ehoverbackground[1]=$w;
+$ex[2]=11; $ey[2]=1; $ez[2]=1; $efontfamily[2]=$u; $efontsize[2]=$v; $efontcolor[2]=$s; $ehovercolor[2]=$t; $ehoverbackground[2]=$w;
+$ex[3]=20; $ey[3]=1; $ez[3]=1; $efontfamily[3]=$u; $efontsize[3]=$v; $efontcolor[3]=$s; $ehovercolor[3]=$t; $ehoverbackground[3]=$w;
+$ex[4]=30; $ey[4]=1; $ez[4]=1; $efontfamily[4]=$u; $efontsize[4]=$v; $efontcolor[4]=$s; $ehovercolor[4]=$t; $ehoverbackground[4]=$w;
+$ex[5]=45; $ey[5]=11; $ez[5]=1; $efontfamily[5]=$u; $efontsize[5]=$v; $efontcolor[5]=$s; $ehovercolor[5]=$t; $ehoverbackground[5]=$w;
+$ex[6]=57; $ey[6]=11; $ez[6]=1; $efontfamily[6]=$u; $efontsize[6]=$v; $efontcolor[6]=$s; $ehovercolor[6]=$t; $ehoverbackground[6]=$w;
+$ex[7]=72; $ey[7]=11; $ez[7]=1; $efontfamily[7]=$u; $efontsize[7]=$v; $efontcolor[7]=$s; $ehovercolor[7]=$t; $ehoverbackground[7]=$w;
+$ex[8]=76; $ey[8]=11; $ez[8]=1; $efontfamily[8]=$u; $efontsize[8]=$v; $efontcolor[8]=$s; $ehovercolor[8]=$t; $ehoverbackground[8]=$w;
+$ex[9]=80; $ey[9]=11; $ez[9]=1; $efontfamily[9]=$u; $efontsize[9]=$v; $efontcolor[9]=$s; $ehovercolor[9]=$t; $ehoverbackground[9]=$w;
+$ex[10]=92; $ey[10]=11; $ez[10]=1; $efontfamily[10]=$u; $efontsize[10]=$v; $efontcolor[10]=$s; $ehovercolor[10]=$t; $ehoverbackground[10]=$w;
+$ex[11]=1; $ey[11]=6; $ez[11]=1; $efontfamily[11]=$u; $efontsize[11]=$v; $efontcolor[11]=$s; $ehovercolor[11]=$t; $ehoverbackground[11]=$w;
+$ex[12]=12; $ey[12]=6; $ez[12]=1; $efontfamily[12]=$u; $efontsize[12]=$v; $efontcolor[12]=$s; $ehovercolor[12]=$t; $ehoverbackground[12]=$w;
+$ex[13]=24; $ey[13]=6; $ez[13]=1; $efontfamily[13]=$u; $efontsize[13]=$v; $efontcolor[13]=$s; $ehovercolor[13]=$t; $ehoverbackground[13]=$w;
+$ex[14]=31; $ey[14]=6; $ez[14]=1; $efontfamily[14]=$u; $efontsize[14]=$v; $efontcolor[14]=$s; $ehovercolor[14]=$t; $ehoverbackground[14]=$w;
+$ex[15]=41; $ey[15]=6; $ez[15]=1; $efontfamily[15]=$u; $efontsize[15]=$v; $efontcolor[15]=$s; $ehovercolor[15]=$t; $ehoverbackground[15]=$w;
+$ex[16]=55; $ey[16]=6; $ez[16]=1; $efontfamily[16]=$u; $efontsize[16]=$v; $efontcolor[16]=$s; $ehovercolor[16]=$t; $ehoverbackground[16]=$w;
+$ex[17]=63; $ey[17]=6; $ez[17]=1; $efontfamily[17]=$u; $efontsize[17]=$v; $efontcolor[17]=$s; $ehovercolor[17]=$t; $ehoverbackground[17]=$w;
+$ex[18]=73; $ey[18]=6; $ez[18]=1; $efontfamily[18]=$u; $efontsize[18]=$v; $efontcolor[18]=$s; $ehovercolor[18]=$t; $ehoverbackground[18]=$w;
+$ex[19]=1; $ey[19]=11; $ez[19]=1; $efontfamily[19]=$u; $efontsize[19]=$v; $efontcolor[19]=$s; $ehovercolor[19]=$t; $ehoverbackground[19]=$w;
+$ex[20]=78; $ey[20]=6; $ez[20]=1; $efontfamily[20]=$u; $efontsize[20]=$v; $efontcolor[20]=$s; $ehovercolor[20]=$t; $ehoverbackground[20]=$w;
+$ex[22]=80; $ey[22]=6; $ez[22]=1; $efontfamily[22]=$u; $efontsize[22]=$v; $efontcolor[22]=$s; $ehovercolor[22]=$t; $ehoverbackground[22]=$w;
+$ex[23]=90; $ey[23]=6; $ez[23]=1; $efontfamily[23]=$u; $efontsize[23]=$v; $efontcolor[23]=$s; $ehovercolor[23]=$t; $ehoverbackground[23]=$w;
+
+print ".e1 {position: absolute; top: $ey[1]%; left: $ex[1]%; z-index: $ez[1];}";
+print '
+div.e1 {font-family: '; print "$efontfamily[1],Arial"; print '; font-size: '; print "$efontsize[1]";
+print 'px; color: '; print "$efontcolor[1]"; print '; border: 0;} .e1 a {color: '; print "$efontcolor[1]";
+print ';} .e1 a:hover {color: '; print "$ehovercolor[1]"; print '; background-color: ';
+print "$ehoverbackground[1]"; print ';} .e1 a:hover.current {background-color: transparent;} ';
+
+print ".e2 {position: absolute; top: $ey[2]%; left: $ex[2]%; z-index: $ez[2];}";
+print '
+div.e2 {font-family: '; print "$efontfamily[2],Arial"; print '; font-size: '; print "$efontsize[2]";
+print 'px; color: '; print "$efontcolor[2]"; print '; border: 0;} .e2 a {color: '; print "$efontcolor[2]";
+print ';} .e2 a:hover {color: '; print "$ehovercolor[2]"; print '; background-color: ';
+print "$ehoverbackground[2]"; print ';} .e2 a:hover.current {background-color: transparent;} ';
+
+print ".e3 {position: absolute; top: $ey[3]%; left: $ex[3]%; z-index: $ez[3];}";
+print '
+div.e3 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e3 a {color: '; print "$s";
+print ';} .e3 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e3 a:hover.current {background-color: transparent;} ';
+
+print ".e4 {position: absolute; top: $ey[4]%; left: $ex[4]%; z-index: $ez[4];}";
+print '
+div.e4 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e4 a {color: '; print "$s";
+print ';} .e4 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e4 a:hover.current {background-color: transparent;} ';
+
+print ".e5 {position: absolute; top: $ey[5]%; left: $ex[5]%; z-index: $ez[5];}";
+print '
+div.e5 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e5 a {color: '; print "$s";
+print ';} .e5 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e5 a:hover.current {background-color: transparent;} ';
+
+print ".e6 {position: absolute; top: $ey[6]%; left: $ex[6]%; z-index: $ez[6];}";
+print '
+div.e6 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e6 a {color: '; print "$s";
+print ';} .e6 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e6 a:hover.current {background-color: transparent;} ';
+
+print ".e7 {position: absolute; top: $ey[7]%; left: $ex[7]%; z-index: $ez[7];}";
+print '
+div.e7 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e7 a {color: '; print "$s";
+print ';} .e7 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e7 a:hover.current {background-color: transparent;} ';
+
+print ".e8 {position: absolute; top: $ey[8]%; left: $ex[8]%; z-index: $ez[8];}";
+print '
+div.e8 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e8 a {color: '; print "$s";
+print ';} .e8 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e8 a:hover.current {background-color: transparent;} ';
+
+print ".e9 {position: absolute; top: $ey[9]%; left: $ex[9]%; z-index: $ez[9];}";
+print '
+div.e9 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e9 a {color: '; print "$s";
+print ';} .e9 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e9 a:hover.current {background-color: transparent;} ';
+
+print ".e10 {position: absolute; top: $ey[10]%; left: $ex[10]%; z-index: $ez[10];}";
+print '
+div.e10 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e10 a {color: '; print "$s";
+print ';} .e10 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e10 a:hover.current {background-color: transparent;} ';
+
+print ".e11 {position: absolute; top: $ey[11]%; left: $ex[11]%; z-index: $ez[11];}";
+print '
+div.e11 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e11 a {color: '; print "$s";
+print ';} .e11 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e11 a:hover.current {background-color: transparent;} ';
+
+print ".e12 {position: absolute; top: $ey[12]%; left: $ex[12]%; z-index: $ez[12];}";
+print '
+div.e12 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e12 a {color: '; print "$s";
+print ';} .e12 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e12 a:hover.current {background-color: transparent;} ';
+
+print ".e13 {position: absolute; top: $ey[13]%; left: $ex[13]%; z-index: $ez[13];}";
+print '
+div.e13 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e13 a {color: '; print "$s";
+print ';} .e13 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e13 a:hover.current {background-color: transparent;} ';
+
+print ".e14 {position: absolute; top: $ey[14]%; left: $ex[14]%; z-index: $ez[14];}";
+print '
+div.e14 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e14 a {color: '; print "$s";
+print ';} .e14 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e14 a:hover.current {background-color: transparent;} ';
+
+print ".e15 {position: absolute; top: $ey[15]%; left: $ex[15]%; z-index: $ez[15];}";
+print '
+div.e15 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e15 a {color: '; print "$s";
+print ';} .e15 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e15 a:hover.current {background-color: transparent;} ';
+
+print ".e16 {position: absolute; top: $ey[16]%; left: $ex[16]%; z-index: $ez[16];}";
+print '
+div.e16 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e16 a {color: '; print "$s";
+print ';} .e16 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e16 a:hover.current {background-color: transparent;} ';
+
+print ".e17 {position: absolute; top: $ey[17]%; left: $ex[17]%; z-index: $ez[17];}";
+print '
+div.e17 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e17 a {color: '; print "$s";
+print ';} .e17 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e17 a:hover.current {background-color: transparent;} ';
+
+print ".e18 {position: absolute; top: $ey[18]%; left: $ex[18]%; z-index: $ez[18];}";
+print '
+div.e18 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e18 a {color: '; print "$s";
+print ';} .e18 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e18 a:hover.current {background-color: transparent;} ';
+
+print ".e19 {position: absolute; top: $ey[19]%; left: $ex[19]%; z-index: $ez[19];}";
+print '
+div.e19 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e19 a {color: '; print "$s";
+print ';} .e19 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e19 a:hover.current {background-color: transparent;} ';
+
+print ".e20 {position: absolute; top: $ey[20]%; left: $ex[20]%; z-index: $ez[20];}";
+print '
+div.e20 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e20 a {color: '; print "$s";
+print ';} .e20 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e20 a:hover.current {background-color: transparent;} ';
+
+print ".e21 {position: absolute; top: $ey[21]%; left: $ex[21]%; z-index: $ez[21];}";
+print '
+div.e21 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e21 a {color: '; print "$s";
+print ';} .e21 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e21 a:hover.current {background-color: transparent;} ';
+
+print ".e22 {position: absolute; top: $ey[22]%; left: $ex[22]%; z-index: $ez[22];}";
+print '
+div.e22 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e22 a {color: '; print "$s";
+print ';} .e22 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e22 a:hover.current {background-color: transparent;} ';
+
+print ".e23 {position: absolute; top: $ey[23]%; left: $ex[23]%; z-index: $ez[23];}";
+print '
+div.e23 {font-family: '; print "$u,Arial"; print '; font-size: '; print "$v";
+print 'px; color: '; print "$s"; print '; border: 0;} .e23 a {color: '; print "$s";
+print ';} .e23 a:hover {color: '; print "$t"; print '; background-color: ';
+print "$w"; print ';} .e23 a:hover.current {background-color: transparent;} ';
+
+print "</style>";
+
+print '
+<script language="Javascript" type="text/javascript">
+	function jumpPage(newLoc) {
+		newPage = newLoc.options[newLoc.selectedIndex].value
+		if (newPage != "") {
+			window.location = newPage
+		}
+	}
+</script>	
+';
+print "</head>";
+/*
+include ('body.php');
+*/
+print "<body ";
+if ($p) {
+print "bgcolor=$p ";
+}
+if ($x) {
+print 'background="';
+print "$mGraphicPath";
+print "$x";
+print '">';
+}
+
+?>
+
+<div align='center'>
+<p><a href='index.php'><img border='0' src='files/logo.jpg'></a></p>
+<div class='a'>
+
+<?
+print "<table width=350 bgcolor=$p cellpadding=5 border=1><tr><td align=center valign=top>";
+?>
+
+<p></p>
+<form method="post" action="forgot2.php" name="license">
+<div class='a'>
+enter your email address here to retrieve your password
+<p>
+<input type="text" name="a" size="25"> 
+</p><p>
+<input type="submit" class="button" value=" Get Password " >
+</p>
+</font>
+</form>
+</div>
+</td></tr></table>
+</div>
+</div>
+</div>
+</p></div>
+</body></html>

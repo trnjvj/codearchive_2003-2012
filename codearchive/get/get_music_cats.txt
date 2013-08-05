@@ -1,0 +1,56 @@
+<html>
+<META HTTP-EQUIV="Refresh" Content="3, URL=get_music_cats.php">
+<?
+set_time_limit (600000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mSkipit=0;
+$Query2 = "SELECT a FROM `freetown_mine1` WHERE b='' LIMIT 1;";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+print "<font face=arial size=1>";
+while ($Row2 = mysql_fetch_array ($Result2))
+	{
+$mSearch = trim($Row2[0]);
+$mSearch2 = $Row2[0];
+print "$mSearch<p>";
+if ($mSkipit==0) {
+
+$TheFile = "http://www.allmusic.com/cg/amg.dll?p=amg&uid=CASS70308242209&sql=C$mSearch";
+$Start=0;
+$Cache="";
+
+$Open = @fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=-1;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++)
+    	{
+		$String = trim($Data[$n]);
+		
+		$Cache=$Cache.$String;
+		}
+		fclose($Open);
+		$nnn=1;
+		$Cache=str_replace("'", "", $Cache);
+		$Cache=str_replace('"', '', $Cache);
+		print "$Cache";
+		$Query23 = "INSERT INTO `freetown_mine2` ( `a` , `b` , `c` ) VALUES ('$mSearch', '1', '$Cache');";
+		$Result23= mysql_db_query($DBName, $Query23, $Link);
+		$Query24 = "UPDATE `freetown_mine1` SET `b` = '1' WHERE `a` = '$mSearch2';";
+		$Result24= mysql_db_query($DBName, $Query24, $Link);
+		
+}
+}
+}
+mysql_close ($Link);
+?>
+
+
+
+

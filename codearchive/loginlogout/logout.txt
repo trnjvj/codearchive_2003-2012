@@ -1,0 +1,27 @@
+<?
+setcookie("Username", "");
+setcookie("Password", "");
+setcookie("herbage", "", time()+3600);
+setcookie("h1", "", time()+6000000);
+
+print '<HTML><HEAD><META HTTP-EQUIV="Refresh" Content="1, URL=index.php"></HEAD>';
+print '
+<body>
+<div align="center">
+<table bgcolor=FFFFFF width=300 cellpadding=5 border=1>
+<tr><td><table cellpadding=5 border=1 width=100%>
+          <tr> 
+          <td align=center valign=middle><p><font color="black" size="+4" face="Times New Roman, Times, serif">Bloggle.org</font></p></td>
+          </tr>
+          <tr> 
+          <td><font face=verdana size=2>';
+		print "logged out.<p></font>";
+		print "<font face=verdana size=2><a href=index.php>Return to Bloggle.org</a>";	
+		print '</font></td>
+          </tr>
+          <tr> 
+           
+          </tr>
+        </table></td></tr></table>';
+
+?>

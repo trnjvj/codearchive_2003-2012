@@ -1,0 +1,119 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="2, URL=23quad.php">
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mo1 = "";
+$fp = fopen("../freetown/ft/1.php", "wt");
+$Query11 = "SELECT DISTINCT a,b,c,e FROM `freetown_artists23` WHERE e='' ORDER BY b,c LIMIT 30";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$m0 = $Row11[0];
+	$m1 = $Row11[1];
+	$m2 = $Row11[2];
+	$Query200="UPDATE `freetown_artists23` SET `e` = '1' WHERE `a` = '$m0' AND `b` = '$m1' AND `c` = '$m2';";
+	$Result200 = mysql_db_query($DBName, $Query200, $Link);
+	print "$m1|$m2<br>";
+	$Search2 = str_replace(" ", "_", $m0);
+	$Lower0 = strtolower($Search2);
+	$Search2 = str_replace(" ", "_", $m1);
+	$Lower1 = strtolower($Search2);
+	$Search2 = str_replace(" ", "_", $m2);
+	$Search2 = str_replace("/", "_", $Search2);
+	$Search2 = str_replace("+", "_", $Search2);
+	$Lower2 = strtolower($Search2);
+	
+	if ($m2==$mo2) {} else {
+		print "$mo2!";
+		$mLinksFound=0;
+		fwrite($fp, "<table border=0 width=700>\n");
+		$Query12 = "SELECT DISTINCT a,b,c,d FROM `freetown_links_new2` where a='$mo2' order by a,b,c,d;";
+		$Result12 = mysql_db_query($DBName, $Query12, $Link);
+		while ($Row12 = mysql_fetch_array ($Result12))
+			{
+			$m2a = $Row12[1];
+			$m2b = $Row12[2];
+			$m2c = $Row12[3];
+			fwrite($fp, "<tr><td><li><b><a target=_blank href=$m2b>$m2a</a></b> $m2c</td></tr>\n");
+			$mLinksFound=1;
+			}			
+	fwrite($fp, "</table>\n");
+	
+		fwrite($fp, "<table border=0 width=700><tr>\n");
+		$Col=1;
+		$mCDsFound=0;		
+		$Query12 = "SELECT DISTINCT a,b,c,d,f FROM `freetown_cds23` where b='$mo2' order by c;";
+		$Result12 = mysql_db_query($DBName, $Query12, $Link);
+		while ($Row12 = mysql_fetch_array ($Result12))
+			{
+			$m2a = $Row12[1];
+			$m2b = $Row12[2];
+			$m2c = $Row12[3];
+			$m2d = $Row12[4];
+			if ($mo2b==$m2b) {
+			fwrite($fp, "<td><a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$m2d/holisticopia-20><img border=0 height=233 width=233 src=http://images.amazon.com/images/P/$m2d.01.LZZZZZZZ.jpg><br> $m2b: $m2c</a></td>\n");
+			$mCDsFound=1;
+			$Col++;
+			if ($Col>3) {
+			$Col=1;
+			fwrite($fp, "</tr><tr>\n");	
+			}
+			}
+			$mo2b=$m2b;
+			}			
+	fwrite($fp, "</tr></table></div>\n");
+		
+	fwrite($fp, "<?\n");
+	
+	if ($mCDsFound==1) {
+	fwrite($fp, '$mCDsFound=1;');
+	fwrite($fp, "\n");
+	}
+	
+	if ($mLinksFound==1) {
+	fwrite($fp, '$mLinksFound=1;');
+	fwrite($fp, "\n");
+	}
+	
+	fwrite($fp, '$mSearch = ');
+	fwrite($fp, "str_replace(' ', '+', '$mo2');\n");
+	fwrite($fp, 'include "../php/cds.php";');
+	fwrite($fp, "\n?>\n");
+	fwrite($fp, '<div align=center><p>&nbsp;<p><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1h"> </SCRIPT></div>');
+	fwrite($fp, "\n");
+	fwrite($fp, "<p><font face=arial size=2><b>&copy; 2003 by <a target=_blank href=http://www.bluepacificmarketing.com>Blue Pacific Marketing</a></b></font></div>\n");
+
+		fclose($fp);
+		$fp = fopen("../freetown/pages/c_$Lower2.php", "wt\n");
+
+fwrite($fp, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">');
+fwrite($fp, "\n<html><head>\n");
+fwrite($fp, "<title>Freetown Records: $m3</title>\n");
+fwrite($fp, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+fwrite($fp, "\n");
+fwrite($fp, '<link rel="stylesheet" type="text/css" href="../css/ter.css">');
+fwrite($fp, "\n</head><body bgcolor=#000000 text=#FFFFFF link=#FFFFFF vlink=#FFFFFF>\n");
+fwrite($fp, "<div align=center><img src=../images/logo2.jpg>\n");
+fwrite($fp, "<div class='div2'>\n");
+fwrite($fp, "<table border=0 width=700><tr><td><font face=arial size=3><b><a href=index.html>Home</a> &gt; <a href=a_$Lower0.php>$m0</a> &gt; <a href=b_$Lower1.php>$m1</a> &gt; $m2</td>\n");
+fwrite($fp, "<td align=right><a href='../subscribe.htm'><font face=arial size=3><b>Subscribe</a> | \n");
+fwrite($fp, "<a href=../advertising.php><font face=arial size=3><b>Add a Link</a></td></tr></table>\n");
+fwrite($fp, '<div align=center><p>&nbsp;<p><SCRIPT type="text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-7v1i"> </SCRIPT></div>');
+fwrite($fp, "\n<p>\n");
+		}
+	$mo1 = $m1;
+	$mo2 = $m2;
+	}
+mysql_close ($Link);
+	fwrite($fp, "</tr></table>\n");
+	fwrite($fp, "<div class='t3'>&copy; 2003 by Tim Johnson</div>\n");
+
+fclose($fp);
+?>

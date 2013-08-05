@@ -1,0 +1,49 @@
+<?
+$MySearch = "John Lydon - Live At Oxford Union Debating Society";
+
+$SearchFor = str_replace(" ", "+", $MySearch);
+$TheFile[0] = "http://www.youtube.com/results?search_query=$SearchFor&search_type=&aq=f";
+$TheFile[1] = "http://www.youtube.com/results?search_query=$SearchFor&page=2";
+$TheFile[2] = "http://www.youtube.com/results?search_query=$SearchFor&page=3";
+$mCount=0;
+$myVideoList = "";
+$myVideoCount=0;
+for ($m=0; $m<3; $m++) {
+$Open = fopen($TheFile[$m], "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile[$m]);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$mFlag1 = strstr($String, $MySearch);
+		if ($mFlag1) {
+		$mFlag2 = strstr($String, "/watch?");
+		if ($mFlag2) {
+		$mFlag3 = strstr($String, "<div class=");
+		if ($mFlag3) {
+		$Array = explode('"', $String);
+		$videoID = str_replace("/watch?v=", "", $Array[9]);
+		$videoName = trim($Array[13]);
+		$videoImage = trim($Array[15]);
+		$myArray[$myCount]="$videoName|$videoID|$videoImage";
+		$mCount++;
+		if ($videoID == $old_videoID) {} else {
+		$mFlag4 = strstr($myVideoList, $videoID);
+		if ($mFlag4) {} else {
+		if ($myVideoCount>0) {$myVideoList="$myVideoList,$videoID";} else {$myVideoList="$videoID";}
+		$myVideoCount++;
+		print '
+		';	
+		}
+		}
+		$old_videoID = $videoID;
+		}
+		}
+		}
+		}
+	}
+}
+
+print "$myVideoList";
+?>

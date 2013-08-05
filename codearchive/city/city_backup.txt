@@ -1,0 +1,627 @@
+Holisticopia Build System - Copyright 2004 by Tim Johnson<p>
+<?
+set_time_limit (0);
+
+$mNation=$State;
+include "street_address.php";
+
+$State2 = str_replace(" ", "+", $State);
+$City2 = str_replace(" ", "+", $City);
+$mFile2 = "$mDir$State2";
+$mFile2 = $mFile2."_$City2.htm";
+$fp = fopen("$mFile2", "wt");
+
+fwrite($fp, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">');
+fwrite($fp, '<html><head>');
+fwrite($fp, "<title>Holisticopia: $City, $State</title>");
+fwrite($fp, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+fwrite($fp, '<link rel="stylesheet" type="text/css" href="../css/city.css"></head><body>');
+fwrite($fp, "<body bgcolor=#006633 background=../images/backgrd_holistic_tile.gif text=#DDFFDD link=#DDFFDD vlink=#DDFFDD alink=#DDFFDD>");
+fwrite($fp, "<div align=center><div class='div1'>");
+fwrite($fp, "<img border=0 src=../images/logo.jpg><br>");
+fwrite($fp, "</font>");
+fwrite($fp, "<table width=700>");
+fwrite($fp, "<tr>");
+fwrite($fp, "<td valign=top align=left><div class='div13'><b>");
+fwrite($fp, "<a href=../index.html><b>Holisticopia</b></a>");
+fwrite($fp, " &gt; ");
+fwrite($fp, "<a href=../land/$State2.htm>$State</a> &gt; $City");
+fwrite($fp, "</b></div></td>");
+fwrite($fp, "<td align=right><div class='div13'><b>");
+fwrite($fp, "<a target=_blank href=../advertising.php>advertise on this page</a> | <a target=_blank href=../revise.php><b>revisions</a>");
+fwrite($fp, "</b></div></td></tr></table><p>");
+
+$mFlag1=0;
+$Query12= "SELECT DISTINCT * FROM `holisticopia_ads_sept` WHERE d='$City' and e='$State' and h='Yes' ORDER BY a,b;";
+$Result12 = mysql_db_query($DBName, $Query12, $Link);
+$om1g = "";
+while ($Row12 = mysql_fetch_array ($Result12))
+	{
+	if ($mFlag1==0) {
+	fwrite($fp, "<table width=700 cellpadding=3 border=0><tr>");
+	$mFlag1=1;
+	}
+	$m1a = $Row12[0];
+	$m1b = $Row12[1];
+	$m1c = $Row12[2];
+	$m1d = $Row12[3];
+	$m1e = $Row12[4];
+	$m1f = $Row12[5];
+	$m1g = $Row12[6];
+	$m1h = $Row12[7];
+	$m1i = $Row12[8];
+	$m1j = $Row12[9];
+	$m1k = $Row12[10];
+	$m1l = $Row12[11];
+	$m1m = $Row12[12];
+	$m1n = $Row12[13];
+	$m1o = $Row12[14];
+	$m1p = $Row12[15];
+	$m1q = $Row12[16];
+	$m1r = $Row12[17];
+	$m1s = $Row12[18];
+	$m1t = $Row12[19];
+	$m1u = $Row12[20];
+	$m1v = $Row12[21];
+	$m1w = $Row12[22];
+	
+	$m2a = str_replace(" ", "_", $m1a);
+	$m2b = str_replace(" ", "_", $m1b);
+	$m2c = str_replace(" ", "_", $m1c);
+	$m2d = str_replace(" ", "_", $m1d);
+	$m2e = str_replace(" ", "_", $m1e);
+	$m2f = str_replace(" ", "_", $m1f);
+	$m2g = str_replace(" ", "_", $m1g);
+	$m2h = str_replace(" ", "_", $m1h);
+	$m2i = str_replace(" ", "_", $m1i);
+	$m2j = str_replace(" ", "_", $m1j);
+
+	$m3a = str_replace(" ", "+", $m1a);
+	$m3b = str_replace(" ", "+", $m1b);
+	$m3c = str_replace(" ", "+", $m1c);
+	$m3d = str_replace(" ", "+", $m1d);
+	$m3e = str_replace(" ", "+", $m1e);
+	$m3f = str_replace(" ", "+", $m1f);
+	$m3g = str_replace(" ", "+", $m1g);
+	$m3h = str_replace(" ", "+", $m1h);
+	$m3i = str_replace(" ", "+", $m1i);
+	$m3j = str_replace(" ", "+", $m1j);
+		
+	$mGeo = "$m3e";
+	$mGeo = $mGeo."_$m3a.htm";	
+	$mCityy = "$m3e";
+	$mCityy = $mCityy."_$m3d.htm";	
+	$mLandd = "$m3e.htm";	
+	fwrite($fp, "<td width=20% align=right valign=top><div class='div4'><b><a href=../geo/$mGeo>$m1a</a></b></div></td>");
+	if ($m1f) {
+	fwrite($fp, "<td>");
+	fwrite($fp, "<table cellpadding=6 cellspace=4 bgcolor=#003300 background=../images/backgrd_holistic_tile_dark.gif width=100% border=0><tr><td><div class='div10'>");
+	fwrite($fp, "<b><a target=_blank href=$m1f>$m1b</a></b>");
+	if ($mPlace=="World") {
+		fwrite($fp, " $m1c");
+	}
+	if ($mPlace=="Canada") {
+		fwrite($fp, " <a target=_blank href=http://ca.maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d%2C+$m3e&Country=ca&Get%A0Map=Get+Map>$m1c</a>");
+	}	
+	if ($mPlace=="Germany") {                             
+		fwrite($fp, " <a target=_blank href=http://de.maps.yahoo.com/py/lg:de/lc:de/maps.py?BFCat=&Pyt=Tmap&newFL=Benutzen+Sie+die+unten+angegebene+Adresse&addr=$m3c&csz=$m3d&country=de&Get%A0Map=Karte+anzeigen>$m1c</a>");
+	}
+	if ($mPlace=="Netherlands") {                                
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=nl&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Spain") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=es&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Italy") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=it&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Portugal") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=it&Get%A0Map=Get+Map>$m1c</a>");
+	}	
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=at&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Switzerland") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=ch&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Belgium") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=be&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=at&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Luxembourg") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=lu&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	
+	if ($mPlace=="United Kingdom") {                                 
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=uk&Get%A0Map=Get+Map >$m1c</a>");
+	}
+	if ($mPlace=="France") {                
+		fwrite($fp, " <a target=_blank href=http://fr.maps.yahoo.com/py/maps.py?addr=$m3c&csz=$m3d&Country=fr>$m1c</a>");
+	}
+	if ($mPlace=="USA") {
+		fwrite($fp, " <a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d%2C+$m3e&Country=us&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	
+	fwrite($fp, " <a href=../city/$mCityy>$m1d</a>");
+	fwrite($fp, " <a href=../land/$mLandd>$m1e</a>");
+	fwrite($fp, " $m1j");
+	fwrite($fp, "<br>$m1i");
+	fwrite($fp, "</div></td></tr></table>");
+	fwrite($fp, "</td></tr>");
+	}
+	else
+	{
+	fwrite($fp, "<td>");
+	fwrite($fp, "<table cellpadding=6 cellspace=4 bgcolor=#003300 background=../images/backgrd_holistic_tile_dark.gif width=100% border=0><tr><td><div class='div10'>");
+	fwrite($fp, "<b>$m1b</b>");
+	if ($mPlace=="World") {
+		fwrite($fp, " $m1c");
+	}
+	if ($mPlace=="Canada") {
+		fwrite($fp, " <a target=_blank href=http://ca.maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d%2C+$m3e&Country=ca&Get%A0Map=Get+Map>$m1c</a>");
+	}	
+	if ($mPlace=="Germany") {                             
+		fwrite($fp, " <a target=_blank href=http://de.maps.yahoo.com/py/lg:de/lc:de/maps.py?BFCat=&Pyt=Tmap&newFL=Benutzen+Sie+die+unten+angegebene+Adresse&addr=$m3c&csz=$m3d&country=de&Get%A0Map=Karte+anzeigen>$m1c</a>");
+	}
+	if ($mPlace=="Netherlands") {                                
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=nl&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	
+	if ($mPlace=="Spain") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=es&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Italy") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=it&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Portugal") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=it&Get%A0Map=Get+Map>$m1c</a>");
+	}	
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=at&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Switzerland") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=ch&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Belgium") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=be&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=at&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Luxembourg") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=lu&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	
+	if ($mPlace=="United Kingdom") {                                 
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=uk&Get%A0Map=Get+Map >$m1c</a>");
+	}
+	if ($mPlace=="France") {                
+		fwrite($fp, " <a target=_blank href=http://fr.maps.yahoo.com/py/maps.py?addr=$m3c&csz=$m3d&Country=fr>$m1c</a>");
+	}
+	if ($mPlace=="USA") {
+		fwrite($fp, " <a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d%2C+$m3e&Country=us&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	
+	fwrite($fp, " <a href=../city/$mCityy>$m1d</a>");
+	fwrite($fp, " <a href=../land/$mLandd>$m1e</a>");
+	fwrite($fp, " $m1j");
+	fwrite($fp, "<br>$m1i");
+	fwrite($fp, "</div></td></tr></table>");
+	fwrite($fp, "</td></tr>");	}
+	}
+if ($mFlag1==1) {
+fwrite($fp, "</td></tr></table>");
+}
+
+$mFlag1=0;
+$Query12= "SELECT DISTINCT * FROM `holisticopia_ads_sept` WHERE d='$City' and e='$State' and g='Yes' ORDER BY a,b;";
+$Result12 = mysql_db_query($DBName, $Query12, $Link);
+$om1g = "";
+fwrite($fp, "");
+while ($Row12 = mysql_fetch_array ($Result12))
+	{
+	if ($mFlag1==0) {
+	fwrite($fp, "<table width=700 cellpadding=3 border=0><tr>");
+	$mFlag1=1;
+	}
+	$m1a = $Row12[0];
+	$m1b = $Row12[1];
+	$m1c = $Row12[2];
+	$m1d = $Row12[3];
+	$m1e = $Row12[4];
+	$m1f = $Row12[5];
+	$m1g = $Row12[6];
+	$m1h = $Row12[7];
+	$m1i = $Row12[8];
+	$m1j = $Row12[9];
+	$m1k = $Row12[10];
+	$m1l = $Row12[11];
+	$m1m = $Row12[12];
+	$m1n = $Row12[13];
+	$m1o = $Row12[14];
+	$m1p = $Row12[15];
+	$m1q = $Row12[16];
+	$m1r = $Row12[17];
+	$m1s = $Row12[18];
+	$m1t = $Row12[19];
+	$m1u = $Row12[20];
+	$m1v = $Row12[21];
+	$m1w = $Row12[22];
+	
+	$m2a = str_replace(" ", "_", $m1a);
+	$m2b = str_replace(" ", "_", $m1b);
+	$m2c = str_replace(" ", "_", $m1c);
+	$m2d = str_replace(" ", "_", $m1d);
+	$m2e = str_replace(" ", "_", $m1e);
+	$m2f = str_replace(" ", "_", $m1f);
+	$m2g = str_replace(" ", "_", $m1g);
+	$m2h = str_replace(" ", "_", $m1h);
+	$m2i = str_replace(" ", "_", $m1i);
+	$m2j = str_replace(" ", "_", $m1j);
+
+	$m3a = str_replace(" ", "+", $m1a);
+	$m3b = str_replace(" ", "+", $m1b);
+	$m3c = str_replace(" ", "+", $m1c);
+	$mmd = strpos($m1c, "#");
+	if ($mmd) {
+		$mmmd = substr($m1c, 0, $mmd);
+		$m3c = str_replace(" ", "+", $mmmd);
+	}
+	
+	$m3d = str_replace(" ", "+", $m1d);
+	$m3e = str_replace(" ", "+", $m1e);
+	$m3f = str_replace(" ", "+", $m1f);
+	$m3g = str_replace(" ", "+", $m1g);
+	$m3h = str_replace(" ", "+", $m1h);
+	$m3i = str_replace(" ", "+", $m1i);
+	$m3j = str_replace(" ", "+", $m1j);
+		
+	$mGeo = "$m3e";
+	$mGeo = $mGeo."_$m3a.htm";
+		
+	$mCityy = "$m3e";
+	$mCityy = $mCityy."_$m3d.htm";	
+	$mLandd = "$m3e.htm";
+	
+	if ($om1a==$m1a and $om1b==$m1b and $om1c==$m1c and $om1d==$m1d and $om1e==$m1e and $om1j=$m1j) {} else {
+		
+	fwrite($fp, "<td width=20% align=right valign=top><div class='div4'><b><a href=../geo/$mGeo>$m1a</a></b></div></td>");
+	if ($m1f) {
+	fwrite($fp, "<td><div class='div11'><b><a target=_blank href=$m1f>$m1b</a></b>");
+	if ($mPlace=="World") {
+		fwrite($fp, " $m1c");
+	}
+	if ($mPlace=="Canada") {
+		fwrite($fp, " <a target=_blank href=http://ca.maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d%2C+$m3e&Country=ca&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="France") {                
+		fwrite($fp, " <a target=_blank href=http://fr.maps.yahoo.com/py/maps.py?addr=$m3c&csz=$m3d&Country=fr>$m1c</a>");
+	}
+	if ($mPlace=="Germany") {                             
+		fwrite($fp, " <a target=_blank href=http://de.maps.yahoo.com/py/lg:de/lc:de/maps.py?BFCat=&Pyt=Tmap&newFL=Benutzen+Sie+die+unten+angegebene+Adresse&addr=$m3c&csz=$m3d&country=de&Get%A0Map=Karte+anzeigen>$m1c</a>");
+	}
+	if ($mPlace=="Netherlands") {                                
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=nl&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	
+	if ($mPlace=="Spain") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=es&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Italy") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=it&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Portugal") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=it&Get%A0Map=Get+Map>$m1c</a>");
+	}	
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=at&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Switzerland") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=ch&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Belgium") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=be&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=at&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Luxembourg") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=lu&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	
+	if ($mPlace=="United Kingdom") {                                 
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=uk&Get%A0Map=Get+Map >$m1c</a>");
+	}
+	if ($mPlace=="USA") {
+		fwrite($fp, " <a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d%2C+$m3e&Country=us&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	fwrite($fp, " <a href=../city/$mCityy>$m1d</a>");
+	fwrite($fp, " <a href=../land/$mLandd>$m1e</a>");
+	fwrite($fp, " $m1j");
+	fwrite($fp, "</div></td></tr>");
+	}
+	else
+	{
+	fwrite($fp, "<td><div class='div11'><b>$m1b</b>");
+	if ($mPlace=="World") {
+		fwrite($fp, " $m1c");
+	}
+	if ($mPlace=="Canada") {
+		fwrite($fp, " <a target=_blank href=http://ca.maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d%2C+$m3e&Country=ca&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="France") {
+		fwrite($fp, " <a target=_blank href=http://fr.maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d%2C+$m3e&Country=fr&Get%A0Map=Get+Map>$m1c</a>");
+	}
+		if ($mPlace=="Germany") {                             
+		fwrite($fp, " <a target=_blank href=http://de.maps.yahoo.com/py/lg:de/lc:de/maps.py?BFCat=&Pyt=Tmap&newFL=Benutzen+Sie+die+unten+angegebene+Adresse&addr=$m3c&csz=$m3d&country=de&Get%A0Map=Karte+anzeigen>$m1c</a>");
+	}
+	if ($mPlace=="Netherlands") {                                
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=nl&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Spain") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3ccsz=$m3d&country=es&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Italy") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3ccsz=$m3d&country=it&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Portugal") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3ccsz=$m3d&country=it&Get%A0Map=Get+Map>$m1c</a>");
+	}	
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3ccsz=$m3d&country=at&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Switzerland") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3ccsz=$m3d&country=ch&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Belgium") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3ccsz=$m3d&country=be&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3ccsz=$m3d&country=at&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="Luxembourg") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3ccsz=$m3d&country=lu&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	if ($mPlace=="United Kingdom") {                                 
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d&country=uk&Get%A0Map=Get+Map >$m1c</a>");
+	}
+	if ($mPlace=="USA") {
+		fwrite($fp, " <a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3c&csz=$m3d%2C+$m3e&Country=us&Get%A0Map=Get+Map>$m1c</a>");
+	}
+	fwrite($fp, " <a href=../city/$mCityy>$m1d</a>");
+	fwrite($fp, " <a href=../land/$mLandd>$m1e</a>");
+	fwrite($fp, " $m1j");
+	fwrite($fp, "</div></td></tr>");
+	}
+	
+	}
+	$om1a=$m1a;
+	$om1b=$m1b;
+	$om1c=$m1c;
+	$om1d=$m1d;
+	$om1e=$m1e;
+	$om1j=$m1j;
+	}
+if ($mFlag1==1) {
+fwrite($fp, "</td></tr></table>");
+}
+fwrite($fp, "</div>");
+
+$om1g="";
+fwrite($fp, "<table border=0 cellpadding=3 width=700>");
+fwrite($fp, "<tr>");
+fwrite($fp, "<td width=20% valign=top align=right>");
+fwrite($fp, "&nbsp;</td>");
+fwrite($fp, "<td>&nbsp;");
+
+
+
+$Query11 = "SELECT DISTINCT * FROM `holisticopia2` WHERE a='$State' and b='$City' order by a,b,g;";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+$om1g = "";
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+	$m1a = $Row11[0];
+	$m1b = $Row11[1];
+	$m1c = $Row11[2];
+	$m1d = $Row11[3];
+	$m1e = $Row11[4];
+	$m1f = $Row11[5];
+	$m1g = $Row11[6];
+	$m1h = $Row11[7];
+	$m1i = $Row11[8];
+	$m1j = $Row11[9];
+	
+	$m2a = str_replace(" ", "_", $m1a);
+	$m2b = str_replace(" ", "_", $m1b);
+	$m2c = str_replace(" ", "_", $m1c);
+	$m2d = str_replace(" ", "_", $m1d);
+	$m2e = str_replace(" ", "_", $m1e);
+	$m2f = str_replace(" ", "_", $m1f);
+	$m2g = str_replace(" ", "_", $m1g);
+	$m2h = str_replace(" ", "_", $m1h);
+	$m2i = str_replace(" ", "_", $m1i);
+	$m2j = str_replace(" ", "_", $m1j);
+
+	$m3a = str_replace(" ", "+", $m1a);
+	$m3b = str_replace(" ", "+", $m1b);
+	$m3c = str_replace(" ", "+", $m1c);
+	$m3d = str_replace(" ", "+", $m1d);
+	$mmd = strpos($m1d, "#");
+	if ($mmd) {
+		$mmmd = substr($m1d, 0, $mmd);
+		$m3d = str_replace(" ", "+", $mmmd);
+	}
+	
+	$mmd = strpos($m1d, ",");
+	if ($mmd) {
+		$mmmd = substr($m1d, 0, $mmd);
+		$m3d = str_replace(" ", "+", $mmmd);
+	}
+	
+	$m3e = str_replace(" ", "+", $m1e);
+	$m3f = str_replace(" ", "+", $m1f);
+	$m3g = str_replace(" ", "+", $m1g);
+	$m3h = str_replace(" ", "+", $m1h);
+	$m3i = str_replace(" ", "+", $m1i);
+	$m3j = str_replace(" ", "+", $m1j);
+	
+	if ($om1g==$m1g and $om1a==$m1a and $om1b==$m1b) {} else
+	{
+	$mGeo="$m3a";
+	$mGeo=$mGeo."_$m3g.htm";
+	fwrite($fp, "</td></tr>");
+fwrite($fp, "<tr>");
+fwrite($fp, "<td width=20% valign=top align=right><div class='div4'>");
+fwrite($fp, "<b>");
+fwrite($fp, "<a href=../geo/$mGeo>$m1g</a></font></b></div></td>");
+fwrite($fp, "<td><div class='div8'> ");
+	}
+	
+	$mFlag=1;
+	
+	if ($mFlag==1) {	
+	
+		if ($m1f) {		
+		$m2c = str_replace(" ", "+", $m1c);
+		$m2g = str_replace(" ", "+", $m1g);
+		fwrite($fp, "<a target=_blank href=$m1f><b>$m1c</b></a> ");
+		if ($mPlace=="World") {
+		fwrite($fp, " $m1c");
+	}
+	if ($mPlace=="Canada") {
+		fwrite($fp, " <a target=_blank href=http://ca.maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b%2C+$m3a&Country=ca&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="France") {                
+		fwrite($fp, " <a target=_blank href=http://fr.maps.yahoo.com/py/maps.py?addr=$m3d&csz=$m3b&Country=fr>$m1d</a>");
+	}
+	if ($mPlace=="Germany") {                             
+		fwrite($fp, " <a target=_blank href=http://de.maps.yahoo.com/py/lg:de/lc:de/maps.py?BFCat=&Pyt=Tmap&newFL=Benutzen+Sie+die+unten+angegebene+Adresse&addr=$m3d&csz=$m3b&country=de&Get%A0Map=Karte+anzeigen>$m1d</a>");
+	}
+	if ($mPlace=="Netherlands") {                                
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=nl&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Spain") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=es&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Italy") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=it&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Portugal") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=it&Get%A0Map=Get+Map>$m1d</a>");
+	}	
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=at&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Switzerland") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=ch&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Belgium") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=be&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=at&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Luxembourg") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=lu&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	
+	
+	
+	if ($mPlace=="United Kingdom") {                                 
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=uk&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="USA") {
+		fwrite($fp, " <a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b%2C+$m3a&Country=us&Get%A0Map=Get+Map>$m1d</a>");
+	}
+		
+		fwrite($fp, " $m1e $m1h $m1i $m1j <br>\n");
+		} else {
+		$m2c = str_replace(" ", "+", $m1c);
+		$m2g = str_replace(" ", "+", $m1g);
+		$mGoogle="http://www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=$m2c+$m2g+$State2&btnG=Google+Search";
+		fwrite($fp, "$m1c ");
+		
+	if ($mPlace=="World") {
+		fwrite($fp, " $m1c");
+	}
+	if ($mPlace=="Canada") {
+		fwrite($fp, " <a target=_blank href=http://ca.maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b%2C+$m3a&Country=ca&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="France") {                
+		fwrite($fp, " <a target=_blank href=http://fr.maps.yahoo.com/py/maps.py?addr=$m3d&csz=$m3b&Country=fr>$m1d</a>");
+	}
+	if ($mPlace=="Germany") {                             
+		fwrite($fp, " <a target=_blank href=http://de.maps.yahoo.com/py/lg:de/lc:de/maps.py?BFCat=&Pyt=Tmap&newFL=Benutzen+Sie+die+unten+angegebene+Adresse&addr=$m3d&csz=$m3b&country=de&Get%A0Map=Karte+anzeigen>$m1d</a>");
+	}
+	if ($mPlace=="Netherlands") {                                
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=nl&Get%A0Map=Get+Map>$m1d</a>");
+	}
+		if ($mPlace=="Spain") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=es&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Italy") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=it&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Portugal") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=it&Get%A0Map=Get+Map>$m1d</a>");
+	}	
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=at&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Switzerland") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=ch&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Belgium") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=be&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Austria") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=at&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="Luxembourg") {          
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=lu&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="United Kingdom") {                                 
+		fwrite($fp, " <a target=_blank href=http://uk.maps.yahoo.com/py/lg:uk/lc:uk/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b&country=uk&Get%A0Map=Get+Map>$m1d</a>");
+	}
+	if ($mPlace=="USA") {
+		fwrite($fp, " <a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$m3d&csz=$m3b%2C+$m3a&Country=us&Get%A0Map=Get+Map>$m1d</a>");
+	}
+		fwrite($fp, " $m1e $m1f $m1h $m1i $m1j <br>\n");
+		}
+	$om1g = $m1g;
+	$om1a = $m1a;
+	$om1b = $m1b;
+	}
+	}
+	fwrite($fp, "</div></td></tr></table>");
+
+fwrite($fp, "</div>");
+
+$mSSearch="$City2+$State2";
+
+fwrite($fp, "<p>");
+fwrite($fp, "<div align=center><table width=95% border=0 cellpadding=3><tr>");
+fwrite($fp, "<td align=center><div class='div6'><b><a target=_blank href=http://www.hotbot.com/adv.asp?prov=Inktomi&query=$mSSearch&ps=&loc=searchbox&tab=web&lang=&dfi=&dfe=&region=&wfc=2&wfr=&wfw=&wfq=&wfr=&wfw=&wfq=&date=0&past=&dateop=after&month=1&day=&year=2003&pc=audio&pcu=&adf=>Audio</a> ");
+fwrite($fp, "<a target=_blank href=http://catalogs.google.com/catalogs?q=$mSSearch&btnG=Google+Search>Catalogs</a> ");
+fwrite($fp, "<a target=_blank href=http://search.launch.yahoo.com/search/lsearch/all?p=$mSSearch>Music</a> ");
+fwrite($fp, "<a target=_blank href=http://health.yahoo.com/search/health?sid=&s=-%25s&p=$mSSearch>Health</a> ");
+fwrite($fp, "<a target=_blank href=http://images.google.com/images?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=$mSSearch&sa=N&tab=wi>Images</a> ");
+fwrite($fp, "<a target=_blank href=http://search.news.yahoo.com/search/news/?ei=UTF-8&p=$mSSearch&c=fullcov>News</a> ");
+fwrite($fp, "<a target=_blank href=http://groups.google.com/groups?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=$mSSearch&sa=N&tab=ig>Newsgroups</a><br>");
+fwrite($fp, "<a target=_blank href=http://search.ebay.com/search/search.dll?cgiurl=http%3A%2F%2Fcgi.ebay.com%2Fws%2F&krd=1&from=R8&MfcISAPICommand=GetResult&ht=1&SortProperty=MetaEndSort&query=$mSSearch>Shopping</a> ");
+fwrite($fp, "<a target=_blank href=http://search.travel.yahoo.com/bin/search/travel?p=$mSSearch>Travel</a> ");
+fwrite($fp, "<a target=_blank href=http://www.altavista.com/video/results?pg=q&stype=svideo&vidset=2&q=$mSSearch&avkw=xytx>Video</a> ");
+fwrite($fp, "<a target=_blank href=http://weather.yahoo.com/search/weather2?p=$mSSearch>Weather</a></div></td>");
+fwrite($fp, "</tr></table><p>");
+fwrite($fp, "");
+fwrite($fp, "<div align=center class='div7'>");
+fwrite($fp, "<b>&copy; 2004 by Tim Johnson</b>");
+fwrite($fp, "</div>");
+fwrite($fp, "<p><div align=center class='div6'><a href=mailto:info@holisticopia.com>info@holisticopia.com</a><p></div>");
+fwrite($fp, "</html>");
+
+fclose($fp);
+?>

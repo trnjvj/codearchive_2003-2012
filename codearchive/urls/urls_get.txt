@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+<?
+$abc=rand(2,5);
+$abc=1;
+print '<META HTTP-EQUIV="Refresh" Content="';
+print "$abc";
+print ', URL=urls_get.php">';
+?>
+<BODY BGCOLOR="#006600" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<TITLE>URLs</TITLE>
+</HEAD>
+<?
+//$abc=1;
+print "<div align=center>";
+print "<img src=logo.jpg><p>";
+print "<div class='div1'>URLs Get</div><p>";
+print "<p>$abc<p>";
+$nmn=0;
+include('db_connect.php');
+
+for ($hi=0; $hi<1; $hi++) {
+
+$Cat='';
+$mCount=0;
+
+$Query110 = "SELECT * FROM `archipelago_websites` WHERE o='' LIMIT 1;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];
+	$Cat5 = $Row110[5];
+	$Cat6 = $Row110[6];
+	if ($Cat2=='') {$Cat22=0;} else {$Cat22=$Cat2+10;}
+	print "$Cat2";
+	$Query112 = "UPDATE `archipelago_websites` SET o = '1' WHERE c = '$Cat2';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	}
+
+$TheFile = $Cat2;
+$Open = fopen($TheFile, "r");
+
+$myFile="";
+
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+$String = str_replace("'", "", $String);
+$myFile="$myFile$String";
+}
+
+$Query115 = "INSERT INTO `world`.`archipelago_websites_content` (`a` ,`b` ,`c` , `d` , `e` , `f` , `g` , `h` , `i`) VALUES ('$Cat', '$Cat1', '$Cat2', '$Cat3', '$Cat4', '$Cat5', '$Cat6', '$myFile', '');";
+$Result115 = mysql_db_query($DBName, $Query115, $Link);
+}
+}
+/*
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+$S="";
+
+$T1 = strpos($String, "class='res'");
+$String2 = str_replace("<b>", "", $String);
+$String2 = str_replace("</b>", "", $String2);
+
+if ($T1) {
+$U1 = str_replace('"', '', $String2);
+$pieces = explode(">", $U1);
+$ii = count($pieces);
+
+for($i=0;$i<$ii;$i++){
+	$thispiece = str_replace("<", "[", $pieces[$i]);
+	$U2 = strpos($thispiece, "class='res'");	
+	if ($U2) {
+			$thispiece = str_replace("[a class='res' href='", "", $thispiece);
+			$thispiece = str_replace("'", "", $thispiece);
+			
+			$url = $thispiece;
+			
+		}
+		else {
+		if ($i>1) {$ppp=$pieces[$i-1];} else {$ppp="";}
+		$U3 = strpos($ppp, "class='res'");
+			if ($U3) {
+				$thispiece = str_replace("[/a", "", $thispiece);
+				$thispiece = str_replace("'", "", $thispiece);
+				$title = $thispiece;
+				}
+				else 
+				{
+				$U4 = strpos($ppp, "class=s");
+			if ($U4) {
+				$thispiece = str_replace("[br", "", $thispiece);
+				$thispiece = str_replace("'", "", $thispiece);
+				$para = $thispiece;
+				
+				
+				$today = getdate();
+$month = $today['month'];
+$mday = $today['mday'];
+$year = $today['year'];
+$now = "$month $mday, $year";
+
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$weekday = $today['weekday'];
+$now2 = "$hours:$minutes:$seconds";
+print "<table width=600 border=0><tr><td><div class='div1'><a target=_blank href=$url><b>$title</b></a> $para</div></td></tr></table>";
+$Query121 = "INSERT INTO `archipelago_websites` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` ) VALUES ('$Cat', '$title', '$url', '$para', '$now', '$now2', '$TheFile', '', '', '', '', '', '', '', '');";
+$Result121 = mysql_db_query($DBName, $Query121, $Link);
+}
+else 
+{				
+}
+}
+}
+}
+}
+$S2 = substr($String, 0, 17);
+$S3 = str_replace("<", "[", $S2);
+if ($S2=="<span class=ngrn>") {
+	$String2 = str_replace("<", "[", $String);
+	$String=str_replace('<span class=ngrn>', '', $String);
+	$String=str_replace('<br>', '', $String);
+	$String=str_replace('</span>', '', $String);
+	$String=str_replace('</span>', '', $String);
+	$String="http://$String";		
+	$mCount++;
+	$S=$String;
+	}
+}
+
+$Query112 = "UPDATE `archipelago_searchterms` SET d = '$S' WHERE a = '$Cat';";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+
+fclose($Open);
+}
+
+if ($mCount==0) {
+$Query112 = "UPDATE `archipelago_searchterms` SET b='2' where a='$Cat'";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+}
+}
+if ($Cat) {} else {
+print "<div class='div1'>done.</div>";
+
+}
+*/
+mysql_close ($Link);
+print "<p><div align=center><div class='div1'>&copy; 2004 by <a href=mailto:timjohnson@holisticopia.com>Tim Johnson</a></div></div>";
+
+?>

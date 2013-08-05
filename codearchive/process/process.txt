@@ -1,0 +1,44 @@
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$TheFile = "genfeed.php";
+$Start=0;
+$Open = @fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++)
+    	{
+		$String = trim($Data[$n]);
+		
+		$m1 = strstr($String, "</title>");		
+		if ($m1) {
+			$title=str_replace("<title>", "", $String);
+			$title=str_replace("</title>", "", $title);
+			}
+		$m1 = strstr($String, "</link>");		
+		if ($m1) {
+			$link=str_replace("<link>", "", $String);
+			$link=str_replace("</link>", "", $link);
+			}
+		$m1 = strstr($String, "</description>");		
+		if ($m1) {
+			$description=str_replace("<description>", "", $String);
+			$description=str_replace("</description>", "", $description);
+			}			
+		
+		$m1 = strstr($String, "</item>");		
+		if ($m1) {	
+			print "$title<br>";
+			$Query120 = "INSERT INTO `bloggle_rss_feeds` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` , `p` , `q` , `r` , `s` , `t` ) VALUES ('$title', '$link', '$description', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);
+			}
+		}
+	}
+mysql_close ($Link);
+?>

@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=altavista.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Cat='';
+$mCount=0;
+
+$Query110 = "SELECT * FROM `ore` ORDER BY b;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$Cat2 = $Row110[2];
+	$Cat3 = $Row110[3];
+	$Cat4 = $Row110[4];
+
+	if ($Cat1==$oCat1) {} else {
+	$Query112 = "INSERT INTO `ore_boil` ( `a` , `b` , `c` ) VALUES ('$Cat', '$Cat1', '');";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	print "$Cat1 ";
+	}
+
+	$oCat1 = $Cat1;
+	}
+
+
+
+
+mysql_close ($Link);
+?>

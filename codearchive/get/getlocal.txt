@@ -1,0 +1,54 @@
+<html>
+<HEAD>
+<TITLE>Holisticopia</TITLE>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF">
+<?
+$C1=1;
+$L1 = "USA";
+$L2 = "California";
+$L3 = "Santa Clara County";
+$L4 = "San Jose";
+$Level=4;
+$M1 = "Business";
+$LevelB=1;
+
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "categories";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mSearch="San Jose California Business";
+
+
+$mL1 = str_replace(" ", "+", $L1);
+$mL2 = str_replace(" ", "+", $L2);
+$mL3 = str_replace(" ", "+", $L3);
+$mL4 = str_replace(" ", "+", $L4);
+$mM1 = str_replace(" ", "+", $M1);
+$mM2 = str_replace(" ", "+", $M2);
+$mM3 = str_replace(" ", "+", $M3);
+$mM4 = str_replace(" ", "+", $M4);
+$mM5 = str_replace(" ", "+", $M5);
+$mM6 = str_replace(" ", "+", $M6);
+
+$mD1 = str_replace(" ", "+", $D1);
+$mD2 = str_replace(" ", "+", $D2);
+$mD3 = str_replace(" ", "+", $D3);
+$mD4 = str_replace(" ", "+", $D4);
+$mD5 = str_replace(" ", "+", $D5);
+$mD6 = str_replace(" ", "+", $D6);
+$mD7 = str_replace(" ", "+", $D7);
+$mD8 = str_replace(" ", "+", $D8);
+$mLevel = $Level;
+
+include('yellow_pages.php');
+
+mysql_close ($Link);
+?>
+</body>
+</html>

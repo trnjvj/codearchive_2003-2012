@@ -1,0 +1,91 @@
+<?
+$FLAG=1;
+
+$mCache="List Produced by Pandora23: http://www.thedailynewsgrabber.com/mine/index.php?E1=$E1&L1=$L1\n\r\n\r";
+
+$mCol501=0;
+$mFirst=1;
+if ($L1) {$mSearch1=$L1;}
+if ($L2) {$mSearch1=$L2;}
+if ($L3) {$mSearch1=$L3;}
+
+if ($mSearch2) {$mSearch1="$mSearch1+$mSearch2";}
+if ($m20==1) {print "1";$mSearch1="$mSearch32";}
+$mSearch3 = str_replace(" ", "+", $mSearch1);
+
+$TheFile = "http://www.bartleby.com/cgi-bin/texis/webinator/sitesearch?FILTER=&query=$mSearch3&x=11&y=9";
+$Open = fopen($TheFile, "r");
+$mStart1=0;
+
+if ($Open) {
+$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$TT1 = strstr($Array[$m], 'bartleby');
+			if ($TT1) {
+			$SS1 = strstr($Array[$m], '<B>1)');
+			if ($SS1) {
+                    $mStart1=1;
+                    $mLaLa = str_replace("<A ", "<A target=_blank ", $Array[$m]);
+
+			  for ($m=0; $m<20; $m++) {
+			  $S2 = strpos($mLaLa, '"');
+			  $S3 = strpos($mLaLa, '"', $S2+2);
+			  $S4 = substr($mLaLa, $S2+1, $S3-$S2-1);
+			  $S5=strlen($mLaLa);
+			  $S6=substr($mLaLa, $S3+1, $S5-S3);
+			  $mLaLa=$S6;
+			  $S7 = strpos($S4, "ttp");
+			if ($S7) {
+
+
+$TheFile2 = "$S4";
+$Open2 = fopen($TheFile2, "r");
+if ($Open2) {
+$Data2 = file($TheFile2);
+for ($n2 = 0; $n2 < count($Data2); $n2++) {
+$String2 = trim($Data2[$n2]);
+$Array2 = explode("<p>", $String2);
+for ($m2 = 0; $m2 < count($Array2); $m2++) {
+$T2 = $Array2[$m2];
+$T2 = str_replace("<", "[", $T2);
+$T2 = str_replace(">", "]", $T2);
+$T3 = strpos($T2, "KEY");
+if ($T3) {
+$FLAG=1;
+}
+$FLAG=0;
+$T3 = strpos($T2, "(l");
+if ($T3) {
+$FLAG=1;
+}
+if ($FLAG==1) {
+
+$TT2 = strlen($T2);
+$Flag2=0;
+$TTTT2="";
+for ($mmm1=1; $mmm1<$TT2-1; $mmm1++)
+{
+$SS4 = substr($T2, $mmm1, 1);
+if ($SS4=="[") {$Flag2=0;}
+if ($SS4=="]") {$Flag2=1;}
+if ($Flag2==1) {
+$mCache="$mCache$SS4";
+
+	}
+}
+
+}
+}}}}}}}}}}
+$Subject = "Reference: $L1";
+$mCache=str_replace("[", "", $mCache);
+$mCache=str_replace("&nbsp;", "", $mCache);
+$mCache=str_replace("]", "", $mCache);
+
+
+if (mail($E1, $Subject, $mCache, "From: Pandora23 <pandora23@none.com>")) {print "$E1";}
+print "$mCache";
+
+?>

@@ -1,0 +1,26 @@
+<?
+$a = $_GET['a'];
+$b = $_GET['b'];
+$c = $_GET['c'];
+$d = $_GET['d'];
+print "<hr>$d";
+
+$headers  = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text; charset=iso-8859-1\r\n";
+$headers .= "From: $d <$a>";
+$Body='T
+';
+$Subject="$c";	
+$MailTo=$b; 
+print "<li>$b";
+
+//$MailTo="trnjvj@gmail.com";
+
+if (mail($MailTo, $Subject, $Body, $headers)) {print "<li>$MailTo";}
+
+
+?>
+
+
+
+

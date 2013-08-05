@@ -1,0 +1,78 @@
+<?
+set_time_limit (600000);
+print "hi!";
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query11 = "SELECT a from categories where b=''";
+$Result11 = mysql_db_query($DBName, $Query11, $Link);
+while ($Row11 = mysql_fetch_array ($Result11))
+	{
+    $Search = $Row11[0];
+	$Query12 = "UPDATE categories SET b='' WHERE a='$Search';";
+	$Result12 = mysql_db_query($DBName, $Query12, $Link);
+	
+$Letter = substr($Search, 0,1);
+$LetterFile = $Letter.".htm";
+print "!$Letter!<p>";
+$SearchPlus = str_replace(" ", "+", $Search);
+$SearchPlus = $SearchPlus.".htm";
+$Search2 = str_replace(" ", "_", $Search);
+$Lower = strtolower($Search2);
+$Links2 = $Lower."_books.htm";
+$CDs = $Lower."_cds.htm";
+$Dir = $Lower."_directory.htm";
+$News = $Lower."_news.htm";
+
+print "$Links2";
+
+$fp = fopen("../holisticopia_dev/books/$SearchPlus", "wt");
+fwrite($fp, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><title>Holisticopia</title>');
+fwrite($fp, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+fwrite($fp, '<link rel="stylesheet" type="text/css" href="../css/resources.css"></head>');
+fwrite($fp, "<body bgcolor=#006633 background=../images/backgrd_holistic_tile.gif text=#DDFFDD link=#DDFFDD vlink=#DDFFDD alink=#DDFFDD>");
+fwrite($fp, "<div align=center><a href=../main.htm><img border=0 src=../images/logo.jpg></a><br></div>");
+fwrite($fp, "<div align=center><div class='div2'><table width=700 border=0><tr><td><table width=100% border=0>");
+fwrite($fp, "<tr><td valign=top align=left><font face=verdana size=2><b>");
+fwrite($fp, "<a href=../index.html>Holisticopia</a> &gt; <a href=../cat/$SearchPlus>$Search</a> &gt; Books</a>");
+fwrite($fp, "</b></font></td><td align=right><font face=verdana size=2><b>");
+fwrite($fp, "<a target=_blank href=../advertising.php>advertising</a> | <a target=_blank href=../revise.php>revisions</a>");
+fwrite($fp, "</b></font></td></tr></table>");
+
+fwrite($fp, "</div><p><div class='div1'><table width=95%>");
+$Query = "SELECT * from holisticopia_books where a='$Search' order by c";
+$Result = mysql_db_query($DBName, $Query, $Link);
+while ($Row = mysql_fetch_array ($Result))
+	{
+    $m1 = $Row[0];
+	$m2 = $Row[1];
+	$m3 = $Row[2];
+	$m4 = $Row[3];
+	
+	$m0 = "$m2";
+	if ($m0!=$mo0) {
+	$mmm4 = strstr($m4, "exec/");
+	if ($mmm4) {} else {	
+	print "<li><a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$m2/holisticopia-20><b>$m3</b></a> $m4";
+	fwrite($fp, "<tr><td><li><a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$m2/holisticopia-20><b>$m3</b></a> $m4</td></tr>");	
+	} }
+	$mo1 = $m1;
+	$mo2 = $m2;
+	$mo3 = $m3;
+	$mo4 = $m4;	
+	$mo0 = "$m2";
+	}
+print "</table>";
+fwrite($fp, "</table></div>");
+fwrite($fp, "<p><div align=center><font face=verdana size=2><b>&copy; 2003 by Tim Johnson</font><p></div>");
+fclose($fp);
+
+
+}
+mysql_close ($Link);
+?>

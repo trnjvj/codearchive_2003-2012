@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Refresh" Content="1, URL=dump_books.php">
+<BODY BGCOLOR="#FFFFFF" text="#000000" link="#111111" vlink="#222222" alink="#333333">
+<TITLE>Dump Books - Continue</TITLE>
+<?
+
+
+print "<font face=verdana size=4>";
+print "Archipelago 0.9.0<br>";
+print "Dump Books - Continue - Copyright 2004 by Tim Johnson<br>";
+print "All Rights Reserved</font><font face=verdana size=1><p>";
+
+$nmn=0;
+include('db_connect.php');
+
+$Query120 = "UPDATE `archipelago_websites_state` SET b='' WHERE 1;";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+print "Reset.";
+mysql_close ($Link);
+?>

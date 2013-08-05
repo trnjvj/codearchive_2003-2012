@@ -1,0 +1,46 @@
+<?
+set_time_limit (6000);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$TheFile = "all1.txt";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("|", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+		$mLine = $Array[$m];
+		
+		$SS2 = strstr($Array[$m], '"');
+		if ($SS2) {$mNum=1;}
+		$mNum = $mNum + 1;
+		if ($mNum == 3)  {$mNum2=$mLine;}
+		if ($mNum == 4)  {$mCat2=$mLine;}
+		if ($mNum > 5) {
+		$SS3 = strstr($mLine, "=");
+		if ($SS3) {} else {
+		$SS4 = strstr($mLine, ":");
+		if ($SS4) {
+			$mLine2 = substr($mLine, 0, $SS4);
+					
+			}
+		$mCat2 = str_replace("'", "#", $mCat2);
+		$mNumm=$mNumm+1;
+		if ($mNumm>3000) {
+		print "$mNum2|$mCat2|$mLine<br>";
+		$mNumm=1;
+		}
+		$Query23="INSERT INTO `herbage` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$mNum2', '$mCat2', '$mLine', '', '');";
+	    $Result23 = mysql_db_query($DBName, $Query23, $Link);
+		}
+		}
+}}}
+
+mysql_close ($Link);
+?>

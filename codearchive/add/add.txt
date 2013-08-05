@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Terracopia: Subscribe</title>
+</head>
+
+<body bgcolor=#333300 text=#FFFFAA link=#FFFFAA vlink=#FFFFAA alink=#FFFFAA>
+<div align="center">
+<a href=http://www.terracopia.net/index.html><img src="images/logo.jpg" border="0"></a><br>
+  
+  <table width=582 border=0>
+    <tr> 
+      <td valign=top align=left><font face=verdana size=2><b><a href=http://www.terracopia.net/index.html>Home</a> 
+        &gt; Subscribe</b></font></td>
+    </tr>
+  </table>
+
+<?
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "pacific_world";
+$Password = "turnip";
+$DBName = "pacific_world";
+$Tablename = "world";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query23="INSERT INTO `subscribe` ( `a` , `v` ) VALUES ('$Name', '$Email');";
+$Result23 = mysql_db_query($DBName, $Query23, $Link);
+
+print "<p><font face=verdana size=2>$Name ($Email) has been added to the Terracopia mailing list.</font>";
+mysql_close ($Link);
+?>

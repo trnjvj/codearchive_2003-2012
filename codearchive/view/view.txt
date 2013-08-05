@@ -1,0 +1,249 @@
+<?
+set_time_limit (0);
+
+if (1) {
+
+
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$today = getdate();
+$month = $today['month'];
+$mday = $today['mday'];
+$year = $today['year'];
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$weekday = $today['weekday'];
+$mStamp = "$mday $month, $year";
+$mStamp2 = "$mday $month, $year; $hours:$minutes:$seconds";
+
+if ($b) {
+if ($Save=="Save") {
+$Query120 = "UPDATE `bloggle_blog1` SET `k` = '$Body' where b='$b' and d='$p';";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+
+if ($p==$Title) {} else {
+$Query120 = "UPDATE `bloggle_blog1` SET `d` = '$Title' where b='$b' and d='$p';";
+$Result120 = mysql_db_query($DBName, $Query120, $Link);
+$p=$Title;
+}
+}
+
+if ($AddNewPage) {
+
+$Query110 = "INSERT INTO `bloggle_blog1` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` , `p` , `q` , `r` , `s` , `t` ) VALUES ('$Username', '$b', '$mStamp2', '$mStamp2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+$p=$mStamp2;
+}
+
+if ($DeleteThisPage) {
+$Query110 = "DELETE FROM `bloggle_blog1` WHERE b='$b' and d='$p';";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+$p="";
+}
+
+
+
+
+$Query210 = "SELECT * FROM `bloggle_blog2` WHERE t='$b';";
+$Result210 = mysql_db_query($DBName, $Query210, $Link);
+
+while ($Row210 = mysql_fetch_array ($Result210))
+{
+$ma = $Row210[0]; $mb = $Row210[1]; $mc = $Row210[2];
+$md = $Row210[3]; $me = $Row210[4]; $mf = $Row210[5];
+$mg = $Row210[6]; $mh = $Row210[7]; $mi = $Row210[8];
+$mj = $Row210[9]; $mk = $Row210[10];$ml = $Row210[11];
+$mm = $Row210[12];$mn = $Row210[13];$mo = $Row210[14];
+$mp = $Row210[15];$mq = $Row210[16];$mr = $Row210[17];
+$ms = $Row210[18];$mt = $Row210[19];$mu = $Row210[20];
+
+}
+
+print '<html><head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">';
+if (0) {print "<link rel='stylesheet' type='text/css' href='$ma'>";}
+if (1) {
+$Query211 = "SELECT * FROM `bloggle_css` where a='$ma';";
+$Result211 = mysql_db_query($DBName, $Query211, $Link);
+while ($Row211 = mysql_fetch_array ($Result211))
+{
+$ma1 = $Row211[1];
+}
+
+print "<style>$mu</style>";
+
+}
+print "</head>";
+print '<body LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>';
+print "<table width=100% bgcolor='$mg' cellpadding='0' cellspacing='0' border='0'>";
+print '<tr><td>';
+print '<table cellpadding="0" border="0" width=100%>';
+print '<tr valign="top">';
+if ($md) {print "<td background='$md' bgcolor='$me' width=202>";}
+else {print "<td bgcolor='$me' width=202>";}
+
+
+print '<div align=center>';
+print "$mb";
+print '<div class="navbar">';
+
+print '<table border=0>';
+print "<tr><td class='navbaroff'><strong>$b</strong></td></tr>";
+
+$Query110 = "SELECT * FROM `bloggle_blog1` WHERE b='$b' order by c;";
+
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[3];
+$m1aa = str_replace(" ", "+", $m1a);
+print "<tr><td class='navbaroff'><a href='view.php?b=$b&p=$m1aa'>$m1a</a></td></tr>";
+}
+
+print "</tr>";
+print '</table><p>&nbsp;</p></div>';
+
+print '</td><td>';
+
+print "<table width=100% border=0><tr><td valign='top'>";
+
+if ($Save=="Save") {print "<div class='textflow'>";}
+
+if ($p) {$Query110 = "SELECT * FROM `bloggle_blog1` WHERE d='$p' and b='$b';";}
+else {$Query110 = "SELECT * FROM `bloggle_blog1` WHERE b='$b' LIMIT 1;";}
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m1a = $Row110[10];
+$m1aa = str_replace(" ", "+", $m1a);
+$m2a = $Row110[3];
+$m2aa = str_replace(" ", "+", $m2a);
+
+if ($Save=="Save") {print "</div>";}
+
+print "<table background='$mc' width='100%' border='0'>";
+print '<tr><td valign="top">';
+
+print '<h1>';
+print "$m2a";
+print '</h1><p></p></td></tr></table>';
+
+
+print "<div class='textflow'>";
+$Body=str_replace("\'", "'", $Body);
+$Body=str_replace('\"', "'", $Body);
+$Body=str_replace('  ', " ", $Body);
+$Body=str_replace('  ', " ", $Body);
+print "$Body";
+
+if ($Preview=="Preview" or $Save=="Save") {$m1a=$Body;} else {
+print '';
+print "$m1a";
+}
+
+}
+print "$mf";
+print '<p></div></p>';
+
+
+
+print "</td><td valign=top>";
+
+print "<table width=100% border=0><tr><td valign=top>";
+
+if ($Save=="Save") {
+print "<strong>saved</strong><br>";
+}
+
+
+if ($Preview=="Preview") {print "<strong>Preview</strong>";}
+
+
+
+
+print "</td></tr></table>";
+
+print "</td></tr></table>";
+print '
+
+';
+
+print '</tr></table></form></td></tr></table></div>
+</tr></table></td></tr></table>
+</td></tr></table>
+</html>
+';
+
+}
+}
+
+
+$Query110 = "SELECT * FROM `bloggle_blog2` WHERE t='$b' LIMIT 1;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+{
+$m5a = $Row110[0];
+$m5b = $Row110[1];
+$m5c = $Row110[2];
+$m5d = $Row110[3];
+$m5e = $Row110[4];
+$m5f = $Row110[5];
+$m5g = $Row110[6];
+$m5h = $Row110[7];
+$m5i = $Row110[8];
+$m5j = $Row110[9];
+$m5k = $Row110[10];
+$m5l = $Row110[11];
+$m5m = $Row110[12];
+$m5n = $Row110[13];
+$m5o = $Row110[14];
+$m5p = $Row110[15];
+$m5q = $Row110[16];
+$m5r = $Row110[17];
+$m5s = $Row110[18];
+$m5t = $Row110[19];
+$m5u = $Row110[20];
+
+$m5a = str_replace("'", "", $m5a);
+$m5b = str_replace("'", "", $m5b);
+$m5c = str_replace("'", "", $m5c);
+$m5d = str_replace("'", "", $m5d);
+$m5e = str_replace("'", "", $m5e);
+$m5f = str_replace("'", "", $m5f);
+$m5g = str_replace("'", "", $m5g);
+$m5h = str_replace("'", "", $m5h);
+$m5i = str_replace("'", "", $m5i);
+$m5j = str_replace("'", "", $m5j);
+$m5k = str_replace("'", "", $m5k);
+$m5l = str_replace("'", "", $m5l);
+$m5m = str_replace("'", "", $m5m);
+$m5n = str_replace("'", "", $m5n);
+$m5o = str_replace("'", "", $m5o);
+$m5p = str_replace("'", "", $m5p);
+$m5q = str_replace("'", "", $m5q);
+$m5r = str_replace("'", "", $m5r);
+$m5s = str_replace("'", "", $m5s);
+$m5t = str_replace("'", "", $m5t);
+$m5u = str_replace("'", "", $m5u);
+
+}
+print '</body></html>
+';
+
+
+
+
+
+mysql_close ($Link);
+?>
+
+
+
+
+

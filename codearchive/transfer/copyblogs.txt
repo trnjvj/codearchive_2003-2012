@@ -1,0 +1,68 @@
+<?
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$mStamp2 = "$mday $month, $year; $hours:$minutes:$seconds";
+
+
+$Query210 = "SELECT * FROM `bloggle_blog0`;";
+$Result210 = mysql_db_query($DBName, $Query210, $Link);
+
+while ($Row210 = mysql_fetch_array ($Result210))
+{
+$ma = $Row210[0];
+$mb = $Row210[1];
+$mc = $Row210[2];
+$md = $Row210[3];
+$me = $Row210[4];$mf = $Row210[5];
+$mg = $Row210[6];$mh = $Row210[7];$mi = $Row210[8];
+$mj = $Row210[9];$mk = $Row210[10];$ml = $Row210[11];
+$mm = $Row210[12];$mn = $Row210[13];$mo = $Row210[14];
+$mp = $Row210[15];$mq = $Row210[16];$mr = $Row210[17];
+$ms = $Row210[18];$mt = $Row210[19];
+
+$Query212 = "SELECT b FROM `bloggle_css` WHERE a='$ma';";
+$Result212 = mysql_db_query($DBName, $Query212, $Link);
+
+while ($Row212 = mysql_fetch_array ($Result212))
+{
+$mu=$Row212[0];
+}
+
+$ma = str_replace("'", "\'", $ma);
+$mb = str_replace("'", "\'", $mb);
+$mc = str_replace("'", "\'", $mc);
+$md = str_replace("'", "\'", $md);
+$me = str_replace("'", "\'", $me);
+$mf = str_replace("'", "\'", $mf);
+$mg = str_replace("'", "\'", $mg);
+$mh = str_replace("'", "\'", $mh);
+$mi = str_replace("'", "\'", $mi);
+$mj = str_replace("'", "\'", $mj);
+$mk = str_replace("'", "\'", $mk);
+$ml = str_replace("'", "\'", $ml);
+$mm = str_replace("'", "\'", $mm);
+$mn = str_replace("'", "\'", $mn);
+$mo = str_replace("'", "\'", $mo);
+$mp = str_replace("'", "\'", $mp);
+$mq = str_replace("'", "\'", $mq);
+$mr = str_replace("'", "\'", $mr);
+$ms = str_replace("'", "\'", $ms);
+$mt = str_replace("'", "\'", $mt);
+$mu = str_replace("'", "\'", $mu);
+
+$Query211 = "INSERT INTO `bloggle_blog2` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` , `p` , `q` , `r` , `s` , `t` , `u` , `v` , `w` , `x` , `y` ) VALUES ('$ma', '$mb', '$mc', '$md', '$me', '$mf', '$mg', '$mh', '$mi', '$mj', '$mk', '$ml', '$mm', '$mn', '$mo', '$mp', '$mq', '$mr', '$ms', '$mt', '$mu', '', '', '', '');";
+$Result211 = mysql_db_query($DBName, $Query211, $Link);
+
+print "<li>$mt";
+}
+
+mysql_close ($Link);
+?>
+
+
+

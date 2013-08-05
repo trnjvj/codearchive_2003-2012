@@ -1,0 +1,108 @@
+<?
+include 'config.php';
+
+print "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>";
+print "<html>";
+print "<head>";
+print "<title>Archipelago 1</title>";
+print "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>";
+print "<link rel='stylesheet' type='text/css' href='index.css'>";
+print "</head>";
+print "<body bgcolor='#006600' text='#FFFFFF' link='#FFFFFF' vlink='#FFFFFF' alink='#CCCCCC'>";
+print "<div align='center'><a href='http://www.timjohnson.info/'><img border='0' src='logo.jpg' width='600' height='100'></a></div>";
+print "<hr width='600'>";
+print "<div align='center'>";
+print "  <table width='600' border='0' cellpadding='5'>";
+print "    <tr>";
+print "      <td width='40%' colspan='3' valign='top'><table width='100%'  border='0' cellpadding='5'>";
+print "        <tr>";
+print "          <td align=center width='33%'><div class='div1'>";
+if ($mSecurity==1) {
+print "            <div align='center'><a href='searchterms_clear.php' target='_blank'>Clear Terms</a></div>";
+}
+print "          </div></td>";
+print "          <td align=center width='33%'><div class='div1'><a href='searchterms_view.php' target='_blank'>View Terms </a></div></td>";
+print "          <td align=center width='33%'><div class='div1'>";
+if ($mSecurity==1) {
+print "            <div align='center'><a href='searchterms_import.php' target='_blank'>Import Terms</a></div>";
+}
+print "          </div></td>";
+print "        </tr>";
+print "        <tr>";
+print "          <td align=center >";
+print "              <div class='div1' align='left'>";
+print "                <div align='center'><a href='urls.php' target='_blank'>Websites</a></div>";
+print "              </div>";
+print "          </td>";
+print "          <td><div class='div1' align='left'>";
+print "                <div align='center'><a href='books.php' target='_blank'>Books</a></div>";
+print "            </div></td>";
+print "          <td>              <div class='div1' align='left'>";
+print "                <div align='center'><a href='dvds.php' target='_blank'>DVDs</a></div>";
+print "            </div></td>";
+print "        </tr>";
+print "        <tr>";
+if ($mSecurity==1) {
+print "          <td><div class='div1'>";
+print "            <div align='center'><a href='dump_urls_reset.php' target='_blank'>Export Websites</a></div>";
+print "          </div></td>";
+print "          <td><div class='div1'>";
+print "            <div align='center'><a href='dump_books_reset.php' target='_blank'>Export Books</a></div>";
+print "          </div></td>";
+print "          <td><div class='div1'>";
+print "            <div align='center'><a href='dump_dvds_reset.php' target='_blank'>Export DVDs</a></div>";
+print "          </div></td>";
+print "        </tr>";
+print "        <tr>";
+print "          <td><div class='div1'>";
+print "            <div align='center'><a href='urls_clear.php' target='_blank'>Clear Websites</a></div>";
+print "          </div></td>";
+print "          <td><div class='div1'>";
+print "            <div align='center'><a href='books_clear.php' target='_blank'>Clear Books</a></div>";
+print "          </div></td>";
+print "          <td><div class='div1'>";
+print "            <div align='center'><a href='dvds_clear.php' target='_blank'>Clear DVDs</a></div>";
+print "          </div></td>";
+print "        </tr>";
+
+print "        <tr>";
+print "          <td valign=top align=center><div class='div2'>";
+print "            <p><br>";
+print "              <a target=_blank href=websites_display.php>View Websites</a></p>";
+print "                             <a href='view/urls0.php' target='_blank'>0</a> ";
+print "";
+print "          </div></td>";
+print "          <td valign=top align=center><div class='div2'>";
+print "            <p><br>";
+print "              <a target=_blank href=books_display.php>View Books</a></p>            ";
+print "            <a href='view/books0.php' target='_blank'>0</a> ";
+print "          </div></td>";
+print " <td valign=top align=center><div class='div2'>";
+print "            <p><br>";
+print "              <a target=_blank href=dvds_display.php>View DVDs</a></p>";
+print "			<a href='view/dvds0.php' target='_blank'>0</a> ";
+print "    </div>";
+print "  </p></td>       </tr>";
+
+print "        <tr>";
+print "          <td><div align='center'><div class='div1'><a href='install.php' target='_blank'>Install</a></div></div></td>";
+
+print "          <td><div align='center'><div class='div1'><a target='_blank' href='generate_index.php'>Generate Directory</a></div></div></td>";
+print "          <td><div align='center'><div class='div1'><a href='uninstall.php' target='_blank'>Uninstall</a></div></div></td>";
+print "        </tr>";
+
+print "        <tr>";
+print "          <td><div align='center'><div class='div1'><a target=_blank href='cron.php'>Cron</a></div></div></td>";
+
+print "          <td><div align='center'><div class='div1'><a target=_blank href='website/index.html'>View Directory</a></div></div></td>";
+print "          <td><div align='center'><div class='div1'></div></div></td>";
+print "        </tr>";
+print "      </table></td>";
+print "    </tr>";
+}
+print "    </table>";
+print "</div>";
+print "<hr width='600'>";
+print "<div class='div1' align='center'>&copy; 2004 by <a href=mailto:timjohnson@holisticopia.com>Tim Johnson</a></div></div>";
+
+?>

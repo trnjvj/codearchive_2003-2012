@@ -1,0 +1,78 @@
+<div align=center>
+<?
+/* Multitopic Photo Obtainer v1.0 - copyright 2004 by Tim Johnson (trnjvj@yahoo.com) - all rights reserved */
+
+
+
+$PixCache="";
+
+$today = getdate();
+$month = $today['month'];
+$mday = $today['mday'];
+$year = $today['year'];
+$mCount=0;
+$mSearch=str_replace(' ', '+', $Cat);
+$mSearch2=$Cat;
+$mFound9912=0;
+$Query9912 = "SELECT b FROM `newsgrabber_pix` WHERE a='$Cat';";
+$Result9912 = mysql_db_query($DBName, $Query9912, $Link);
+while ($Row9912 = mysql_fetch_array ($Result9912))
+	{
+    $PixCache=$Row9912[0];
+	$mFound9912=1;
+	}
+if ($mFound9912==0) {	
+$nn=$Cat2;
+$gtre_found=0;
+for ($gtre = 1; $gtre<3; $gtre++) {
+if ($gtre==1) {$mS2="+News+$month+$year";}
+if ($gtre==2) {$mS2="";}
+if ($gtre_found==0) {
+$TheFile = "http://www.altavista.com/image/results?q=$mSearch$mS2&mik=photo&mip=all&mis=all&miwxh=all";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+$mbcde = strpos($String, "img ");
+$mbcdef = strpos($String, "href=");
+if ($mbcde) {if ($mbcdef) {
+$mgtr=strlen($String); 
+$mtrg = strpos($String, 'onMouseOver="self.status=');
+if ($mtrg) {
+$pieces = explode(" ", $String);
+$ii = count($pieces);
+for($i=0;$i<$ii;$i++){
+	$thispiece = $pieces[$i];
+	$mtty = strpos($thispiece, "MouseOver");
+	if ($mtty) {
+	$thispiece=str_replace('onMouseOver="self.status=', '', $thispiece);
+	$thispiece=str_replace("'", "", $thispiece);
+	$thispiece=str_replace(';', '', $thispiece);
+	$mouse=$thispiece;
+	}
+	$mtty = strpos($thispiece, "rc=");
+	if ($mtty) {
+	$thispiece=str_replace('src="', '', $thispiece);
+	$thispiece=str_replace('"', '', $thispiece);
+	$PixCache=$PixCache."<a target=_blank href=$mouse><img height=100 width=100 border=0 src=$thispiece></a>";
+	$gtre_found==1;
+}
+}
+}
+}
+}
+}
+}
+}
+}
+$Query9911 = "INSERT INTO `newsgrabber_pix` ( `a` , `b` , `c` , `d` ) VALUES ('$mSearch', '$PixCache', '', '');";
+$Result9911 = mysql_db_query($DBName, $Query9911, $Link);
+}
+
+$Pix = explode("</a>", $PixCache);
+$iPix = count($Pix);
+
+
+?>
+</div>

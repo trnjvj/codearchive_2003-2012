@@ -1,0 +1,107 @@
+<HTML><HEAD><META HTTP-EQUIV="Refresh" Content="100, URL=email_mine_cleanup1.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$Query115 = "SELECT e FROM `emails_new`;";
+$Result115 = mysql_db_query($DBName, $Query115, $Link);
+while ($Row115 = mysql_fetch_array ($Result115))
+	{	
+	$String = $Row115[0];
+
+	$script_name_array = explode(" ", $String);
+	$ii = count($script_name_array)+1;
+	for($i=0;$i<$ii;$i++) {
+
+		$Sstring=$script_name_array[$i];
+		$mFlag23=0;
+		$ss1 = strpos($Sstring, "@");
+
+		if ($ss1 > 0) {
+
+			if ($Sstring==$osstring) {} else {
+			$mFlag2000=0;
+			$mLa = strlen($Sstring);
+			$mLa1 = substr($Sstring, $mLa-3, 1);
+			if ($mLa1==".") {$mFlag2000=1;}
+			$mLa1 = substr($Sstring, $mLa-4, 1);
+			if ($mLa1==".") {$mFlag2000=1;}			
+			
+			if ($mFlag2000==1) {
+
+			$mok=0;	
+			
+			if (strlen($Sstring)>40) {$mok=1;}
+			if (strstr($Sstring, ",")) {$mok=1;}
+			if (strstr($Sstring, ";")) {$mok=1;}
+			if (strstr($Sstring, "=")) {$mok=1;}
+			if (strstr($Sstring, "/")) {$mok=1;}
+			if (strstr($Sstring, "=")) {$mok=1;}
+			if (strstr($Sstring, "%")) {$mok=1;}
+			if (strstr($Sstring, "*")) {$mok=1;}
+			if (strstr($Sstring, "1")) {$mok=1;}
+			if (strstr($Sstring, "2")) {$mok=1;}
+			if (strstr($Sstring, "3")) {$mok=1;}
+			if (strstr($Sstring, "4")) {$mok=1;}
+			if (strstr($Sstring, "5")) {$mok=1;}
+			if (strstr($Sstring, "6")) {$mok=1;}
+			if (strstr($Sstring, "7")) {$mok=1;}
+			if (strstr($Sstring, "8")) {$mok=1;}
+			if (strstr($Sstring, "9")) {$mok=1;}
+			if (strstr($Sstring, "0")) {$mok=1;}
+			if (strstr($Sstring, "(")) {$mok=1;}
+			if (strstr($Sstring, ")")) {$mok=1;}
+
+			
+			$TT = " $Sstring";
+			$Query12 = "SELECT b FROM `newsletters_filters`;";
+			$Result12 = mysql_db_query($DBName, $Query12, $Link);
+			while ($Row12 = mysql_fetch_array ($Result12))
+				{
+				$mmmm = $Row12[0];
+				if (strlen($mmmm)>0) {if (strstr($TT, $mmmm)) {$mok=1;}}
+				}
+				
+			$ma1 = strlen($Sstring);
+			$mj = 0;
+			for ($i = 0; $i <= $ma1; $i++) {
+				$mi = substr($Sstring, $i, 1);		
+				if ($mi=='a') {$mj++;}
+				if ($mi=='e') {$mj++;}
+				if ($mi=='i') {$mj++;}
+				if ($mi=='o') {$mj++;}
+				if ($mi=='u') {$mj++;}
+				if ($mi=='y') {$mj++;}
+				}
+			$mScore = intval(($ma1/$mj)*100);
+
+			if ($mScore>500) {$mok=1;}
+			if ($mScore<200) {$mok=1;}
+			if ($Sstring==$osstring) {} else {
+
+			$Query112 = "INSERT INTO `emails_new2` ( `a` , `b` , `c` ) VALUES ('$Sstring', '$mok', '');";
+			$Result112 = mysql_db_query($DBName, $Query112, $Link);
+			print "$Sstring ";
+			$osstring = $Sstring;
+
+			}
+			}
+			$osstring = $Sstring;			
+			}
+			$osstring = $Sstring;
+			}
+			$osstring = $Sstring;
+			}
+			$osstring = $Sstring;
+}
+
+mysql_close ($Link);
+?>

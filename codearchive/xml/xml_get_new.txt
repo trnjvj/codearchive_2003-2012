@@ -1,0 +1,955 @@
+<?
+set_time_limit (0);
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$TheFile = "http://66.227.84.26/xml/xml_new.php";
+$Start=0;
+$Open = @fopen($TheFile, "r");
+print "<font face=verdana size=1>";
+$mTableFlag="";
+
+if ($Open) {
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++)
+    	{
+		$String = trim($Data[$n]);
+		print "$String\n";
+		
+		if ($String=="<freetown_unsubscribe>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_freetown_unsubscribe`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</freetown_unsubscribe>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<freetown_unsubscribe>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_freetown_unsubscribe` ( `a` ) VALUES ('$m1a');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+
+
+		if ($String=="<holisticopia_unsubscribe>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_holisticopia_unsubscribe`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</holisticopia_unsubscribe>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<holisticopia_unsubscribe>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_holisticopia_unsubscribe` ( `a` ) VALUES ('$m1a');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+
+
+		if ($String=="<terracopia_unsubscribe>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_terracopia_unsubscribe`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</terracopia_unsubscribe>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<terracopia_unsubscribe>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_terracopia_unsubscribe` ( `a` ) VALUES ('$m1a');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+		
+		
+		if ($String=="<freetown_subscribe>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_freetown_subscribe`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</freetown_subscribe>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<freetown_subscribe>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);
+				
+				}
+				
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_freetown_subscribe` ( `a` , `b` , `c` ) VALUES ('$m1a', '$m1b', '$m1c');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+		
+		
+		
+		if ($String=="<holisticopia_subscribe>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_holisticopia_subscribe`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</holisticopia_subscribe>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<holisticopia_subscribe>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);
+				
+				}
+				
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_holisticopia_subscribe` ( `a` , `b` , `c` ) VALUES ('$m1a', '$m1b', '$m1c');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+		
+		
+		if ($String=="<terracopia_subscribe>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_terracopia_subscribe`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</terracopia_subscribe>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<terracopia_subscribe>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);
+				
+				}
+				
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_terracopia_subscribe` ( `a` , `b` , `c` ) VALUES ('$m1a', '$m1b', '$m1c');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+		
+		
+		if ($String=="<freetown_ads>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_freetown_ads`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</freetown_ads>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<freetown_ads>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1d");
+			if ($V7) {
+				$String2 = str_replace("<m1d>", "", $String);
+				$m1d = str_replace("</m1d>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1e");
+			if ($V7) {
+				$String2 = str_replace("<m1e>", "", $String);
+				$m1e = str_replace("</m1e>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1f");
+			if ($V7) {
+				$String2 = str_replace("<m1f>", "", $String);
+				$m1f = str_replace("</m1f>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1g");
+			if ($V7) {
+				$String2 = str_replace("<m1g>", "", $String);
+				$m1g = str_replace("</m1g>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1h");
+			if ($V7) {
+				$String2 = str_replace("<m1h>", "", $String);
+				$m1h = str_replace("</m1h>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1i");
+			if ($V7) {
+				$String2 = str_replace("<m1i>", "", $String);
+				$m1i = str_replace("</m1i>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1j");
+			if ($V7) {
+				$String2 = str_replace("<m1j>", "", $String);
+				$m1j = str_replace("</m1j>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1k");
+			if ($V7) {
+				$String2 = str_replace("<m1k>", "", $String);
+				$m1k = str_replace("</m1k>", "", $String2);
+				}
+			$V7 = strpos($String, "m1l");
+			if ($V7) {
+				$String2 = str_replace("<m1l>", "", $String);
+				$m1l = str_replace("</m1l>", "", $String2);
+				}
+			$V7 = strpos($String, "m1m");
+			if ($V7) {
+				$String2 = str_replace("<m1m>", "", $String);
+				$m1m = str_replace("</m1m>", "", $String2);
+				}
+			$V7 = strpos($String, "m1n");
+			if ($V7) {
+				$String2 = str_replace("<m1n>", "", $String);
+				$m1n = str_replace("</m1n>", "", $String2);
+
+				}
+			$V7 = strpos($String, "m1o");
+			if ($V7) {
+				$String2 = str_replace("<m1o>", "", $String);
+				$m1o = str_replace("</m1o>", "", $String2);
+				}
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_freetown_ads` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j', '$m1k', '$m1l', '$m1m', '$m1n', '$m1o');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		if ($String=="<holisticopia_ads>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_holisticopia_ads`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</holisticopia_ads>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<holisticopia_ads>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+
+				
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1d");
+			if ($V7) {
+				$String2 = str_replace("<m1d>", "", $String);
+				$m1d = str_replace("</m1d>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1e");
+			if ($V7) {
+				$String2 = str_replace("<m1e>", "", $String);
+				$m1e = str_replace("</m1e>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1f");
+			if ($V7) {
+				$String2 = str_replace("<m1f>", "", $String);
+				$m1f = str_replace("</m1f>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1g");
+			if ($V7) {
+				$String2 = str_replace("<m1g>", "", $String);
+				$m1g = str_replace("</m1g>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1h");
+			if ($V7) {
+				$String2 = str_replace("<m1h>", "", $String);
+				$m1h = str_replace("</m1h>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1i");
+			if ($V7) {
+				$String2 = str_replace("<m1i>", "", $String);
+				$m1i = str_replace("</m1i>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1j");
+			if ($V7) {
+				$String2 = str_replace("<m1j>", "", $String);
+				$m1j = str_replace("</m1j>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1k");
+			if ($V7) {
+				$String2 = str_replace("<m1k>", "", $String);
+				$m1k = str_replace("</m1k>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1l");
+			if ($V7) {
+				$String2 = str_replace("<m1l>", "", $String);
+				$m1l = str_replace("</m1l>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1m");
+			if ($V7) {
+				$String2 = str_replace("<m1m>", "", $String);
+				$m1m = str_replace("</m1m>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1n");
+			if ($V7) {
+				$String2 = str_replace("<m1n>", "", $String);
+				$m1n = str_replace("</m1n>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1o");
+			if ($V7) {
+				$String2 = str_replace("<m1o>", "", $String);
+				$m1o = str_replace("</m1o>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_holisticopia_ads` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j', '$m1k', '$m1l', '$m1m', '$m1n', '$m1o');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+		
+		
+		
+		
+		
+		
+		
+		if ($String=="<terracopia_ads>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_terracopia_ads`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</terracopia_ads>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<terracopia_ads>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1d");
+			if ($V7) {
+				$String2 = str_replace("<m1d>", "", $String);
+				$m1d = str_replace("</m1d>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1e");
+			if ($V7) {
+				$String2 = str_replace("<m1e>", "", $String);
+				$m1e = str_replace("</m1e>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1f");
+			if ($V7) {
+				$String2 = str_replace("<m1f>", "", $String);
+				$m1f = str_replace("</m1f>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1g");
+			if ($V7) {
+				$String2 = str_replace("<m1g>", "", $String);
+				$m1g = str_replace("</m1g>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1h");
+			if ($V7) {
+				$String2 = str_replace("<m1h>", "", $String);
+				$m1h = str_replace("</m1h>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1i");
+			if ($V7) {
+				$String2 = str_replace("<m1i>", "", $String);
+				$m1i = str_replace("</m1i>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1j");
+			if ($V7) {
+				$String2 = str_replace("<m1j>", "", $String);
+				$m1j = str_replace("</m1j>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1k");
+			if ($V7) {
+				$String2 = str_replace("<m1k>", "", $String);
+				$m1k = str_replace("</m1k>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1l");
+			if ($V7) {
+				$String2 = str_replace("<m1l>", "", $String);
+				$m1l = str_replace("</m1l>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1m");
+			if ($V7) {
+				$String2 = str_replace("<m1m>", "", $String);
+				$m1m = str_replace("</m1m>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1n");
+			if ($V7) {
+				$String2 = str_replace("<m1n>", "", $String);
+				$m1n = str_replace("</m1n>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1o");
+			if ($V7) {
+				$String2 = str_replace("<m1o>", "", $String);
+				$m1o = str_replace("</m1o>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_terracopia_ads` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j', '$m1k', '$m1l', '$m1m', '$m1n', '$m1o');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+
+
+
+
+
+
+
+		if ($String=="<terracopia_revise>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_terracopia_revise`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</terracopia_revise>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<terracopia_revise>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1d");
+			if ($V7) {
+				$String2 = str_replace("<m1d>", "", $String);
+				$m1d = str_replace("</m1d>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1e");
+			if ($V7) {
+				$String2 = str_replace("<m1e>", "", $String);
+				$m1e = str_replace("</m1e>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1f");
+			if ($V7) {
+				$String2 = str_replace("<m1f>", "", $String);
+				$m1f = str_replace("</m1f>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1g");
+			if ($V7) {
+				$String2 = str_replace("<m1g>", "", $String);
+				$m1g = str_replace("</m1g>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1h");
+			if ($V7) {
+				$String2 = str_replace("<m1h>", "", $String);
+				$m1h = str_replace("</m1h>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1i");
+			if ($V7) {
+				$String2 = str_replace("<m1i>", "", $String);
+				$m1i = str_replace("</m1i>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1j");
+			if ($V7) {
+				$String2 = str_replace("<m1j>", "", $String);
+				$m1j = str_replace("</m1j>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1k");
+			if ($V7) {
+				$String2 = str_replace("<m1k>", "", $String);
+				$m1k = str_replace("</m1k>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1l");
+			if ($V7) {
+				$String2 = str_replace("<m1l>", "", $String);
+				$m1l = str_replace("</m1l>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1m");
+			if ($V7) {
+				$String2 = str_replace("<m1m>", "", $String);
+				$m1m = str_replace("</m1m>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1n");
+			if ($V7) {
+				$String2 = str_replace("<m1n>", "", $String);
+				$m1n = str_replace("</m1n>", "", $String2);
+				
+				}
+			
+			$V7 = strpos($String, "m1o");
+			if ($V7) {
+				$String2 = str_replace("<m1o>", "", $String);
+				$m1b = str_replace("</m1o>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1p");
+			if ($V7) {
+				$String2 = str_replace("<m1p>", "", $String);
+				$m1b = str_replace("</m1p>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1q");
+			if ($V7) {
+				$String2 = str_replace("<m1q>", "", $String);
+				$m1b = str_replace("</m1q>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1r");
+			if ($V7) {
+				$String2 = str_replace("<m1r>", "", $String);
+				$m1b = str_replace("</m1r>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1s");
+			if ($V7) {
+				$String2 = str_replace("<m1s>", "", $String);
+				$m1b = str_replace("</m1s>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1t");
+			if ($V7) {
+				$String2 = str_replace("<m1t>", "", $String);
+				$m1b = str_replace("</m1t>", "", $String2);
+				
+				}
+				
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_terracopia_revise` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o`, `p`, `q`, `r`, `s`, `t` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j', '$m1k', '$m1l', '$m1m', '$m1n', '$m1o', '$m1p', '$m1q', '$m1r', '$m1s', '$m1t');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+		
+		
+		
+
+
+
+		if ($String=="<holisticopia_revise>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_holisticopia_revise`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</holisticopia_revise>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<holisticopia_revise>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1d");
+			if ($V7) {
+				$String2 = str_replace("<m1d>", "", $String);
+				$m1d = str_replace("</m1d>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1e");
+			if ($V7) {
+				$String2 = str_replace("<m1e>", "", $String);
+				$m1e = str_replace("</m1e>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1f");
+			if ($V7) {
+				$String2 = str_replace("<m1f>", "", $String);
+				$m1f = str_replace("</m1f>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1g");
+			if ($V7) {
+				$String2 = str_replace("<m1g>", "", $String);
+				$m1g = str_replace("</m1g>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1h");
+			if ($V7) {
+				$String2 = str_replace("<m1h>", "", $String);
+				$m1h = str_replace("</m1h>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1i");
+			if ($V7) {
+				$String2 = str_replace("<m1i>", "", $String);
+				$m1i = str_replace("</m1i>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1j");
+			if ($V7) {
+				$String2 = str_replace("<m1j>", "", $String);
+				$m1j = str_replace("</m1j>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1k");
+			if ($V7) {
+				$String2 = str_replace("<m1k>", "", $String);
+				$m1k = str_replace("</m1k>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1l");
+			if ($V7) {
+				$String2 = str_replace("<m1l>", "", $String);
+				$m1l = str_replace("</m1l>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1m");
+			if ($V7) {
+				$String2 = str_replace("<m1m>", "", $String);
+				$m1m = str_replace("</m1m>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1n");
+			if ($V7) {
+				$String2 = str_replace("<m1n>", "", $String);
+				$m1n = str_replace("</m1n>", "", $String2);
+				
+				}
+			
+			$V7 = strpos($String, "m1o");
+			if ($V7) {
+				$String2 = str_replace("<m1o>", "", $String);
+				$m1b = str_replace("</m1o>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1p");
+			if ($V7) {
+				$String2 = str_replace("<m1p>", "", $String);
+				$m1b = str_replace("</m1p>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1q");
+			if ($V7) {
+				$String2 = str_replace("<m1q>", "", $String);
+				$m1b = str_replace("</m1q>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1r");
+			if ($V7) {
+				$String2 = str_replace("<m1r>", "", $String);
+				$m1b = str_replace("</m1r>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1s");
+			if ($V7) {
+				$String2 = str_replace("<m1s>", "", $String);
+				$m1b = str_replace("</m1s>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1t");
+			if ($V7) {
+				$String2 = str_replace("<m1t>", "", $String);
+				$m1b = str_replace("</m1t>", "", $String2);
+				
+				}
+				
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_holisticopia_revise` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o`, `p`, `q`, `r`, `s`, `t` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j', '$m1k', '$m1l', '$m1m', '$m1n', '$m1o', '$m1p', '$m1q', '$m1r', '$m1s', '$m1t');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}
+
+
+
+
+
+
+
+
+
+
+		if ($String=="<freetown_revise>") {
+			$mTableFlag=$String;
+			$Query120 = "TRUNCATE TABLE `remote_freetown_revise`;";
+			$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+			}
+		if ($String=="</freetown_revise>") {$mTableFlag="";print "<p>";}
+		if ($mTableFlag=="<freetown_revise>") {
+			$V7 = strpos($String, "m1a");
+			if ($V7) {
+				$String2 = str_replace("<m1a>", "", $String);
+				$m1a = str_replace("</m1a>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1b");
+			if ($V7) {
+				$String2 = str_replace("<m1b>", "", $String);
+				$m1b = str_replace("</m1b>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1c");
+			if ($V7) {
+				$String2 = str_replace("<m1c>", "", $String);
+				$m1c = str_replace("</m1c>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1d");
+			if ($V7) {
+				$String2 = str_replace("<m1d>", "", $String);
+				$m1d = str_replace("</m1d>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1e");
+			if ($V7) {
+				$String2 = str_replace("<m1e>", "", $String);
+				$m1e = str_replace("</m1e>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1f");
+			if ($V7) {
+				$String2 = str_replace("<m1f>", "", $String);
+				$m1f = str_replace("</m1f>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1g");
+			if ($V7) {
+				$String2 = str_replace("<m1g>", "", $String);
+				$m1g = str_replace("</m1g>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1h");
+			if ($V7) {
+				$String2 = str_replace("<m1h>", "", $String);
+				$m1h = str_replace("</m1h>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1i");
+			if ($V7) {
+				$String2 = str_replace("<m1i>", "", $String);
+				$m1i = str_replace("</m1i>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1j");
+			if ($V7) {
+				$String2 = str_replace("<m1j>", "", $String);
+				$m1j = str_replace("</m1j>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1k");
+			if ($V7) {
+				$String2 = str_replace("<m1k>", "", $String);
+				$m1k = str_replace("</m1k>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1l");
+			if ($V7) {
+				$String2 = str_replace("<m1l>", "", $String);
+				$m1l = str_replace("</m1l>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1m");
+			if ($V7) {
+				$String2 = str_replace("<m1m>", "", $String);
+				$m1m = str_replace("</m1m>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1n");
+			if ($V7) {
+				$String2 = str_replace("<m1n>", "", $String);
+				$m1n = str_replace("</m1n>", "", $String2);
+				
+				}
+			
+			$V7 = strpos($String, "m1o");
+			if ($V7) {
+				$String2 = str_replace("<m1o>", "", $String);
+				$m1b = str_replace("</m1o>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1p");
+			if ($V7) {
+				$String2 = str_replace("<m1p>", "", $String);
+				$m1b = str_replace("</m1p>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1q");
+			if ($V7) {
+				$String2 = str_replace("<m1q>", "", $String);
+				$m1b = str_replace("</m1q>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1r");
+			if ($V7) {
+				$String2 = str_replace("<m1r>", "", $String);
+				$m1b = str_replace("</m1r>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1s");
+			if ($V7) {
+				$String2 = str_replace("<m1s>", "", $String);
+				$m1b = str_replace("</m1s>", "", $String2);
+				
+				}
+			$V7 = strpos($String, "m1t");
+			if ($V7) {
+				$String2 = str_replace("<m1t>", "", $String);
+				$m1b = str_replace("</m1t>", "", $String2);
+				
+				}
+				
+			$V7 = strpos($String, "/line>");
+			if ($V7) {
+				$Query120 = "INSERT INTO `remote_freetown_revise` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` , `k` , `l` , `m` , `n` , `o`, `p`, `q`, `r`, `s`, `t` ) VALUES ('$m1a', '$m1b', '$m1c', '$m1d', '$m1e', '$m1f', '$m1g', '$m1h', '$m1i', '$m1j', '$m1k', '$m1l', '$m1m', '$m1n', '$m1o', '$m1p', '$m1q', '$m1r', '$m1s', '$m1t');";
+				$Result120 = mysql_db_query($DBName, $Query120, $Link);print "<br>";
+				}
+		}	
+		
+	
+	
+	
+		
+		
+
+
+
+
+		
+
+		}
+	}
+
+mysql_close ($Link);print "<br>";
+?>

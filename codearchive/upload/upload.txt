@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>Handling File Uploads</TITLE>
+</HEAD>
+<BODY>
+<?
+if ($File) {
+print ("File name: $File_name<p>\n");
+print ("File size: $File_size<p>\n");
+if (copy($File, "upload/$File_name")) {
+print ("Your file was successfully uploaded!<p>\n");
+} else {
+print ("Your file could not be copied.<p>\n");
+}
+unlink($File);
+}
+
+print ("Upload a file to the server.\n");
+
+print ("<FORM ACTION=\"upload.php\" METHOD=POST ENCTYPE=\"multipart/form-data\">\n");
+print ("File <INPUT TYPE=FILE NAME=\"File\" SIZE=20><BR>\n");
+print ("<INPUT TYPE=SUBMIT NAME=\"SUBMIT\" VALUE=\"Submit!\"></FORM>\n");
+?>
+</BODY>
+</HTML>

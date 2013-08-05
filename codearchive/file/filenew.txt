@@ -1,0 +1,547 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><title>bloggle.org</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head><body bgcolor=beige><div align="center">
+<table bgcolor=FFFFFF width=700 cellpadding=5 border=1>
+<tr><td><table width=100% cellpadding=5 border=1 width=100%>
+<tr> 
+<td align=center valign=middle><p>
+<font color="black" size="+4" face="Times New Roman, Times, serif">Bloggle.org</font></p></td>
+</tr>
+<tr> 
+<td><form method=get action='filenew2.php'>
+<div align="center"> 
+<table width=100% border=4 cellpadding="3">
+<tr> 
+<td width="201"><div align="right"><font face="Verdana" size="2"><b>
+File Name:</b></font></div></td><td valign=top align=left width="477">
+<input type="text" name="Name" size="50"></td></tr>
+
+<tr> 
+<td width="201"> 
+<div align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Sidebar Background:</b></font></div>
+</td>
+<td valign=top align=left width="477"> 
+<select name="e">
+<option value='aliceblue'>aliceblue
+<option value='antiquewhite'>antiquewhite
+<option value='aqua'>aqua
+<option value='aquamarine'>aquamarine
+<option value='azure'>azure
+<option value='beige'>beige
+<option value='bisque'>bisque
+<option value='black'>black
+<option value='blachedalmond'>blachedalmond
+<option value='blue'>blue
+<option value='blueviolet'>blueviolet
+<option value='brown'>brown
+<option value='burlywood'>burlywood
+<option value='cadetblue'>cadetblue
+<option value='chartreuse'>chartreuse
+<option value='choclate'>choclate
+<option value='coral'>coral
+<option value='cornflowerblue'>cornflowerblue
+<option value='cornsilk'>cornsilk
+<option value='crimson'>crimson
+<option value='cyan'>cyan
+<option value='darkblue'>darkblue
+<option value='darkcyan'>darkcyan
+<option value='darkgoldenrod'>darkgoldenrod
+<option value='darkgray'>darkgray
+<option value='darkgreen'>darkgreen
+<option value='darkkhaki'>darkkhaki
+<option value='darkmagenta'>darkmagenta
+<option value='darkolivegreen'>darkolivegreen
+<option value='darkorange'>darkorange
+<option value='darkorchid'>darkorchid
+<option value='darkred'>darkred
+<option value='darksalmon'>darksalmon
+<option value='darkseagreen'>darkseagreen
+<option value='darkslateblue'>darkslateblue
+<option value='darkslategray'>darkslategray
+<option value='dakrturquoise'>dakrturquoise
+<option value='darkviolet'>darkviolet
+<option value='deeppink'>deeppink
+<option value='deepskyblue'>deepskyblue
+<option value='dimgray'>dimgray
+<option value='dodgerblue'>dodgerblue
+<option value='firebrick'>firebrick
+<option value='floralwhite'>floralwhite
+<option value='forestgreen'>forestgreen
+<option value='fuchsia'>fuchsia
+<option value='gainsboro'>gainsboro
+<option value='ghostwhite'>ghostwhite
+<option value='gold'>gold
+<option value='goldenrod'>goldenrod
+<option value='gray'>gray
+<option value='green'>green
+<option value='greenyellow'>greenyellow
+<option value='honeydew'>honeydew
+<option value='hotpink'>hotpink
+<option value='indianred'>indianred
+<option value='indigo'>indigo
+<option value='ivory'>ivory
+<option value='khaki'>khaki
+<option value='lavender'>lavender
+<option value='lavenderblush'>lavenderblush
+<option value='lawngreen'>lawngreen
+<option value='lemonchiffon'>lemonchiffon
+<option value='lightblue'>lightblue
+<option value='lightbcoral'>lightbcoral
+<option value='lightcyan'>lightcyan
+<option value='lightgoldenrodyellow'>lightgoldenrodyellow
+<option value='lightgreen'>lightgreen
+<option value='lightgrey'>lightgrey
+<option value='lightpink'>lightpink
+<option value='lightsalmon'>lightsalmon
+<option value='lightseagreen'>lightseagreen
+<option value='lightskyblue'>lightskyblue
+<option value='lightslategray'>lightslategray
+<option value='lightsteelblue'>lightsteelblue
+<option value='lightyellow'>lightyellow
+<option value='lime'>lime
+<option value='limegreen'>limegreen
+<option value='linen'>linen
+<option value='magenta'>magenta
+<option value='maroon'>maroon
+<option value='mediumaquamarine'>mediumaquamarine
+<option value='mediumblue'>mediumblue
+<option value='mediumorchid'>mediumorchid
+<option value='mediumpurple'>mediumpurple
+<option value='mediumseagreen'>mediumseagreen
+<option value='mediumslateblue'>mediumslateblue
+<option value='mediumspringgreen'>mediumspringgreen
+<option value='mediumturquoise'>mediumturquoise
+<option value='mediumvioletred'>mediumvioletred
+<option value='midnightblue'>midnightblue
+<option value='mintcream'>mintcream
+<option value='mistyrose'>mistyrose
+<option value='moccasin'>moccasin
+<option value='navajowhite'>navajowhite
+<option value='navy'>navy
+<option value='oldlace'>oldlace
+<option value='olive'>olive
+<option value='olivedrab'>olivedrab
+<option value='orange'>orange
+<option value='orangered'>orangered
+<option value='orchid'>orchid
+<option value='palegoldenrod'>palegoldenrod
+<option value='palegreen'>palegreen
+<option value='paleturquoise'>paleturquoise
+<option value='palevioletred'>palevioletred
+<option value='papayawhip'>papayawhip
+<option value='peachpuff'>peachpuff
+<option value='peru'>peru
+<option value='pink'>pink
+<option value='plum'>plum
+<option value='powerblue'>powerblue
+<option value='purple'>purple
+<option value='red'>red
+<option value='rosybrown'>rosybrown
+<option value='royalblue'>royalblue
+<option value='saddlebrown'>saddlebrown
+<option value='salmon'>salmon
+<option value='sandybrown'>sandybrown
+<option value='seagreen'>seagreen
+<option value='seashell'>seashell
+<option value='sienna'>sienna
+<option value='silver'>silver
+<option value='skyblue'>skyblue
+<option value='slateblue'>slateblue
+<option value='slategray'>slategray
+<option value='snow'>snow
+<option value='springgreen'>springgreen
+<option value='steelblue'>steelblue
+<option value='tan'>tan
+<option value='teal'>teal
+<option value='thistle'>thistle
+<option value='tomato'>tomato
+<option value='turquoise'>turquoise
+<option value='violet'>violet
+<option value='wheat'>wheat
+<option value='white'>white
+<option value='whitesmoke'>whitesmoke
+<option value='yellow'>yellow
+<option value='yellowgreen'>yellowgreen
+                </select>
+              </td>
+            </tr>
+<tr>
+<td width="201"><div align="right"><font face="Verdana" size="2"><b>
+Copyright:</b></font></div></td><td valign=top align=left width="477">
+<input type="text" name="f" size="50" value="<p class='author'>copyright 2003 by Me</p>"></td>
+ </tr>
+<tr>
+<td width="201"><div align="right"><font face="Verdana" size="2"><b>
+Page Background:</b></font></div></td><td valign=top align=left width="477">
+<select name="g">
+<option value='aliceblue'>aliceblue
+<option value='antiquewhite'>antiquewhite
+<option value='aqua'>aqua
+<option value='aquamarine'>aquamarine
+<option value='azure'>azure
+<option value='beige'>beige
+<option value='bisque'>bisque
+<option value='black'>black
+<option value='blanchedalmond'>blanchedalmond
+<option value='blue'>blue
+<option value='blueviolet'>blueviolet
+<option value='brown'>brown
+<option value='burlywood'>burlywood
+<option value='cadetblue'>cadetblue
+<option value='chartreuse'>chartreuse
+<option value='choclate'>choclate
+<option value='coral'>coral
+<option value='cornflowerblue'>cornflowerblue
+<option value='cornsilk'>cornsilk
+<option value='crimson'>crimson
+<option value='cyan'>cyan
+<option value='darkblue'>darkblue
+<option value='darkcyan'>darkcyan
+<option value='darkgoldenrod'>darkgoldenrod
+<option value='darkgray'>darkgray
+<option value='darkgreen'>darkgreen
+<option value='darkkhaki'>darkkhaki
+<option value='darkmagenta'>darkmagenta
+<option value='darkolivegreen'>darkolivegreen
+<option value='darkorange'>darkorange
+<option value='darkorchid'>darkorchid
+<option value='darkred'>darkred
+<option value='darksalmon'>darksalmon
+<option value='darkseagreen'>darkseagreen
+<option value='darkslateblue'>darkslateblue
+<option value='darkslategray'>darkslategray
+<option value='darkturquoise'>darkturquoise
+<option value='darkviolet'>darkviolet
+<option value='deeppink'>deeppink
+<option value='deepskyblue'>deepskyblue
+<option value='dimgray'>dimgray
+<option value='dodgerblue'>dodgerblue
+<option value='firebrick'>firebrick
+<option value='floralwhite'>floralwhite
+<option value='forestgreen'>forestgreen
+<option value='fuchsia'>fuchsia
+<option value='gainsboro'>gainsboro
+<option value='ghostwhite'>ghostwhite
+<option value='gold'>gold
+<option value='goldenrod'>goldenrod
+<option value='gray'>gray
+<option value='green'>green
+<option value='greenyellow'>greenyellow
+<option value='honeydew'>honeydew
+<option value='hotpink'>hotpink
+<option value='indianred'>indianred
+<option value='indigo'>indigo
+<option value='ivory'>ivory
+<option value='khaki'>khaki
+<option value='lavender'>lavender
+<option value='lavenderblush'>lavenderblush
+<option value='lawngreen'>lawngreen
+<option value='lemonchiffon'>lemonchiffon
+<option value='lightblue'>lightblue
+<option value='lightbcoral'>lightbcoral
+<option value='lightcyan'>lightcyan
+<option value='lightgoldenrodyellow'>lightgoldenrodyellow
+<option value='lightgreen'>lightgreen
+<option value='lightgrey'>lightgrey
+<option value='lightpink'>lightpink
+<option value='lightsalmon'>lightsalmon
+<option value='lightseagreen'>lightseagreen
+<option value='lightskyblue'>lightskyblue
+<option value='lightslategray'>lightslategray
+<option value='lightsteelblue'>lightsteelblue
+<option value='lightyellow'>lightyellow
+<option value='lime'>lime
+<option value='limegreen'>limegreen
+<option value='linen'>linen
+<option value='magenta'>magenta
+<option value='maroon'>maroon
+<option value='mediumaquamarine'>mediumaquamarine
+<option value='mediumblue'>mediumblue
+<option value='mediumorchid'>mediumorchid
+<option value='mediumpurple'>mediumpurple
+<option value='mediumseagreen'>mediumseagreen
+<option value='mediumslateblue'>mediumslateblue
+<option value='mediumspringgreen'>mediumspringgreen
+<option value='mediumturquoise'>mediumturquoise
+<option value='mediumvioletred'>mediumvioletred
+<option value='midnightblue'>midnightblue
+<option value='mintcream'>mintcream
+<option value='mistyrose'>mistyrose
+<option value='moccasin'>moccasin
+<option value='navajowhite'>navajowhite
+<option value='navy'>navy
+<option value='oldlace'>oldlace
+<option value='olive'>olive
+<option value='olivedrab'>olivedrab
+<option value='orange'>orange
+<option value='orangered'>orangered
+<option value='orchid'>orchid
+<option value='palegoldenrod'>palegoldenrod
+<option value='palegreen'>palegreen
+<option value='paleturquoise'>paleturquoise
+<option value='palevioletred'>palevioletred
+<option value='papayawhip'>papayawhip
+<option value='peachpuff'>peachpuff
+<option value='peru'>peru
+<option value='pink'>pink
+<option value='plum'>plum
+<option value='powerblue'>powerblue
+<option value='purple'>purple
+<option value='red'>red
+<option value='rosybrown'>rosybrown
+<option value='royalblue'>royalblue
+<option value='saddlebrown'>saddlebrown
+<option value='salmon'>salmon
+<option value='sandybrown'>sandybrown
+<option value='seagreen'>seagreen
+<option value='seashell'>seashell
+<option value='sienna'>sienna
+<option value='silver'>silver
+<option value='skyblue'>skyblue
+<option value='slateblue'>slateblue
+<option value='slategray'>slategray
+<option value='snow'>snow
+<option value='springgreen'>springgreen
+<option value='steelblue'>steelblue
+<option value='tan'>tan
+<option value='teal'>teal
+<option value='thistle'>thistle
+<option value='tomato'>tomato
+<option value='turquoise'>turquoise
+<option value='violet'>violet
+<option value='wheat'>wheat
+<option value='white'>white
+<option value='whitesmoke'>whitesmoke
+<option value='yellow'>yellow
+<option value='yellowgreen'>yellowgreen
+
+
+                </select>
+
+</td>
+</tr> 
+
+<tr>
+<td width="201"><div align="right"><font face="Verdana" size="2"><b>
+Style:</b></font></div></td><td valign=top align=left width="477">
+
+<textarea name="u" rows=10 cols=50 wrap=virtual>
+BODY {font-family: Times,serif; color: black; background: white;}
+A:link {color: rgb(0%,40%,0%);}
+A:visited {color: rgb(20%,20%,20%);}
+H1, H2, H3, H4, H5, H6 {font-family: Helvetica,Arial,sans-serif;}
+H1 {color: rgb(0%,0%,0%); width: 100%; 
+font: 200% Helvetica,sans-serif; font-variant: small-caps;
+letter-spacing: 0.10em; text-align: center; padding-right: 1em;
+line-height: 1em;}
+.sidebar {background: black; color: white; font-family: Helvetica,Arial,sans-serif;}
+.sidebar .head {font-size: larger; font-weight: bold; color: white;}
+.sidebar a {color: white; font-weight: normal; padding: 1px;}
+.sidebar a:hover {color: black; background-color: white;}
+.sidebar a:hover.current {background-color: transparent;}
+.navbar {font: 100% Helvetica,Arial,sans-serif; color: black; padding: 10; margin: 0 0 10px 0; width: 100%;}
+.navbar a {color: white; font-weight: normal; padding: 1px;}
+.navbar a:hover {color: black; background-color: white;}
+.navbar a:hover.current {background-color: transparent;}
+.navbartab {color: black; font: 100% Helvetica,Arial,sans-serif; padding: 5; margin: 0 0 10px 0;}
+.navbaroff {color: black; font: 100% Helvetica,Arial,sans-serif; padding: 5; margin: 0 0 10px 0;}
+.navbaroff a {color: black; font-weight: normal; padding: 1px;}
+.navbaroff a:hover {color: black; background-color: white;}
+.navbaroff a:hover.current {background-color: transparent;}
+.toptitle {font: 150% Helvetica,Arial,sans-serif; color: black; padding: 10; margin: 0 0 10px 0; width: 100%;}
+.toptitle a {color: white; font-weight: normal; padding: 1px;}
+.toptitle a:hover {color: black; background-color: white;}
+.toptitle a:hover.current {background-color: transparent;}
+.main {margin-left: 1.5em; background: #E7135C;}
+.pullq {font: 150% Helvetica,Arial,sans-serif; text-align: center;
+border-top: medium black solid; border-bottom: thin black solid;
+margin: 1em; padding: 0.5em; background: white;
+width: 50%; float: right;}
+.author {font: italic x-small Times,serif; text-align: center; border-top: thin black solid;
+padding-top: 0.25em; margin-top: 0.5em;}
+.initial {text-indent: 0;}
+P.initial:first-letter {font-size: 200%; float: left;}
+.sourcesflow {background: black; font: 100% Helvetica,Arial,sans-serif; color: white; padding: 10; margin: 0 0 10px 0; width: 100%;}
+.sourcesflow a {color: white; font-weight: normal; padding: 1px;}
+.sourcesflow a:hover {color: black; background-color: white;}
+.sourcesflow a:hover.current {background-color: transparent;}
+.textflow {color: black; font: 90% Helvetica,Arial,sans-serif; padding: 5; margin: 0 0 10px 0;}
+.textflow a {color: black; font-weight: normal; padding: 1px;}
+.textflow a:hover {color: black; background-color: white;}
+.textflow a:hover.current {background-color: transparent;}
+</textarea>
+</td></tr>
+ <p>
+ <input type="submit" name="Submit" value="Make New File">
+ </p>
+ </div>
+ </form></td>
+ </tr> 
+ </table>
+
+
+
+
+
+
+<table background=black border=1 cellpadding=1 width=100%><tr><td>
+
+<table width=100% cellpadding=5 bgcolor="aliceblue"><tr><td><font size=1 face=verdana color=black>aliceblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="antiquewhite"><tr><td><font size=1 face=verdana color=black>antiquewhite</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="aqua"><tr><td><font size=1 face=verdana color=black>aqua</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="aquamarine"><tr><td><font size=1 face=verdana color=black>aquamarine</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="azure"><tr><td><font size=1 face=verdana color=black>azure</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="beige"><tr><td><font size=1 face=verdana color=black>beige</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="bisque"><tr><td><font size=1 face=verdana color=black>bisque</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="black"><tr><td><font size=1 face=verdana color=white>black</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="blanchedalmond"><tr><td><font size=1 face=verdana color=black>blanchedalmond</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="blue"><tr><td><font size=1 face=verdana color=white>blue</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="blueviolet"><tr><td><font size=1 face=verdana color=white>blueviolet</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="brown"><tr><td><font size=1 face=verdana color=black>brown</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="burlywood"><tr><td><font size=1 face=verdana color=black>burlywood</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="cadetblue"><tr><td><font size=1 face=verdana color=black>cadetblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="chartreuse"><tr><td><font size=1 face=verdana color=black>chartreuse</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="choclate"><tr><td><font size=1 face=verdana color=black>choclate</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="coral"><tr><td><font size=1 face=verdana color=black>coral</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="cornflowerblue"><tr><td><font size=1 face=verdana color=black>cornflowerblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="cornsilk"><tr><td><font size=1 face=verdana color=black>cornsilk</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="crimson"><tr><td><font size=1 face=verdana color=black>crimson</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="cyan"><tr><td><font size=1 face=verdana color=black>cyan</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkblue"><tr><td><font size=1 face=verdana color=white>darkblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkcyan"><tr><td><font size=1 face=verdana color=white>darkcyan</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkgoldenrod"><tr><td><font size=1 face=verdana color=black>darkgoldenrod</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkgray"><tr><td><font size=1 face=verdana color=black>darkgray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkgreen"><tr><td><font size=1 face=verdana color=white>darkgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkkhaki"><tr><td><font size=1 face=verdana color=black>darkkhaki</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkmagenta"><tr><td><font size=1 face=verdana color=white>darkmagenta</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkolivegreen"><tr><td><font size=1 face=verdana color=white>darkolivegreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkorange"><tr><td><font size=1 face=verdana color=black>darkorange</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="darkorchid"><tr><td><font size=1 face=verdana color=white>darkorchid</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkred"><tr><td><font size=1 face=verdana color=white>darkred</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darksalmon"><tr><td><font size=1 face=verdana color=black>darksalmon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkseagreen"><tr><td><font size=1 face=verdana color=black>darkseagreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkslateblue"><tr><td><font size=1 face=verdana color=white>darkslateblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkslategray"><tr><td><font size=1 face=verdana color=white>darkslategray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="dakrturquoise"><tr><td><font size=1 face=verdana color=black>dakrturquoise</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="darkviolet"><tr><td><font size=1 face=verdana color=white>darkviolet</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="deeppink"><tr><td><font size=1 face=verdana color=white>deeppink</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="deepskyblue"><tr><td><font size=1 face=verdana color=black>deepskyblue</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="dimgray"><tr><td><font size=1 face=verdana color=white>dimgray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="dodgerblue"><tr><td><font size=1 face=verdana color=black>dodgerblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="firebrick"><tr><td><font size=1 face=verdana color=white>firebrick</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="floralwhite"><tr><td><font size=1 face=verdana color=black>floralwhite</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="forestgreen"><tr><td><font size=1 face=verdana color=white>forestgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="fuchsia"><tr><td><font size=1 face=verdana color=black>fuchsia</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="gainsboro"><tr><td><font size=1 face=verdana color=black>gainsboro</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="ghostwhite"><tr><td><font size=1 face=verdana color=black>ghostwhite</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="gold"><tr><td><font size=1 face=verdana color=black>gold</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="goldenrod"><tr><td><font size=1 face=verdana color=black>goldenrod</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="gray"><tr><td><font size=1 face=verdana color=black>gray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="green"><tr><td><font size=1 face=verdana color=white>green</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="greenyellow"><tr><td><font size=1 face=verdana color=black>greenyellow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="honeydew"><tr><td><font size=1 face=verdana color=black>honeydew</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="hotpink"><tr><td><font size=1 face=verdana color=black>hotpink</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="indianred"><tr><td><font size=1 face=verdana color=black>indianred</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="indigo"><tr><td><font size=1 face=verdana color=white>indigo</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="ivory"><tr><td><font size=1 face=verdana color=black>ivory</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="khaki"><tr><td><font size=1 face=verdana color=black>khaki</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lavender"><tr><td><font size=1 face=verdana color=black>lavender</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="lavenderblush"><tr><td><font size=1 face=verdana color=black>lavenderblush</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lawngreen"><tr><td><font size=1 face=verdana color=black>lawngreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lemonchiffon"><tr><td><font size=1 face=verdana color=black>lemonchiffon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightblue"><tr><td><font size=1 face=verdana color=black>lightblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightcoral"><tr><td><font size=1 face=verdana color=black>lightcoral</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightcyan"><tr><td><font size=1 face=verdana color=black>lightcyan</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightgoldenrodyellow"><tr><td><font size=1 face=verdana color=black>lightgoldenrodyellow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightgreen"><tr><td><font size=1 face=verdana color=black>lightgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightgrey"><tr><td><font size=1 face=verdana color=black>lightgrey</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightpink"><tr><td><font size=1 face=verdana color=black>lightpink</td></tr></table>
+</td>
+
+<td>
+<table width=100% cellpadding=5 bgcolor="lightsalmon"><tr><td><font size=1 face=verdana color=black>lightsalmon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightseagreen"><tr><td><font size=1 face=verdana color=black>lightseagreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightskyblue"><tr><td><font size=1 face=verdana color=black>lightskyblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightslategray"><tr><td><font size=1 face=verdana color=black>lightslategray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightsteelblue"><tr><td><font size=1 face=verdana color=black>lightsteelblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lightyellow"><tr><td><font size=1 face=verdana color=black>lightyellow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="lime"><tr><td><font size=1 face=verdana color=black>lime</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="limegreen"><tr><td><font size=1 face=verdana color=black>limegreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="linen"><tr><td><font size=1 face=verdana color=black>linen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="magenta"><tr><td><font size=1 face=verdana color=white>magenta</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="maroon"><tr><td><font size=1 face=verdana color=white>maroon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumaquamarine"><tr><td><font size=1 face=verdana color=black>mediumaquamarine</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumblue"><tr><td><font size=1 face=verdana color=white>mediumblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumorchid"><tr><td><font size=1 face=verdana color=black>mediumorchid</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumpurple"><tr><td><font size=1 face=verdana color=black>mediumpurple</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumseagreen"><tr><td><font size=1 face=verdana color=black>mediumseagreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumslateblue"><tr><td><font size=1 face=verdana color=black>mediumslateblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumspringgreen"><tr><td><font size=1 face=verdana color=black>mediumspringgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumturquoise"><tr><td><font size=1 face=verdana color=black>mediumturquoise</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mediumvioletred"><tr><td><font size=1 face=verdana color=white>mediumvioletred</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="midnightblue"><tr><td><font size=1 face=verdana color=white>midnightblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mintcream"><tr><td><font size=1 face=verdana color=black>mintcream</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="mistyrose"><tr><td><font size=1 face=verdana color=black>mistyrose</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="moccasin"><tr><td><font size=1 face=verdana color=black>moccasin</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="navajowhite"><tr><td><font size=1 face=verdana color=black>navajowhite</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="navy"><tr><td><font size=1 face=verdana color=white>navy</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="oldlace"><tr><td><font size=1 face=verdana color=black>oldlace</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="olive"><tr><td><font size=1 face=verdana color=white>olive</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="olivedrab"><tr><td><font size=1 face=verdana color=white>olivedrab</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="orange"><tr><td><font size=1 face=verdana color=black>orange</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="orangered"><tr><td><font size=1 face=verdana color=white>orangered</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="orchid"><tr><td><font size=1 face=verdana color=black>orchid</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="palegoldenrod"><tr><td><font size=1 face=verdana color=black>palegoldenrod</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="palegreen"><tr><td><font size=1 face=verdana color=black>palegreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="paleturquoise"><tr><td><font size=1 face=verdana color=black>paleturquoise</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="palevioletred"><tr><td><font size=1 face=verdana color=black>palevioletred</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="papayawhip"><tr><td><font size=1 face=verdana color=black>papayawhip</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="peachpuff"><tr><td><font size=1 face=verdana color=black>peachpuff</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="peru"><tr><td><font size=1 face=verdana color=black>peru</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="pink"><tr><td><font size=1 face=verdana color=black>pink</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="plum"><tr><td><font size=1 face=verdana color=black>plum</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="powerblue"><tr><td><font size=1 face=verdana color=black>powerblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="purple"><tr><td><font size=1 face=verdana color=white>purple</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="red"><tr><td><font size=1 face=verdana color=black>red</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="rosybrown"><tr><td><font size=1 face=verdana color=black>rosybrown</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="royalblue"><tr><td><font size=1 face=verdana color=white>royalblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="saddlebrown"><tr><td><font size=1 face=verdana color=white>saddlebrown</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="salmon"><tr><td><font size=1 face=verdana color=black>salmon</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="sandybrown"><tr><td><font size=1 face=verdana color=black>sandybrown</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="seagreen"><tr><td><font size=1 face=verdana color=white>seagreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="seashell"><tr><td><font size=1 face=verdana color=black>seashell</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="sienna"><tr><td><font size=1 face=verdana color=white>sienna</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="silver"><tr><td><font size=1 face=verdana color=black>silver</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="skyblue"><tr><td><font size=1 face=verdana color=black>skyblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="slateblue"><tr><td><font size=1 face=verdana color=white>slateblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="slategray"><tr><td><font size=1 face=verdana color=white>slategray</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="snow"><tr><td><font size=1 face=verdana color=black>snow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="springgreen"><tr><td><font size=1 face=verdana color=black>springgreen</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="steelblue"><tr><td><font size=1 face=verdana color=black>steelblue</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="tan"><tr><td><font size=1 face=verdana color=black>tan</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="teal"><tr><td><font size=1 face=verdana color=white>teal</td></tr></table>
+
+<table width=100% cellpadding=5 bgcolor="thistle"><tr><td><font size=1 face=verdana color=black>thistle</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="tomato"><tr><td><font size=1 face=verdana color=white>tomato</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="turquoise"><tr><td><font size=1 face=verdana color=black>turquoise</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="violet"><tr><td><font size=1 face=verdana color=black>violet</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="wheat"><tr><td><font size=1 face=verdana color=black>wheat</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="white"><tr><td><font size=1 face=verdana color=black>white</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="whitesmoke"><tr><td><font size=1 face=verdana color=black>whitesmoke</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="yellow"><tr><td><font size=1 face=verdana color=black>yellow</td></tr></table>
+<table width=100% cellpadding=5 bgcolor="yellowgreen"><tr><td><font size=1 face=verdana color=black>yellowgreen</td></tr></table>
+
+</td></tr></table>
+
+</td></tr></table>
+
+</div></body></html>

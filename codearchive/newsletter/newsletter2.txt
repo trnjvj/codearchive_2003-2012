@@ -1,0 +1,61 @@
+<?
+$TheFile = "http://www.holisticopia.com/herbage/gateway.php";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);	
+}}
+$mFlag=0;
+$mThis = strpos($String, "@");
+if ($mThis) {$mFlag++;}
+$mThis = strpos($String, ".");
+if ($mThis) {$mFlag++;}
+
+if ($mFlag==2) {
+
+$Body= '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<div align="center">
+<table width="100%" border="0" bgcolor="#EEEEEE">
+<tr><td align="center">
+<table width="584" border="1" cellpadding="5" bordercolor="#CCCCCC" bgcolor="#FFFFFF">
+<tr><td height="27"><div align="center">
+<a href="http://www.gaiawire.com/herbage/index.html">
+<img src="http://www.musicopia.net/herbage/images/new_header_100deduction.jpg" width="580" height="229" border="0"></a>
+<br><table width="579" border="0" cellpadding="3">
+<tr><td>
+<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
+The Herbage CD-ROM contains a database of over 28,000 concise monographs of medicinal plant species characteristics - and an inventory of claimed attributes and historical uses by cultures throughout the world. - the result of more than a decade of independent research.
+</font></td><td><table width="20%" border="0" cellpadding="3">
+<tr> <td>
+<div align="center">
+<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
+<a href="http://www.gaiawire.com/herbage/pages/index.html">
+Click here to see the presentation</a>
+</font></div></td></tr></table></td></tr></table>
+<table width="579" border="0" cellpadding="3">
+<tr><td><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
+Monographs are linked to hundreds of thousands of articles and images via the world wide web, providing an exhaustive tool for in-depth global herb research. Each species listing has links to powerful image and article searches. </font></td></tr></table><br><table width="579" border="0" cellpadding="7" cellspacing="2"><tr bgcolor="#CCFFCC"> <td colspan="2"> <div align="center"><font color="#000000" face="Arial, Helvetica, sans-serif"><strong>Features</strong></font></div></td></tr><tr><td align="left" valign="top" bgcolor="#EEFFEE"><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">- Presents information from diverse fields, including botany, ethnobatany, entheobotany, and traditional medicine</font></td><td align="left" valign="top" bgcolor="#EEFFEE"><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">- Organizes monograph information in 12 categories, including plant family, indigenous use, and body parts treated by plant</font></td></tr><tr><td bgcolor="#EEFFEE"><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
+- Addresses the global uses of all plant families </font></td>
+<td bgcolor="#EEFFEE"><font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
+- Alphabetical listing of plant species </font></td></tr></table><br>
+<table width="100%" border="0" cellpadding="3"><tr><td><div align="center">
+<a href="http://www.gaiawire.com/herbage/index.html">
+<img src="http://www.gaiawire.com/herbage/images/order_form_100dollars2.jpg" width="579" height="146" border="0"></a>
+<br></div></td></tr></table><font color="#000000" face="Arial, Helvetica, sans-serif">
+<br><font color="#000000" size="2">Or send a check or money order to:
+<p>Tim Johnson<br>309 Cedar Street #33<br>Santa Cruz, CA 95060<br>USA<br>
+(831) 419-0427</p></font> <p><font color="#000000" size="2">
+To unsubscribe from our mailing list - click 
+<a href="http://www.gaiawire.com/herbage/unsubscribe.htm">here</a>.<br>
+All unsubscribe requests will be honored promptly.</font></p></font> 
+<font color="#000000" face="Arial, Helvetica, sans-serif"></font></div></td></tr></table>
+<br></td></tr></table></div>';
+$headers .= "From: Tim Johnson <timjohnson@gaiawire.com>\r\n"; 
+$headers .= "Content-type: text/html; charset=iso-XXXX-XX\r\n"; 
+$Subject = "global database of 28,000 herbs";  
+$m1 = "herbagecdrom@yahoo.com"; if (mail($m1, $Subject, $Body, $headers)) {print "<li>$String";} 
+}
+?>

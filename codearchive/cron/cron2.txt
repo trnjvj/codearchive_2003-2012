@@ -1,0 +1,237 @@
+<?
+/* Expanded Page Obtainer v1.0 - copyright 2004 by Tim Johnson (trnjvj@yahoo.com) - all rights reserved */
+$Host = "localhost";
+$User = "thedail_world";
+$Password = "turnip";
+$DBName = "thedail_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$Query511 = "TRUNCATE TABLE `newsgrabber_links_temp`;";
+$Result511 = mysql_db_query($DBName, $Query511, $Link);
+mysql_close ($Link);
+
+$Cat=$s;
+$Cat23=$s;
+if ($l==3) {$Cat="$s, $u"; $Cat23="$s, $u";}
+if ($l==5) {$Cat="$s $t"; $Cat23="$s $t";}
+if ($l==6) {$Cat="$s $u $t"; $Cat23="$s $u $t";}
+if ($l==7) {$Cat="$s $t $v $u"; $Cat23="$s $t $v $u";}
+if ($l==8) {$Cat="$s $t $u $w $v"; $Cat23="$s $t $u $w $v";}
+if ($l==9) {$Cat="$s $t $u $w $v $x"; $Cat23="$s $t $u $w $v $x";}
+if ($l==10) {$Cat="$s $t $u $w $v $x $y"; $Cat23="$s $t $u $w $v $x $y";}
+$ste=str_replace("'", "|", $Cat);
+
+
+$mOFlag=0;
+$ThePage="http://www.thedailynewsgrabber.com/index.php?";
+if ($l) {
+$mOFlag=1;
+$ThePage=$ThePage."l=$l";
+}
+
+if ($s) {
+if ($mOFlag==1) {$ThePage=$ThePage."&";}
+$ss=str_replace(" ", "+", $s);
+$ThePage=$ThePage."s=$ss";
+if ($mOFlag==0) {$mOFlag=1;}
+}
+
+if ($t) {
+if ($mOFlag==1) {$ThePage=$ThePage."&";}
+$tt=str_replace(" ", "+", $t);
+$ThePage=$ThePage."t=$tt";
+if ($mOFlag==0) {$mOFlag=1;}
+}
+
+if ($u) {
+if ($mOFlag==1) {$ThePage=$ThePage."&";}
+$uu=str_replace(" ", "+", $u);
+$ThePage=$ThePage."u=$uu";
+if ($mOFlag==0) {$mOFlag=1;}
+}
+
+if ($v) {
+if ($mOFlag==1) {$ThePage=$ThePage."&";}
+$vv=str_replace(" ", "+", $v);
+$ThePage=$ThePage."v=$vv";
+if ($mOFlag==0) {$mOFlag=1;}
+}
+
+if ($w) {
+if ($mOFlag==1) {$ThePage=$ThePage."&";}
+$ww=str_replace(" ", "+", $w);
+$ThePage=$ThePage."w=$ww";
+if ($mOFlag==0) {$mOFlag=1;}
+}
+
+if ($x) {
+if ($mOFlag==1) {$ThePage=$ThePage."&";}
+$xx=str_replace(" ", "+", $x);
+$ThePage=$ThePage."x=$xx";
+if ($mOFlag==0) {$mOFlag=1;}
+}
+
+if ($y) {
+if ($mOFlag==1) {$ThePage=$ThePage."&";}
+$yy=str_replace(" ", "+", $y);
+$ThePage=$ThePage."y=$yy";
+if ($mOFlag==0) {$mOFlag=1;}
+}
+
+$LineNum=0;
+
+
+$Open = fopen($ThePage, "r");
+if ($Open) {
+$Data = file($ThePage);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+$pieces = explode(">", $String);
+$ii = count($pieces);
+for($i=0;$i<$ii;$i++){
+	$thispiece = str_replace("<", "[", $pieces[$i]);
+	$mpoi = strpos($thispiece, "page.php");
+	if ($mpoi) {
+	$mpoi2 = strpos($thispiece, "s=");
+	$mpoi3 = substr($thispiece, 0, $mpoi2);
+	$mpoi4 = str_replace("$mpoi3", "", $thispiece);
+	$mpoi4 = str_replace("s=", "", $mpoi4);
+	$mpoi4 = str_replace("'", "", $mpoi4);
+	if ($mpoi4==$ompoi4) {} else {
+	$Line[$LineNum]=$mpoi4;
+	$LineNum++;
+	
+	}
+	$ompoi4 = $mpoi4;
+	}
+	
+	}
+}}
+
+for($ijk=0;$ijk<$LineNum+1;$ijk++){  
+
+$Host = "localhost";
+$User = "dailywor_world";
+$Password = "turnip";
+$DBName = "dailywor_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$TheFile = $Line[$ijk];
+$Open = fopen($TheFile, "r");
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+$pieces = explode("<", $String);
+$ii = count($pieces);
+ for($i=0;$i<$ii;$i++){ 
+
+	$thispiece = $pieces[$i];
+	$thispiece2 = str_replace("<", "[", $thispiece);
+	
+		$mPos099 = strpos($thispiece2, ' href="http');
+		if ($mPos099==1) {
+		$thispiece2 = str_replace('a href="', '', $thispiece2);
+		
+		$t12 = strpos($thispiece2, '"');
+		$t12b = strpos($thispiece2, '>');
+		$t13b = substr($thispiece2, 0, $t12b);
+		$t12c = str_replace("$t13b>", "", $thispiece2);
+		$t13 = substr($thispiece2, 0, $t12);
+		$t14 = strpos($t12c, "$s");
+		$pieces23 = explode(" ", $t12c);
+		$ii23 = count($pieces23);
+		if ($ii23>4) {
+		if ($t12c==$ot12c) {} else {
+		$mFlagccc=0;
+		$t12cc=" $t12c";
+		$t12ccc=strpos($t12cc, "$s");
+		if ($t12ccc) {$mFlagccc=1;}
+		$t12cc=strtoupper($t12cc);
+		$stereo = strtoupper($s);
+		$t12ccc=strpos($t12cc, "$stereo");
+		if ($t12ccc) {$mFlagccc=1;}
+		print "<a target='_blank' href='$t13'>$t12c</a> | ";
+		$Query1111 = "INSERT INTO `newsgrabber_links_temp` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$ste', '$t12c', '$t13', '', '');";
+		$Result1111 = mysql_db_query($DBName, $Query1111, $Link);
+		}
+		$ot12c=$t12c;
+		}
+		
+		
+		}
+	
+	}}}
+mysql_close ($Link);
+
+}
+
+$Host = "localhost";
+$User = "dailywor_world";
+$Password = "turnip";
+$DBName = "dailywor_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "$Cat$Cat23??";
+
+$mCacheNum=0;
+$mCache9 = "";
+$mNum1=100;
+
+
+
+$Query1111 = "DELETE FROM `newsgrabber_links` WHERE a='$ste'";
+$Result1111 = mysql_db_query($DBName, $Query1111, $Link);
+$mFlag076=0;
+$Query123 = "SELECT * FROM `newsgrabber_links_temp` ORDER BY b;";
+$Result123 = mysql_db_query($DBName, $Query123, $Link);
+
+while ($Row123 = mysql_fetch_array ($Result123))
+	{
+    $m123 = $Row123[0];	
+	$m123b = $Row123[1];
+	$m123c = $Row123[2];
+	print "$m123b | ";
+	if ($m123b==$mo123b) {} else {
+		$mabcdef = substr($m123b, 0, 1);
+		if ($mabcdef=="A") {$mFlag076=1;}
+		if ($mabcdef=="B") {$mFlag076=1;}
+		if ($mabcdef=="C") {$mFlag076=1;}
+		if ($mabcdef=="D") {$mFlag076=1;}
+		if ($mabcdef=="E") {$mFlag076=1;}
+		if ($mabcdef=="F") {$mFlag076=1;}
+		if ($mFlag076==1) {
+		print "HI! ";
+		$mLen=strlen($m123b);
+				$mCacheNum = $mCacheNum + $mLen;
+				if ($mCacheNum>2000) {
+				$mNum1++;
+				$mCache9=str_replace("'", "|", $mCache9);
+				print "<li>$str | $mNum1 | $mCache9";
+				$Query21111 = "INSERT INTO `newsgrabber_cache` ( `a` , `b` , `c` , `d` ) VALUES ('$ste', '$mNum1', '$mCache9', '');";
+				$Result21111 = mysql_db_query($DBName, $Query21111, $Link);
+				print "$mCache9<hr>";
+				$mCache9="";
+				$mCacheNum=0;
+				}
+		$mCache9=$mCache9."<a target='_blank' href='$m123c'>$m123b</a> | ";
+		$Query1111 = "INSERT INTO `newsgrabber_links` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$ste', '$m123b', '$m123c', '', '');";
+		$Result1111 = mysql_db_query($DBName, $Query1111, $Link);
+		}
+	}
+	$mo123b=$m123b;
+	}
+$mCache9=str_replace("'", "|", $mCache9);
+print "<li>$ste | $mNum1 | $mCache9";
+$Query21111 = "INSERT INTO `newsgrabber_cache` ( `a` , `b` , `c` , `d` ) VALUES ('$ste', '$mNum1', '$mCache9', '');";
+$Result21111 = mysql_db_query($DBName, $Query21111, $Link);
+mysql_close ($Link);
+
+?>

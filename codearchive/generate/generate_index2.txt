@@ -1,0 +1,193 @@
+<?
+$nmn=0;
+include('db_connect.php');
+$mFound321=0;
+
+$Query111 = "SELECT * FROM `archipelago_color` WHERE f='' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Color1 = $Row110[1];
+	$Color2= $Row110[2];
+	$Color3 = $Row110[0];
+	$Color4 = $Row110[3];
+	$Query122 = "UPDATE `archipelago_color` SET f='1' where f='' LIMIT 1;";
+	$Result122 = mysql_db_query($DBName, $Query122, $Link);
+	}
+
+if ($Color1) {} else {
+$Query111 = "UPDATE `archipelago_color` SET f='';";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$Query111 = "SELECT * FROM `archipelago_color` WHERE f='' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Color1 = $Row110[1];
+	$Color2 = $Row110[2];
+	$Color3 = $Row110[2];
+	$Color4 = $Row110[3];
+	$Query122 = "UPDATE `archipelago_color` SET f='1' where a='$Color1', b='$Color2', c='$Color3', d='Color4';";
+	$Result122 = mysql_db_query($DBName, $Query122, $Link);
+	}
+}
+
+$Query111 = "SELECT * FROM `archipelago_menu` WHERE b='' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[1];
+	$mFound321=1;	
+	$Query122 = "UPDATE `archipelago_menu` SET b='1' where a='$Cat';";
+	$Result122 = mysql_db_query($DBName, $Query122, $Link);
+	}
+
+$mLink = str_replace(" ", "+", $Cat);
+$mFile = "website/index/$mLink.htm";
+$fp = fopen("$mFile", "wt");
+print '<HTML>';
+fwrite($fp, '<HTML>');
+print '<HEAD>';
+if ($mFound321==0) {
+print '<META HTTP-EQUIV="Refresh" Content="1, URL=website/index.html">';
+} else {
+print '<META HTTP-EQUIV="Refresh" Content="1, URL=generate_index2.php">';
+}
+fwrite($fp, '<HEAD>');
+print '<body BGCOLOR="#333333" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">';
+fwrite($fp, '<body BGCOLOR="#333333" text="#FFFFFF" link="#FCFCFC" vlink="#FFFFFF" alink="#FFFFFF">');
+print '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">';
+fwrite($fp, '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">');
+
+print "<link rel='stylesheet' type='text/css' href='index.css'>";
+fwrite($fp, "<link rel='stylesheet' type='text/css' href='../css/index.css'>");
+
+print '<TITLE>omnicopia.net ';
+print "$mLink";
+print '</TITLE>';
+fwrite($fp, '<TITLE>omnicopia.net ');
+$mLinek2 = str_replace("+", " ", $mLink);
+fwrite($fp, "$mLinek2");
+print '</TITLE>';
+fwrite($fp, '</TITLE>');
+print "</HEAD><div align='center'><div class='div1'>";
+fwrite($fp, "</HEAD><div align='center'><div class='div1'>");
+
+/*
+print '
+  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="738" height="422" id="timjohnson-info" align="middle">
+    <param name="allowScriptAccess" value="sameDomain" />
+    <param name="movie" value="timjohnson-info.swf" />
+    <param name="quality" value="high" />
+    <param name="bgcolor" value="#333333" />
+    <embed src="timjohnson-info.swf" quality="high" bgcolor="#333333" width="738" height="422" name="timjohnson-info" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+  </object>
+  ';
+*/
+
+fwrite($fp, '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="738" height="422" id="omnicopia" align="middle">
+    <param name="allowScriptAccess" value="sameDomain" />
+    <param name="movie" value="omnicopia.swf" />
+    <param name="quality" value="high" />
+    <param name="bgcolor" value="#333333" />
+    <embed src="omnicopia.swf" quality="high" bgcolor="#333333" width="738" height="422" name="omnicopia" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+  </object>
+  ');
+
+print "<table border=0 width=738><tr><td><div class='div1'>";
+fwrite($fp, "<table border=0 width=738><tr><td><div class='div1'>");
+print "<h3><a href='../index.html'>omnicopia.net</a> $Cat</a></h3>";
+fwrite($fp, "<h3><a href='../index.html'>omnicopia.net</a> $Cat</a></h3>");
+$Query111 = "SELECT * FROM `archipelago_websites` WHERE a='$Cat' ORDER BY b;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$mFirst = 0;
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$mRow1 = $Row110[0];
+	$mRow2 = $Row110[1];
+	$mRow3 = $Row110[2];
+	$mRow4 = $Row110[3];
+	if ($mFirst==0) {
+		//print "<p>&nbsp;</p><div align='center'><div class='div1'><b>Websites</b></div></div><br>"; 
+		//fwrite($fp, "<p>&nbsp;</p><div align='center'><div class='div1'><b>Websites</b></div></div><br>");
+		$mFirst=1;}
+	if ($o2==$mRow2) {} else {
+	print "<div class='div1'><a target='_blank' href='$mRow3'><b>$mRow2</b></a> $mRow4</div>";
+	fwrite($fp, "<div class='div1'><a target='_blank' href='$mRow3'><b>$mRow2</b></a> $mRow4</div>");
+	}
+	$o2 = $mRow2;
+	}
+
+$Query111 = "SELECT * FROM `archipelago_cds` WHERE a='$Cat' ORDER BY c;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$mFirst = 0;
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$mRow1 = $Row110[0];
+	$mRow2 = $Row110[1];
+	$mRow3 = $Row110[2];
+	$mRow4 = $Row110[3];
+	$mRow5 = $Row110[4];
+	$mRow6 = $Row110[5];
+	$mRow7 = $Row110[6];
+	
+	if ($mFirst==0) {
+		print "<p>&nbsp;</p><div align='center'><div class='div1'><b>CDs</b></div></div><br>"; 
+		fwrite($fp, "<p>&nbsp;</p><div align='center'><div class='div1'><b>CDs</b></div></div><br>");
+		$mFirst=1;}
+	if ($o2==$mRow2) {} else {
+	print "<div class='div1'><a target='_blank' href='$mRow7'><b>$mRow3</b></a> $mRow2</div>";
+	fwrite($fp, "<div class='div1'><a target='_blank' href='$mRow7'><b>$mRow3</b></a> $mRow2</div>");
+	}
+	$o2 = $mRow2;
+	}
+
+
+$Query111 = "SELECT * FROM `archipelago_books` WHERE a='$Cat' ORDER BY c;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$mFirst = 0;
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$mRow1 = $Row110[0];
+	$mRow2 = $Row110[2];
+	$mRow3 = $Row110[3];
+	$mRow4 = $Row110[4];
+	$mRow5 = $Row110[5];
+	if ($mFirst==0) {
+	print "<p>&nbsp;</p><div align='center'><div class='div1'><b>Books</b></div></div><br>"; 	
+	fwrite($fp, "<p>&nbsp;</p><div align='center'><div class='div1'><b>Books</b></div></div><br>");
+	$mFirst=1;}
+	if ($o2==$mRow2) {} else {
+	print "<div class='div1'><a target='_blank' href='$mRow4'><b>$mRow2</b></a> $mRow3</div>";
+	fwrite($fp, "<div class='div1'><a target='_blank' href='$mRow4'><b>$mRow2</b></a> $mRow3</div>");
+	}
+	$o2 = $mRow2;
+	}
+	
+$Query111 = "SELECT * FROM `archipelago_dvds` WHERE a='$Cat' ORDER BY b;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+$mFirst = 0;
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$mRow1 = $Row110[0];
+	$mRow2 = $Row110[1];
+	$mRow3 = $Row110[2];
+	$mRow4 = $Row110[3];
+	if ($mFirst==0) {
+		print "<p>&nbsp;</p><div align='center'><div class='div1'><b>DVDs</b></div></div><br>"; 
+		fwrite($fp, "<p>&nbsp;</p><div align='center'><div class='div1'><b>DVDs</b></div></div><br>");
+		
+		$mFirst=1;}
+	if ($o2==$mRow2) {} else {
+	print "<div class='div1'><a target='_blank' href='$mRow3'><b>$mRow2</b></a></div>";
+	fwrite($fp, "<div class='div1'><a target='_blank' href='$mRow3'><b>$mRow2</b></a></div>");
+	}
+	$o2 = $mRow2;
+	}
+
+
+print "</td></tr></table></div></html>";
+fwrite($fp, '</td></tr></table></div></html>');
+fclose($fp);
+mysql_close ($Link);
+?>

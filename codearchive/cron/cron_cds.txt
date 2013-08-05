@@ -1,0 +1,196 @@
+<?
+include('db_connect.php');
+
+$mCount=0;
+
+$Query111 = "SELECT * FROM `archipelago_searchterms` WHERE h='1' LIMIT 1;";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+while ($Row110 = mysql_fetch_array ($Result111))
+	{	
+	$Cat = $Row110[0];
+	$Cat1 = $Row110[7];
+	$Cat2 = $Row110[8];
+	
+	if ($Cat2=='') {$Cat22=2;} else {$Cat22=$Cat2+1;}
+	$Query122 = "UPDATE `archipelago_searchterms` SET h='1', i='$Cat22' where a='$Cat';";
+	$Result122 = mysql_db_query($DBName, $Query122, $Link);
+	}
+	
+if ($Cat=='') {
+	$Query111 = "SELECT * FROM `archipelago_searchterms` WHERE h='' LIMIT 1;";
+	$Result111 = mysql_db_query($DBName, $Query111, $Link);
+	while ($Row110 = mysql_fetch_array ($Result111))
+		{	
+		$Cat = $Row110[0];
+		$Cat1 = $Row110[7];
+		$Cat2 = $Row110[8];
+		
+		if ($Cat2=='') {$Cat22=2;} else {$Cat22=$Cat2+1;}
+		$Query122 = "UPDATE `archipelago_searchterms` SET h='1', i='$Cat22' where a='$Cat';";
+		$Result122 = mysql_db_query($DBName, $Query122, $Link);
+		}
+	}
+	
+
+$mSearch=str_replace(' ', '+', $Cat);
+
+
+$Col=1;
+$login=1;
+$mCached=0;
+if ($mCached==0) {
+$Cache="";
+$mCount2002=0;
+$Found2000=1;
+$mCount300=0;
+
+$m1=$Cat2;
+
+if ($mCount2002>5 and $login==0) {$Found2000=0;}
+if ($Found2000==1) {
+$TheFile = "http://www.amazon.com/exec/obidos/external-search?tag=stardigger&mode=Music&keyword=$mSearch&pg=$m1";
+$Open = fopen($TheFile, "r");
+if ($Open) {
+	$Found2000=0;
+	$First=1;
+	$TFound=0;
+	$Data = file($TheFile);
+	for ($n = 0; $n < count($Data); $n++) {
+		$String = trim($Data[$n]);
+		$Array = explode("<p>", $String);
+		for ($m = 0; $m < count($Array); $m++) {
+			$V0 = strstr($Array[$m], 'http://g-images.amazon.com/images/G/01/search-browse/button-more-results.gif');
+			if ($V0) {
+				$Found2000=1;
+				}
+			$V1 = strstr($Array[$m], 'Release Date:');
+			if ($V1) {
+					$V2 = strpos($Array[$m], ":");
+					$V3 = strlen($Array[$m]);
+					$V4 = substr($Array[$m], $V2+2, $V3-$V2-2);
+					$V8=$V4;
+					$ReleaseDate=$V8;
+					}
+			$V1 = strstr($Array[$m], '~');
+			if ($V1) {
+					$V2 = explode(">", $Array[$m]);
+					$ii = count($V2)+1;
+					for($i=1;$i<$ii;$i++){
+					$V10 = strpos($V2[$i], "/a");
+					if ($V10) {
+					$Artist = str_replace("</a", "", $V2[$i]);
+					
+					}
+					}
+					}
+			$V1 = strstr($Array[$m], 'G/01/detail/stars-');
+			if ($V1) {
+					$V2 = str_replace("<br>", "", $Array[$m]);
+					$V2 = strpos($Array[$m], "alt=");
+					$V3 = strlen($Array[$m]);
+					$V4 = substr($Array[$m], $V2+5, 3);
+                    $V9=$V4;
+					$Stars=$V9;
+					}
+			$S1 = strstr($Array[$m], '<a href=/exec/obidos/tg/detail/-/');
+			if ($S1) {
+					$S2 = strpos($Array[$m], "-");
+					$S3 = strpos($Array[$m], "/", $S2+2);
+					$S4 = substr($Array[$m], $S2+2, $S3-$S2-2);
+					$T0 = strpos($Array[$m], "<img");
+					if ($T0) {
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T3b = strpos($Array[$m], "<", $T3+1);
+						$T4 = substr($Array[$m], $T2+1, $T3b-$T2-1);
+						$T5 = "<a target=_blank href=http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20>$T4</a>";
+						$Image=$T5;
+								$Image = str_replace("THUMB", "LZZZZ", $Image);
+								$Image = str_replace("LZZZZ", "THUMB", $Image);
+								$Image = str_replace("width=50 height=49 ", "", $Image);
+								$Image = str_replace("width=50 height=50 ", "", $Image);
+								$Image = str_replace("align=left ", "", $Image);
+                                $Image = str_replace("<img ", "<img ", $Image);
+						$Image=str_replace("<a target=_blank href=", "", $Image);
+						$Image=str_replace('" align=center border=0></a>', '', $Image);
+						
+						$Image = str_replace("<", "]", $Image);
+						$Image = str_replace(">", "]", $Image);
+						$Image = str_replace('"', ']', $Image);
+						$Image23=$Image;
+						
+						$VV2 = explode("]", $Image);
+					$aa = count($VV2)+1;
+					for($a=1;$a<$aa;$a++){
+					$V10 = strpos($VV2[$a], "THUMB");
+					
+					if ($V10) {
+					$Image23= $VV2[$a];
+					
+					}
+					}
+						
+						
+						$T6 = strpos($Image, "music-no-image.gif");
+						if ($T6) {
+							$Image = "";
+							}
+						} else {
+						$T1 = strpos($Array[$m], "glance");
+						$T2 = strpos($Array[$m], ">", $T1);
+						$T3 = strpos($Array[$m], "<", $T2);
+						$T4 = substr($Array[$m], $T2+1, $T3-$T2-1);
+						$Story = "http://www.amazon.com/exec/obidos/ASIN/$S4/ref=ase_holisticopia-20";
+						$Title=$T4;
+						
+						if ($First==0) {
+                        	$mThis = strpos($Story, "Buy");
+                            if ($mThis) {} else {
+                            $mHasImage = strpos($Image, "img");
+                            if ($mHasImage) {
+                            $mCount2002 = $mCount2002+1;
+                            if ($login==1 or $mCount2002<4) {
+							if ($Artist) {if ($Story) {
+							$mCount++;
+							if ($Title=="Buy new") {} else {			
+							$Image=$Image23;				
+							$Query123 = "INSERT INTO `archipelago_cds` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j` ) VALUES ('$Cat', '$Artist', '$Title', '$Image', '$ReleaseDate', '$Stars', '$Story', '', '', '');";
+							$Result123 = mysql_db_query($DBName, $Query123, $Link);
+                    		}
+							$Artist="";
+							}
+							}
+                            }
+                           	}
+                            }
+							$TFound=1;
+							}
+							else {
+							$First=0;
+							}
+						}
+					$Sound = $S4;
+					$Found=1;
+					$mStory = str_replace("<a href=/exec/", "<a href=http://www.amazon.com/exec/", $Array[$m]);
+					$mStory = str_replace(" align=left", "", $mStory);
+					$S5 = strstr($mStory, "<img");
+					if ($TFound==1) {
+					}
+				}
+			}
+		}
+	}
+}
+}
+
+if ($Cat22>23) {$mCount=0;}
+if ($mCount==0) {
+$Query112 = "UPDATE `archipelago_searchterms` SET h='2' where a='$Cat'";
+$Result112 = mysql_db_query($DBName, $Query112, $Link);
+}
+
+print ".";
+mysql_close ($Link);
+
+?>

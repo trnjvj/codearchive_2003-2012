@@ -1,0 +1,18 @@
+<?
+
+	$MailTo = "$m1";
+	$headers  = "MIME-Version: 1.0\r\n";
+	$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+	$headers .= "From: Tim Johnson <timjohnson@zenbe.com>";
+	
+	$Body='
+';	
+$MailTo="trnjvj@gmail.com"; if (mail($MailTo, $Subject, $Body, $headers)) {print "<li>$MailTo";}
+
+$Subject = "Web UI Designer/Flash Prototyper"; $MailTo="trnjvj@gmail.com"; if (mail($MailTo, $Subject, $Body, $headers)) {print "<li>$MailTo";}
+
+?>
+
+
+
+

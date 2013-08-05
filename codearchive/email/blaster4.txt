@@ -1,0 +1,99 @@
+<?
+$mLevel = $Level;
+$Host = "localhost";
+$User = "freetownrecords";
+$Password = "turnip";
+$DBName = "freetownrecords_com";
+$Tablename = "log";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+$TheFile2 = "$T2";
+$Start2=0;
+$Query2 = "Select * from log2 where b=''";
+$Result2 = mysql_db_query($DBName, $Query2, $Link);
+while ($Row2 = mysql_fetch_array ($Result2))
+	{
+	$m1 = $Row2[0];
+	$Query17 = "UPDATE `log2` SET `b` = '1' WHERE `a` = '$m1'";
+	$Result17 = mysql_db_query($DBName, $Query17, $Link);
+	$m23=0;
+	$Query23 = "SELECT * FROM `u_log` WHERE a='$m1'";
+	$Result23 = mysql_db_query($DBName, $Query23, $Link);
+	while ($Row23 = mysql_fetch_array ($Result23))
+		{
+		print "111";
+		$m23=1;
+		}
+	$MailTo = "$m1";
+	$headers  = "MIME-Version: 1.0\r\n";
+	$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+	$headers .= "From: Holisticopia <info@holisticopia.com>";
+	$Subject = "[Holisticopia] May 15th Deadline";
+	$Body='<div align=center>
+<table width=100% border=0 cellpadding=10 bgcolor=6699CC>
+<tr> 
+<td><div align=center> 
+<table width=600 border=0 cellpadding=15 background=http://www.holisticopia.com/x23/backgrd_holistic_tile.jpg bgcolor=#333300>
+<tr> 
+<td><p align=center><a href=http://www.holisticopia.com/><img src=http://www.holisticopia.com/x23/logo.jpg width=580 height=90 border=0></a></p>
+<table width=100% border=0>
+<tr> 
+<td width=50%><font color=#FFFFFF size=3 face=Verdana>
+Acupressure to <br>Zone Balancing</font></td>
+
+<td align=right><font color=#FFFFFF size=3 face=Verdana>
+Andorra to <br>Zimbabwe
+</font></td>
+</tr>
+</table>
+<p align=center><font color=#00FF00 size=4 face=Verdana>
+<a href=http://www.holisticopia.com/><font color=#00FF00 face=Verdana>http://www.holisticopia.com/</font></a></font></p>
+<p><font color=#FFFFFF size=3 face=Verdana>
+With over 130,000 listings, Holisticopia is an enormous Holistic geographic directory for the entire world. Listings are organized by category and location, with over 160 categories, 13,327 locations, and growing daily. Online since January, 2001, Holisticopia is top-ranked on every major search engine, for thousands of search terms.
+</font></p>
+<p><font color=#FFFFFF size=3 face=Verdana>
+On May 30th, 2003, we will be releasing the Holisticopia CD-ROM, which will include the website in its entirety, and many new multimedia features.
+</font></p>
+<p><font color=#FFFFFF size=3 face=Verdana>
+Our advertising rates are reduced by 50% until May 15th, which is the advertising deadline for the CD-ROM.
+</font></p>
+<div align=center> 
+<table width=90% border=0 cellpadding=5>
+<tr> 
+<td>
+<p align=center><font color=#FFFFFF size=3 face=Verdana><b>
+New This Month on Holisticopia
+</b></font></p>
+<p align=center><font color=#FFFFFF face=Verdana size=3>
+Clickable maps of the world and every continent<br>
+<br>
+Links to geographic and categorical searches for books, videos, images, newsgroups, and more
+</font></p></td>
+</tr>
+</table>
+</div></td>
+</tr>
+</table>
+</div>
+</tr>
+</table>
+<p align=center><font face=Verdana>
+To Unsubscribe from this list, click <a href=http://www.holisticopia.com/unsubscribe.htm>here</a></font></p></td>
+</div>
+';	
+
+if ($m23==0) {
+	if (mail($MailTo, $Subject, $Body, $headers)) {print "<li>$m1";}
+	}
+	else
+	{
+	print "<li><b>$m1</b>";
+	}
+	$mFound51=1;
+	}
+mysql_close ($Link);
+?>
+
+
+
+

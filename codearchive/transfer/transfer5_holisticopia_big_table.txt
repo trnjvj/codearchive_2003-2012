@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<font face=verdana size=1>
+<?
+set_time_limit(100000);
+
+
+$nmn=0;
+$Host = "localhost";
+$User = "holisti_world";
+$Password = "turnip";
+$DBName = "holisti_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$TheFile = "holisticopia9.csv";
+$Open = fopen($TheFile, "r");
+
+if ($Open) {
+$Data = file($TheFile);
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+print "$String |  ";
+
+for ($n = 0; $n < count($Data); $n++) {
+$String = trim($Data[$n]);
+
+
+
+
+
+$pieces = explode('";', $String);
+$pieces[0]=str_replace('"', '', $pieces[0]);
+$pieces[0]=str_replace(';', '', $pieces[0]);
+$pieces[1]=str_replace('"', '', $pieces[1]);
+$pieces[1]=str_replace(';', '', $pieces[1]);
+$pieces[2]=str_replace('"', '', $pieces[2]);
+$pieces[2]=str_replace(';', '', $pieces[2]);
+$pieces[3]=str_replace('"', '', $pieces[3]);
+$pieces[3]=str_replace(';', '', $pieces[3]);
+$pieces[4]=str_replace('"', '', $pieces[4]);
+$pieces[4]=str_replace(';', '', $pieces[4]);
+$pieces[5]=str_replace('"', '', $pieces[5]);
+$pieces[5]=str_replace(';', '', $pieces[5]);
+$pieces[6]=str_replace('"', '', $pieces[6]);
+$pieces[6]=str_replace(';', '', $pieces[6]);
+$pieces[7]=str_replace('"', '', $pieces[7]);
+$pieces[7]=str_replace(';', '', $pieces[7]);
+$pieces[8]=str_replace('"', '', $pieces[8]);
+$pieces[8]=str_replace(';', '', $pieces[8]);
+$pieces[9]=str_replace('"', '', $pieces[9]);
+$pieces[9]=str_replace(';', '', $pieces[9]);
+print "'$pieces[0]', '$pieces[1]', '$pieces[2]', '$pieces[3]', '$pieces[4]', '$pieces[5]', '$pieces[6]', '$pieces[7]', '$pieces[8]', '$pieces[9]'<br>";
+$Query111 = "INSERT INTO `holisticopia` ( `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` , `i` , `j`) VALUES ('$pieces[0]', '$pieces[1]', '$pieces[2]', '$pieces[3]', '$pieces[4]', '$pieces[5]', '$pieces[6]', '$pieces[7]', '$pieces[8]', '$pieces[9]');";
+$Result111 = mysql_db_query($DBName, $Query111, $Link);
+
+}
+}
+}
+
+fclose($Open);
+
+mysql_close ($Link);
+?>

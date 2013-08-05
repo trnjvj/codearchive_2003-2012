@@ -1,0 +1,131 @@
+<?php
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "jbluepac_world";
+$Password = "turnip";
+$DBName = "jbluepac_world";
+$Tablename = "world";
+$Tablename = "yellow_pages";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+print "<html><title>Blue Pacific Marketing</title>";
+print "<body bgcolor=#FFFFFF text=#333300 link=#669999 vlink=#669999>";
+
+print "<div align=center><img border=0 src=../images/logo.jpg></a>";
+
+
+
+
+
+print "</div>";
+
+$mNum=1;
+print "<p><div align=center><table border=0 cellpadding=0 width=100%><tr><td width=25% align=left valign=top>";
+
+print "<div align=center><table border=0 cellpadding=0><tr><td align=left>";
+
+$Query24 = "SELECT DISTINCT b from listings order by b";
+$Result = mysql_db_query($DBName, $Query24, $Link);
+print "<font face=verdana size=2>";
+while ($Row = mysql_fetch_array ($Result))
+	{
+	if ($Row[0]=='') {} else {
+		$catee=str_replace(" ", "+", $Row[0]);
+		$cat=$Row[0];
+		
+		$Query25 = "INSERT INTO `count` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$cat', '', '', 'land', '');";
+		$Result25 = mysql_db_query($DBName, $Query25, $Link);
+		
+		print "<font face=verdana size=1><a href=land.php?land=$catee>$Row[0]</a></font><br>";
+		
+
+		}
+	}
+
+print "</td></tr></table>";
+
+print "</td><td valign=top>";
+print "<div align=center><table border=0 cellpadding=0 width=100%><tr><td width=33%>";
+
+$Query24 = "SELECT DISTINCT f from listings order by f";
+$Result = mysql_db_query($DBName, $Query24, $Link);
+print "<font face=verdana size=1>";
+while ($Row = mysql_fetch_array ($Result))
+	{
+	if ($Row[0]=='') {} else {
+		$catee=str_replace(" ", "+", $Row[0]);
+		
+		$cat=$Row[0];
+		
+		$Query25 = "INSERT INTO `count` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$cat', '', '', 'cat', '');";
+		$Result25 = mysql_db_query($DBName, $Query25, $Link);
+		
+		print "<font face=verdana size=1><a href=cat.php?cat=$catee>$Row[0]</a></font>";
+		$mNum=$mNum+1;
+		if ($mNum==4) {
+			print "</td></tr><tr><td width=33%>";
+			$mNum=1;
+			}
+			else
+			{
+			print "</td><td>";
+			}
+
+		}
+	}
+
+print "</td></tr></table>";
+
+
+
+
+
+print "</td></tr></table>";	
+print "<font face=verdana size=1><p>&nbsp;<p>© 2003 by Tim Johnson</font>";
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

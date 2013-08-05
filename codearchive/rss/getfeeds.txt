@@ -1,0 +1,57 @@
+<HTML><HEAD></HEAD>
+<font face=arial size=1>
+<?
+$Host = "localhost";
+$User = "jbloggle_world";
+$Password = "turnip";
+$DBName = "jbloggle_world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$today = getdate();
+$month = $today['month'];
+$mday = $today['mday'];
+$year = $today['year'];
+$seconds = $today['seconds'];
+$minutes = $today['minutes'];
+$hours = $today['hours'];
+$weekday = $today['weekday'];
+$mStamp = "$mday $month, $year";
+
+$Query110 = "SELECT distinct l FROM `bloggle_agg_feeds` WHERE t!='$mStamp' ORDER BY l LIMIT 10;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1 = $Row110[0];
+	$Query112 = "UPDATE `bloggle_agg_feeds` SET `t` = '$mStamp' WHERE `l` = '$m1';";
+	$Result112 = mysql_db_query($DBName, $Query112, $Link);
+	$TheFile = $m1;
+	$Cache = "";
+	$Open = fopen($TheFile, "r");
+	if ($Open) {
+		$Data = file($TheFile);
+		for ($n = 0; $n < count($Data); $n++) {
+			$String = trim($Data[$n]);
+			$Cache = $Cache.$String;
+			}
+			
+		$today = getdate();
+		$month = $today['month'];
+		$mday = $today['mday'];
+		$year = $today['year'];
+		$seconds = $today['seconds'];
+		$minutes = $today['minutes'];
+		$hours = $today['hours'];
+		$weekday = $today['weekday'];	
+		
+$Query113 = "INSERT INTO `bloggle_feed_data` ( `a` , `b` , `c` , `d` , `e` ) VALUES ('$m1', '$year:$month', '$mday', '$minutes:$seconds', '$Cache');";
+		$Result113 = mysql_db_query($DBName, $Query113, $Link);
+		print "<li>$m1";
+		}
+	}
+mysql_close ($Link);
+?>
+
+</font>
+</html>

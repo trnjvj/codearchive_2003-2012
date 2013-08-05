@@ -1,0 +1,107 @@
+<?php
+print "<html><title>Holisticopia: $State Health Spas</title>";
+print "<body bgcolor=FFFFFF text=000000 link=000000 vlink=000000>";
+if ($State) {} else {$State="California";}
+
+print "<div align=center><a href=index.html><img src=images/HCA5.jpg></a><p>";
+print "<p><b><font face=verdana size=3>$State Health Spas</font></b><p> ";
+print "<font face=verdana size=1><b><a href=advertising.htm>advertise on this page</a></b></font></div>";
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "world";
+$Tablename = "yellow_pages";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mFound10000=0;
+$mFound100=0;
+print "<div align=center><table border=0 cellpadding=10 width=820>";
+
+
+
+$Query24 = "SELECT DISTINCT b,k,e,f,g,i,j,l,m from yellow_pages where a='USA' and b='$State' and e='Holistic' order by b,k,e,f,g,h,i,j,l,m";
+$Result = mysql_db_query($DBName, $Query24, $Link);
+print "<font face=verdana size=1>";
+while ($Row = mysql_fetch_array ($Result))
+	{
+
+if ($mo1==$Row[1]) {} else {
+print "</td></tr></table><table cellpadding=5 width=100%><tr><td width=25%  valign=top align=right><b><font face=verdana size=2>$Row[1]</font></b></td><td><font face=verdana size=2>";}
+if ($mo3==$Row[3]) {} else {
+print "<font face=verdana size=2><br><b>$Row[3]</b><br></font>";
+}
+
+$mAddresss = str_replace(" ", "+", $Row[6]);
+$mAddresss = str_replace("#", "%23", $mAddresss);
+$mAddresss = str_replace("&", "%26", $mAddresss);
+$mCityy = str_replace(" ", "+", $Row[1]);
+$mStatee = str_replace(" ", "+", $Row[0]);
+$mSSSearch="$Row[5] $Row[1] $Row[0]";
+$mSSearch=str_replace(" ", "+", $mSSSearch);
+$mSSSearch = str_replace("&", "%26", $mSSSearch);
+$mSSSearch = str_replace("#", "%23", $mSSSearch);
+print "$Row[4] ";
+print "<a target=_blank href=http://www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=$mSSearch&btnG=Google+Search>$Row[5]</a> ";
+
+print "<a target=_blank href=http://maps.yahoo.com/py/maps.py?BFCat=&Pyt=Tmap&newFL=Use+Address+Below&addr=$mAddresss&csz=$mCityy%2C+$mStatee&Country=us&Get%A0Map=Get+Map>$Row[6]</a> ";
+print "$Row[7] ";
+print "<a target=_blank href=$Row[8]>$Row[8]</a> ";
+        print "<br>\n";
+
+$mo0=$Row[0];
+$mo1=$Row[1];
+$mo2=$Row[2];
+$mo3=$Row[3];
+
+	}
+print "</tr></table>";	
+print "<br>© 2002 by Tim Johnson (<a href=mailto:timjohnson@holisticopia.com>timjohnson@holisticopia.com</a>)";
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

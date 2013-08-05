@@ -1,0 +1,15 @@
+<html>
+<body bgcolor=000000>
+	<div align='center'>
+	<?PHP
+$z1 = $_GET['z1'];
+$mLine = "http://vimeo.com/$z1";
+$mFlag1 = strstr($mLine, 'ttp://vimeo.com/');
+    if ($mFlag1) {
+         $a1 = str_replace("http://vimeo.com/", "http://player.vimeo.com/video/", $mLine);
+        $a2 = "<iframe src='".$a1."?title=0&amp;byline=0&amp;portrait=0' width='800' height='600' frameborder='0'></iframe>";
+	}
+	print "!$a2";
+        ?>
+        </div>
+</body></html>

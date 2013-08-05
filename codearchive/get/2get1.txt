@@ -1,0 +1,28 @@
+<HTML><HEAD>
+<META HTTP-EQUIV="Refresh" Content="11111, URL=2get1.php">
+<font face=verdana size=1>
+<?
+set_time_limit(0);
+$nmn=0;
+$Host = "localhost";
+$User = "root";
+$Password = "";
+$DBName = "world";
+$Tablename = "T1";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+
+$Query110 = "SELECT DISTINCT a FROM `newsletters_herbage_new5` ORDER BY a;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+print "<font face=verdana,arial size=1>";
+$m0=0;
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$ma = $Row110[0];
+	print "$ma <br>";
+	$Query130 = "INSERT INTO `newsletters_herbage_new6` ( `a` , `b` , `c` ) VALUES ('$ma', '', '');";
+	$Result130 = mysql_db_query($DBName, $Query130, $Link);
+	}
+mysql_close ($Link);
+?>

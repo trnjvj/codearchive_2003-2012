@@ -1,0 +1,66 @@
+<?php
+print "<div align=center>";
+
+$mLevel = $Level;
+$Host = "localhost";
+$User = "holistic_world";
+$Password = "turnip";
+$DBName = "holistic_world";
+$Tablename = "world";
+$Tablename = "yellow_pages";
+$Link = mysql_connect ($Host, $User, $Password) or die ("Cannot connect to the database.\n");
+mysql_select_db ("$Tablename");
+
+$mFound10000=0;
+$mFound100=0;
+print "<div align=center><table border=0 width=820>";
+
+$Query24 = "SELECT DISTINCT b,k,e,f,g,i,j,l,m from yellow_pages where a='USA' and b='California' and e='Holistic' order by b,k,e,f,g,h,i,j,l,m";
+$Result = mysql_db_query($DBName, $Query24, $Link);
+print "<font face=verdana size=1>";
+while ($Row = mysql_fetch_array ($Result))
+	{
+if ($mo0==$Row[0]) {} else {
+	print "<p><b><font size=3>$Row[0]</font></b><p> ";}
+if ($mo1==$Row[1]) {} else {
+        print "</td></tr></table><table width=100%><tr><td width=25%  valign=top><b><font face=verdana size=2>$Row[1], $Row[0]</font></b></td><td><font face=verdana size=2>";}
+if ($mo3==$Row[3]) {} else {
+        print "<font face=verdana size=2><br><b>$Row[3]</b><br></font>";
+}
+print "<b>$Row[4]</b> ";
+print "$Row[5] ";
+print "$Row[6] ";
+print "$Row[7] ";
+print "$Row[8] ";
+        print "<br>\n";
+
+$mo0=$Row[0];
+$mo1=$Row[1];
+$mo2=$Row[2];
+$mo3=$Row[3];
+
+	}
+	
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

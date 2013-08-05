@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Tree Admin</title>
+</head>
+
+<body>
+<?
+set_time_limit(0);
+include('db_connect.php');
+
+$a = $_GET['a'];
+$b = $_GET['b'];
+$c = $_GET['c'];
+$d = $_GET['d'];
+$row = $_GET['row'];
+
+if ($c=="add2") {
+print "$row<hr>";
+$Array = explode("|", $d);
+for ($m = 0; $m < count($Array); $m++) {
+print "<li>$Array[$m]";
+}
+$Query7 = "SELECT * from `dtruth_tree2`;";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+while ($Row7 = mysql_fetch_array ($Result7))
+	{	
+	$m1 = $Row7[0];
+	$m2 = $Row7[1];
+	$m3 = $Row7[2];
+	$m4 = $Row7[3];
+	$m5 = $Row7[4];
+	$m6 = $Row7[5];
+	$m7 = $Row7[6];
+	$m8 = $Row7[7];
+	$m9 = $Row7[8];
+	$m10 = $Row7[9];
+	if ($row<$m1) {
+		print "<b>$m1</b> ";
+		$newrow = $m1+1;
+		$Query7 = "UPDATE `dtruth_tree2` SET id='$newrow' WHERE id='$row', mycount='$m2', a='$m3', b='$m4', c='$m5', d='$m6', e='$m7', f='$m8', g='$m9', h='$m10';";
+		print "$Query7";
+		$Result7 = mysql_db_query($DBName, $Query7, $Link);
+		}
+	else {
+		print "$m1 ";
+		}
+	}
+	$newrow = $row+1;
+	$Query8 = "INSERT INTO `dtruth_tree2` (`id` , `mycount` , `a` , `b` , `c` , `d` , `e` , `f` , `g` , `h` ) VALUES ('$newrow', '$Array[0]', '$Array[1]', '$Array[2]', '$Array[3]', '$Array[4]', '$Array[5]', '$Array[6]', '$Array[7]', '$Array[8]');";
+	$Result8 = mysql_db_query($DBName, $Query8, $Link);
+}
+
+if ($c=="edit2") {
+print "$row<hr>";
+$Array = explode(" | ", $d);
+for ($m = 0; $m < count($Array); $m++) {
+print "<li>$m=$Array[$m]";
+}
+$Query7 = "UPDATE `dtruth_tree2` SET mycount='$Array[0]', a='$Array[1]', b='$Array[2]', c='$Array[3]', d='$Array[4]', e='$Array[5]', f='$Array[6]', g='$Array[7]', h='$Array[8]' WHERE id='$row';";
+$Result7 = mysql_db_query($DBName, $Query7, $Link);
+}
+
+include('db_connect.php');
+$Query110 = "SELECT * FROM `dtruth_tree2`;";
+$Result110 = mysql_db_query($DBName, $Query110, $Link);
+$mFlag=0;
+while ($Row110 = mysql_fetch_array ($Result110))
+	{
+	$m1a = $Row110[0];
+	$m1b = $Row110[1];
+	$m1c = $Row110[2];
+	$m1d = $Row110[3];
+	$m1e = $Row110[4];
+	$m1f = $Row110[5];
+	$m1g = $Row110[6];
+	$m1h = $Row110[7];
+	$m1i = $Row110[8];
+	$m1j = $Row110[9];
+	if ($b==$m1a) {
+		if ($a=="add") {
+		print "$m1a | $m1b | $m1c | $m1d | $m1e | $m1f | $m1g | $m1h | $m1i | $m1j | <b><a href='admintree.php?a=add&b=$m1a'>add</a> | <a href='admintree.php?a=delete&b=$m1a'>delete</a> | <a href='admintree.php?a=edit&b=$m1a'>edit</a></b> <br>"; 
+		print "<form method=get action='admintree.php'><input type='hidden' name='c' value='add2'><input type='hidden' name='row' value='$m1a'><TEXTAREA NAME='d' COLS=40 ROWS=6>$m1b | $m1c | $m1d | $m1e | $m1f | $m1g | $m1h | $m1i | $m1j</TEXTAREA><input type='submit' name='Submit' value='Submit'></form>";
+		}	
+		if ($a=="edit") {
+		print "<form method=get action='admintree.php'><input type='hidden' name='c' value='edit2'><input type='hidden' name='row' value='$m1a'><TEXTAREA NAME='d' COLS=40 ROWS=6>$m1b | $m1c | $m1d | $m1e | $m1f | $m1g | $m1h | $m1i | $m1j</TEXTAREA><input type='submit' name='Submit' value='Submit'></form>";
+		
+		}
+		if ($a=="delete") {
+		$Query1 = "DELETE FROM `dtruth_tree2` WHERE id='$b';";
+		$Result1 = mysql_db_query($DBName, $Query1, $Link);
+		}
+	} else {
+	print "<b><a href='admintree.php?a=add&b=$m1a'>add</a> | <a href='admintree.php?a=delete&b=$m1a'>delete</a> | <a href='admintree.php?a=edit&b=$m1a'>edit</a></b> | $m1a | $m1b | $m1c | $m1d | $m1e | $m1f | $m1g | $m1h | $m1i | $m1j<br>"; 
+	}
+	}
+mysql_close ($Link);
+?>
+</body>
+</html>
